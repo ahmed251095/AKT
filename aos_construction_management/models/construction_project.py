@@ -9,6 +9,7 @@ class ConstructionProject(models.Model):
 
     name = fields.Char(required=True, tracking=True)
     ref = fields.Char('Project Code', readonly=True, default='New')
+    tender_id = fields.Many2one('construction.tender', string='Originating Tender', readonly=True, copy=False)
     client_id = fields.Many2one('res.partner', string='Client', tracking=True)
     site_manager_id = fields.Many2one('res.users', string='Site Manager')
     project_manager_id = fields.Many2one('res.users', string='Project Manager')
@@ -259,4 +260,14 @@ class ConstructionProject(models.Model):
             'view_mode': 'list,form',
             'domain': [('project_id', '=', self.id)],
             'context': {'default_project_id': self.id},
+        }
+
+    def action_view_tender(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Tender',
+            'res_model': 'construction.tender',
+            'res_id': self.tender_id.id,
+            'view_mode': 'form',
         }

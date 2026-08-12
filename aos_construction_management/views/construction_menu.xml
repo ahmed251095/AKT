@@ -14,6 +14,13 @@
         action="action_construction_dashboard"
         sequence="10"/>
 
+    <!-- Tenders -->
+    <menuitem id="menu_construction_tenders"
+        name="Tenders"
+        parent="menu_construction_root"
+        action="action_construction_tender"
+        sequence="15"/>
+
     <!-- Projects -->
     <menuitem id="menu_construction_projects"
         name="Projects"

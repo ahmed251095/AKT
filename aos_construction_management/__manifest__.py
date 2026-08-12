@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Construction Management',
-    'version': '19.0.3.0.2',
-    'summary': 'Manage BOQ, WBS, Work Orders, Billing, Quality & more',
+    'version': '19.0.3.1.0',
+    'summary': 'Manage Tenders, BOQ, WBS, Work Orders, Billing, Quality & more',
     'description': """
 Construction Management System
 ================================
 A comprehensive module for managing construction projects including:
+- Tenders / Bid Management (converts into a Project + initial BOQ when won)
 - Construction Projects with smart buttons
 - BOQ (Bill of Quantities) with line items
 - WBS Phases (Work Breakdown Structure)
@@ -32,6 +33,7 @@ Contact Information:
     'data': [
         'security/construction_security.xml',
         'security/ir.model.access.csv',
+        'views/construction_tender_views.xml',
         'views/construction_project_views.xml',
         'views/construction_boq_views.xml',
         'views/construction_wbs_views.xml',

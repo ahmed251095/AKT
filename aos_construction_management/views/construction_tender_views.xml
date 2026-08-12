@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tender List View -->
+    <record id="view_construction_tender_list" model="ir.ui.view">
+        <field name="name">construction.tender.list</field>
+        <field name="model">construction.tender</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="client_id"/>
+                <field name="responsible_id"/>
+                <field name="submission_deadline"/>
+                <field name="estimated_value"/>
+                <field name="estimated_margin_percent" widget="percentage"/>
+                <field name="state" widget="badge"
+                    decoration-success="state == 'won'"
+                    decoration-danger="state in ('lost', 'cancelled')"
+                    decoration-info="state == 'submitted'"
+                    decoration-warning="state == 'in_progress'"
+                    decoration-muted="state == 'draft'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Tender Form View -->
+    <record id="view_construction_tender_form" model="ir.ui.view">
+        <field name="name">construction.tender.form</field>
+        <field name="model">construction.tender</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_start" type="object" string="Start Preparation"
+                        invisible="state != 'draft'" class="btn-primary"/>
+                    <button name="action_submit" type="object" string="Submit Bid"
+                        invisible="state != 'in_progress'" class="btn-primary"/>
+                    <button name="action_mark_won" type="object" string="Mark Won &amp; Create Project"
+                        invisible="state != 'submitted'" class="btn-primary"/>
+                    <button name="action_lose" type="object" string="Mark Lost"
+                        invisible="state != 'submitted'"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                        invisible="state not in ('draft', 'in_progress', 'submitted')"/>
+                    <button name="action_reset" type="object" string="Reset to Draft"
+                        invisible="state not in ('lost', 'cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,submitted,won"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_project" type="object" class="oe_stat_button"
+                            icon="fa-building" invisible="not project_id">
+                            <field name="project_count" widget="statinfo" string="Project"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Tender Name..."/></h1>
+                        <div class="o_row">
+                            <field name="ref" readonly="1"/>
+                        </div>
+                    </div>
+                    <group>
+                        <group string="Tender Details">
+                            <field name="client_id"/>
+                            <field name="tender_type"/>
+                            <field name="responsible_id"/>
+                            <field name="location"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="issue_date"/>
+                            <field name="submission_deadline"/>
+                            <field name="currency_id" groups="base.group_multi_currency"/>
+                        </group>
+                    </group>
+                    <group string="Estimated Financials" col="4">
+                        <field name="estimated_value" readonly="1"/>
+                        <field name="estimated_cost" readonly="1"/>
+                        <field name="estimated_margin" readonly="1"/>
+                        <field name="estimated_margin_percent" widget="percentage" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Tender Items">
+                            <field name="line_ids" widget="one2many">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="item_no"/>
+                                    <field name="is_section"/>
+                                    <field name="description"/>
+                                    <field name="product_id" invisible="is_section"/>
+                                    <field name="work_type" invisible="is_section"/>
+                                    <field name="uom_id" invisible="is_section"/>
+                                    <field name="qty" invisible="is_section"/>
+                                    <field name="unit_rate" invisible="is_section"/>
+                                    <field name="cost_rate" invisible="is_section"/>
+                                    <field name="amount" invisible="is_section" readonly="1"/>
+                                    <field name="margin" invisible="is_section" readonly="1"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Scope &amp; Notes">
+                            <field name="scope_of_work" placeholder="Scope of work..."/>
+                            <field name="notes" placeholder="Internal notes..."/>
+                        </page>
+                        <page string="Loss Reason" invisible="state != 'lost'">
+                            <field name="loss_reason"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tender Kanban View (bid pipeline) -->
+    <record id="view_construction_tender_kanban" model="ir.ui.view">
+        <field name="name">construction.tender.kanban</field>
+        <field name="model">construction.tender</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_small_column" default_group_by="state">
+                <field name="name"/>
+                <field name="ref"/>
+                <field name="client_id"/>
+                <field name="state"/>
+                <field name="estimated_value"/>
+                <field name="submission_deadline"/>
+                <field name="currency_id"/>
+                <templates>
+                    <t t-name="kanban-card">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <div class="text-muted small">
+                                    <field name="ref"/> | <field name="client_id"/>
+                                </div>
+                                <div class="mt-1">
+                                    <field name="estimated_value"/>
+                                </div>
+                                <div class="text-muted small">
+                                    <field name="submission_deadline"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Tender Action -->
+    <record id="action_construction_tender" model="ir.actions.act_window">
+        <field name="name">Tenders</field>
+        <field name="res_model">construction.tender</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+</odoo>

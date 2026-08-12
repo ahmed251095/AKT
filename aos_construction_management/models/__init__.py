@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from . import construction_tender
 from . import construction_project
 from . import construction_boq
 from . import construction_wbs
