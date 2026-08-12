@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_form_construction" model="ir.ui.view">
+        <field name="name">purchase.order.form.construction</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="construction_project_id"/>
+                <field name="construction_requisition_id" readonly="1"/>
+                <field name="construction_subcontract_id" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/list/field[@name='product_id']" position="after">
+                <field name="construction_wbs_id" optional="show"/>
+                <field name="construction_boq_line_id" optional="show"/>
+                <field name="construction_work_order_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_move_form_construction" model="ir.ui.view">
+        <field name="name">account.move.form.construction</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="construction_project_id"/>
+                <field name="construction_billing_id" readonly="1"/>
+                <field name="construction_subcontract_id" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/list/field[@name='product_id']" position="after">
+                <field name="construction_wbs_id" optional="show"/>
+                <field name="construction_boq_line_id" optional="show"/>
+                <field name="construction_work_order_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
