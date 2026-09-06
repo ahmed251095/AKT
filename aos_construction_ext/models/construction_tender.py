@@ -114,16 +114,22 @@ class ConstructionTender(models.Model):
     # ------------------------------------------------------------------
     document_ids = fields.One2many(
         'construction.document', 'tender_id', string='Required Documents')
+    # Stored so the bid-file state can be filtered on and reported, which is
+    # the whole point of tracking it.
     document_count = fields.Integer(
-        string='Documents', compute='_compute_document_status')
+        string='Documents', compute='_compute_document_status', store=True)
     document_missing_count = fields.Integer(
-        string='Missing Documents', compute='_compute_document_status')
+        string='Missing Documents', compute='_compute_document_status',
+        store=True)
     document_progress = fields.Float(
-        string='Documents Ready (%)', compute='_compute_document_status')
+        string='Documents Ready (%)', compute='_compute_document_status',
+        store=True)
     technical_file_ready = fields.Boolean(
-        string='Technical File Ready', compute='_compute_document_status')
+        string='Technical File Ready', compute='_compute_document_status',
+        store=True)
     financial_file_ready = fields.Boolean(
-        string='Financial File Ready', compute='_compute_document_status')
+        string='Financial File Ready', compute='_compute_document_status',
+        store=True)
 
     # ------------------------------------------------------------------
     # Reminders

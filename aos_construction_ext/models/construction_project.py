@@ -68,9 +68,10 @@ class ConstructionProject(models.Model):
     document_ids = fields.One2many(
         'construction.document', 'project_id', string='Project Documents')
     document_count = fields.Integer(
-        string='Documents', compute='_compute_document_status')
+        string='Documents', compute='_compute_document_status', store=True)
     document_missing_count = fields.Integer(
-        string='Missing Documents', compute='_compute_document_status')
+        string='Missing Documents', compute='_compute_document_status',
+        store=True)
     drive_folder_url = fields.Char(
         string='Drive Folder',
         help='Link to the shared folder holding the contract, the BOQ and the '
