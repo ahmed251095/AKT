@@ -248,14 +248,14 @@
                 <filter name="filter_deadline_week" string="Deadline in 7 Days"
                         domain="[('submission_deadline', '&gt;=', context_today().strftime('%Y-%m-%d')),
                                  ('submission_deadline', '&lt;', (context_today() + relativedelta(days=7)).strftime('%Y-%m-%d'))]"/>
-                <group expand="0" string="Group By">
-                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
-                    <filter name="group_client" string="Client" context="{'group_by': 'client_id'}"/>
-                    <filter name="group_authority" string="Authority Type"
+                <group>
+                    <filter domain="[]" name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter domain="[]" name="group_client" string="Client" context="{'group_by': 'client_id'}"/>
+                    <filter domain="[]" name="group_authority" string="Authority Type"
                             context="{'group_by': 'authority_type_id'}"/>
-                    <filter name="group_responsible" string="Tender Engineer"
+                    <filter domain="[]" name="group_responsible" string="Tender Engineer"
                             context="{'group_by': 'responsible_id'}"/>
-                    <filter name="group_deadline" string="Submission Deadline"
+                    <filter domain="[]" name="group_deadline" string="Submission Deadline"
                             context="{'group_by': 'submission_deadline'}"/>
                 </group>
             </search>

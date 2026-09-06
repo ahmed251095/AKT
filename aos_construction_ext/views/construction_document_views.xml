@@ -83,12 +83,12 @@
                         domain="[('tender_id', '!=', False)]"/>
                 <filter name="filter_project" string="Project Files"
                         domain="[('project_id', '!=', False)]"/>
-                <group expand="0" string="Group By">
-                    <filter name="group_file_type" string="File"
+                <group>
+                    <filter domain="[]" name="group_file_type" string="File"
                             context="{'group_by': 'file_type'}"/>
-                    <filter name="group_tender" string="Tender"
+                    <filter domain="[]" name="group_tender" string="Tender"
                             context="{'group_by': 'tender_id'}"/>
-                    <filter name="group_project" string="Project"
+                    <filter domain="[]" name="group_project" string="Project"
                             context="{'group_by': 'project_id'}"/>
                 </group>
             </search>

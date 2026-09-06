@@ -229,11 +229,11 @@
                 <separator/>
                 <filter name="filter_bond_outstanding" string="Bond Outstanding"
                         domain="[('performance_bond_state', 'in', ('issued', 'held'))]"/>
-                <group expand="0" string="Group By">
-                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
-                    <filter name="group_client" string="Client"
+                <group>
+                    <filter domain="[]" name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter domain="[]" name="group_client" string="Client"
                             context="{'group_by': 'client_id'}"/>
-                    <filter name="group_manager" string="Project Manager"
+                    <filter domain="[]" name="group_manager" string="Project Manager"
                             context="{'group_by': 'project_manager_id'}"/>
                 </group>
             </search>
