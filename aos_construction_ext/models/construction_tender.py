@@ -376,6 +376,10 @@ class ConstructionTender(models.Model):
     def action_submit(self):
         """Refuse to submit a bid whose file is not complete."""
         for tender in self:
+            if tender.state != 'in_progress':
+                raise UserError(self.env._(
+                    'Only a tender the management has approved and the '
+                    'technical office is studying can be submitted.'))
             if tender.document_missing_count:
                 missing = tender.document_ids.filtered(
                     lambda d: d.is_required and not d.is_submitted)

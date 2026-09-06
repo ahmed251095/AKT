@@ -81,14 +81,13 @@ class ConstructionBoqLine(models.Model):
     # ------------------------------------------------------------------
     qty_variance = fields.Float(
         string='Quantity Variance', compute='_compute_qty_variance',
-        store=True,
         help='Executed quantity less the quantity in the bill of quantities. '
              'A positive figure is work done beyond what the client priced.')
     variance_cost = fields.Monetary(
-        string='Variance Cost', compute='_compute_qty_variance', store=True,
+        string='Variance Cost', compute='_compute_qty_variance',
         help='What the quantity variance costs us at the item cost rate.')
     is_overrun = fields.Boolean(
-        string='Over-run', compute='_compute_qty_variance', store=True)
+        string='Over-run', compute='_compute_qty_variance')
 
     @api.depends('executed_qty', 'qty', 'cost_rate')
     def _compute_qty_variance(self):
