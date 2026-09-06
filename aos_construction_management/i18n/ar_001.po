@@ -1,0 +1,1140 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* aos_construction_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_001\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "Activate"
+msgstr "تفعيل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_project__state__active
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_subcontract__state__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
+msgid "Amount & Approval"
+msgstr "المبلغ والاعتماد"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_progress_billing_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+msgid "Approve"
+msgstr "اعتماد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq__state__approved
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__state__approved
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_material_requisition__state__approved
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_progress_billing__state__approved
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__state__approved
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__project_id
+msgid "Awarded Project"
+msgstr "المشروع بعد الترسية"
+
+#. module: aos_construction_management
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_boq
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "BOQ"
+msgstr "المقايسة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+msgid "BOQ / Cost Control"
+msgstr "المقايسة وضبط التكلفة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_account_move_line__construction_boq_line_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__boq_line_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__boq_line_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__boq_line_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order_line__construction_boq_line_id
+msgid "BOQ Item"
+msgstr "بند المقايسة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__boq_line_ids
+msgid "BOQ Items"
+msgstr "بنود المقايسة"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_boq_line
+msgid "BOQ Line"
+msgstr "بند المقايسة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__line_ids
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
+msgid "BOQ Lines"
+msgstr "بنود المقايسة"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_boq
+#: model:ir.model,name:aos_construction_management.model_construction_boq
+msgid "Bill of Quantities"
+msgstr "مقايسة"
+
+#. module: aos_construction_management
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_billing
+msgid "Billing"
+msgstr "المستخلصات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__cost_rate
+msgid "Budget Cost Rate"
+msgstr "سعر التكلفة التقديري"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_material_requisition__state__cancelled
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_project__state__cancelled
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__state__cancelled
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__cancelled
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__state__cancelled
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+msgid "Certificate"
+msgstr "مستخلص"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_ra_billing_line
+msgid "Certificate Line"
+msgstr "بند المستخلص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__billing_line_ids
+msgid "Certificate Lines"
+msgstr "بنود المستخلص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__billing_ids
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "Certificates"
+msgstr "المستخلصات"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Checklist"
+msgstr "قائمة المراجعة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq_line__work_type__civil
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing_line__work_type__civil
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender_line__work_type__civil
+msgid "Civil"
+msgstr "أعمال مدنية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__client_id
+msgid "Client"
+msgstr "العميل"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+msgid "Complete"
+msgstr "إنهاء"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_project__state__completed
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__state__completed
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_subcontract__state__completed
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_wbs__state__completed
+msgid "Completed"
+msgstr "مكتمل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__result__conditional
+msgid "Conditional Pass"
+msgstr "ناجح بشروط"
+
+#. module: aos_construction_management
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_configuration
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__state__confirmed
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: aos_construction_management
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_root
+msgid "Construction"
+msgstr "المقاولات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_account_move__construction_billing_id
+msgid "Construction Certificate"
+msgstr "مستخلص أعمال"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_expense
+msgid "Construction Expense"
+msgstr "مصروف مشروع"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_ra_billing
+msgid "Construction Payment Certificate"
+msgstr "مستخلص أعمال"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_project
+#: model:ir.model.fields,field_description:aos_construction_management.field_account_move__construction_project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_account_move_line__construction_project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order__construction_project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order_line__construction_project_id
+msgid "Construction Project"
+msgstr "مشروع مقاولات"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_work_order_line
+msgid "Construction Work Order Execution Line"
+msgstr "بند تنفيذ أمر الشغل"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "Contract"
+msgstr "العقد"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Corrective Action"
+msgstr "الإجراء التصحيحي"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Corrective actions required..."
+msgstr "الإجراءات التصحيحية المطلوبة..."
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Cost"
+msgstr "التكلفة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+msgid "Create Invoice / Bill"
+msgstr "إنشاء فاتورة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
+msgid "Create RFQ"
+msgstr "إنشاء طلب عرض سعر"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "Create/Open PO"
+msgstr "إنشاء/فتح أمر شراء"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__partner_id
+msgid "Customer / Subcontractor"
+msgstr "عميل / مقاول باطن"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__billing_type__customer
+msgid "Customer Certificate"
+msgstr "مستخلص عميل"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Customer Invoices"
+msgstr "فواتير العملاء"
+
+#. module: aos_construction_management
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_dashboard
+msgid "Dashboard"
+msgstr "لوحة المتابعة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Dates"
+msgstr "التواريخ"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Dates & Contract"
+msgstr "التواريخ والعقد"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "Dates & Terms"
+msgstr "التواريخ والشروط"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_wbs__state__delayed
+msgid "Delayed"
+msgstr "متأخر"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__boq_line_description
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__state__done
+msgid "Done"
+msgstr "منتهٍ"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq__state__draft
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__state__draft
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_material_requisition__state__draft
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_progress_billing__state__draft
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_project__state__draft
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__state__draft
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__state__draft
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_subcontract__state__draft
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__draft
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq_line__work_type__electrical
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing_line__work_type__electrical
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender_line__work_type__electrical
+msgid "Electrical"
+msgstr "أعمال كهرباء"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__equipment
+msgid "Equipment"
+msgstr "المعدات"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Estimated Financials"
+msgstr "التقديرات المالية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__line_ids
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Execution Lines"
+msgstr "بنود التنفيذ"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
+msgid "Expense Details"
+msgstr "بيانات المصروف"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_expense
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_expenses
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Expenses"
+msgstr "المصروفات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq_line__work_type__external
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing_line__work_type__external
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender_line__work_type__external
+msgid "External Works"
+msgstr "أعمال خارجية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__result__fail
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Fail"
+msgstr "راسب"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__state__failed
+msgid "Failed"
+msgstr "فشل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__check_type__final
+msgid "Final Inspection"
+msgstr "الفحص النهائي"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "Financial Control"
+msgstr "الرقابة المالية"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Financial Summary"
+msgstr "الملخص المالي"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq_line__work_type__finishing
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing_line__work_type__finishing
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender_line__work_type__finishing
+msgid "Finishing"
+msgstr "تشطيبات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__foreman_id
+msgid "Foreman"
+msgstr "مشرف الموقع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__priority__1
+msgid "High"
+msgstr "مرتفع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__state__in_progress
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_wbs__state__in_progress
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__state__in_progress
+msgid "In Progress"
+msgstr "قيد التنفيذ"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__employee_id
+msgid "Incurred By"
+msgstr "تحمَّلها"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Inspection Details"
+msgstr "بيانات الفحص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__inspector_id
+msgid "Inspector"
+msgstr "الفاحص"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Inspector & Type"
+msgstr "الفاحص والنوع"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Internal notes..."
+msgstr "ملاحظات داخلية..."
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__move_id
+msgid "Invoice / Vendor Bill"
+msgstr "الفاتورة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_progress_billing__state__invoiced
+msgid "Invoiced"
+msgstr "مفوتر"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__state__invoiced
+msgid "Invoiced/Billed"
+msgstr "مفوتر"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__issue_date
+msgid "Issue Date"
+msgstr "تاريخ الإصدار"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__labour
+msgid "Labour"
+msgstr "عمالة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Loss Reason"
+msgstr "سبب الخسارة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__lost
+msgid "Lost"
+msgstr "خاسرة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+msgid "Mark Delayed"
+msgstr "تعليم كمتأخر"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Mark Done"
+msgstr "تعليم كمنتهٍ"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_progress_billing_form
+msgid "Mark Invoiced"
+msgstr "تعليم كمفوتر"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Mark Lost"
+msgstr "تعليم كخسارة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+msgid "Mark Paid"
+msgstr "تعليم كمدفوع"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
+msgid "Mark Received"
+msgstr "تعليم كمستلم"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Mark Won & Create Project"
+msgstr "ترسية وإنشاء مشروع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__product_id
+msgid "Material"
+msgstr "مواد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__check_type__material
+msgid "Material Inspection"
+msgstr "فحص المواد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__requisition_line_ids
+msgid "Material Requests"
+msgstr "طلبات المواد"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_material_requisition
+#: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order__construction_requisition_id
+msgid "Material Requisition"
+msgstr "طلب توريد مواد"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_material_requisition_line
+msgid "Material Requisition Line"
+msgstr "بند طلب التوريد"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_material_requisition
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_material_requisition
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Material Requisitions"
+msgstr "طلبات توريد المواد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__material
+msgid "Materials"
+msgstr "المواد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__tender_type__negotiated
+msgid "Negotiated"
+msgstr "أمر مباشر"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "New Certificate"
+msgstr "مستخلص جديد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__priority__0
+msgid "Normal"
+msgstr "عادي"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_project__state__on_hold
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "On Hold"
+msgstr "موقوف"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+msgid "Open Invoice / Bill"
+msgstr "فتح الفاتورة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_material_requisition__state__ordered
+msgid "Ordered"
+msgstr "تم الطلب"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__tender_id
+msgid "Originating Tender"
+msgstr "المناقصة الأصلية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq_line__work_type__other
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__other
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing_line__work_type__other
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender_line__work_type__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__progress
+msgid "Overall Progress %"
+msgstr "نسبة الإنجاز الكلية %"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__overhead
+msgid "Overhead"
+msgstr "مصاريف عمومية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__state__paid
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__parent_id
+msgid "Parent Phase"
+msgstr "المرحلة الأم"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__result__pass
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Pass"
+msgstr "ناجح"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_ra_billing
+msgid "Payment Certificates"
+msgstr "المستخلصات"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "Payment Terms"
+msgstr "شروط السداد"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+msgid "Period"
+msgstr "الفترة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+msgid "Phase Details"
+msgstr "بيانات المرحلة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_wbs__state__planned
+msgid "Planned"
+msgstr "مخطط"
+
+#. module: aos_construction_management
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_planning
+msgid "Planning"
+msgstr "التخطيط"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq_line__work_type__plumbing
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing_line__work_type__plumbing
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender_line__work_type__plumbing
+msgid "Plumbing/MEP"
+msgstr "أعمال صحية وميكانيكا"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__vendor_id
+msgid "Preferred Vendor"
+msgstr "المورد المفضل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__in_progress
+msgid "Preparing Bid"
+msgstr "إعداد العطاء"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
+msgid "Print BOQ"
+msgstr "طباعة المقايسة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__tender_type__private
+msgid "Private"
+msgstr "مناقصة محدودة"
+
+#. module: aos_construction_management
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_procurement
+msgid "Procurement"
+msgstr "المشتريات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__product_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__product_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__product_id
+msgid "Product / Service"
+msgstr "المنتج / الخدمة"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_progress_billing
+#: model:ir.model,name:aos_construction_management.model_construction_progress_billing
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_progress_billing
+msgid "Progress Billing"
+msgstr "مستخلصات الإنجاز"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Project"
+msgstr "مشروع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__analytic_account_id
+msgid "Project Analytic Account"
+msgstr "الحساب التحليلي للمشروع"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Project Details"
+msgstr "بيانات المشروع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__project_manager_id
+msgid "Project Manager"
+msgstr "مدير المشروع"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Project Name..."
+msgstr "اسم المشروع..."
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_project
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_projects
+msgid "Projects"
+msgstr "المشاريع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__tender_type__public
+msgid "Public"
+msgstr "مناقصة عامة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__purchase_line_ids
+msgid "Purchase Lines"
+msgstr "بنود الشراء"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Purchase Orders"
+msgstr "أوامر الشراء"
+
+#. module: aos_construction_management
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_quality
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Quality"
+msgstr "الجودة"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_quality_check
+msgid "Quality Check"
+msgstr "فحص جودة"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_quality_checklist
+msgid "Quality Checklist Item"
+msgstr "بند قائمة فحص الجودة"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_quality_check
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_quality_check
+msgid "Quality Checks"
+msgstr "فحوصات الجودة"
+
+#. module: aos_construction_management
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_ra_billing
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "RA Billing"
+msgstr "المستخلصات الجارية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_material_requisition__state__rfq
+msgid "RFQ Created"
+msgstr "تم إنشاء طلب عرض السعر"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
+msgid "RFQs & POs"
+msgstr "طلبات الأسعار وأوامر الشراء"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__purchase_order_ids
+msgid "RFQs / Purchase Orders"
+msgstr "طلبات الأسعار / أوامر الشراء"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_material_requisition__state__received
+msgid "Received"
+msgstr "مستلم"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__state__rejected
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__purchase_order_id
+msgid "Related Purchase Order"
+msgstr "أمر الشراء المرتبط"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Remarks & Corrective Action"
+msgstr "الملاحظات والإجراء التصحيحي"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Remarks..."
+msgstr "ملاحظات..."
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Requisitions"
+msgstr "طلبات التوريد"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+msgid "Reset"
+msgstr "إعادة تعيين"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Reset to Draft"
+msgstr "إرجاع لمسودة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__responsible_id
+msgid "Responsible"
+msgstr "المسؤول"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
+msgid "Revise"
+msgstr "مراجعة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq__state__revised
+msgid "Revised"
+msgstr "مُعدَّل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__check_type__safety
+msgid "Safety"
+msgstr "السلامة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Schedule"
+msgstr "الجدول الزمني"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "Scope"
+msgstr "نطاق العمل"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Scope & Notes"
+msgstr "نطاق العمل والملاحظات"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Scope of work..."
+msgstr "نطاق العمل..."
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__product_id
+msgid "Service Product"
+msgstr "منتج الخدمة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__site_manager_id
+msgid "Site Manager"
+msgstr "مدير الموقع"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "Start"
+msgstr "بدء"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Start Inspection"
+msgstr "بدء الفحص"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Start Preparation"
+msgstr "بدء الدراسة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq_line__work_type__structural
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__check_type__structural
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing_line__work_type__structural
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender_line__work_type__structural
+msgid "Structural"
+msgstr "أعمال إنشائية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__child_ids
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+msgid "Sub-phases"
+msgstr "المراحل الفرعية"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_subcontract
+#: model:ir.model.fields,field_description:aos_construction_management.field_account_move__construction_subcontract_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order__construction_subcontract_id
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__subcontract
+msgid "Subcontract"
+msgstr "تعاقد باطن"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__purchase_order_id
+msgid "Subcontract Purchase Order"
+msgstr "أمر شراء مقاول الباطن"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__subcontractor_id
+msgid "Subcontractor"
+msgstr "مقاول باطن"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__billing_type__subcontractor
+msgid "Subcontractor Certificate"
+msgstr "مستخلص مقاول باطن"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_subcontract
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_subcontract
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Subcontracts"
+msgstr "مقاولو الباطن"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__submission_deadline
+msgid "Submission Deadline"
+msgstr "موعد التسليم"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+msgid "Submit"
+msgstr "تقديم"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Submit Bid"
+msgstr "تقديم العطاء"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__state__submitted
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_material_requisition__state__submitted
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__state__submitted
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__submitted
+msgid "Submitted"
+msgstr "مُقدَّم"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
+msgid "Summary"
+msgstr "الملخص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__tax_ids
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
+msgid "Technical specifications, delivery instructions..."
+msgstr "المواصفات الفنية وتعليمات التسليم..."
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_tender
+msgid "Tender / Bid"
+msgstr "مناقصة / عطاء"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Tender Details"
+msgstr "بيانات المناقصة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__responsible_id
+msgid "Tender Engineer"
+msgstr "مهندس المناقصة"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_tender_line
+msgid "Tender Item"
+msgstr "بند المناقصة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__line_ids
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Tender Items"
+msgstr "بنود المناقصة"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
+msgid "Tender Name..."
+msgstr "اسم المناقصة..."
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__client_id
+msgid "Tendering Authority / Client"
+msgstr "الجهة المالكة / العميل"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_tender
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_tenders
+msgid "Tenders"
+msgstr "المناقصات"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
+msgid "Terminate"
+msgstr "إنهاء التعاقد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_subcontract__state__terminated
+msgid "Terminated"
+msgstr "منتهي التعاقد"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
+msgid "Total BOQ Amount"
+msgstr "إجمالي قيمة المقايسة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__uom_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__uom_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__uom_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__uom_id
+msgid "UOM"
+msgstr "الوحدة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__priority__2
+msgid "Urgent"
+msgstr "عاجل"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "Vendor Bills"
+msgstr "فواتير الموردين"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__payment_term_id
+msgid "Vendor Payment Terms"
+msgstr "شروط سداد المورد"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_wbs
+#: model:ir.model.fields,field_description:aos_construction_management.field_account_move_line__construction_wbs_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__wbs_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__wbs_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__wbs_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__wbs_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order_line__construction_wbs_id
+msgid "WBS Phase"
+msgstr "مرحلة العمل"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_wbs
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_wbs
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "WBS Phases"
+msgstr "مراحل العمل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__won
+msgid "Won"
+msgstr "فائزة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__work_order_line_ids
+msgid "Work Execution"
+msgstr "تنفيذ الأعمال"
+
+#. module: aos_construction_management
+#: model:ir.model,name:aos_construction_management.model_construction_work_order
+#: model:ir.model.fields,field_description:aos_construction_management.field_account_move_line__construction_work_order_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__work_order_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order_line__construction_work_order_id
+msgid "Work Order"
+msgstr "أمر شغل"
+
+#. module: aos_construction_management
+#: model:ir.actions.act_window,name:aos_construction_management.action_construction_work_order
+#: model:ir.ui.menu,name:aos_construction_management.menu_construction_work_orders
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
+msgid "Work Orders"
+msgstr "أوامر الشغل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__check_type__workmanship
+msgid "Workmanship"
+msgstr "جودة التنفيذ"

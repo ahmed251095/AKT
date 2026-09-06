@@ -1,0 +1,1342 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* aos_construction_ext
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_001\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__case_type__absence
+msgid "Absence"
+msgstr "غياب"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__active
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__active
+msgid "Active"
+msgstr "نشط"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Administration"
+msgstr "الإدارة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__admin_percent
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__admin_percent
+msgid "Administration (%)"
+msgstr "نسبة الإدارة (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_admin_percent
+msgid "Administration Ratio (%)"
+msgstr "نسبة الإدارة (%)"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__case_type__appraisal
+msgid "Appraisal"
+msgstr "تقييم"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
+msgid "Appraisals"
+msgstr "التقييمات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__approval_date
+msgid "Approval Date"
+msgstr "تاريخ الاعتماد"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Approval Request"
+msgstr "طلب الفتح"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Approve Opening"
+msgstr "اعتماد فتح العملية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__approval_user_id
+msgid "Approved By"
+msgstr "اعتمدها"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__employee_ids
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Assigned Employees"
+msgstr "الموظفون المكلفون"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__authority_type_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__authority_type_id
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Authority Type"
+msgstr "نوع الجهة"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_authority_type
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_authority_type
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_list
+msgid "Authority Types"
+msgstr "أنواع الجهات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__award_decision_date
+msgid "Award Decision"
+msgstr "موعد البت"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__base_cost
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__base_cost
+msgid "Base Cost"
+msgstr "التكلفة الأساسية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__2
+msgid "Below Expectations"
+msgstr "أقل من المتوقع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Bid Bond"
+msgstr "التأمين الابتدائي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_percent
+msgid "Bid Bond (%)"
+msgstr "نسبة التأمين الابتدائي (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_amount
+msgid "Bid Bond Amount"
+msgstr "قيمة التأمين الابتدائي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_bid_bond_percent
+msgid "Bid Bond Ratio (%)"
+msgstr "نسبة التأمين الابتدائي (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_required
+msgid "Bid Bond Required"
+msgstr "التأمين الابتدائي مطلوب"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Bid File"
+msgstr "ملف العطاء"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__boq
+msgid "Bill of Quantities"
+msgstr "مقايسة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_expiry_date
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_expiry_date
+msgid "Bond Expiry Date"
+msgstr "تاريخ انتهاء الضمان"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Bond Forfeited"
+msgstr "تم مصادرة التأمين"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_type
+msgid "Bond Instrument"
+msgstr "نوع الضمان"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_issue_date
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_issue_date
+msgid "Bond Issue Date"
+msgstr "تاريخ إصدار الضمان"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Bond Issued"
+msgstr "تم إصدار التأمين"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Bond Outstanding"
+msgstr "تأمين قائم"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_ref
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_ref
+msgid "Bond Reference"
+msgstr "رقم خطاب الضمان"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_return_date
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_return_date
+msgid "Bond Release Date"
+msgstr "تاريخ رد التأمين"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Bond Released"
+msgstr "تم رد التأمين"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_state
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_state
+msgid "Bond Status"
+msgstr "حالة التأمين"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Booklet & Bond"
+msgstr "الكراسة والتأمين"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_purchased
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Booklet Purchased"
+msgstr "تم شراء الكراسة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__scope__both
+msgid "Both"
+msgstr "الاثنان"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__use_pricing_formula
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__use_pricing_formula
+msgid "Build-up Pricing"
+msgstr "التسعير التراكمي"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_hold_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_reject_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__state__cancelled
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_type__cash
+msgid "Cash Deposit"
+msgstr "إيداع نقدي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_type__cheque
+msgid "Certified Cheque"
+msgstr "شيك مقبول الدفع"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__subcontract_certified_total
+msgid "Certified Subcontractor Work"
+msgstr "أعمال مقاولي الباطن المعتمدة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Client"
+msgstr "العميل"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__state__done
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__closure_note
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Closure Notes"
+msgstr "ملاحظات الإقفال"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__code
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Conditions Booklet"
+msgstr "كراسة الشروط"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Construction"
+msgstr "المقاولات"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_document
+msgid "Construction Document"
+msgstr "مستند مشروع"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_document_type
+msgid "Construction Document Type"
+msgstr "نوع مستند المشاريع"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_hr_case
+msgid "Construction HR Case"
+msgstr "حالة موارد بشرية بالمشروع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Contingency"
+msgstr "الطوارئ"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__contingency_percent
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__contingency_percent
+msgid "Contingency (%)"
+msgstr "نسبة الطوارئ (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_contingency_percent
+msgid "Contingency Ratio (%)"
+msgstr "نسبة الطوارئ (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__contract
+msgid "Contract"
+msgstr "العقد"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__contract_duration_days
+msgid "Contract Duration (days)"
+msgstr "مدة العقد (أيام)"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Cost Breakdown"
+msgstr "تفصيل التكلفة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Deadline in 7 Days"
+msgstr "الموعد خلال ٧ أيام"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Decision"
+msgstr "القرار"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_value
+msgid "Declared Operation Value"
+msgstr "القيمة المعلنة للعملية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__default_bid_bond_percent
+msgid "Default Bid Bond (%)"
+msgstr "نسبة التأمين الابتدائي الافتراضية (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__description
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__direct_purchase_total
+msgid "Direct Purchases"
+msgstr "المشتريات المباشرة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Do we bid, and on what terms?"
+msgstr "هل نتقدم للمناقصة، وبأي شروط؟"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
+msgid "Document"
+msgstr "مستند"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__document_type_id
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_type_form
+msgid "Document Type"
+msgstr "نوع المستند"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_document_type
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_document_type
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_type_list
+msgid "Document Types"
+msgstr "أنواع المستندات"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_document
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__document_count
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__document_count
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_documents
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_list
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Documents"
+msgstr "المستندات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__document_progress
+msgid "Documents Ready (%)"
+msgstr "اكتمال المستندات (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__drawing
+msgid "Drawings"
+msgstr "الرسومات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__drive_folder_url
+msgid "Drive Folder"
+msgstr "مجلد Drive"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__dry_cost
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__dry_cost
+msgid "Dry Cost"
+msgstr "تكلفة الخامات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__electrical_engineer_id
+msgid "Electrical Engineer"
+msgstr "مهندس كهرباء"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__employee_id
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__employee_count
+msgid "Employees"
+msgstr "الموظفون"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__envelope_opening_date
+msgid "Envelope Opening"
+msgstr "موعد فتح المظاريف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_equipment
+msgid "Equipment"
+msgstr "المعدات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__4
+msgid "Exceeds"
+msgstr "أعلى من المتوقع"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expense_amount
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__expense_amount
+msgid "Expenses Value"
+msgstr "قيمة المصاريف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__is_expired
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
+msgid "Expired"
+msgstr "منتهي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__has_expiry
+msgid "Expires"
+msgstr "له تاريخ انتهاء"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__expiry_date
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_payment_id
+msgid "Fee Payment"
+msgstr "سند صرف الثمن"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__file_type
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__file_type
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
+msgid "File"
+msgstr "الملف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__attachment_count
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__attachment_ids
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_list
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Files"
+msgstr "الملفات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__final_handover_date
+msgid "Final Handover"
+msgstr "التسليم النهائي"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Finance"
+msgstr "المالية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__finance_manager_id
+msgid "Finance Manager"
+msgstr "المدير المالي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__financial_responsible_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__financial_responsible_id
+msgid "Finance Responsible"
+msgstr "المسؤول المالي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__financial
+msgid "Financial File"
+msgstr "الملف المالي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__financial_file_ready
+msgid "Financial File Ready"
+msgstr "الملف المالي مكتمل"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__forfeited
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__forfeited
+msgid "Forfeited"
+msgstr "مُصادر"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "General Expenses"
+msgstr "المصاريف العمومية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expense_percent
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__expense_percent
+msgid "General Expenses (%)"
+msgstr "نسبة المصاريف العمومية (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_expense_percent
+msgid "General Expenses Ratio (%)"
+msgstr "نسبة المصاريف العمومية (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__is_government
+msgid "Government Body"
+msgstr "جهة حكومية"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
+msgid "HR Case"
+msgstr "حالة موارد بشرية"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_hr_case
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hr_case_count
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hr_case_ids
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_hr_cases
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_list
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "HR Cases"
+msgstr "حالات الموارد البشرية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hr_supervisor_id
+msgid "HR Supervisor"
+msgstr "مشرف الموارد البشرية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__state__handover
+msgid "Handover"
+msgstr "تحت التسليم"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Handover & Closure"
+msgstr "التسليم والإقفال"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hold_date
+msgid "Held Since"
+msgstr "موقوف منذ"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__held
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__held
+msgid "Held by Client"
+msgstr "محجوز لدى العميل"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_hold_form
+msgid "Hold"
+msgstr "إيقاف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hold_approved_by
+msgid "Hold Approved By"
+msgstr "اعتمد الإيقاف"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_project_hold
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_hold_form
+msgid "Hold Project"
+msgstr "إيقاف المشروع"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hold_reason
+msgid "Hold Reason"
+msgstr "سبب الإيقاف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hold_requested_by
+msgid "Hold Requested By"
+msgstr "طلب الإيقاف"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Human Resources"
+msgstr "الموارد البشرية"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
+msgid "In Handover"
+msgstr "تحت التسليم"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__state__in_progress
+msgid "In Progress"
+msgstr "قيد التنفيذ"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Incomplete Bid File"
+msgstr "ملف عطاء غير مكتمل"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__initial_handover_date
+msgid "Initial Handover"
+msgstr "التسليم الابتدائي"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Instrument"
+msgstr "أداة الضمان"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__case_type__issue
+msgid "Issue"
+msgstr "مشكلة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__issue_date
+msgid "Issue Date"
+msgstr "تاريخ الإصدار"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__issued
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__issued
+msgid "Issued"
+msgstr "صادر"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
+msgid "Issues"
+msgstr "المشاكل"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_bank_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_bank_id
+msgid "Issuing Bank"
+msgstr "البنك المُصدِر"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__legal
+msgid "Legal File"
+msgstr "الملف القانوني"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_type__letter_guarantee
+msgid "Letter of Guarantee"
+msgstr "خطاب ضمان"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Live"
+msgstr "جارية"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Load Standard Checklist"
+msgstr "تحميل قائمة المستندات القياسية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__logistics_manager_id
+msgid "Logistics Manager"
+msgstr "مدير الحركة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__bond_pending
+msgid "Lost - Bond Not Released"
+msgstr "خاسرة - التأمين لم يُرد"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Management"
+msgstr "الإدارة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__markup_amount
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__markup_amount
+msgid "Markup Value"
+msgstr "قيمة الإضافة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__mechanical_engineer_id
+msgid "Mechanical Engineer"
+msgstr "مهندس ميكانيكا"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__3
+msgid "Meets"
+msgstr "مطابق للتوقعات"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
+msgid "Missing"
+msgstr "ناقص"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__document_missing_count
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__document_missing_count
+msgid "Missing Documents"
+msgstr "المستندات الناقصة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__name
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__project_net_margin
+msgid "Net Margin (%)"
+msgstr "نسبة صافي الربح (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__project_net_profit
+msgid "Net Profit"
+msgstr "صافي الربح"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__not_required
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__not_required
+msgid "Not Required"
+msgstr "غير مطلوب"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__note
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__note
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__note
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_type_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
+msgid "On Hold"
+msgstr "موقوف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__state__open
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
+msgid "Open"
+msgstr "مفتوح"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__operating_cost
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__operating_cost
+msgid "Operating Cost"
+msgstr "تكلفة التشغيل"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__operation_duration_days
+msgid "Operation Duration (days)"
+msgstr "مدة العملية (أيام)"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Opinion"
+msgstr "الرأي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__other
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__case_type__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_other
+msgid "Other Expenses"
+msgstr "مصروفات أخرى"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__5
+msgid "Outstanding"
+msgstr "قائم"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__is_overrun
+msgid "Over-run"
+msgstr "تجاوز الكمية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_overhead
+msgid "Overheads"
+msgstr "المصاريف العمومية"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Performance Bond"
+msgstr "التأمين النهائي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_percent
+msgid "Performance Bond (%)"
+msgstr "نسبة التأمين النهائي (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_amount
+msgid "Performance Bond Amount"
+msgstr "قيمة التأمين النهائي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_performance_bond_percent
+msgid "Performance Bond Ratio (%)"
+msgstr "نسبة التأمين النهائي (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_required
+msgid "Performance Bond Required"
+msgstr "التأمين النهائي مطلوب"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__1
+msgid "Poor"
+msgstr "ضعيف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__price_before_expenses
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__price_before_expenses
+msgid "Price before Expenses"
+msgstr "السعر قبل المصاريف"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Pricing Sheet (Excel)"
+msgstr "جدول التسعير (إكسل)"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Profit"
+msgstr "الربح"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__profit_percent
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__profit_percent
+msgid "Profit (%)"
+msgstr "نسبة الربح (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_profit_percent
+msgid "Profit Ratio (%)"
+msgstr "نسبة الربح (%)"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Profit Statement"
+msgstr "بيان الأرباح"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__project_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__project_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project_hold__project_id
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__scope__project
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
+msgid "Project"
+msgstr "مشروع"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__document_ids
+msgid "Project Documents"
+msgstr "مستندات المشروع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Project File"
+msgstr "ملف المشروع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
+msgid "Project Files"
+msgstr "ملفات المشاريع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
+msgid "Project Manager"
+msgstr "مدير المشروع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
+msgid "Projects"
+msgstr "المشاريع"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__is_submitted
+msgid "Provided"
+msgstr "مُقدَّم"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__submission_date
+msgid "Provided On"
+msgstr "تاريخ التقديم"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_purchase_date
+msgid "Purchase Date"
+msgstr "تاريخ الشراء"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__qty_variance
+msgid "Quantity Variance"
+msgstr "فرق الكمية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__rating
+msgid "Rating"
+msgstr "التقييم"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_material
+msgid "Raw Materials"
+msgstr "المواد الخام"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Re-apply company ratios"
+msgstr "إعادة تطبيق نسب الشركة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project_hold__reason
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_reject__reason
+msgid "Reason"
+msgstr "السبب"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__reference
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Register Booklet Fee Payment"
+msgstr "تسجيل صرف ثمن الكراسة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_reject_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_tender_reject
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_reject_form
+msgid "Reject Tender"
+msgstr "رفض المناقصة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__rejected
+msgid "Rejected by Management"
+msgstr "مرفوضة من الإدارة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__rejection_reason
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Rejection Reason"
+msgstr "سبب الرفض"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__released
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__released
+msgid "Released"
+msgstr "مُرد"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__reminder_days
+msgid "Remind Before (days)"
+msgstr "التذكير قبل (أيام)"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Reminder Lead Time"
+msgstr "مهلة التذكير"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__reported_by
+msgid "Reported By"
+msgstr "أبلغ عنه"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__case_type__request
+msgid "Request"
+msgstr "طلب"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Request Approval"
+msgstr "طلب موافقة الإدارة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__requested_budget
+msgid "Requested Budget"
+msgstr "المبلغ المطلوب"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__requested_engineer_ids
+msgid "Requested Engineers"
+msgstr "المهندسون المطلوبون"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Requested from Management"
+msgstr "المطلوب من الإدارة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__is_required
+msgid "Required"
+msgstr "مطلوب"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__document_ids
+msgid "Required Documents"
+msgstr "المستندات المطلوبة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__is_default_required
+msgid "Required by Default"
+msgstr "مطلوب افتراضياً"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
+msgid "Reset to Open"
+msgstr "إعادة فتح"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__resolution
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
+msgid "Resolution"
+msgstr "التسوية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__accountant_id
+msgid "Responsible Accountant"
+msgstr "المحاسب المسؤول"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Result"
+msgstr "النتيجة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Revenue"
+msgstr "الإيرادات"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
+msgid "Running"
+msgstr "جارٍ"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_labour
+msgid "Salaries & Wages"
+msgstr "المرتبات والأجور"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__sequence
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__sequence
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__sequence
+msgid "Sequence"
+msgstr "الترتيب"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_ext_config_settings
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_ext_settings
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__stock_location_id
+msgid "Site Location"
+msgstr "موقع المخزون"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__warehouse_id
+msgid "Site Warehouse"
+msgstr "مخزن الموقع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
+msgid "Start"
+msgstr "بدء"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Start Handover"
+msgstr "بدء التسليم"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__state
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Stores"
+msgstr "المخازن"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_subcontract
+msgid "Subcontractor Expenses"
+msgstr "مصروفات مقاولي الباطن"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__name
+msgid "Subject"
+msgstr "الموضوع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
+msgid "Submission"
+msgstr "التقديم"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Submission Deadline"
+msgstr "موعد التسليم"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Team"
+msgstr "الفريق"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__technical
+msgid "Technical File"
+msgstr "الملف الفني"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__technical_file_ready
+msgid "Technical File Ready"
+msgstr "الملف الفني مكتمل"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Technical Office"
+msgstr "المكتب الفني"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__technical_office_opinion
+msgid "Technical Office Opinion"
+msgstr "رأي المكتب الفني"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__technical_office_user_id
+msgid "Technical Office Reviewer"
+msgstr "مراجع المكتب الفني"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__technical_review_date
+msgid "Technical Review Date"
+msgstr "تاريخ المراجعة الفنية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__tender_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_reject__tender_id
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__scope__tender
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
+msgid "Tender"
+msgstr "مناقصة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_price
+msgid "Tender Document Fee"
+msgstr "ثمن كراسة الشروط"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Tender Engineer"
+msgstr "مهندس المناقصة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
+msgid "Tender Files"
+msgstr "ملفات المناقصات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__tender_line_id
+msgid "Tender Item"
+msgstr "بند المناقصة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_reminder_days
+msgid "Tender Reminder (days)"
+msgstr "تذكير المناقصات (أيام)"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_authority_type
+msgid "Tendering Authority Type"
+msgstr "نوع الجهة المالكة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Tenders"
+msgstr "المناقصات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__to_issue
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__to_issue
+msgid "To Issue"
+msgstr "للإصدار"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__customer_certified_total
+msgid "Total Certificates"
+msgstr "إجمالي المستخلصات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__project_total_cost
+msgid "Total Cost"
+msgstr "إجمالي التكلفة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__markup_percent
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__markup_percent
+msgid "Total Markup (%)"
+msgstr "إجمالي نسبة الإضافة (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__case_type
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
+msgid "Type"
+msgstr "النوع"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__scope
+msgid "Used For"
+msgstr "يُستخدم في"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Validity"
+msgstr "سريان الضمان"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__variance_cost
+msgid "Variance Cost"
+msgstr "تكلفة الفرق"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Waiting Approval"
+msgstr "بانتظار الموافقة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__pending_approval
+msgid "Waiting Management Approval"
+msgstr "بانتظار موافقة الإدارة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__case_type__warning
+msgid "Warning"
+msgstr "إنذار"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
+msgid "What happened?"
+msgstr "ماذا حدث؟"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_hold_form
+msgid "Why is the site stopping, and what unblocks it?"
+msgstr "لماذا يتوقف الموقع، وما الذي يعيد تشغيله؟"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_reject_form
+msgid "Why is this operation not worth opening?"
+msgstr "لماذا لا تستحق العملية الفتح؟"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
+msgid "Won"
+msgstr "فائزة"
