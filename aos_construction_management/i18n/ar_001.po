@@ -16,6 +16,17 @@ msgstr ""
 
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__percent_complete
+msgid "% Complete"
+msgstr "نسبة الإنجاز %"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__accepted_qty
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__accepted_qty
+msgid "Accepted Qty"
+msgstr "الكمية المقبولة"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
 msgid "Activate"
@@ -28,9 +39,67 @@ msgid "Active"
 msgstr "نشط"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__actual_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__actual_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__actual_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__actual_cost
+msgid "Actual Cost"
+msgstr "التكلفة الفعلية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__actual_end
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__actual_end
+msgid "Actual End"
+msgstr "الانتهاء الفعلي"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__actual_start
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__actual_start
+msgid "Actual Start"
+msgstr "البدء الفعلي"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__advance_percent
+msgid "Advance %"
+msgstr "نسبة الدفعة المقدمة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__advance_recovery
+msgid "Advance Recovery"
+msgstr "خصم الدفعة المقدمة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__amount
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__amount
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__amount
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
 msgid "Amount & Approval"
 msgstr "المبلغ والاعتماد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__amount_earned
+msgid "Amount Earned"
+msgstr "القيمة المستحقة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__amount_previously_billed
+msgid "Amount Previously Billed"
+msgstr "المفوتر سابقاً"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__amount_remaining
+msgid "Amount Remaining"
+msgstr "القيمة المتبقية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__amount_this_period
+msgid "Amount This Period"
+msgstr "قيمة الفترة الحالية"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
@@ -49,6 +118,12 @@ msgstr "اعتماد"
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__state__approved
 msgid "Approved"
 msgstr "معتمد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__approved_by
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__approved_by
+msgid "Approved By"
+msgstr "اعتمدها"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__project_id
@@ -92,20 +167,90 @@ msgid "BOQ Lines"
 msgstr "بنود المقايسة"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__unit_rate
+msgid "Bid Unit Rate"
+msgstr "سعر وحدة العطاء"
+
+#. module: aos_construction_management
 #: model:ir.actions.act_window,name:aos_construction_management.action_construction_boq
 #: model:ir.model,name:aos_construction_management.model_construction_boq
 msgid "Bill of Quantities"
 msgstr "مقايسة"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__billed_amount
+msgid "Billed Amount"
+msgstr "القيمة المفوترة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__billing_id
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_billing
 msgid "Billing"
 msgstr "المستخلصات"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__billing_count
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__billing_count
+msgid "Billing Count"
+msgstr "عدد المستخلصات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__billing_date
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__billing_date
+msgid "Billing Date"
+msgstr "تاريخ المستخلص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__billing_period_end
+msgid "Billing Period End"
+msgstr "نهاية فترة المستخلص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__billing_period_start
+msgid "Billing Period Start"
+msgstr "بداية فترة المستخلص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__billing_type
+msgid "Billing Type"
+msgstr "نوع المستخلص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__boq_id
+msgid "Boq"
+msgstr "المقايسة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__boq_count
+msgid "Boq Count"
+msgstr "عدد المقايسات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__budget_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__budget_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__budget_cost
+msgid "Budget Cost"
+msgstr "التكلفة المعتمدة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__cost_rate
 msgid "Budget Cost Rate"
 msgstr "سعر التكلفة التقديري"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__budget_margin
+msgid "Budget Margin"
+msgstr "الهامش المعتمد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__budget_margin_percent
+msgid "Budget Margin Percent"
+msgstr "نسبة الهامش المعتمد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__budget_revenue
+msgid "Budget Revenue"
+msgstr "الإيراد المعتمد"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
@@ -126,6 +271,11 @@ msgid "Cancelled"
 msgstr "ملغي"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__category
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
 msgid "Certificate"
 msgstr "مستخلص"
@@ -141,12 +291,48 @@ msgid "Certificate Lines"
 msgstr "بنود المستخلص"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__ra_number
+msgid "Certificate No."
+msgstr "رقم المستخلص"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__billing_ids
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
 msgid "Certificates"
 msgstr "المستخلصات"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__certified_amount
+msgid "Certified Amount"
+msgstr "القيمة المعتمدة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__certified_revenue
+msgid "Certified Revenue"
+msgstr "الإيرادات المعتمدة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__certified_subcontract_cost
+msgid "Certified Subcontract Cost"
+msgstr "تكلفة الباطن المعتمدة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_checklist__check_id
+msgid "Check"
+msgstr "الفحص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__check_date
+msgid "Check Date"
+msgstr "تاريخ الفحص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__check_type
+msgid "Check Type"
+msgstr "نوع الفحص"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__checklist_ids
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
 msgid "Checklist"
 msgstr "قائمة المراجعة"
@@ -164,6 +350,17 @@ msgid "Client"
 msgstr "العميل"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__committed_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__committed_cost
+msgid "Committed Cost"
+msgstr "التكلفة الملتزم بها"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
@@ -177,6 +374,11 @@ msgstr "إنهاء"
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_wbs__state__completed
 msgid "Completed"
 msgstr "مكتمل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__completion_percent
+msgid "Completion Percent"
+msgstr "نسبة الإتمام"
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__result__conditional
@@ -238,6 +440,18 @@ msgid "Contract"
 msgstr "العقد"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__boq_qty
+msgid "Contract Qty"
+msgstr "كمية العقد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__contract_value
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__contract_value
+msgid "Contract Value"
+msgstr "قيمة العقد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__corrective_action
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
 msgid "Corrective Action"
 msgstr "الإجراء التصحيحي"
@@ -269,6 +483,17 @@ msgid "Create/Open PO"
 msgstr "إنشاء/فتح أمر شراء"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__currency_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__qty_current
+msgid "Current Qty"
+msgstr "كمية الفترة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__partner_id
 msgid "Customer / Subcontractor"
 msgstr "عميل / مقاول باطن"
@@ -279,6 +504,16 @@ msgid "Customer Certificate"
 msgstr "مستخلص عميل"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__customer_certified_qty
+msgid "Customer Certified Qty"
+msgstr "الكمية المعتمدة للعميل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__customer_invoice_count
+msgid "Customer Invoice Count"
+msgstr "عدد فواتير العملاء"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 msgid "Customer Invoices"
 msgstr "فواتير العملاء"
@@ -287,6 +522,22 @@ msgstr "فواتير العملاء"
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_dashboard
 msgid "Dashboard"
 msgstr "لوحة المتابعة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__date
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__date_requested
+msgid "Date Requested"
+msgstr "تاريخ الطلب"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__date_required
+msgid "Date Required"
+msgstr "التاريخ المطلوب"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
@@ -309,7 +560,15 @@ msgid "Delayed"
 msgstr "متأخر"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__description
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__description
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__description
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__description
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_checklist__description
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__boq_line_description
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__description
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__description
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__description
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
@@ -348,9 +607,30 @@ msgid "Electrical"
 msgstr "أعمال كهرباء"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__end_date
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__end_date
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__equipment
 msgid "Equipment"
 msgstr "المعدات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__estimated_value
+msgid "Estimated Bid Value"
+msgstr "قيمة العطاء التقديرية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__estimated_cost
+msgid "Estimated Cost"
+msgstr "التكلفة التقديرية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__cost_rate
+msgid "Estimated Cost Rate"
+msgstr "سعر التكلفة التقديري"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
@@ -358,10 +638,32 @@ msgid "Estimated Financials"
 msgstr "التقديرات المالية"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__estimated_margin
+msgid "Estimated Margin"
+msgstr "الهامش التقديري"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__estimated_margin_percent
+msgid "Estimated Margin Percent"
+msgstr "نسبة الهامش التقديري"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__executed_qty
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__executed_qty
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__executed_qty
+msgid "Executed Qty"
+msgstr "الكمية المنفذة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__line_ids
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
 msgid "Execution Lines"
 msgstr "بنود التنفيذ"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__expense_count
+msgid "Expense Count"
+msgstr "عدد المصروفات"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
@@ -416,9 +718,19 @@ msgid "Finishing"
 msgstr "تشطيبات"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__forecast_margin
+msgid "Forecast Margin"
+msgstr "الهامش المتوقع"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__foreman_id
 msgid "Foreman"
 msgstr "مشرف الموقع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__gross_margin
+msgid "Gross Margin"
+msgstr "مجمل الربح"
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__priority__1
@@ -468,9 +780,19 @@ msgid "Invoiced"
 msgstr "مفوتر"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__invoiced_revenue
+msgid "Invoiced Revenue"
+msgstr "الإيرادات المفوترة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__state__invoiced
 msgid "Invoiced/Billed"
 msgstr "مفوتر"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_checklist__is_checked
+msgid "Is Checked"
+msgstr "تم فحصه"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__issue_date
@@ -478,11 +800,30 @@ msgid "Issue Date"
 msgstr "تاريخ الإصدار"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__item_no
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__item_no
+msgid "Item No."
+msgstr "رقم البند"
+
+#. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__labour
 msgid "Labour"
 msgstr "عمالة"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__line_ids
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__line_ids
+msgid "Line"
+msgstr "البند"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__location
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__location
+msgid "Location"
+msgstr "الموقع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__loss_reason
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
 msgid "Loss Reason"
 msgstr "سبب الخسارة"
@@ -491,6 +832,11 @@ msgstr "سبب الخسارة"
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__lost
 msgid "Lost"
 msgstr "خاسرة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__margin
+msgid "Margin"
+msgstr "الهامش"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
@@ -544,9 +890,15 @@ msgstr "طلبات المواد"
 
 #. module: aos_construction_management
 #: model:ir.model,name:aos_construction_management.model_construction_material_requisition
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__material_requisition_ids
 #: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order__construction_requisition_id
 msgid "Material Requisition"
 msgstr "طلب توريد مواد"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__material_requisition_count
+msgid "Material Requisition Count"
+msgstr "عدد طلبات التوريد"
 
 #. module: aos_construction_management
 #: model:ir.model,name:aos_construction_management.model_construction_material_requisition_line
@@ -566,9 +918,34 @@ msgid "Materials"
 msgstr "المواد"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__name
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__tender_type__negotiated
 msgid "Negotiated"
 msgstr "أمر مباشر"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__net_amount
+msgid "Net Amount"
+msgstr "الصافي"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__net_payable
+msgid "Net Payable"
+msgstr "صافي المستحق"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
@@ -581,6 +958,12 @@ msgid "Normal"
 msgstr "عادي"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__notes
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__notes
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__notes
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__notes
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__notes
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__notes
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
 msgid "Notes"
@@ -616,6 +999,11 @@ msgid "Other"
 msgstr "أخرى"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__other_deductions
+msgid "Other Deductions"
+msgstr "استقطاعات أخرى"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__progress
 msgid "Overall Progress %"
 msgstr "نسبة الإنجاز الكلية %"
@@ -629,6 +1017,11 @@ msgstr "مصاريف عمومية"
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_ra_billing__state__paid
 msgid "Paid"
 msgstr "مدفوع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__paid_amount
+msgid "Paid Amount"
+msgstr "القيمة المدفوعة"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__parent_id
@@ -647,6 +1040,7 @@ msgid "Payment Certificates"
 msgstr "المستخلصات"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__payment_terms
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
 msgid "Payment Terms"
 msgstr "شروط السداد"
@@ -665,6 +1059,31 @@ msgstr "بيانات المرحلة"
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_wbs__state__planned
 msgid "Planned"
 msgstr "مخطط"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__planned_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__planned_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__planned_cost
+msgid "Planned Cost"
+msgstr "التكلفة المخططة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__planned_end
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__planned_end
+msgid "Planned End"
+msgstr "الانتهاء المخطط"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__planned_qty
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__planned_qty
+msgid "Planned Qty"
+msgstr "الكمية المخططة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__planned_start
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__planned_start
+msgid "Planned Start"
+msgstr "البدء المخطط"
 
 #. module: aos_construction_management
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_planning
@@ -689,9 +1108,24 @@ msgid "Preparing Bid"
 msgstr "إعداد العطاء"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__qty_previous
+msgid "Prev. Qty"
+msgstr "الكمية السابقة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__previous_billed
+msgid "Previous Billed"
+msgstr "المستخلص السابق"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
 msgid "Print BOQ"
 msgstr "طباعة المقايسة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__priority
+msgid "Priority"
+msgstr "الأولوية"
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__tender_type__private
@@ -711,6 +1145,11 @@ msgid "Product / Service"
 msgstr "المنتج / الخدمة"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__progress
+msgid "Progress %"
+msgstr "نسبة الإنجاز %"
+
+#. module: aos_construction_management
 #: model:ir.actions.act_window,name:aos_construction_management.action_construction_progress_billing
 #: model:ir.model,name:aos_construction_management.model_construction_progress_billing
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_progress_billing
@@ -718,6 +1157,22 @@ msgid "Progress Billing"
 msgstr "مستخلصات الإنجاز"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__progress_percent
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__progress_percent
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__progress_percent
+msgid "Progress Percent"
+msgstr "نسبة الإنجاز"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__project_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__project_id
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
 msgid "Project"
 msgstr "مشروع"
@@ -726,6 +1181,16 @@ msgstr "مشروع"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__analytic_account_id
 msgid "Project Analytic Account"
 msgstr "الحساب التحليلي للمشروع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__ref
+msgid "Project Code"
+msgstr "كود المشروع"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__project_count
+msgid "Project Count"
+msgstr "عدد المشاريع"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
@@ -759,9 +1224,56 @@ msgid "Purchase Lines"
 msgstr "بنود الشراء"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__purchase_order_count
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__purchase_order_count
+msgid "Purchase Order Count"
+msgstr "عدد أوامر الشراء"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 msgid "Purchase Orders"
 msgstr "أوامر الشراء"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__purchase_total
+msgid "Purchase Total"
+msgstr "إجمالي المشتريات"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__purchased_qty
+msgid "Purchased Qty"
+msgstr "الكمية المشتراة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__qty
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__qty
+msgid "Qty"
+msgstr "الكمية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__qty_approved
+msgid "Qty Approved"
+msgstr "الكمية المعتمدة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__qty_cumulative
+msgid "Qty Cumulative"
+msgstr "الكمية التراكمية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__qty_received
+msgid "Qty Received"
+msgstr "الكمية المستلمة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__qty_remaining
+msgid "Qty Remaining"
+msgstr "الكمية المتبقية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__qty_requested
+msgid "Qty Requested"
+msgstr "الكمية المطلوبة"
 
 #. module: aos_construction_management
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_quality
@@ -773,6 +1285,11 @@ msgstr "الجودة"
 #: model:ir.model,name:aos_construction_management.model_construction_quality_check
 msgid "Quality Check"
 msgstr "فحص جودة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__quality_check_count
+msgid "Quality Check Count"
+msgstr "عدد فحوصات الجودة"
 
 #. module: aos_construction_management
 #: model:ir.model,name:aos_construction_management.model_construction_quality_checklist
@@ -812,6 +1329,18 @@ msgid "Received"
 msgstr "مستلم"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__ref
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__ref
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__ref
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__ref
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__ref
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__ref
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__ref
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__ref
+msgid "Ref"
+msgstr "المرجع"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
 msgid "Reject"
 msgstr "رفض"
@@ -822,9 +1351,25 @@ msgid "Rejected"
 msgstr "مرفوض"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__rejected_qty
+msgid "Rejected Qty"
+msgstr "الكمية المرفوضة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__purchase_order_id
 msgid "Related Purchase Order"
 msgstr "أمر الشراء المرتبط"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__remaining_execution_qty
+msgid "Remaining Execution Qty"
+msgstr "الكمية المتبقية للتنفيذ"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__remarks
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_checklist__remarks
+msgid "Remarks"
+msgstr "ملاحظات"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
@@ -835,6 +1380,16 @@ msgstr "الملاحظات والإجراء التصحيحي"
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
 msgid "Remarks..."
 msgstr "ملاحظات..."
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__requested_by
+msgid "Requested By"
+msgstr "طلبها"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__requisition_id
+msgid "Requisition"
+msgstr "طلب التوريد"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
@@ -863,6 +1418,23 @@ msgstr "إرجاع لمسودة"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__responsible_id
 msgid "Responsible"
 msgstr "المسؤول"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__result
+msgid "Result"
+msgstr "النتيجة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__retention_percent
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__retention_percent
+msgid "Retention %"
+msgstr "نسبة المحتجز %"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__retention_amount
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__retention_amount
+msgid "Retention Amount"
+msgstr "قيمة المحتجز"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
@@ -896,9 +1468,29 @@ msgid "Scope & Notes"
 msgstr "نطاق العمل والملاحظات"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__scope_of_work
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__scope_of_work
+msgid "Scope Of Work"
+msgstr "نطاق العمل"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
 msgid "Scope of work..."
 msgstr "نطاق العمل..."
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__is_section
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__is_section
+msgid "Section Header"
+msgstr "عنوان قسم"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__sequence
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__sequence
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__sequence
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__sequence
+msgid "Sequence"
+msgstr "الترتيب"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__product_id
@@ -917,6 +1509,12 @@ msgid "Start"
 msgstr "بدء"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__start_date
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
 msgid "Start Inspection"
 msgstr "بدء الفحص"
@@ -925,6 +1523,21 @@ msgstr "بدء الفحص"
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_tender_form
 msgid "Start Preparation"
 msgstr "بدء الدراسة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_progress_billing__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__state
+msgid "State"
+msgstr "الحالة"
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq_line__work_type__structural
@@ -943,10 +1556,21 @@ msgstr "المراحل الفرعية"
 #. module: aos_construction_management
 #: model:ir.model,name:aos_construction_management.model_construction_subcontract
 #: model:ir.model.fields,field_description:aos_construction_management.field_account_move__construction_subcontract_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__subcontract_id
 #: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order__construction_subcontract_id
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__subcontract
 msgid "Subcontract"
 msgstr "تعاقد باطن"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__subcontract_certified_qty
+msgid "Subcontract Certified Qty"
+msgstr "الكمية المعتمدة لمقاول الباطن"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__subcontract_count
+msgid "Subcontract Count"
+msgstr "عدد تعاقدات الباطن"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__purchase_order_id
@@ -996,6 +1620,11 @@ msgid "Submitted"
 msgstr "مُقدَّم"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__subtotal
+msgid "Subtotal"
+msgstr "الإجمالي الفرعي"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
 msgid "Summary"
 msgstr "الملخص"
@@ -1009,6 +1638,11 @@ msgstr "الضرائب"
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_material_requisition_form
 msgid "Technical specifications, delivery instructions..."
 msgstr "المواصفات الفنية وتعليمات التسليم..."
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__tender_id
+msgid "Tender"
+msgstr "مناقصة"
 
 #. module: aos_construction_management
 #: model:ir.model,name:aos_construction_management.model_construction_tender
@@ -1042,6 +1676,16 @@ msgid "Tender Name..."
 msgstr "اسم المناقصة..."
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__ref
+msgid "Tender No."
+msgstr "رقم المناقصة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__tender_type
+msgid "Tender Type"
+msgstr "نوع المناقصة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__client_id
 msgid "Tendering Authority / Client"
 msgstr "الجهة المالكة / العميل"
@@ -1063,9 +1707,25 @@ msgid "Terminated"
 msgstr "منتهي التعاقد"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__total_amount
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__total_amount
+msgid "Total Amount"
+msgstr "الإجمالي"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
 msgid "Total BOQ Amount"
 msgstr "إجمالي قيمة المقايسة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__total_estimated_cost
+msgid "Total Estimated Cost"
+msgstr "إجمالي التكلفة التقديرية"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__total_expenses
+msgid "Total Expenses"
+msgstr "إجمالي المصروفات"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__uom_id
@@ -1076,9 +1736,35 @@ msgid "UOM"
 msgstr "الوحدة"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__unit_cost
+msgid "Unit Cost"
+msgstr "تكلفة الوحدة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__unit_price
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__unit_rate
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__unit_rate
+msgid "Unit Rate"
+msgstr "سعر الوحدة"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__uom_id
+msgid "Uom"
+msgstr "الوحدة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__priority__2
 msgid "Urgent"
 msgstr "عاجل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__vendor_bill_count
+msgid "Vendor Bill Count"
+msgstr "عدد فواتير الموردين"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
@@ -1109,6 +1795,18 @@ msgid "WBS Phases"
 msgstr "مراحل العمل"
 
 #. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__wbs_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__wbs_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__wbs_id
+msgid "Wbs"
+msgstr "مرحلة العمل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__wbs_count
+msgid "Wbs Count"
+msgstr "عدد المراحل"
+
+#. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__won
 msgid "Won"
 msgstr "فائزة"
@@ -1121,10 +1819,19 @@ msgstr "تنفيذ الأعمال"
 #. module: aos_construction_management
 #: model:ir.model,name:aos_construction_management.model_construction_work_order
 #: model:ir.model.fields,field_description:aos_construction_management.field_account_move_line__construction_work_order_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__work_order_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__work_order_id
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__work_order_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__work_order_ids
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__work_order_id
 #: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order_line__construction_work_order_id
 msgid "Work Order"
 msgstr "أمر شغل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__work_order_count
+msgid "Work Order Count"
+msgstr "عدد أوامر الشغل"
 
 #. module: aos_construction_management
 #: model:ir.actions.act_window,name:aos_construction_management.action_construction_work_order
@@ -1133,6 +1840,13 @@ msgstr "أمر شغل"
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_wbs_form
 msgid "Work Orders"
 msgstr "أوامر الشغل"
+
+#. module: aos_construction_management
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__work_type
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__work_type
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__work_type
+msgid "Work Type"
+msgstr "نوع العمل"
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__check_type__workmanship

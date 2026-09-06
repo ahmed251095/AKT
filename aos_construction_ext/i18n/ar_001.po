@@ -342,6 +342,12 @@ msgid "Cost Breakdown"
 msgstr "تفصيل التكلفة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__cost_rate
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__cost_rate
+msgid "Cost Rate"
+msgstr "سعر التكلفة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__date
 msgid "Date"
 msgstr "التاريخ"
@@ -1032,9 +1038,24 @@ msgid "Remind Before (days)"
 msgstr "التذكير قبل (أيام)"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__reminder_award_sent
+msgid "Reminder Award Sent"
+msgstr "تم إرسال تذكير البت"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__reminder_envelope_sent
+msgid "Reminder Envelope Sent"
+msgstr "تم إرسال تذكير فتح المظاريف"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Reminder Lead Time"
 msgstr "مهلة التذكير"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__reminder_submission_sent
+msgid "Reminder Submission Sent"
+msgstr "تم إرسال تذكير التسليم"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__reported_by
@@ -1149,6 +1170,12 @@ msgstr "بدء"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Start Handover"
 msgstr "بدء التسليم"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__state
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__state
+msgid "State"
+msgstr "الحالة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__state
@@ -1290,6 +1317,12 @@ msgstr "إجمالي نسبة الإضافة (%)"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
 msgid "Type"
 msgstr "النوع"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__unit_rate
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__unit_rate
+msgid "Unit Rate"
+msgstr "سعر الوحدة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__scope
