@@ -1,0 +1,202 @@
+# -*- coding: utf-8 -*-
+"""Build an Arabic .po for both construction modules.
+
+The references are derived from the module sources the same way Odoo names
+them, so the importer can find each record:
+
+  fields      module.field_<model_underscored>__<field>
+  selections  module.selection__<model_underscored>__<field>__<value>
+  models      module.model_<model_underscored>
+  views/menus/actions   module.<xml id>
+"""
+import re, glob, os, sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from ar_terms import AR
+
+BASE = '/home/ahmed-salah/Desktop/cluade/AKT'
+MODULES = ['aos_construction_management', 'aos_construction_ext']
+
+
+def esc(s):
+    return s.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
+
+
+def auto_label(name):
+    stem = name[:-4] if name.endswith('_ids') else \
+        name[:-3] if name.endswith('_id') else name
+    return stem.replace('_', ' ').title()
+
+
+def model_key(model):
+    return model.replace('.', '_')
+
+
+def iter_fields(body):
+    """Yield (field_name, full_call_args) walking balanced parentheses."""
+    for m in re.finditer(r'^    (\w+)\s*=\s*fields\.(\w+)\(', body, re.M):
+        fname, ftype = m.group(1), m.group(2)
+        i = m.end() - 1
+        depth, j, in_str, quote = 0, i, False, ''
+        while j < len(body):
+            ch = body[j]
+            if in_str:
+                if ch == '\\':
+                    j += 2
+                    continue
+                if ch == quote:
+                    in_str = False
+            elif ch in "'\"":
+                in_str, quote = True, ch
+            elif ch == '(':
+                depth += 1
+            elif ch == ')':
+                depth -= 1
+                if depth == 0:
+                    break
+            j += 1
+        yield fname, ftype, body[i + 1:j]
+
+
+def parse_python(module):
+    """Yield (occurrence, source) for every field, selection and model name."""
+    for path in sorted(glob.glob(f'{BASE}/{module}/models/*.py') +
+                       glob.glob(f'{BASE}/{module}/wizard/*.py')):
+        text = open(path).read()
+        classes = re.split(r'\nclass\s+\w+\([^)]*\):', text)[1:]
+        for body in classes:
+            name = re.search(r"_name\s*=\s*'([\w.]+)'", body)
+            inherit = (re.search(r"_inherit\s*=\s*'([\w.]+)'", body)
+                       or re.search(r"_inherit\s*=\s*\[\s*'([\w.]+)'", body))
+            model = name.group(1) if name else (inherit.group(1) if inherit else None)
+            if not model:
+                continue
+            mk = model_key(model)
+
+            desc = re.search(r"_description\s*=\s*'([^']+)'", body)
+            if desc and name:
+                yield (f'model:ir.model,name:{module}.model_{mk}', desc.group(1))
+
+            relational = ftype_is_relational = None
+            for fname, ftype, args in iter_fields(body):
+                relational = ftype in ('Many2one', 'One2many', 'Many2many')
+                label = re.search(r"string=(['\"])(.*?)\1", args, re.S)
+                if not label and not relational:
+                    # Non-relational fields may carry the label positionally;
+                    # on relational ones the first argument is the comodel.
+                    label = re.match(r"\s*(['\"])([^'\"]+)\1", args)
+                if label:
+                    text_ = label.group(2)
+                elif 'related=' in args:
+                    # Related fields inherit their label from the source field.
+                    continue
+                else:
+                    text_ = auto_label(fname)
+                yield (f'model:ir.model.fields,field_description:'
+                       f'{module}.field_{mk}__{fname}', text_)
+                for sm in re.finditer(r"\(\s*'([\w.+-]+)'\s*,\s*'([^']+)'\s*\)", args):
+                    if sm.group(2) in AR:
+                        yield (f'model:ir.model.fields.selection,name:'
+                               f'{module}.selection__{mk}__{fname}__{sm.group(1)}',
+                               sm.group(2))
+
+
+def parse_xml(module):
+    for path in sorted(glob.glob(f'{BASE}/{module}/views/*.xml') +
+                       glob.glob(f'{BASE}/{module}/wizard/*.xml')):
+        text = open(path).read()
+        for rec in re.finditer(
+                r'<record\s+id="([\w.]+)"\s+model="(ir\.ui\.view|ir\.actions\.act_window)"(.*?)</record>',
+                text, re.S):
+            xmlid, model, body = rec.group(1), rec.group(2), rec.group(3)
+            if model == 'ir.actions.act_window':
+                nm = re.search(r'<field name="name">([^<]+)</field>', body)
+                if nm:
+                    yield (f'model:ir.actions.act_window,name:{module}.{xmlid}',
+                           nm.group(1).replace('&amp;', '&'))
+                continue
+            arch = re.search(r'<field name="arch" type="xml">(.*?)</field>\s*</record>',
+                             body + '</record>', re.S)
+            if not arch:
+                continue
+            seen = set()
+            for sm in re.finditer(r'\b(?:string|placeholder|title)="([^"]+)"', arch.group(1)):
+                src = sm.group(1).replace('&amp;', '&')
+                if src in AR and src not in seen:
+                    seen.add(src)
+                    yield (f'model_terms:ir.ui.view,arch_db:{module}.{xmlid}', src)
+        for mm in re.finditer(r'<menuitem[^>]*\bid="([\w.]+)"[^>]*?\bname="([^"]+)"', text, re.S):
+            yield (f'model:ir.ui.menu,name:{module}.{mm.group(1)}', mm.group(2))
+        for mm in re.finditer(r'<menuitem[^>]*\bname="([^"]+)"[^>]*?\bid="([\w.]+)"', text, re.S):
+            yield (f'model:ir.ui.menu,name:{module}.{mm.group(2)}', mm.group(1))
+
+
+def build():
+    entries = {}   # source -> {module -> set(occurrences)}
+    for module in MODULES:
+        for occ, src in list(parse_python(module)) + list(parse_xml(module)):
+            if src not in AR:
+                continue
+            entries.setdefault(src, {}).setdefault(module, set()).add(occ)
+    return entries
+
+
+HEADER = '''# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# \t* aos_construction_management
+# \t* aos_construction_ext
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\\n"
+"Report-Msgid-Bugs-To: \\n"
+"Last-Translator: \\n"
+"Language-Team: \\n"
+"Language: ar_001\\n"
+"MIME-Version: 1.0\\n"
+"Content-Type: text/plain; charset=UTF-8\\n"
+"Content-Transfer-Encoding: 8bit\\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 '''\
+'''&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\\n"
+'''
+
+
+def render(entries):
+    out = [HEADER]
+    for src in sorted(entries):
+        for module in sorted(entries[src]):
+            out.append('')
+            out.append(f'#. module: {module}')
+            for occ in sorted(entries[src][module]):
+                out.append(f'#: {occ}')
+            out.append(f'msgid "{esc(src)}"')
+            out.append(f'msgstr "{esc(AR[src])}"')
+    return '\n'.join(out) + '\n'
+
+
+def render_module(entries, module):
+    """Odoo ships each module's terms in its own i18n file."""
+    out = [HEADER.replace(
+        '# \t* aos_construction_management\n# \t* aos_construction_ext',
+        f'# \t* {module}')]
+    for src in sorted(entries):
+        if module not in entries[src]:
+            continue
+        out.append('')
+        out.append(f'#. module: {module}')
+        for occ in sorted(entries[src][module]):
+            out.append(f'#: {occ}')
+        out.append(f'msgid "{esc(src)}"')
+        out.append(f'msgstr "{esc(AR[src])}"')
+    return '\n'.join(out) + '\n'
+
+
+if __name__ == '__main__':
+    e = build()
+    for module in MODULES:
+        path = f'{BASE}/{module}/i18n/ar_001.po'
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        body = render_module(e, module)
+        open(path, 'w').write(body)
+        print(f'{module}: {body.count(chr(10) + "msgid ")} entries -> {path}',
+              file=sys.stderr)
