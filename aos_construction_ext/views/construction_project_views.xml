@@ -48,7 +48,7 @@
                 <field name="contract_duration_days"/>
             </xpath>
 
-            <xpath expr="//group[@string='Financial Summary']" position="after">
+            <xpath expr="//sheet/group[2]" position="after">
                 <group string="Hold" invisible="state != 'on_hold'">
                     <field name="hold_reason" nolabel="1" colspan="2"/>
                     <field name="hold_date"/>
@@ -56,7 +56,7 @@
                 </group>
             </xpath>
 
-            <xpath expr="//group[@string='Description']" position="after">
+            <xpath expr="//sheet/group[3]" position="after">
                 <notebook>
 
                     <page string="Team" name="team">

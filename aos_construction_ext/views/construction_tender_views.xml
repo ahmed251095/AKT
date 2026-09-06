@@ -52,7 +52,7 @@
                         invisible="state != 'bond_pending'"/>
             </xpath>
 
-            <xpath expr="//page[@string='Loss Reason']" position="attributes">
+            <xpath expr="//notebook/page[3]" position="attributes">
                 <attribute name="invisible">state not in ('lost', 'bond_pending')</attribute>
             </xpath>
 
@@ -65,7 +65,7 @@
                 <field name="financial_responsible_id"/>
             </xpath>
 
-            <xpath expr="//group[@string='Dates']" position="inside">
+            <xpath expr="//field[@name='submission_deadline']" position="after">
                 <field name="envelope_opening_date"/>
                 <field name="award_decision_date"/>
                 <field name="reminder_days"/>
