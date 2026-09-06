@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_tender_cover_letter">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+
+                        <div class="text-end mb-4">
+                            <span t-out="doc.create_date" t-options='{"widget": "date"}'/>
+                        </div>
+
+                        <div class="mb-4">
+                            <strong>To:</strong>
+                            <span t-out="doc.client_id.display_name"/>
+                            <t t-if="doc.client_id.street">
+                                <br/><span t-out="doc.client_id.street"/>
+                            </t>
+                        </div>
+
+                        <h4 class="text-center mb-4">
+                            Offer for: <span t-out="doc.name"/>
+                        </h4>
+
+                        <table class="table table-sm table-borderless mb-4">
+                            <tr t-if="doc.ref">
+                                <td style="width: 35%"><strong>Tender No.</strong></td>
+                                <td t-out="doc.ref"/>
+                            </tr>
+                            <tr t-if="doc.tender_type">
+                                <td><strong>Tender Type</strong></td>
+                                <td t-out="dict(doc._fields['tender_type'].selection).get(doc.tender_type)"/>
+                            </tr>
+                            <tr t-if="doc.location">
+                                <td><strong>Location</strong></td>
+                                <td t-out="doc.location"/>
+                            </tr>
+                            <tr t-if="doc.operation_duration_days">
+                                <td><strong>Execution Period</strong></td>
+                                <td><span t-out="doc.operation_duration_days"/> days</td>
+                            </tr>
+                            <tr t-if="doc.submission_deadline">
+                                <td><strong>Submission Deadline</strong></td>
+                                <td t-out="doc.submission_deadline" t-options='{"widget": "datetime"}'/>
+                            </tr>
+                        </table>
+
+                        <p>
+                            Having examined the conditions booklet, the drawings and the schedule
+                            of quantities of the above operation, we offer to execute the whole of
+                            the works described therein for the total sum stated below, within the
+                            period stated above and in accordance with the tender conditions.
+                        </p>
+
+                        <table class="table table-sm mt-4">
+                            <thead>
+                                <tr class="table-active">
+                                    <th>Description</th>
+                                    <th class="text-end">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total offer value</td>
+                                    <td class="text-end">
+                                        <span t-out="doc.estimated_value"
+                                              t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.bid_bond_required">
+                                    <td>Bid bond attached</td>
+                                    <td class="text-end">
+                                        <span t-out="doc.bid_bond_amount"
+                                              t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="mt-4">
+                            This offer remains valid and binding upon us for the period stated in
+                            the tender conditions, and may be accepted at any time before it
+                            expires.
+                        </p>
+
+                        <div class="row mt-5">
+                            <div class="col-6">
+                                <p><strong>For and on behalf of</strong></p>
+                                <p t-out="doc.env.company.name"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <p><strong>Authorised Signature</strong></p>
+                                <p>________________________</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

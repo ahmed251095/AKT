@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="mail_activity_type_tender_approval" model="mail.activity.type">
+            <field name="name">Tender Approval</field>
+            <field name="icon">fa-gavel</field>
+            <field name="res_model">construction.tender</field>
+            <field name="delay_count">1</field>
+            <field name="delay_unit">days</field>
+            <field name="summary">Approve opening the operation</field>
+        </record>
+
+        <record id="ir_cron_tender_reminders" model="ir.cron">
+            <field name="name">Construction: Tender Deadline Reminders</field>
+            <field name="model_id" ref="aos_construction_management.model_construction_tender"/>
+            <field name="state">code</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="code">model._cron_tender_reminders()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

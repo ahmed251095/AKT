@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_project_form_ext" model="ir.ui.view">
+        <field name="name">construction.project.form.ext</field>
+        <field name="model">construction.project</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_project_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//header/button[@name='action_complete']" position="before">
+                <button name="action_start_handover" type="object" string="Start Handover"
+                        class="btn-primary" invisible="state != 'active'"/>
+                <button name="action_performance_bond_issued" type="object"
+                        string="Bond Issued"
+                        invisible="not performance_bond_required
+                                   or performance_bond_state != 'to_issue'
+                                   or state == 'draft'"/>
+                <button name="action_performance_bond_released" type="object"
+                        string="Bond Released"
+                        invisible="performance_bond_state not in ('issued', 'held')"/>
+            </xpath>
+
+            <xpath expr="//header/field[@name='state']" position="attributes">
+                <attribute name="statusbar_visible">draft,active,handover,completed</attribute>
+            </xpath>
+
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_documents" type="object" class="oe_stat_button"
+                        icon="fa-folder-open-o">
+                    <field name="document_count" widget="statinfo" string="Documents"/>
+                </button>
+                <button name="action_view_hr_cases" type="object" class="oe_stat_button"
+                        icon="fa-users">
+                    <field name="hr_case_count" widget="statinfo" string="HR Cases"/>
+                </button>
+            </xpath>
+
+            <xpath expr="//sheet" position="inside">
+                <widget name="web_ribbon" title="On Hold" bg_color="text-bg-warning"
+                        invisible="state != 'on_hold'"/>
+            </xpath>
+
+            <xpath expr="//field[@name='analytic_account_id']" position="after">
+                <field name="authority_type_id"/>
+            </xpath>
+
+            <xpath expr="//field[@name='end_date']" position="after">
+                <field name="contract_duration_days"/>
+            </xpath>
+
+            <xpath expr="//group[@string='Financial Summary']" position="after">
+                <group string="Hold" invisible="state != 'on_hold'">
+                    <field name="hold_reason" nolabel="1" colspan="2"/>
+                    <field name="hold_date"/>
+                    <field name="hold_approved_by"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//group[@string='Description']" position="after">
+                <notebook>
+
+                    <page string="Team" name="team">
+                        <group>
+                            <group string="Management">
+                                <field name="logistics_manager_id"/>
+                                <field name="finance_manager_id"/>
+                            </group>
+                            <group string="Technical Office">
+                                <field name="electrical_engineer_id"/>
+                                <field name="mechanical_engineer_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Finance">
+                                <field name="accountant_id"/>
+                                <field name="financial_responsible_id"/>
+                            </group>
+                            <group string="Human Resources">
+                                <field name="hr_supervisor_id"/>
+                            </group>
+                        </group>
+                        <group string="Assigned Employees">
+                            <field name="employee_ids" widget="many2many_tags" nolabel="1"/>
+                        </group>
+                    </page>
+
+                    <page string="Project File" name="project_file">
+                        <div class="mb-3">
+                            <button name="action_load_standard_documents" type="object"
+                                    string="Load Standard Checklist" class="btn-secondary"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="drive_folder_url" widget="url"
+                                       placeholder="https://drive.google.com/..."/>
+                            </group>
+                            <group>
+                                <field name="document_missing_count"/>
+                            </group>
+                        </group>
+                        <field name="document_ids">
+                            <list editable="bottom"
+                                  decoration-danger="is_expired"
+                                  decoration-warning="is_required and not is_submitted">
+                                <field name="sequence" widget="handle"/>
+                                <field name="document_type_id"/>
+                                <field name="file_type"/>
+                                <field name="reference"/>
+                                <field name="expiry_date"/>
+                                <field name="is_required"/>
+                                <field name="is_submitted" widget="boolean_toggle"/>
+                                <field name="attachment_count" string="Files"/>
+                            </list>
+                        </field>
+                    </page>
+
+                    <page string="Stores" name="stores">
+                        <group>
+                            <group>
+                                <field name="warehouse_id"/>
+                                <field name="stock_location_id"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <page string="Performance Bond" name="performance_bond">
+                        <group>
+                            <group string="Amount">
+                                <field name="performance_bond_required"/>
+                                <field name="performance_bond_percent"
+                                       invisible="not performance_bond_required"/>
+                                <field name="performance_bond_amount"
+                                       invisible="not performance_bond_required"/>
+                                <field name="performance_bond_state"/>
+                            </group>
+                            <group string="Instrument" invisible="not performance_bond_required">
+                                <field name="performance_bond_bank_id"/>
+                                <field name="performance_bond_ref"/>
+                                <field name="performance_bond_issue_date"/>
+                                <field name="performance_bond_expiry_date"/>
+                                <field name="performance_bond_return_date"
+                                       invisible="performance_bond_state not in ('released', 'forfeited')"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <page string="Profit Statement" name="profit">
+                        <group>
+                            <group string="Revenue">
+                                <field name="customer_certified_total"/>
+                                <field name="invoiced_revenue" readonly="1"/>
+                            </group>
+                            <group string="Result">
+                                <field name="project_total_cost"/>
+                                <field name="project_net_profit"/>
+                                <field name="project_net_margin"/>
+                            </group>
+                        </group>
+                        <group string="Cost Breakdown">
+                            <group>
+                                <field name="expense_material"/>
+                                <field name="expense_labour"/>
+                                <field name="expense_equipment"/>
+                            </group>
+                            <group>
+                                <field name="expense_subcontract"/>
+                                <field name="expense_overhead"/>
+                                <field name="expense_other"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="subcontract_certified_total"/>
+                            </group>
+                            <group>
+                                <field name="direct_purchase_total"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <page string="Handover &amp; Closure" name="closure">
+                        <group>
+                            <group>
+                                <field name="initial_handover_date"/>
+                                <field name="final_handover_date"/>
+                            </group>
+                        </group>
+                        <group string="Closure Notes">
+                            <field name="closure_note" nolabel="1"/>
+                        </group>
+                    </page>
+
+                </notebook>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_construction_project_list_ext" model="ir.ui.view">
+        <field name="name">construction.project.list.ext</field>
+        <field name="model">construction.project</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_project_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <field name="customer_certified_total" optional="hide"/>
+                <field name="project_total_cost" optional="hide"/>
+                <field name="project_net_profit" optional="show"/>
+                <field name="performance_bond_state" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_project_search" model="ir.ui.view">
+        <field name="name">construction.project.search</field>
+        <field name="model">construction.project</field>
+        <field name="arch" type="xml">
+            <search string="Projects">
+                <field name="name"/>
+                <field name="ref"/>
+                <field name="client_id"/>
+                <field name="project_manager_id"/>
+                <field name="site_manager_id"/>
+                <filter name="filter_running" string="Running"
+                        domain="[('state', '=', 'active')]"/>
+                <filter name="filter_on_hold" string="On Hold"
+                        domain="[('state', '=', 'on_hold')]"/>
+                <filter name="filter_handover" string="In Handover"
+                        domain="[('state', '=', 'handover')]"/>
+                <separator/>
+                <filter name="filter_bond_outstanding" string="Bond Outstanding"
+                        domain="[('performance_bond_state', 'in', ('issued', 'held'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_client" string="Client"
+                            context="{'group_by': 'client_id'}"/>
+                    <filter name="group_manager" string="Project Manager"
+                            context="{'group_by': 'project_manager_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

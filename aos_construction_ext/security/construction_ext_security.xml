@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- The six departments the company is organised in. They are plain
+             checkbox groups, like the ones the base module ships, so one
+             person can carry two hats in a small office. -->
+
+        <record id="group_construction_dept_management" model="res.groups">
+            <field name="name">Construction / Management</field>
+            <field name="comment">Approves opening an operation, releases the budget and reviews project accounts.</field>
+            <field name="implied_ids" eval="[(4, ref('aos_construction_management.group_construction_manager'))]"/>
+        </record>
+
+        <record id="group_construction_dept_technical" model="res.groups">
+            <field name="name">Construction / Technical Office</field>
+            <field name="comment">Studies the tender documents, prices the items and issues the bill of quantities.</field>
+            <field name="implied_ids" eval="[(4, ref('aos_construction_management.group_construction_user'))]"/>
+        </record>
+
+        <record id="group_construction_dept_execution" model="res.groups">
+            <field name="name">Construction / Site Execution</field>
+            <field name="comment">Runs the work orders on site and reports executed quantities.</field>
+            <field name="implied_ids" eval="[(4, ref('aos_construction_management.group_construction_user'))]"/>
+        </record>
+
+        <record id="group_construction_dept_finance" model="res.groups">
+            <field name="name">Construction / Finance &amp; Contracts</field>
+            <field name="comment">Owns the bonds, the booklet fee, the certificates and the project accounts.</field>
+            <field name="implied_ids" eval="[(4, ref('aos_construction_management.group_construction_user'))]"/>
+        </record>
+
+        <record id="group_construction_dept_warehouse" model="res.groups">
+            <field name="name">Construction / Warehouses</field>
+            <field name="comment">Receives and issues materials against the site stores.</field>
+            <field name="implied_ids" eval="[(4, ref('aos_construction_management.group_construction_user'))]"/>
+        </record>
+
+        <record id="group_construction_dept_hr_purchase" model="res.groups">
+            <field name="name">Construction / HR &amp; Purchasing</field>
+            <field name="comment">Staffs the sites, follows up employee cases and buys what the requisitions ask for.</field>
+            <field name="implied_ids" eval="[(4, ref('aos_construction_management.group_construction_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

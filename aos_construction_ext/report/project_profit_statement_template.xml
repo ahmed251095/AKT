@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_project_profit_statement">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+
+                        <h4 class="text-center mb-1">Project Profit Statement</h4>
+                        <h5 class="text-center text-muted mb-4">
+                            <span t-out="doc.name"/>
+                            <t t-if="doc.ref"> (<span t-out="doc.ref"/>)</t>
+                        </h5>
+
+                        <table class="table table-sm table-borderless mb-4">
+                            <tr>
+                                <td style="width: 30%"><strong>Client</strong></td>
+                                <td t-out="doc.client_id.display_name"/>
+                                <td style="width: 20%"><strong>Status</strong></td>
+                                <td t-out="dict(doc._fields['state'].selection).get(doc.state)"/>
+                            </tr>
+                            <tr>
+                                <td><strong>Contract Value</strong></td>
+                                <td>
+                                    <span t-out="doc.contract_value"
+                                          t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                </td>
+                                <td><strong>Progress</strong></td>
+                                <td><span t-out="doc.progress"/>%</td>
+                            </tr>
+                        </table>
+
+                        <table class="table table-sm">
+                            <thead>
+                                <tr class="table-active">
+                                    <th>Revenue</th>
+                                    <th class="text-end">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Approved payment certificates</td>
+                                    <td class="text-end">
+                                        <span t-out="doc.customer_certified_total"
+                                              t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted ps-4">of which invoiced</td>
+                                    <td class="text-end text-muted">
+                                        <span t-out="doc.invoiced_revenue"
+                                              t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table table-sm">
+                            <thead>
+                                <tr class="table-active">
+                                    <th>Cost</th>
+                                    <th class="text-end">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="cost_lines" t-value="[
+                                    ('Raw materials', doc.expense_material),
+                                    ('Salaries and wages', doc.expense_labour),
+                                    ('Equipment', doc.expense_equipment),
+                                    ('Subcontractor expenses', doc.expense_subcontract),
+                                    ('Overheads', doc.expense_overhead),
+                                    ('Other expenses', doc.expense_other),
+                                    ('Certified subcontractor work', doc.subcontract_certified_total),
+                                    ('Direct purchases', doc.direct_purchase_total),
+                                ]"/>
+                                <tr t-foreach="cost_lines" t-as="cost_line">
+                                    <td t-out="cost_line[0]"/>
+                                    <td class="text-end">
+                                        <span t-out="cost_line[1]"
+                                              t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr class="table-active">
+                                    <td><strong>Total cost</strong></td>
+                                    <td class="text-end">
+                                        <strong t-out="doc.project_total_cost"
+                                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table table-sm mt-4">
+                            <tbody>
+                                <tr class="table-active">
+                                    <td><strong>Net profit</strong></td>
+                                    <td class="text-end">
+                                        <strong t-out="doc.project_net_profit"
+                                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Net margin</td>
+                                    <td class="text-end"><span t-out="doc.project_net_margin"/>%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p class="text-muted mt-4" style="font-size: 11px;">
+                            Cost is the sum of approved project expenses, subcontractor work
+                            certified to date and purchases booked against the project. Record a
+                            cost in one place only, or it will be counted twice here.
+                        </p>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

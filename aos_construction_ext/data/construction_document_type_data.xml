@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Papers the tender conditions usually ask for. Trimmed or extended
+             per client from Construction / Configuration. -->
+
+        <record id="document_type_commercial_register" model="construction.document.type">
+            <field name="name">Commercial Register</field>
+            <field name="code">CR</field>
+            <field name="file_type">legal</field>
+            <field name="scope">tender</field>
+            <field name="sequence">10</field>
+            <field name="has_expiry" eval="True"/>
+        </record>
+
+        <record id="document_type_tax_card" model="construction.document.type">
+            <field name="name">Tax Card</field>
+            <field name="code">TAX</field>
+            <field name="file_type">legal</field>
+            <field name="scope">tender</field>
+            <field name="sequence">20</field>
+            <field name="has_expiry" eval="True"/>
+        </record>
+
+        <record id="document_type_vat_certificate" model="construction.document.type">
+            <field name="name">VAT Registration Certificate</field>
+            <field name="code">VAT</field>
+            <field name="file_type">legal</field>
+            <field name="scope">tender</field>
+            <field name="sequence">30</field>
+        </record>
+
+        <record id="document_type_classification" model="construction.document.type">
+            <field name="name">Contractors Classification Certificate</field>
+            <field name="code">CLASS</field>
+            <field name="file_type">technical</field>
+            <field name="scope">tender</field>
+            <field name="sequence">40</field>
+            <field name="has_expiry" eval="True"/>
+        </record>
+
+        <record id="document_type_previous_works" model="construction.document.type">
+            <field name="name">Record of Similar Works</field>
+            <field name="code">EXP</field>
+            <field name="file_type">technical</field>
+            <field name="scope">tender</field>
+            <field name="sequence">50</field>
+        </record>
+
+        <record id="document_type_technical_staff" model="construction.document.type">
+            <field name="name">Technical Staff and Equipment List</field>
+            <field name="code">STAFF</field>
+            <field name="file_type">technical</field>
+            <field name="scope">tender</field>
+            <field name="sequence">60</field>
+        </record>
+
+        <record id="document_type_conditions_booklet" model="construction.document.type">
+            <field name="name">Conditions Booklet (stamped)</field>
+            <field name="code">BOOK</field>
+            <field name="file_type">technical</field>
+            <field name="scope">tender</field>
+            <field name="sequence">70</field>
+        </record>
+
+        <record id="document_type_bid_bond" model="construction.document.type">
+            <field name="name">Bid Bond</field>
+            <field name="code">BOND</field>
+            <field name="file_type">financial</field>
+            <field name="scope">tender</field>
+            <field name="sequence">80</field>
+            <field name="has_expiry" eval="True"/>
+        </record>
+
+        <record id="document_type_price_schedule" model="construction.document.type">
+            <field name="name">Priced Schedule of Quantities</field>
+            <field name="code">PRICE</field>
+            <field name="file_type">financial</field>
+            <field name="scope">tender</field>
+            <field name="sequence">90</field>
+        </record>
+
+        <record id="document_type_bank_statement" model="construction.document.type">
+            <field name="name">Bank Solvency Letter</field>
+            <field name="code">BANK</field>
+            <field name="file_type">financial</field>
+            <field name="scope">tender</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <!-- Papers the project file has to hold once the work is awarded. -->
+
+        <record id="document_type_contract" model="construction.document.type">
+            <field name="name">Signed Contract</field>
+            <field name="code">CONT</field>
+            <field name="file_type">contract</field>
+            <field name="scope">project</field>
+            <field name="sequence">110</field>
+        </record>
+
+        <record id="document_type_award_letter" model="construction.document.type">
+            <field name="name">Award Letter</field>
+            <field name="code">AWARD</field>
+            <field name="file_type">contract</field>
+            <field name="scope">project</field>
+            <field name="sequence">120</field>
+        </record>
+
+        <record id="document_type_boq" model="construction.document.type">
+            <field name="name">Contract Bill of Quantities</field>
+            <field name="code">CBOQ</field>
+            <field name="file_type">boq</field>
+            <field name="scope">project</field>
+            <field name="sequence">130</field>
+        </record>
+
+        <record id="document_type_drawings" model="construction.document.type">
+            <field name="name">Construction Drawings</field>
+            <field name="code">DWG</field>
+            <field name="file_type">drawing</field>
+            <field name="scope">project</field>
+            <field name="sequence">140</field>
+        </record>
+
+        <record id="document_type_performance_bond" model="construction.document.type">
+            <field name="name">Performance Bond</field>
+            <field name="code">PBOND</field>
+            <field name="file_type">financial</field>
+            <field name="scope">project</field>
+            <field name="sequence">150</field>
+            <field name="has_expiry" eval="True"/>
+        </record>
+
+        <record id="document_type_site_handover" model="construction.document.type">
+            <field name="name">Site Handover Minutes</field>
+            <field name="code">SITE</field>
+            <field name="file_type">contract</field>
+            <field name="scope">project</field>
+            <field name="sequence">160</field>
+        </record>
+
+    </data>
+</odoo>

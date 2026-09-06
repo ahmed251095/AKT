@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_boq_form_ext" model="ir.ui.view">
+        <field name="name">construction.boq.form.ext</field>
+        <field name="model">construction.boq</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_boq_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="before">
+                <field name="use_pricing_formula" optional="hide"/>
+                <field name="dry_cost" sum="Dry Cost"/>
+                <field name="operating_cost" sum="Operating Cost"/>
+                <field name="base_cost" optional="show" sum="Base Cost"/>
+                <field name="profit_percent" optional="hide"/>
+                <field name="contingency_percent" optional="hide"/>
+                <field name="admin_percent" optional="hide"/>
+                <field name="markup_percent" optional="hide"/>
+                <field name="expense_percent" optional="hide"/>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="attributes">
+                <attribute name="readonly">use_pricing_formula</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='cost_rate']" position="attributes">
+                <attribute name="readonly">use_pricing_formula</attribute>
+            </xpath>
+
+            <!-- Over-run is the number the site argues about, so it belongs
+                 next to the executed quantity rather than in a report. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='executed_qty']" position="after">
+                <field name="qty_variance" optional="show"/>
+                <field name="variance_cost" optional="hide" sum="Variance Cost"/>
+                <field name="is_overrun" column_invisible="1"/>
+                <field name="tender_line_id" optional="hide"/>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list" position="attributes">
+                <attribute name="decoration-danger">is_overrun</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

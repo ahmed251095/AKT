@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_hr_case_list" model="ir.ui.view">
+        <field name="name">construction.hr.case.list</field>
+        <field name="model">construction.hr.case</field>
+        <field name="arch" type="xml">
+            <list string="HR Cases" decoration-muted="state in ('done', 'cancelled')">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="employee_id"/>
+                <field name="case_type"/>
+                <field name="rating" optional="show"/>
+                <field name="reported_by" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'done'"
+                       decoration-warning="state == 'in_progress'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_hr_case_form" model="ir.ui.view">
+        <field name="name">construction.hr.case.form</field>
+        <field name="model">construction.hr.case</field>
+        <field name="arch" type="xml">
+            <form string="HR Case">
+                <header>
+                    <button name="action_start" type="object" string="Start"
+                            class="btn-primary" invisible="state != 'open'"/>
+                    <button name="action_close" type="object" string="Close"
+                            class="btn-primary" invisible="state not in ('open', 'in_progress')"/>
+                    <button name="action_cancel" type="object" string="Cancel"
+                            invisible="state in ('done', 'cancelled')"/>
+                    <button name="action_reset" type="object" string="Reset to Open"
+                            invisible="state not in ('done', 'cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="open,in_progress,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="What happened?"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="project_id"/>
+                            <field name="employee_id"/>
+                            <field name="case_type"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="reported_by"/>
+                            <field name="rating" invisible="case_type != 'appraisal'"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" nolabel="1"/>
+                        </page>
+                        <page string="Resolution" name="resolution">
+                            <field name="resolution" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_hr_case_search" model="ir.ui.view">
+        <field name="name">construction.hr.case.search</field>
+        <field name="model">construction.hr.case</field>
+        <field name="arch" type="xml">
+            <search string="HR Cases">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="employee_id"/>
+                <filter name="filter_open" string="Open"
+                        domain="[('state', 'in', ('open', 'in_progress'))]"/>
+                <filter name="filter_appraisal" string="Appraisals"
+                        domain="[('case_type', '=', 'appraisal')]"/>
+                <filter name="filter_issue" string="Issues"
+                        domain="[('case_type', 'in', ('issue', 'warning'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_project" string="Project"
+                            context="{'group_by': 'project_id'}"/>
+                    <filter name="group_employee" string="Employee"
+                            context="{'group_by': 'employee_id'}"/>
+                    <filter name="group_type" string="Type"
+                            context="{'group_by': 'case_type'}"/>
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_hr_case" model="ir.actions.act_window">
+        <field name="name">HR Cases</field>
+        <field name="res_model">construction.hr.case</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_construction_hr_case_search"/>
+        <field name="context">{'search_default_filter_open': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No open case on any site</p>
+            <p>Appraisals, absences and disputes the site supervisor reports back to the office.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_tender_form_ext" model="ir.ui.view">
+        <field name="name">construction.tender.form.ext</field>
+        <field name="model">construction.tender</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_tender_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Preparation no longer starts on a whim: management opens the file. -->
+            <xpath expr="//header/button[@name='action_start']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//header/button[@name='action_submit']" position="before">
+                <button name="action_request_approval" type="object" string="Request Approval"
+                        class="btn-primary" invisible="state != 'draft'"/>
+                <button name="action_approve" type="object" string="Approve Opening"
+                        class="btn-primary" invisible="state != 'pending_approval'"
+                        groups="aos_construction_ext.group_construction_dept_management"/>
+                <button name="action_open_reject_wizard" type="object" string="Reject"
+                        invisible="state != 'pending_approval'"
+                        groups="aos_construction_ext.group_construction_dept_management"/>
+                <button name="action_buy_tender_document" type="object"
+                        string="Booklet Purchased"
+                        invisible="state != 'in_progress' or tender_doc_purchased"/>
+            </xpath>
+
+            <xpath expr="//header/button[@name='action_cancel']" position="after">
+                <button name="action_bond_issued" type="object" string="Bond Issued"
+                        invisible="not bid_bond_required or bid_bond_state != 'to_issue'
+                                   or state in ('draft', 'pending_approval', 'rejected')"/>
+                <button name="action_bond_released" type="object" string="Bond Released"
+                        class="btn-primary"
+                        invisible="bid_bond_state not in ('issued', 'held')"/>
+                <button name="action_bond_forfeited" type="object" string="Bond Forfeited"
+                        invisible="bid_bond_state not in ('issued', 'held')"/>
+                <button name="action_print_pricing_sheet" type="object"
+                        string="Pricing Sheet (Excel)" icon="fa-file-excel-o"
+                        invisible="not line_ids"/>
+            </xpath>
+
+            <xpath expr="//header/field[@name='state']" position="attributes">
+                <attribute name="statusbar_visible">draft,pending_approval,in_progress,submitted,won</attribute>
+            </xpath>
+
+            <!-- Ribbons make the two states that need an eye impossible to miss. -->
+            <xpath expr="//sheet" position="inside">
+                <widget name="web_ribbon" title="Rejected" bg_color="text-bg-danger"
+                        invisible="state != 'rejected'"/>
+                <widget name="web_ribbon" title="Bond Not Released" bg_color="text-bg-warning"
+                        invisible="state != 'bond_pending'"/>
+            </xpath>
+
+            <xpath expr="//page[@string='Loss Reason']" position="attributes">
+                <attribute name="invisible">state not in ('lost', 'bond_pending')</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='tender_type']" position="after">
+                <field name="authority_type_id"/>
+                <field name="operation_duration_days"/>
+            </xpath>
+
+            <xpath expr="//field[@name='responsible_id']" position="after">
+                <field name="financial_responsible_id"/>
+            </xpath>
+
+            <xpath expr="//group[@string='Dates']" position="inside">
+                <field name="envelope_opening_date"/>
+                <field name="award_decision_date"/>
+                <field name="reminder_days"/>
+            </xpath>
+
+            <!-- The build-up columns. The estimator fills the two cost columns;
+                 the rate and the amount follow from them. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="before">
+                <field name="use_pricing_formula" optional="hide"/>
+                <field name="dry_cost" sum="Dry Cost"/>
+                <field name="operating_cost" sum="Operating Cost"/>
+                <field name="base_cost" optional="show" sum="Base Cost"/>
+                <field name="profit_percent" optional="hide"/>
+                <field name="contingency_percent" optional="hide"/>
+                <field name="admin_percent" optional="hide"/>
+                <field name="markup_percent" optional="show"/>
+                <field name="expense_percent" optional="hide"/>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="attributes">
+                <attribute name="readonly">use_pricing_formula</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='cost_rate']" position="attributes">
+                <attribute name="readonly">use_pricing_formula</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='amount']" position="attributes">
+                <attribute name="sum">Total</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']" position="after">
+                <button name="action_apply_company_ratios" type="object"
+                        string="Re-apply company ratios" class="btn-link"
+                        invisible="not line_ids"/>
+            </xpath>
+
+            <!-- New pages, in the order the office works through them. -->
+            <xpath expr="//notebook" position="inside">
+
+                <page string="Approval Request" name="approval">
+                    <group>
+                        <group string="Requested from Management">
+                            <field name="requested_budget"/>
+                            <field name="requested_engineer_ids" widget="many2many_tags"/>
+                        </group>
+                        <group string="Decision">
+                            <field name="approval_user_id"/>
+                            <field name="approval_date"/>
+                        </group>
+                    </group>
+                    <group string="Rejection Reason" invisible="state != 'rejected'">
+                        <field name="rejection_reason" nolabel="1"/>
+                    </group>
+                </page>
+
+                <page string="Booklet &amp; Bond" name="booklet_bond">
+                    <group>
+                        <group string="Conditions Booklet">
+                            <field name="tender_doc_value"/>
+                            <field name="tender_doc_price"/>
+                            <field name="tender_doc_purchased"/>
+                            <field name="tender_doc_purchase_date"
+                                   invisible="not tender_doc_purchased"/>
+                            <field name="tender_doc_payment_id"/>
+                        </group>
+                        <group string="Bid Bond">
+                            <field name="bid_bond_required"/>
+                            <field name="bid_bond_percent" invisible="not bid_bond_required"/>
+                            <field name="bid_bond_amount" invisible="not bid_bond_required"/>
+                            <field name="bid_bond_type" invisible="not bid_bond_required"/>
+                            <field name="bid_bond_state"/>
+                        </group>
+                    </group>
+                    <div class="mb-3">
+                        <button name="action_register_tender_doc_payment" type="object"
+                                string="Register Booklet Fee Payment" class="btn-secondary"
+                                invisible="state in ('draft', 'pending_approval', 'rejected')"/>
+                    </div>
+                    <group invisible="not bid_bond_required">
+                        <group string="Instrument">
+                            <field name="bid_bond_bank_id"/>
+                            <field name="bid_bond_ref"/>
+                        </group>
+                        <group string="Validity">
+                            <field name="bid_bond_issue_date"/>
+                            <field name="bid_bond_expiry_date"/>
+                            <field name="bid_bond_return_date"
+                                   invisible="bid_bond_state not in ('released', 'forfeited')"/>
+                        </group>
+                    </group>
+                </page>
+
+                <page string="Bid File" name="documents">
+                    <div class="mb-3">
+                        <button name="action_load_standard_documents" type="object"
+                                string="Load Standard Checklist" class="btn-secondary"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="document_progress" widget="progressbar"/>
+                            <field name="document_missing_count"/>
+                        </group>
+                        <group>
+                            <field name="technical_file_ready"/>
+                            <field name="financial_file_ready"/>
+                        </group>
+                    </group>
+                    <field name="document_ids">
+                        <list editable="bottom"
+                              decoration-danger="is_expired"
+                              decoration-warning="is_required and not is_submitted">
+                            <field name="sequence" widget="handle"/>
+                            <field name="document_type_id"/>
+                            <field name="file_type"/>
+                            <field name="reference"/>
+                            <field name="expiry_date"/>
+                            <field name="is_expired" optional="hide"/>
+                            <field name="is_required"/>
+                            <field name="is_submitted" widget="boolean_toggle"/>
+                            <field name="attachment_count" string="Files"/>
+                        </list>
+                    </field>
+                </page>
+
+                <page string="Technical Office" name="technical_office">
+                    <group>
+                        <group>
+                            <field name="technical_office_user_id"/>
+                            <field name="technical_review_date"/>
+                        </group>
+                    </group>
+                    <group string="Opinion">
+                        <field name="technical_office_opinion" nolabel="1"
+                               placeholder="Do we bid, and on what terms?"/>
+                    </group>
+                </page>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_tender_list_ext" model="ir.ui.view">
+        <field name="name">construction.tender.list.ext</field>
+        <field name="model">construction.tender</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_tender_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='state']" position="before">
+                <field name="authority_type_id" optional="show"/>
+                <field name="bid_bond_amount" optional="hide"/>
+                <field name="bid_bond_state" optional="hide"/>
+                <field name="document_missing_count" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_tender_search" model="ir.ui.view">
+        <field name="name">construction.tender.search</field>
+        <field name="model">construction.tender</field>
+        <field name="arch" type="xml">
+            <search string="Tenders">
+                <field name="name"/>
+                <field name="ref"/>
+                <field name="client_id"/>
+                <field name="responsible_id"/>
+                <field name="authority_type_id"/>
+                <filter name="filter_live" string="Live"
+                        domain="[('state', 'in', ('draft', 'pending_approval', 'in_progress', 'submitted'))]"/>
+                <filter name="filter_waiting_approval" string="Waiting Approval"
+                        domain="[('state', '=', 'pending_approval')]"/>
+                <filter name="filter_won" string="Won" domain="[('state', '=', 'won')]"/>
+                <filter name="filter_rejected" string="Rejected"
+                        domain="[('state', '=', 'rejected')]"/>
+                <separator/>
+                <filter name="filter_bond_outstanding" string="Bond Outstanding"
+                        domain="[('bid_bond_state', 'in', ('issued', 'held'))]"/>
+                <filter name="filter_incomplete_file" string="Incomplete Bid File"
+                        domain="[('document_missing_count', '>', 0)]"/>
+                <separator/>
+                <filter name="filter_deadline_week" string="Deadline in 7 Days"
+                        domain="[('submission_deadline', '&gt;=', context_today().strftime('%Y-%m-%d')),
+                                 ('submission_deadline', '&lt;', (context_today() + relativedelta(days=7)).strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="group_client" string="Client" context="{'group_by': 'client_id'}"/>
+                    <filter name="group_authority" string="Authority Type"
+                            context="{'group_by': 'authority_type_id'}"/>
+                    <filter name="group_responsible" string="Tender Engineer"
+                            context="{'group_by': 'responsible_id'}"/>
+                    <filter name="group_deadline" string="Submission Deadline"
+                            context="{'group_by': 'submission_deadline'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>
