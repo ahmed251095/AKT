@@ -820,6 +820,13 @@ msgid "Issuing Bank"
 msgstr "البنك المُصدِر"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_boq_line.py:0
+#: code:addons/aos_construction_ext/models/construction_tender_line.py:0
+msgid "Item"
+msgstr "بند"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__margin
 msgid "Item Margin"
 msgstr "هامش البند"

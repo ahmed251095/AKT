@@ -440,4 +440,5 @@ AR = {
     "Certified Quantity": "الكمية المعتمدة",
     "Remaining Quantity": "الكمية المتبقية",
     "Add Unassigned BOQ Items": "إضافة بنود المقايسة غير المسندة",
+    "Item": "بند",
 }

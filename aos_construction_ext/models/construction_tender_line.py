@@ -71,3 +71,11 @@ class ConstructionTenderLine(models.Model):
     def action_apply_company_ratios(self):
         """Pull the company ratios back onto these items."""
         self.write(pricing.default_ratios(self.env.company))
+
+    @api.depends('item_no', 'description')
+    def _compute_display_name(self):
+        """The base module gives these lines no name, so Odoo falls back to
+        "construction.boq.line,3" wherever one is referenced."""
+        for line in self:
+            parts = [part for part in (line.item_no, line.description) if part]
+            line.display_name = ' - '.join(parts) or self.env._('Item')
