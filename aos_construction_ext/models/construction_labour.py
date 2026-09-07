@@ -52,11 +52,14 @@ class ConstructionLabourLine(models.Model):
     shift_count = fields.Integer(
         string='Shifts', default=1, required=True,
         help='How many shifts this crew is needed for.')
+    # One compute per field on purpose: Odoo protects every field of a compute
+    # method when any one of them is written, so sharing a method would leave
+    # the hours at zero as soon as someone types a rate.
     hours_per_shift = fields.Float(
-        string='Hours per Shift', compute='_compute_from_type', store=True,
-        readonly=False)
+        string='Hours per Shift', compute='_compute_hours_per_shift',
+        store=True, readonly=False)
     shift_rate = fields.Monetary(
-        string='Rate per Person / Shift', compute='_compute_from_type',
+        string='Rate per Person / Shift', compute='_compute_shift_rate',
         store=True, readonly=False)
 
     man_shifts = fields.Integer(
@@ -73,11 +76,17 @@ class ConstructionLabourLine(models.Model):
     note = fields.Char(string='Notes')
 
     @api.depends('labour_type_id')
-    def _compute_from_type(self):
+    def _compute_hours_per_shift(self):
         for line in self:
             if not line.labour_type_id:
                 continue
             line.hours_per_shift = line.labour_type_id.default_hours
+
+    @api.depends('labour_type_id')
+    def _compute_shift_rate(self):
+        for line in self:
+            if not line.labour_type_id:
+                continue
             line.shift_rate = line.labour_type_id.default_shift_rate
 
     @api.depends('crew_size', 'shift_count', 'hours_per_shift', 'shift_rate')
