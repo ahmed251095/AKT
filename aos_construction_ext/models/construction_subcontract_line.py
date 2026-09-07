@@ -55,11 +55,26 @@ class ConstructionSubcontractLine(models.Model):
     margin_percent = fields.Float(
         string='Item Margin (%)', compute='_compute_amounts', store=True)
 
+    progress_percent = fields.Float(
+        string='Progress (%)',
+        help='How much of this item the engineer accepts as complete. This is '
+             'what the next certificate is measured from.')
+    progress_qty = fields.Float(
+        string='Completed Quantity', compute='_compute_progress', store=True,
+        digits=(12, 3))
+
     certified_qty = fields.Float(
         string='Certified Quantity', compute='_compute_certified',
         help='Quantity of this item already certified to the subcontractor.')
     remaining_qty = fields.Float(
         string='Remaining Quantity', compute='_compute_certified')
+    qty_to_certify = fields.Float(
+        string='Quantity to Certify', compute='_compute_certified',
+        digits=(12, 3),
+        help='Completed less already certified: what the next certificate '
+             'covers.')
+    amount_to_certify = fields.Monetary(
+        string='Value to Certify', compute='_compute_certified')
 
     currency_id = fields.Many2one(
         related='subcontract_id.currency_id', string='Currency')
@@ -82,6 +97,11 @@ class ConstructionSubcontractLine(models.Model):
             line.margin_percent = (
                 100.0 * line.margin / revenue) if revenue else 0.0
 
+    @api.depends('qty', 'progress_percent')
+    def _compute_progress(self):
+        for line in self:
+            line.progress_qty = line.qty * line.progress_percent / 100.0
+
     def _compute_certified(self):
         Billing = self.env['construction.ra.billing.line']
         for line in self:
@@ -93,6 +113,11 @@ class ConstructionSubcontractLine(models.Model):
             ])
             line.certified_qty = sum(certified.mapped('qty_current'))
             line.remaining_qty = line.qty - line.certified_qty
+            # Never bill backwards: a certificate covers what has been
+            # completed since the last one, never a negative correction.
+            line.qty_to_certify = max(
+                line.progress_qty - line.certified_qty, 0.0)
+            line.amount_to_certify = line.qty_to_certify * line.unit_price
 
     @api.onchange('boq_line_id')
     def _onchange_boq_line_id(self):

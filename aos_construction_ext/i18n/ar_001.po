@@ -322,6 +322,12 @@ msgid "Cash Deposit"
 msgstr "إيداع نقدي"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_subcontract.py:0
+msgid "Certificate - %s"
+msgstr "مستخلص - %s"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_type__cheque
 msgid "Certified Cheque"
 msgstr "شيك مقبول الدفع"
@@ -365,6 +371,11 @@ msgstr "ملاحظات الإقفال"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__code
 msgid "Code"
 msgstr "الكود"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__progress_qty
+msgid "Completed Quantity"
+msgstr "الكمية المنجزة"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
@@ -959,6 +970,12 @@ msgid "Notes"
 msgstr "ملاحظات"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_subcontract.py:0
+msgid "Nothing new to certify. Set the progress on the assigned items first."
+msgstr "لا يوجد جديد للاستخلاص. حدد نسبة الإنجاز على البنود المسندة أولاً."
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 msgid "On Hold"
@@ -1148,6 +1165,12 @@ msgid "Profit Statement"
 msgstr "بيان الأرباح"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__progress_percent
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__progress_percent
+msgid "Progress (%)"
+msgstr "نسبة الإنجاز (%)"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project_hold__project_id
@@ -1210,6 +1233,16 @@ msgstr "تاريخ الشراء"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__qty_variance
 msgid "Quantity Variance"
 msgstr "فرق الكمية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__qty_to_certify
+msgid "Quantity to Certify"
+msgstr "الكمية المستحقة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
+msgid "Raise Certificate"
+msgstr "إصدار مستخلص"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__rating
@@ -1499,6 +1532,12 @@ msgid "Subcontract Item"
 msgstr "بند إسناد"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_subcontract.py:0
+msgid "Subcontractor Certificate"
+msgstr "مستخلص مقاول باطن"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_subcontract
 msgid "Subcontractor Expenses"
 msgstr "مصروفات مقاولي الباطن"
@@ -1707,6 +1746,12 @@ msgstr "يُستخدم في"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Validity"
 msgstr "سريان الضمان"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__amount_to_certify
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__amount_to_certify
+msgid "Value to Certify"
+msgstr "القيمة المستحقة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__variance_cost

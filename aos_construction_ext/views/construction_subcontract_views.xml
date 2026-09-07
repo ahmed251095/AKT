@@ -11,6 +11,12 @@
                 <attribute name="readonly">line_ids</attribute>
             </xpath>
 
+            <xpath expr="//header" position="inside">
+                <button name="action_create_certificate" type="object"
+                        string="Raise Certificate" class="btn-primary"
+                        invisible="state not in ('active', 'completed') or amount_to_certify &lt;= 0"/>
+            </xpath>
+
             <xpath expr="//notebook" position="inside">
                 <page string="Assigned Items" name="assigned_items">
                     <div class="mb-3">
@@ -18,6 +24,14 @@
                                 string="Add Unassigned BOQ Items" class="btn-secondary"
                                 invisible="not project_id"/>
                     </div>
+                    <group>
+                        <group>
+                            <field name="progress_percent" widget="progressbar"/>
+                        </group>
+                        <group>
+                            <field name="amount_to_certify"/>
+                        </group>
+                    </group>
                     <field name="line_ids">
                         <list editable="bottom">
                             <field name="sequence" widget="handle"/>
@@ -32,9 +46,14 @@
                             <field name="boq_cost_rate" optional="hide"/>
                             <field name="unit_price"/>
                             <field name="amount" sum="Assigned Value"/>
-                            <field name="margin" sum="Item Margin"/>
-                            <field name="margin_percent" optional="show"/>
-                            <field name="certified_qty" optional="hide"/>
+                            <field name="progress_percent"/>
+                            <field name="progress_qty" optional="show"/>
+                            <field name="certified_qty" optional="show"/>
+                            <field name="qty_to_certify" optional="show"/>
+                            <field name="amount_to_certify" optional="show"
+                                   sum="Value to Certify"/>
+                            <field name="margin" optional="hide" sum="Item Margin"/>
+                            <field name="margin_percent" optional="hide"/>
                             <field name="remaining_qty" optional="hide"/>
                             <field name="notes" optional="hide"/>
                             <field name="currency_id" column_invisible="1"/>
@@ -56,8 +75,9 @@
         <field name="inherit_id" ref="aos_construction_management.view_construction_subcontract_list"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='contract_value']" position="after">
+                <field name="progress_percent" widget="progressbar" optional="show"/>
                 <field name="assigned_margin" optional="show"/>
-                <field name="assigned_margin_percent" optional="show"/>
+                <field name="assigned_margin_percent" optional="hide"/>
             </xpath>
         </field>
     </record>
