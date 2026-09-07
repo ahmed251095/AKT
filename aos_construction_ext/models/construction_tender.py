@@ -312,6 +312,15 @@ class ConstructionTender(models.Model):
     # ------------------------------------------------------------------
     # Tender document purchase
     # ------------------------------------------------------------------
+    def write(self, vals):
+        result = super().write(vals)
+        if vals.get('tender_doc_payment_id'):
+            # Mirror the link so the payment knows which tender it settles.
+            self.env['account.payment'].browse(
+                vals['tender_doc_payment_id']
+            ).construction_tender_id = self[:1]
+        return result
+
     def action_buy_tender_document(self):
         """Record that the conditions booklet was bought."""
         for tender in self:
@@ -339,6 +348,7 @@ class ConstructionTender(models.Model):
             'view_mode': 'form',
             'target': 'current',
             'context': {
+                'default_construction_tender_id': self.id,
                 'default_payment_type': 'outbound',
                 'default_partner_type': 'supplier',
                 'default_partner_id': self.client_id.id,

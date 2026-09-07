@@ -326,6 +326,12 @@ msgstr "كراسة الشروط"
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/account_payment.py:0
+msgid "Conditions booklet fee settled by %s."
+msgstr "تم سداد ثمن كراسة الشروط بالسند %s."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Conditions booklet purchased for %s."
 msgstr "تم شراء كراسة الشروط بمبلغ %s."
@@ -1422,6 +1428,11 @@ msgstr "مناقصة"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_price
 msgid "Tender Document Fee"
 msgstr "ثمن كراسة الشروط"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_account_payment__construction_tender_id
+msgid "Tender Document Fee For"
+msgstr "ثمن كراسة شروط لـ"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search

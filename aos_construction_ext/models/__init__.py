@@ -1,5 +1,6 @@
 from . import hooks
 from . import res_company
+from . import account_payment
 from . import res_config_settings
 from . import construction_authority_type
 from . import construction_document_type

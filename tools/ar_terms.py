@@ -410,4 +410,6 @@ AR = {
     "HR Cases": "حالات الموارد البشرية",
     "Only the construction management can answer a request to open an operation.":
         "لا يرد على طلب فتح العملية إلا إدارة المقاولات.",
+    "Tender Document Fee For": "ثمن كراسة شروط لـ",
+    "Conditions booklet fee settled by %s.": "تم سداد ثمن كراسة الشروط بالسند %s.",
 }
