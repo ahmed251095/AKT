@@ -29,6 +29,10 @@
 
             <!-- Over-run is the number the site argues about, so it belongs
                  next to the executed quantity rather than in a report. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='executed_qty']" position="before">
+                <field name="progress_qty" optional="show"/>
+            </xpath>
+
             <xpath expr="//field[@name='line_ids']/list/field[@name='executed_qty']" position="after">
                 <field name="qty_variance" optional="show"/>
                 <field name="variance_cost" optional="hide" sum="Variance Cost"/>

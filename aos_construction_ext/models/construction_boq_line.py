@@ -140,6 +140,26 @@ class ConstructionBoqLine(models.Model):
             line.subcontract_margin_percent = (
                 100.0 * line.subcontract_margin / revenue) if revenue else 0.0
 
+    # ------------------------------------------------------------------
+    # Progress
+    # ------------------------------------------------------------------
+    progress_qty = fields.Float(
+        string='Completed Quantity', compute='_compute_overall_progress',
+        digits=(12, 3),
+        help='Executed by our own crews plus certified to subcontractors.')
+    progress_percent = fields.Float(
+        compute='_compute_overall_progress',
+        help='Work done against the bill of quantities. The base module '
+             'counted work orders only, so an item built entirely by a '
+             'subcontractor stayed at zero however much of it was certified.')
+
+    def _compute_overall_progress(self):
+        for line in self:
+            done = line.executed_qty + line.subcontract_certified_qty
+            line.progress_qty = min(done, line.qty) if line.qty else done
+            line.progress_percent = (
+                min(100.0, done / line.qty * 100.0)) if line.qty else 0.0
+
     @api.depends('item_no', 'description')
     def _compute_display_name(self):
         """The base module gives these lines no name, so Odoo falls back to

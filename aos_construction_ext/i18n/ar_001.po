@@ -378,6 +378,7 @@ msgid "Code"
 msgstr "الكود"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__progress_qty
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__progress_qty
 msgid "Completed Quantity"
 msgstr "الكمية المنجزة"
@@ -1174,6 +1175,11 @@ msgstr "بيان الأرباح"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__progress_percent
 msgid "Progress (%)"
 msgstr "نسبة الإنجاز (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__progress_percent
+msgid "Progress Percent"
+msgstr "نسبة الإنجاز"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__project_id
