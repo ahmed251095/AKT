@@ -1,6 +1,8 @@
 from odoo import api, fields, models
 from odoo.exceptions import UserError
 
+from .construction_wbs import _weighted_progress
+
 #: Expense categories of the base module, mapped onto the cost lines the
 #: management report is read by.
 EXPENSE_FIELDS = {
@@ -212,6 +214,22 @@ class ConstructionProject(models.Model):
     # ------------------------------------------------------------------
     # Computes
     # ------------------------------------------------------------------
+    def _compute_progress(self):
+        """Progress from the items themselves, weighted by their value.
+
+        The base module averaged the phases evenly, so a phase worth ten
+        thousand counted as much as one worth a million -- and it read a
+        figure typed on the phase rather than the work recorded against the
+        items, so a fully executed project could still show zero.
+        """
+        BoqLine = self.env['construction.boq.line']
+        for project in self:
+            lines = BoqLine.search([
+                ('boq_id.project_id', '=', project.id),
+                ('is_section', '=', False),
+            ])
+            project.progress = _weighted_progress(lines)
+
     @api.depends('employee_ids')
     def _compute_employee_count(self):
         for project in self:
