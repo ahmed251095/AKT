@@ -11,21 +11,19 @@ class ConstructionWorkOrder(models.Model):
 
     # The base module leaves these as plain fields nobody fills, so a work
     # order whose lines carry real money shows zero at the top.
-    planned_cost = fields.Monetary(
-        compute='_compute_line_costs', store=True, readonly=False)
-    actual_cost = fields.Monetary(
-        compute='_compute_line_costs', store=True, readonly=False)
+    # Not stored: the line figures are computed live from purchase and
+    # expense records, and a stored total cannot be told when those change.
+    planned_cost = fields.Monetary(compute='_compute_line_costs')
+    actual_cost = fields.Monetary(compute='_compute_line_costs')
     earned_cost = fields.Monetary(
-        string='Earned Cost', compute='_compute_line_costs', store=True,
+        string='Earned Cost', compute='_compute_line_costs',
         help='Accepted work valued at the item cost rates: what it should '
              'have cost.')
     cost_variance = fields.Monetary(
-        string='Cost Variance', compute='_compute_line_costs', store=True,
+        string='Cost Variance', compute='_compute_line_costs',
         help='Earned cost less what was actually spent. Negative means the '
              'work cost more than the rates allowed.')
 
-    @api.depends('line_ids.planned_cost', 'line_ids.actual_cost',
-                 'line_ids.earned_cost')
     def _compute_line_costs(self):
         for order in self:
             order.planned_cost = sum(order.line_ids.mapped('planned_cost'))
