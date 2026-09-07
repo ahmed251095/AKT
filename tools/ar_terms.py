@@ -347,4 +347,65 @@ AR = {
     "Reminder Submission Sent": "تم إرسال تذكير التسليم",
     "Reminder Envelope Sent": "تم إرسال تذكير فتح المظاريف",
     "Reminder Award Sent": "تم إرسال تذكير البت",
+
+    # ---- messages shown to the user from code ----
+    "Set the tendering authority before asking for approval.":
+        "حدد الجهة المالكة قبل طلب الموافقة.",
+    "Set the submission deadline before asking for approval.":
+        "حدد موعد التسليم قبل طلب الموافقة.",
+    "Only a draft tender can be sent for approval.":
+        "لا تُرسل للموافقة إلا مناقصة في حالة مسودة.",
+    "Only a tender waiting for approval can be approved.":
+        "لا يُعتمد إلا ما هو بانتظار موافقة الإدارة.",
+    "Only a tender waiting for approval can be rejected.":
+        "لا يُرفض إلا ما هو بانتظار موافقة الإدارة.",
+    "Only a tender the management has approved and the technical office is studying can be submitted.":
+        "لا يُقدَّم العطاء إلا لمناقصة اعتمدتها الإدارة ويدرسها المكتب الفني.",
+    "The booklet fee can only be spent after management has approved opening the tender.":
+        "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإدارة لفتح العملية.",
+    "The bid bond has to be issued before the bid is submitted.":
+        "يجب إصدار التأمين الابتدائي قبل تقديم العطاء.",
+    "These required documents are still missing:\\n%s":
+        "المستندات المطلوبة الآتية ما زالت ناقصة:\\n%s",
+    "These documents have expired:\\n%s":
+        "المستندات الآتية منتهية الصلاحية:\\n%s",
+    "Price the tender items before submitting.":
+        "سعّر بنود المناقصة قبل التقديم.",
+    "Set the tender document fee first.":
+        "حدد ثمن كراسة الشروط أولاً.",
+    'Record the initial handover date before closing "%s".':
+        'سجّل تاريخ التسليم الابتدائي قبل إقفال "%s".',
+    'The performance bond of "%s" has not been released yet.':
+        'التأمين النهائي لـ "%s" لم يُرد بعد.',
+    '"%(project)s" still has %(count)s payment certificate(s) that are neither approved nor cancelled.':
+        '"%(project)s" ما زال به %(count)s مستخلص غير معتمد وغير ملغي.',
+    "Only a running project can move to handover.":
+        "لا ينتقل للتسليم إلا مشروع جارٍ.",
+    '"%s" already exists.': '"%s" موجود بالفعل.',
+
+    # chatter and activity messages
+    "Opening approved. Budget released: %(budget)s.":
+        "تم اعتماد فتح العملية. المبلغ المفرج عنه: %(budget)s.",
+    "Opening rejected. Reason: %s": "تم رفض فتح العملية. السبب: %s",
+    "Approve opening of tender %s": "اعتماد فتح المناقصة %s",
+    "Requested budget: %(budget)s. Submission deadline: %(deadline)s.":
+        "المبلغ المطلوب: %(budget)s. موعد التسليم: %(deadline)s.",
+    "Answered by management.": "تم الرد من الإدارة.",
+    "Conditions booklet purchased for %s.": "تم شراء كراسة الشروط بمبلغ %s.",
+    "Tender lost. Kept open until the bid bond of %s is released.":
+        "خسرنا المناقصة. تبقى مفتوحة حتى يُرد التأمين الابتدائي %s.",
+    "Bid bond released.": "تم رد التأمين الابتدائي.",
+    "Bid bond forfeited: %s.": "تمت مصادرة التأمين الابتدائي: %s.",
+    "Performance bond released.": "تم رد التأمين النهائي.",
+    "Project put on hold. Reason: %s": "تم إيقاف المشروع. السبب: %s",
+    "%(label)s for %(tender)s": "%(label)s لـ %(tender)s",
+    "Due on %s.": "الموعد %s.",
+    "Tender document fee - %s": "ثمن كراسة الشروط - %s",
+
+    # window titles opened from code
+    "Reject Tender": "رفض المناقصة",
+    "Hold Project": "إيقاف المشروع",
+    "Project Documents": "مستندات المشروع",
+    "Tender Document Fee": "ثمن كراسة الشروط",
+    "HR Cases": "حالات الموارد البشرية",
 }

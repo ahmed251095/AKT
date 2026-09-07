@@ -101,6 +101,21 @@ def parse_python(module):
                                sm.group(2))
 
 
+def parse_code(module):
+    """Messages raised from Python are referenced by their source path."""
+    for path in sorted(glob.glob(f'{BASE}/{module}/models/*.py') +
+                       glob.glob(f'{BASE}/{module}/wizard/*.py') +
+                       glob.glob(f'{BASE}/{module}/controllers/*.py')):
+        rel = os.path.relpath(path, BASE)
+        text = open(path).read()
+        for m in re.finditer(r"(?:self\.env\._|_)\(\s*((?:(['\"])(?:[^'\"\\\\]|\\\\.)*\2\s*)+)",
+                             text):
+            parts = re.findall(r"(['\"])((?:[^'\"\\\\]|\\\\.)*)\1", m.group(1))
+            src = ''.join(p[1] for p in parts)
+            if src:
+                yield (f'code:addons/{rel}:0', src)
+
+
 def parse_xml(module):
     for path in sorted(glob.glob(f'{BASE}/{module}/views/*.xml') +
                        glob.glob(f'{BASE}/{module}/wizard/*.xml')):
@@ -134,7 +149,8 @@ def parse_xml(module):
 def build():
     entries = {}   # source -> {module -> set(occurrences)}
     for module in MODULES:
-        for occ, src in list(parse_python(module)) + list(parse_xml(module)):
+        for occ, src in (list(parse_python(module)) + list(parse_xml(module))
+                         + list(parse_code(module))):
             if src not in AR:
                 continue
             entries.setdefault(src, {}).setdefault(module, set()).add(occ)

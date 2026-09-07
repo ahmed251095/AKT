@@ -64,6 +64,7 @@ msgid "Advance %"
 msgstr "نسبة الدفعة المقدمة"
 
 #. module: aos_construction_management
+#: code:addons/aos_construction_management/models/construction_billing.py:0
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__advance_recovery
 msgid "Advance Recovery"
 msgstr "خصم الدفعة المقدمة"
@@ -999,6 +1000,7 @@ msgid "Other"
 msgstr "أخرى"
 
 #. module: aos_construction_management
+#: code:addons/aos_construction_management/models/construction_billing.py:0
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__other_deductions
 msgid "Other Deductions"
 msgstr "استقطاعات أخرى"
@@ -1164,6 +1166,7 @@ msgid "Progress Percent"
 msgstr "نسبة الإنجاز"
 
 #. module: aos_construction_management
+#: code:addons/aos_construction_management/models/construction_tender.py:0
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__project_id
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_expense__project_id
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__project_id
@@ -1319,6 +1322,7 @@ msgid "RFQs & POs"
 msgstr "طلبات الأسعار وأوامر الشراء"
 
 #. module: aos_construction_management
+#: code:addons/aos_construction_management/models/construction_material_requisition.py:0
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__purchase_order_ids
 msgid "RFQs / Purchase Orders"
 msgstr "طلبات الأسعار / أوامر الشراء"

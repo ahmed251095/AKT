@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Every percentage in the base module is computed as (a / b * 100), so it
+        already carries a 0-100 figure. The views then render it with
+        widget="percentage", which multiplies by 100 a second time: a 41.52%
+        margin displays as 4152.05%. Dropping the widget shows the real number.
+    -->
+
+    <record id="view_construction_tender_form_percentage_fix" model="ir.ui.view">
+        <field name="name">construction.tender.form.percentage.fix</field>
+        <field name="model">construction.tender</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_tender_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='estimated_margin_percent']" position="attributes">
+                <attribute name="widget"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_tender_list_percentage_fix" model="ir.ui.view">
+        <field name="name">construction.tender.list.percentage.fix</field>
+        <field name="model">construction.tender</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_tender_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='estimated_margin_percent']" position="attributes">
+                <attribute name="widget"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_wbs_form_percentage_fix" model="ir.ui.view">
+        <field name="name">construction.wbs.form.percentage.fix</field>
+        <field name="model">construction.wbs</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_wbs_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='progress_percent']" position="attributes">
+                <attribute name="widget"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_boq_form_percentage_fix" model="ir.ui.view">
+        <field name="name">construction.boq.form.percentage.fix</field>
+        <field name="model">construction.boq</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_boq_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='progress_percent']" position="attributes">
+                <attribute name="widget"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_ra_billing_form_percentage_fix" model="ir.ui.view">
+        <field name="name">construction.ra.billing.form.percentage.fix</field>
+        <field name="model">construction.ra.billing</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_ra_billing_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='progress_percent']" position="attributes">
+                <attribute name="widget"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_work_order_form_percentage_fix" model="ir.ui.view">
+        <field name="name">construction.work.order.form.percentage.fix</field>
+        <field name="model">construction.work.order</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_work_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='progress_percent']" position="attributes">
+                <attribute name="widget"/>
+            </xpath>
+            <xpath expr="//field[@name='completion_percent']" position="attributes">
+                <attribute name="widget"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_work_order_list_percentage_fix" model="ir.ui.view">
+        <field name="name">construction.work.order.list.percentage.fix</field>
+        <field name="model">construction.work.order</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_work_order_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='progress_percent']" position="attributes">
+                <attribute name="widget"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
