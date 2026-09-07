@@ -445,9 +445,11 @@ AR = {
     "Completed Quantity": "الكمية المنجزة",
     "Quantity to Certify": "الكمية المستحقة",
     "Value to Certify": "القيمة المستحقة",
-    "Raise Certificate": "إصدار مستخلص",
     "Subcontractor Certificate": "مستخلص مقاول باطن",
     "Certificate - %s": "مستخلص - %s",
     "Nothing new to certify. Set the progress on the assigned items first.":
         "لا يوجد جديد للاستخلاص. حدد نسبة الإنجاز على البنود المسندة أولاً.",
+    "Certify Progress": "استخلاص الإنجاز",
+    "Blank Certificate": "مستخلص فارغ",
+    "New Certificate": "مستخلص فارغ",
 }

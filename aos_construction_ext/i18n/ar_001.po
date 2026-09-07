@@ -343,6 +343,11 @@ msgid "Certified Subcontractor Work"
 msgstr "أعمال مقاولي الباطن المعتمدة"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
+msgid "Certify Progress"
+msgstr "استخلاص الإنجاز"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
@@ -1238,11 +1243,6 @@ msgstr "فرق الكمية"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__qty_to_certify
 msgid "Quantity to Certify"
 msgstr "الكمية المستحقة"
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
-msgid "Raise Certificate"
-msgstr "إصدار مستخلص"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__rating

@@ -952,7 +952,7 @@ msgstr "صافي المستحق"
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
 msgid "New Certificate"
-msgstr "مستخلص جديد"
+msgstr "مستخلص فارغ"
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__priority__0

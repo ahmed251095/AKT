@@ -11,9 +11,14 @@
                 <attribute name="readonly">line_ids</attribute>
             </xpath>
 
+            <xpath expr="//header/button[@name='action_create_certificate']" position="attributes">
+                <attribute name="string">Blank Certificate</attribute>
+                <attribute name="class">btn-secondary</attribute>
+            </xpath>
+
             <xpath expr="//header" position="inside">
-                <button name="action_create_certificate" type="object"
-                        string="Raise Certificate" class="btn-primary"
+                <button name="action_certify_progress" type="object"
+                        string="Certify Progress" class="btn-primary"
                         invisible="state not in ('active', 'completed') or amount_to_certify &lt;= 0"/>
             </xpath>
 

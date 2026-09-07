@@ -61,8 +61,14 @@ class ConstructionSubcontract(models.Model):
                 continue
             contract.contract_value = sum(contract.line_ids.mapped('amount'))
 
-    def action_create_certificate(self):
-        """Raise the interim certificate for the progress accepted so far."""
+    def action_certify_progress(self):
+        """Raise the interim certificate for the progress accepted so far.
+
+        Deliberately a different method from the base module's
+        ``action_create_certificate``, which opens an empty certificate for
+        someone to fill in by hand. Both are useful: this one measures the
+        assigned items, that one covers anything outside them.
+        """
         self.ensure_one()
         pending = self.line_ids.filtered(lambda l: l.qty_to_certify > 0)
         if not pending:
@@ -83,6 +89,7 @@ class ConstructionSubcontract(models.Model):
             'project_id': self.project_id.id,
             'partner_id': self.subcontractor_id.id,
             'subcontract_id': self.id,
+            'purchase_order_id': self.purchase_order_id.id,
             'billing_date': fields.Date.context_today(self),
             'retention_percent': self.retention_percent,
             'line_ids': [
