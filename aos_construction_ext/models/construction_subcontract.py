@@ -43,6 +43,16 @@ class ConstructionSubcontract(models.Model):
                 continue
             contract.contract_value = sum(contract.line_ids.mapped('amount'))
 
+    def unlink(self):
+        """Delete the items through the ORM before the contract goes.
+
+        The cascade is a database constraint, so it removes the rows without
+        telling the ORM, and the BOQ would keep showing quantities as assigned
+        to a contract that no longer exists.
+        """
+        self.line_ids.unlink()
+        return super().unlink()
+
     def action_add_remaining_boq_items(self):
         """Fill the contract with everything on the BOQ nobody has yet."""
         Line = self.env['construction.subcontract.line']
