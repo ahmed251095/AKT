@@ -315,10 +315,12 @@ class ConstructionTender(models.Model):
     def write(self, vals):
         result = super().write(vals)
         if vals.get('tender_doc_payment_id'):
-            # Mirror the link so the payment knows which tender it settles.
-            self.env['account.payment'].browse(
-                vals['tender_doc_payment_id']
-            ).construction_tender_id = self[:1]
+            # Mirror the link so the payment knows which tender it settles,
+            # but only when it differs -- the payment writes back to us.
+            payment = self.env['account.payment'].browse(
+                vals['tender_doc_payment_id'])
+            if payment.construction_tender_id != self[:1]:
+                payment.construction_tender_id = self[:1]
         return result
 
     def action_buy_tender_document(self):

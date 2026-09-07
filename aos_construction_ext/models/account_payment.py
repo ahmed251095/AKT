@@ -37,14 +37,22 @@ class AccountPayment(models.Model):
             if not tender:
                 continue
             if payment.state in SETTLED_STATES:
+                if (tender.tender_doc_payment_id == payment
+                        and tender.tender_doc_purchased
+                        and tender.tender_doc_purchase_date == payment.date):
+                    # Already in step. Writing again would bounce back here
+                    # through the tender's own mirror and never settle.
+                    continue
                 tender.write({
                     'tender_doc_payment_id': payment.id,
                     'tender_doc_purchased': True,
                     'tender_doc_purchase_date': payment.date,
                 })
                 tender.message_post(body=tender.env._(
-                    'Conditions booklet fee settled by %s.', payment.display_name))
-            elif tender.tender_doc_payment_id == payment:
+                    'Conditions booklet fee settled by %s.',
+                    payment.display_name))
+            elif tender.tender_doc_payment_id == payment \
+                    and tender.tender_doc_purchased:
                 tender.write({
                     'tender_doc_purchased': False,
                     'tender_doc_purchase_date': False,
