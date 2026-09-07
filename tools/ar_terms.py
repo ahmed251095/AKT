@@ -456,4 +456,59 @@ AR = {
     "Done by Subcontractors": "منجز بالباطن",
     "In-house Scope": "نصيب التنفيذ الذاتي",
     "Still Available": "المتاح للتخطيط",
+    # ---- validation messages from the base module ----
+    "Accepted quantity cannot exceed executed quantity.":
+        "الكمية المقبولة لا تتجاوز الكمية المنفذة.",
+    "Accepted quantity exceeds the BOQ contract quantity.":
+        "الكمية المقبولة تتجاوز كمية المقايسة التعاقدية.",
+    "Work order quantities cannot be negative.":
+        "كميات أمر الشغل لا تكون بالسالب.",
+    "Cumulative quantity cannot exceed contract quantity.":
+        "الكمية التراكمية لا تتجاوز الكمية التعاقدية.",
+    "Contract value cannot be negative.": "قيمة العقد لا تكون بالسالب.",
+    "Net payable cannot be negative.": "صافي المستحق لا يكون بالسالب.",
+    "End date cannot be earlier than start date.":
+        "تاريخ الانتهاء لا يسبق تاريخ البدء.",
+    "Billing period end cannot be earlier than start.":
+        "نهاية فترة المستخلص لا تسبق بدايتها.",
+    "Required date cannot be earlier than request date.":
+        "التاريخ المطلوب لا يسبق تاريخ الطلب.",
+    "Submission deadline cannot be earlier than the issue date.":
+        "موعد التسليم لا يسبق تاريخ الإصدار.",
+
+    "Add at least one material line before submitting.":
+        "أضف بند مواد واحداً على الأقل قبل التقديم.",
+    "Add at least one priced item before submitting the tender.":
+        "أضف بنداً مسعّراً واحداً على الأقل قبل تقديم المناقصة.",
+    "Add certificate lines before submitting.":
+        "أضف بنود المستخلص قبل التقديم.",
+    "Add tender items before converting to a project.":
+        "أضف بنود المناقصة قبل تحويلها إلى مشروع.",
+    "This tender has already been converted into a project.":
+        "هذه المناقصة تم تحويلها إلى مشروع بالفعل.",
+    "Approve the certificate first.": "اعتمد المستخلص أولاً.",
+    "The requisition must be approved before creating an RFQ.":
+        "يجب اعتماد طلب التوريد قبل إنشاء طلب عرض السعر.",
+    "Select a preferred vendor first.": "اختر المورد المفضل أولاً.",
+    "Select a service product for the subcontract.":
+        "اختر منتج الخدمة الخاص بتعاقد الباطن.",
+    "No approved product quantities are available.":
+        "لا توجد كميات معتمدة متاحة.",
+    "Set the service product on the subcontract, or on these BOQ ":
+        "حدد منتج الخدمة على تعاقد الباطن، أو على بنود المقايسة الآتية ",
+
+    # report and record labels built in code
+    "%s - Initial BOQ": "%s - المقايسة المبدئية",
+    "%s Certificate": "مستخلص %s",
+    "Subcontractor Certificates": "مستخلصات مقاولي الباطن",
+    "Retention Deduction": "خصم المحتجز",
+    "Pricing": "التسعير",
+    "No.": "م",
+    "Quantity": "الكمية",
+    "Unit": "الوحدة",
+    "Total": "الإجمالي",
+    "Profit %": "نسبة الربح %",
+    "Contingency %": "نسبة الطوارئ %",
+    "Administration %": "نسبة الإدارة %",
+    "Expenses %": "نسبة المصاريف %",
 }

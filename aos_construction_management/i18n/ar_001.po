@@ -21,10 +21,34 @@ msgid "% Complete"
 msgstr "نسبة الإنجاز %"
 
 #. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_tender.py:0
+msgid "%s - Initial BOQ"
+msgstr "%s - المقايسة المبدئية"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_subcontract.py:0
+msgid "%s Certificate"
+msgstr "مستخلص %s"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__accepted_qty
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__accepted_qty
 msgid "Accepted Qty"
 msgstr "الكمية المقبولة"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_core_integration.py:0
+msgid "Accepted quantity cannot exceed executed quantity."
+msgstr "الكمية المقبولة لا تتجاوز الكمية المنفذة."
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_core_integration.py:0
+msgid "Accepted quantity exceeds the BOQ contract quantity."
+msgstr "الكمية المقبولة تتجاوز كمية المقايسة التعاقدية."
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
@@ -57,6 +81,30 @@ msgstr "الانتهاء الفعلي"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__actual_start
 msgid "Actual Start"
 msgstr "البدء الفعلي"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_material_requisition.py:0
+msgid "Add at least one material line before submitting."
+msgstr "أضف بند مواد واحداً على الأقل قبل التقديم."
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_tender.py:0
+msgid "Add at least one priced item before submitting the tender."
+msgstr "أضف بنداً مسعّراً واحداً على الأقل قبل تقديم المناقصة."
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_billing.py:0
+msgid "Add certificate lines before submitting."
+msgstr "أضف بنود المستخلص قبل التقديم."
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_tender.py:0
+msgid "Add tender items before converting to a project."
+msgstr "أضف بنود المناقصة قبل تحويلها إلى مشروع."
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__advance_percent
@@ -111,6 +159,12 @@ msgstr "قيمة الفترة الحالية"
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
 msgid "Approve"
 msgstr "اعتماد"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_billing.py:0
+msgid "Approve the certificate first."
+msgstr "اعتمد المستخلص أولاً."
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq__state__approved
@@ -216,6 +270,12 @@ msgstr "بداية فترة المستخلص"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__billing_type
 msgid "Billing Type"
 msgstr "نوع المستخلص"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_billing.py:0
+msgid "Billing period end cannot be earlier than start."
+msgstr "نهاية فترة المستخلص لا تسبق بدايتها."
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__boq_id
@@ -453,6 +513,12 @@ msgid "Contract Value"
 msgstr "قيمة العقد"
 
 #. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_subcontract.py:0
+msgid "Contract value cannot be negative."
+msgstr "قيمة العقد لا تكون بالسالب."
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_quality_check__corrective_action
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
 msgid "Corrective Action"
@@ -483,6 +549,12 @@ msgstr "إنشاء طلب عرض سعر"
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
 msgid "Create/Open PO"
 msgstr "إنشاء/فتح أمر شراء"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_billing.py:0
+msgid "Cumulative quantity cannot exceed contract quantity."
+msgstr "الكمية التراكمية لا تتجاوز الكمية التعاقدية."
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__currency_id
@@ -613,6 +685,12 @@ msgstr "أعمال كهرباء"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__end_date
 msgid "End Date"
 msgstr "تاريخ الانتهاء"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_subcontract.py:0
+msgid "End date cannot be earlier than start date."
+msgstr "تاريخ الانتهاء لا يسبق تاريخ البدء."
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__equipment
@@ -950,9 +1028,21 @@ msgid "Net Payable"
 msgstr "صافي المستحق"
 
 #. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_billing.py:0
+msgid "Net payable cannot be negative."
+msgstr "صافي المستحق لا يكون بالسالب."
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
 msgid "New Certificate"
 msgstr "مستخلص فارغ"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_material_requisition.py:0
+msgid "No approved product quantities are available."
+msgstr "لا توجد كميات معتمدة متاحة."
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_work_order__priority__0
@@ -1395,6 +1485,12 @@ msgid "Requested By"
 msgstr "طلبها"
 
 #. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_material_requisition.py:0
+msgid "Required date cannot be earlier than request date."
+msgstr "التاريخ المطلوب لا يسبق تاريخ الطلب."
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__requisition_id
 msgid "Requisition"
 msgstr "طلب التوريد"
@@ -1445,6 +1541,12 @@ msgid "Retention Amount"
 msgstr "قيمة المحتجز"
 
 #. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_billing.py:0
+msgid "Retention Deduction"
+msgstr "خصم المحتجز"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_boq_form
 msgid "Revise"
 msgstr "مراجعة"
@@ -1491,6 +1593,18 @@ msgstr "نطاق العمل..."
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__is_section
 msgid "Section Header"
 msgstr "عنوان قسم"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_material_requisition.py:0
+msgid "Select a preferred vendor first."
+msgstr "اختر المورد المفضل أولاً."
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_subcontract.py:0
+msgid "Select a service product for the subcontract."
+msgstr "اختر منتج الخدمة الخاص بتعاقد الباطن."
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__sequence
@@ -1596,6 +1710,12 @@ msgid "Subcontractor Certificate"
 msgstr "مستخلص مقاول باطن"
 
 #. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_subcontract.py:0
+msgid "Subcontractor Certificates"
+msgstr "مستخلصات مقاولي الباطن"
+
+#. module: aos_construction_management
 #: model:ir.actions.act_window,name:aos_construction_management.action_construction_subcontract
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_subcontract
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
@@ -1606,6 +1726,12 @@ msgstr "مقاولو الباطن"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__submission_deadline
 msgid "Submission Deadline"
 msgstr "موعد التسليم"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_tender.py:0
+msgid "Submission deadline cannot be earlier than the issue date."
+msgstr "موعد التسليم لا يسبق تاريخ الإصدار."
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_expense_form
@@ -1713,6 +1839,18 @@ msgstr "إنهاء التعاقد"
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_subcontract__state__terminated
 msgid "Terminated"
 msgstr "منتهي التعاقد"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_material_requisition.py:0
+msgid "The requisition must be approved before creating an RFQ."
+msgstr "يجب اعتماد طلب التوريد قبل إنشاء طلب عرض السعر."
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_tender.py:0
+msgid "This tender has already been converted into a project."
+msgstr "هذه المناقصة تم تحويلها إلى مشروع بالفعل."
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq__total_amount
@@ -1855,6 +1993,12 @@ msgstr "أوامر الشغل"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__work_type
 msgid "Work Type"
 msgstr "نوع العمل"
+
+#. module: aos_construction_management
+#. odoo-python
+#: code:addons/aos_construction_management/models/construction_core_integration.py:0
+msgid "Work order quantities cannot be negative."
+msgstr "كميات أمر الشغل لا تكون بالسالب."
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__check_type__workmanship

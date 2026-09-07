@@ -43,6 +43,12 @@ msgid "Administration"
 msgstr "الإدارة"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "Administration %"
+msgstr "نسبة الإدارة %"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__admin_percent
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__admin_percent
 msgid "Administration (%)"
@@ -426,6 +432,12 @@ msgid "Contingency"
 msgstr "الطوارئ"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "Contingency %"
+msgstr "نسبة الطوارئ %"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__contingency_percent
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__contingency_percent
 msgid "Contingency (%)"
@@ -611,6 +623,12 @@ msgstr "المعدات"
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__4
 msgid "Exceeds"
 msgstr "أعلى من المتوقع"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "Expenses %"
+msgstr "نسبة المصاريف %"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expense_amount
@@ -974,6 +992,12 @@ msgid "Net Profit"
 msgstr "صافي الربح"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "No."
+msgstr "م"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__not_required
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__not_required
 msgid "Not Required"
@@ -1160,6 +1184,12 @@ msgid "Price the tender items before submitting."
 msgstr "سعّر بنود المناقصة قبل التقديم."
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "Pricing"
+msgstr "التسعير"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Pricing Sheet (Excel)"
 msgstr "جدول التسعير (إكسل)"
@@ -1168,6 +1198,12 @@ msgstr "جدول التسعير (إكسل)"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Profit"
 msgstr "الربح"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "Profit %"
+msgstr "نسبة الربح %"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__profit_percent
@@ -1254,6 +1290,12 @@ msgstr "تاريخ التقديم"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_purchase_date
 msgid "Purchase Date"
 msgstr "تاريخ الشراء"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "Quantity"
+msgstr "الكمية"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__qty_variance
@@ -1473,6 +1515,12 @@ msgstr "سعر البيع"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__sequence
 msgid "Sequence"
 msgstr "الترتيب"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_subcontract.py:0
+msgid "Set the service product on the subcontract, or on these BOQ "
+msgstr "حدد منتج الخدمة على تعاقد الباطن، أو على بنود المقايسة الآتية "
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -1724,6 +1772,12 @@ msgid "To Issue"
 msgstr "للإصدار"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__customer_certified_total
 msgid "Total Certificates"
 msgstr "إجمالي المستخلصات"
@@ -1754,6 +1808,12 @@ msgstr "الوحدة"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__unassigned_qty
 msgid "Unassigned Quantity"
 msgstr "الكمية غير المسندة"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "Unit"
+msgstr "الوحدة"
 
 #. module: aos_construction_ext
 #. odoo-python
