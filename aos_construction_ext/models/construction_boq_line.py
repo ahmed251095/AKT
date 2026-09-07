@@ -141,6 +141,36 @@ class ConstructionBoqLine(models.Model):
                 100.0 * line.subcontract_margin / revenue) if revenue else 0.0
 
     # ------------------------------------------------------------------
+    # Forecast: what this item will really cost when it is finished
+    # ------------------------------------------------------------------
+    expected_cost = fields.Monetary(
+        string='Expected Cost', compute='_compute_expected_cost', store=True,
+        help='The assigned quantity at what the subcontractors charge, plus '
+             'the rest at our own cost rate. What the item will cost once it '
+             'is done, rather than what it was budgeted at.')
+    expected_margin = fields.Monetary(
+        string='Expected Margin', compute='_compute_expected_cost',
+        store=True)
+    expected_margin_percent = fields.Float(
+        string='Expected Margin (%)', compute='_compute_expected_cost',
+        store=True)
+
+    @api.depends('qty', 'cost_rate', 'amount', 'subcontracted_qty',
+                 'subcontract_cost', 'is_section')
+    def _compute_expected_cost(self):
+        for line in self:
+            if line.is_section:
+                line.expected_cost = line.expected_margin = 0.0
+                line.expected_margin_percent = 0.0
+                continue
+            own_qty = max(line.qty - line.subcontracted_qty, 0.0)
+            line.expected_cost = line.subcontract_cost + own_qty * line.cost_rate
+            line.expected_margin = line.amount - line.expected_cost
+            line.expected_margin_percent = (
+                100.0 * line.expected_margin / line.amount) \
+                if line.amount else 0.0
+
+    # ------------------------------------------------------------------
     # Progress
     # ------------------------------------------------------------------
     own_progress_qty = fields.Float(

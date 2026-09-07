@@ -152,6 +152,13 @@
                     </page>
 
                     <page string="Profit Statement" name="profit">
+                        <div class="alert alert-warning" role="alert"
+                             invisible="not subcontract_cost_overlap">
+                            This project carries both subcontractor certificates and expenses
+                            filed under the subcontractor category, so the same money is very
+                            likely counted twice. Record subcontractor cost one way only.
+                        </div>
+                        <field name="subcontract_cost_overlap" invisible="1"/>
                         <group>
                             <group string="Revenue">
                                 <field name="customer_certified_total"/>
@@ -161,6 +168,15 @@
                                 <field name="project_total_cost"/>
                                 <field name="project_net_profit"/>
                                 <field name="project_net_margin"/>
+                            </group>
+                        </group>
+                        <group string="Forecast at Completion">
+                            <group>
+                                <field name="contract_value" readonly="1"/>
+                                <field name="forecast_cost"/>
+                            </group>
+                            <group>
+                                <field name="forecast_margin"/>
                             </group>
                         </group>
                         <group string="Cost Breakdown">
@@ -190,6 +206,14 @@
                             </group>
                             <group>
                                 <field name="execution_cost_variance"/>
+                            </group>
+                        </group>
+                        <group string="Cost Traceability">
+                            <group>
+                                <field name="cost_attributed"/>
+                            </group>
+                            <group>
+                                <field name="cost_untraced"/>
                             </group>
                         </group>
                     </page>

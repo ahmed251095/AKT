@@ -800,7 +800,7 @@ msgstr "تشطيبات"
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__forecast_margin
 msgid "Forecast Margin"
-msgstr "الهامش المتوقع"
+msgstr "الربح المتوقع"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__foreman_id

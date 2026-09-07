@@ -29,6 +29,12 @@
 
             <!-- Over-run is the number the site argues about, so it belongs
                  next to the executed quantity rather than in a report. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='budget_cost']" position="after">
+                <field name="expected_cost" optional="show" sum="Expected Cost"/>
+                <field name="expected_margin" optional="show" sum="Expected Margin"/>
+                <field name="expected_margin_percent" optional="hide"/>
+            </xpath>
+
             <xpath expr="//field[@name='line_ids']/list/field[@name='executed_qty']" position="before">
                 <field name="own_progress_qty" optional="hide"/>
                 <field name="subcontract_progress_qty" optional="hide"/>

@@ -202,8 +202,36 @@ class ConstructionProject(models.Model):
     project_total_cost = fields.Monetary(
         string='Total Cost', currency_field='currency_id',
         compute='_compute_cost_breakdown',
-        help='Recorded expenses, plus certified subcontractor work, plus '
-             'purchases booked against the project.')
+        help='Money the project has actually incurred: approved expenses, '
+             'subcontractor work certified to date, and purchases received '
+             'against the project.')
+    forecast_cost = fields.Monetary(
+        string='Forecast Cost at Completion', currency_field='currency_id',
+        compute='_compute_cost_breakdown',
+        help='What the whole bill of quantities will cost once finished: '
+             'assigned work at the subcontractors rates, the rest at our own '
+             'cost rates.')
+    forecast_margin = fields.Monetary(
+        string='Forecast Margin', currency_field='currency_id',
+        compute='_compute_cost_breakdown',
+        help='Contract value less the forecast cost: the profit the project '
+             'is heading for, rather than the profit booked so far.')
+    cost_attributed = fields.Monetary(
+        string='Traced to Work Orders', currency_field='currency_id',
+        compute='_compute_cost_breakdown',
+        help='The part of the incurred cost that carries a work order and an '
+             'item. Part of the total, never added to it.')
+    cost_untraced = fields.Monetary(
+        string='Not Traced to an Item', currency_field='currency_id',
+        compute='_compute_cost_breakdown',
+        help='Incurred cost with no work order or item on it. The higher this '
+             'is, the less the item-level costing can be trusted.')
+    subcontract_cost_overlap = fields.Boolean(
+        string='Subcontractor Cost Counted Twice',
+        compute='_compute_cost_breakdown',
+        help='The project carries both subcontractor certificates and '
+             'expenses filed under the subcontractor category, so the same '
+             'money is very likely counted twice.')
     project_net_profit = fields.Monetary(
         string='Net Profit', currency_field='currency_id',
         compute='_compute_cost_breakdown',
@@ -302,6 +330,26 @@ class ConstructionProject(models.Model):
             project.document_count = len(documents)
             project.document_missing_count = len(missing)
 
+    def _compute_accounting_counts(self):
+        """Bring the base cost figures onto the same definition.
+
+        The base module counted the whole value of every active subcontract as
+        cost from the day it was signed, so a project showed a loss before a
+        single certificate was approved. Cost here is what has been incurred:
+        certified subcontract work, approved expenses and received purchases.
+        """
+        super()._compute_accounting_counts()
+        for project in self:
+            project.actual_cost = project.project_total_cost
+            project.committed_cost = (
+                project.purchase_total
+                + sum(self.env['construction.subcontract'].search([
+                    ('project_id', '=', project.id),
+                    ('state', 'in', ('active', 'completed')),
+                ]).mapped('contract_value')))
+            project.gross_margin = (
+                project.invoiced_revenue - project.actual_cost)
+
     @api.depends('purchase_total', 'contract_value')
     def _compute_cost_breakdown(self):
         expense_groups = self.env['construction.expense']._read_group(
@@ -331,6 +379,14 @@ class ConstructionProject(models.Model):
             earned[key] = earned.get(key, 0.0) + line.earned_cost
             spent[key] = spent.get(key, 0.0) + line.actual_cost
 
+        boq_groups = self.env['construction.boq.line']._read_group(
+            [('boq_id.project_id', 'in', self.ids), ('is_section', '=', False)],
+            ['boq_id'], ['expected_cost:sum'])
+        forecast = {}
+        for boq, amount in boq_groups:
+            key = boq.project_id.id
+            forecast[key] = forecast.get(key, 0.0) + amount
+
         direct_purchases = self.env['purchase.order']._read_group(
             [('construction_project_id', 'in', self.ids),
              ('state', 'in', ('purchase', 'done')),
@@ -349,6 +405,9 @@ class ConstructionProject(models.Model):
             project.customer_certified_total = by_type.get('customer', 0.0)
             project.direct_purchase_total = purchased.get(project.id, 0.0)
             project.execution_earned_cost = earned.get(project.id, 0.0)
+            project.forecast_cost = forecast.get(project.id, 0.0)
+            project.forecast_margin = (
+                project.contract_value - project.forecast_cost)
             project.execution_actual_cost = spent.get(project.id, 0.0)
             project.execution_cost_variance = (
                 project.execution_earned_cost - project.execution_actual_cost)
@@ -362,6 +421,12 @@ class ConstructionProject(models.Model):
                 100.0 * project.project_net_profit
                 / project.customer_certified_total
                 if project.customer_certified_total else 0.0)
+            project.cost_attributed = spent.get(project.id, 0.0)
+            project.cost_untraced = max(
+                project.project_total_cost - project.cost_attributed, 0.0)
+            project.subcontract_cost_overlap = bool(
+                project.expense_subcontract
+                and project.subcontract_certified_total)
 
     # ------------------------------------------------------------------
     # Origin refresh

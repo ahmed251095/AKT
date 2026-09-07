@@ -495,6 +495,11 @@ msgid "Cost Rate"
 msgstr "سعر التكلفة"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Cost Traceability"
+msgstr "تتبّع التكلفة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__cost_variance
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__cost_variance
 msgid "Cost Variance"
@@ -685,6 +690,21 @@ msgid "Exceeds"
 msgstr "أعلى من المتوقع"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expected_cost
+msgid "Expected Cost"
+msgstr "التكلفة المتوقعة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expected_margin
+msgid "Expected Margin"
+msgstr "الهامش المتوقع"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expected_margin_percent
+msgid "Expected Margin (%)"
+msgstr "الهامش المتوقع (%)"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 msgid "Expenses %"
@@ -765,6 +785,21 @@ msgstr "الملف المالي"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__financial_file_ready
 msgid "Financial File Ready"
 msgstr "الملف المالي مكتمل"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__forecast_cost
+msgid "Forecast Cost at Completion"
+msgstr "التكلفة المتوقعة عند الإتمام"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__forecast_margin
+msgid "Forecast Margin"
+msgstr "الربح المتوقع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Forecast at Completion"
+msgstr "التوقع عند الإتمام"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__forfeited
@@ -1146,6 +1181,11 @@ msgstr "م"
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__not_required
 msgid "Not Required"
 msgstr "غير مطلوب"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__cost_untraced
+msgid "Not Traced to an Item"
+msgstr "غير منسوب لبند"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__note
@@ -1796,6 +1836,11 @@ msgid "Subcontractor Certificate"
 msgstr "مستخلص مقاول باطن"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__subcontract_cost_overlap
+msgid "Subcontractor Cost Counted Twice"
+msgstr "تكلفة الباطن محسوبة مرتين"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_subcontract
 msgid "Subcontractor Expenses"
 msgstr "مصروفات مقاولي الباطن"
@@ -1982,6 +2027,11 @@ msgstr "إجمالي الساعات"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__markup_percent
 msgid "Total Markup (%)"
 msgstr "إجمالي نسبة الإضافة (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__cost_attributed
+msgid "Traced to Work Orders"
+msgstr "المنسوب لأوامر الشغل"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__labour_type_id

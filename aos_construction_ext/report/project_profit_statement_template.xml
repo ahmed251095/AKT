@@ -91,6 +91,38 @@
                             </tbody>
                         </table>
 
+                        <table class="table table-sm">
+                            <thead>
+                                <tr class="table-active">
+                                    <th>Forecast at completion</th>
+                                    <th class="text-end">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Contract value</td>
+                                    <td class="text-end">
+                                        <span t-out="doc.contract_value"
+                                              t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Forecast cost at completion</td>
+                                    <td class="text-end">
+                                        <span t-out="doc.forecast_cost"
+                                              t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                                <tr class="table-active">
+                                    <td><strong>Forecast margin</strong></td>
+                                    <td class="text-end">
+                                        <strong t-out="doc.forecast_margin"
+                                                t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                         <table class="table table-sm mt-4">
                             <tbody>
                                 <tr class="table-active">
@@ -108,9 +140,17 @@
                         </table>
 
                         <p class="text-muted mt-4" style="font-size: 11px;">
-                            Cost is the sum of approved project expenses, subcontractor work
-                            certified to date and purchases booked against the project. Record a
-                            cost in one place only, or it will be counted twice here.
+                            Net profit compares what has been certified to the client against the
+                            cost incurred so far, so both sides cover the same work. Forecast
+                            margin looks ahead instead: the whole contract against what the
+                            remaining work is expected to cost, with assigned items at the
+                            subcontractors rates and the rest at our own.
+                        </p>
+                        <p t-if="doc.subcontract_cost_overlap" class="mt-2"
+                           style="font-size: 11px; color: #9A3F33;">
+                            This project carries both subcontractor certificates and expenses
+                            filed under the subcontractor category, so the same money is very
+                            likely counted twice above.
                         </p>
 
                     </div>
