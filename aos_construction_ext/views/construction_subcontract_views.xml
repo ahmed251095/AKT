@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_subcontract_form_ext" model="ir.ui.view">
+        <field name="name">construction.subcontract.form.ext</field>
+        <field name="model">construction.subcontract</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_subcontract_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='contract_value']" position="attributes">
+                <attribute name="readonly">line_ids</attribute>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Assigned Items" name="assigned_items">
+                    <div class="mb-3">
+                        <button name="action_add_remaining_boq_items" type="object"
+                                string="Add Unassigned BOQ Items" class="btn-secondary"
+                                invisible="not project_id"/>
+                    </div>
+                    <field name="line_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="project_id" column_invisible="1"/>
+                            <field name="boq_line_id"/>
+                            <field name="description"/>
+                            <field name="work_type" optional="hide"/>
+                            <field name="uom_id" optional="show"/>
+                            <field name="boq_qty" optional="show"/>
+                            <field name="qty" sum="Assigned Quantity"/>
+                            <field name="boq_unit_rate" optional="show"/>
+                            <field name="boq_cost_rate" optional="hide"/>
+                            <field name="unit_price"/>
+                            <field name="amount" sum="Assigned Value"/>
+                            <field name="margin" sum="Item Margin"/>
+                            <field name="margin_percent" optional="show"/>
+                            <field name="certified_qty" optional="hide"/>
+                            <field name="remaining_qty" optional="hide"/>
+                            <field name="notes" optional="hide"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                    <group class="oe_subtotal_footer">
+                        <field name="assigned_total"/>
+                        <field name="assigned_margin"/>
+                        <field name="assigned_margin_percent"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_subcontract_list_ext" model="ir.ui.view">
+        <field name="name">construction.subcontract.list.ext</field>
+        <field name="model">construction.subcontract</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_subcontract_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='contract_value']" position="after">
+                <field name="assigned_margin" optional="show"/>
+                <field name="assigned_margin_percent" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- The BOQ is where the buyer checks what is still to be given out. -->
+    <record id="view_construction_boq_form_subcontracting" model="ir.ui.view">
+        <field name="name">construction.boq.form.subcontracting</field>
+        <field name="model">construction.boq</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_boq_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']/list/field[@name='executed_qty']" position="before">
+                <field name="subcontracted_qty" optional="show"/>
+                <field name="unassigned_qty" optional="show"/>
+                <field name="subcontract_cost" optional="hide" sum="Assigned Cost"/>
+                <field name="subcontract_margin" optional="show" sum="Margin after Subcontracting"/>
+                <field name="subcontract_margin_percent" optional="hide"/>
+                <field name="is_over_assigned" column_invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_subcontract_line_list" model="ir.ui.view">
+        <field name="name">construction.subcontract.line.list</field>
+        <field name="model">construction.subcontract.line</field>
+        <field name="arch" type="xml">
+            <list string="Assigned Items" create="false">
+                <field name="subcontract_id"/>
+                <field name="project_id"/>
+                <field name="boq_line_id"/>
+                <field name="description"/>
+                <field name="qty"/>
+                <field name="unit_price"/>
+                <field name="amount" sum="Assigned Value"/>
+                <field name="margin" sum="Item Margin"/>
+                <field name="margin_percent"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_construction_subcontract_line" model="ir.actions.act_window">
+        <field name="name">Assigned Items</field>
+        <field name="res_model">construction.subcontract.line</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Nothing has been assigned yet</p>
+            <p>Items handed to subcontractors show up here with the margin left on each one.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_construction_subcontract_line"
+              name="Assigned Items"
+              parent="aos_construction_management.menu_construction_procurement"
+              action="action_construction_subcontract_line"
+              sequence="25"/>
+
+</odoo>

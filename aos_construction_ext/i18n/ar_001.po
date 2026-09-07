@@ -33,6 +33,11 @@ msgid "Active"
 msgstr "نشط"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
+msgid "Add Unassigned BOQ Items"
+msgstr "إضافة بنود المقايسة غير المسندة"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Administration"
 msgstr "الإدارة"
@@ -96,10 +101,37 @@ msgid "Approved By"
 msgstr "اعتمدها"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__subcontract_cost
+msgid "Assigned Cost"
+msgstr "تكلفة الإسناد"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__employee_ids
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Assigned Employees"
 msgstr "الموظفون المكلفون"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_subcontract_line
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__line_count
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__line_ids
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_subcontract_line
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_line_list
+msgid "Assigned Items"
+msgstr "البنود المسندة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__subcontracted_qty
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__qty
+msgid "Assigned Quantity"
+msgstr "الكمية المسندة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__assigned_total
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__amount
+msgid "Assigned Value"
+msgstr "قيمة الإسناد"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__authority_type_id
@@ -120,6 +152,16 @@ msgstr "أنواع الجهات"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__award_decision_date
 msgid "Award Decision"
 msgstr "موعد البت"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__boq_line_id
+msgid "BOQ Item"
+msgstr "بند المقايسة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__boq_qty
+msgid "BOQ Quantity"
+msgstr "كمية المقايسة"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -285,6 +327,11 @@ msgid "Certified Cheque"
 msgstr "شيك مقبول الدفع"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__certified_qty
+msgid "Certified Quantity"
+msgstr "الكمية المعتمدة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__subcontract_certified_total
 msgid "Certified Subcontractor Work"
 msgstr "أعمال مقاولي الباطن المعتمدة"
@@ -383,6 +430,11 @@ msgid "Contract Duration (days)"
 msgstr "مدة العقد (أيام)"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__contract_value
+msgid "Contract Value"
+msgstr "قيمة العقد"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Cost Breakdown"
 msgstr "تفصيل التكلفة"
@@ -396,6 +448,7 @@ msgstr "سعر التكلفة"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__currency_id
 msgid "Currency"
 msgstr "العملة"
 
@@ -428,6 +481,7 @@ msgstr "نسبة التأمين الابتدائي الافتراضية (%)"
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__description
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__description
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
 msgid "Description"
 msgstr "الوصف"
@@ -766,6 +820,16 @@ msgid "Issuing Bank"
 msgstr "البنك المُصدِر"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__margin
+msgid "Item Margin"
+msgstr "هامش البند"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__margin_percent
+msgid "Item Margin (%)"
+msgstr "هامش البند (%)"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 msgid "Item No."
@@ -806,6 +870,26 @@ msgstr "خاسرة - التأمين لم يُرد"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Management"
 msgstr "الإدارة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__assigned_margin_percent
+msgid "Margin (%)"
+msgstr "الهامش (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__subcontract_margin
+msgid "Margin after Subcontracting"
+msgstr "الهامش بعد الإسناد"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__subcontract_margin_percent
+msgid "Margin after Subcontracting (%)"
+msgstr "الهامش بعد الإسناد (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__assigned_margin
+msgid "Margin on Assignment"
+msgstr "هامش الإسناد"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__markup_amount
@@ -860,6 +944,7 @@ msgstr "غير مطلوب"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__note
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__note
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__note
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__notes
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_type_form
@@ -961,6 +1046,11 @@ msgid "Outstanding"
 msgstr "قائم"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__is_over_assigned
+msgid "Over-assigned"
+msgstr "إسناد زائد"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__is_overrun
 msgid "Over-run"
 msgstr "تجاوز الكمية"
@@ -969,6 +1059,11 @@ msgstr "تجاوز الكمية"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_overhead
 msgid "Overheads"
 msgstr "المصاريف العمومية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__boq_cost_rate
+msgid "Own Cost Rate"
+msgstr "سعر التكلفة عندنا"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
@@ -1049,6 +1144,7 @@ msgstr "بيان الأرباح"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project_hold__project_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__project_id
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__scope__project
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
@@ -1188,6 +1284,11 @@ msgid "Released"
 msgstr "مُرد"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__remaining_qty
+msgid "Remaining Quantity"
+msgstr "الكمية المتبقية"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__reminder_days
 msgid "Remind Before (days)"
 msgstr "التذكير قبل (أيام)"
@@ -1300,9 +1401,15 @@ msgid "Salaries & Wages"
 msgstr "المرتبات والأجور"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__boq_unit_rate
+msgid "Selling Rate"
+msgstr "سعر البيع"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__sequence
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__sequence
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__sequence
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__sequence
 msgid "Sequence"
 msgstr "الترتيب"
 
@@ -1370,9 +1477,29 @@ msgid "Stores"
 msgstr "المخازن"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__subcontract_id
+msgid "Subcontract"
+msgstr "تعاقد باطن"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__subcontract_line_ids
+msgid "Subcontract Assignments"
+msgstr "الإسنادات"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_subcontract_line
+msgid "Subcontract Item"
+msgstr "بند إسناد"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_subcontract
 msgid "Subcontractor Expenses"
 msgstr "مصروفات مقاولي الباطن"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__unit_price
+msgid "Subcontractor Rate"
+msgstr "سعر المقاول"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__name
@@ -1547,6 +1674,16 @@ msgid "Type"
 msgstr "النوع"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__uom_id
+msgid "UOM"
+msgstr "الوحدة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__unassigned_qty
+msgid "Unassigned Quantity"
+msgstr "الكمية غير المسندة"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__unit_rate
@@ -1603,3 +1740,8 @@ msgstr "لماذا لا تستحق العملية الفتح؟"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
 msgid "Won"
 msgstr "فائزة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__work_type
+msgid "Work Type"
+msgstr "نوع العمل"

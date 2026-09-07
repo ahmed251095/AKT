@@ -96,3 +96,46 @@ class ConstructionBoqLine(models.Model):
             line.qty_variance = variance
             line.variance_cost = variance * line.cost_rate
             line.is_overrun = variance > 0
+
+    # ------------------------------------------------------------------
+    # Subcontracting - how much of this item is handed to others
+    # ------------------------------------------------------------------
+    subcontract_line_ids = fields.One2many(
+        'construction.subcontract.line', 'boq_line_id',
+        string='Subcontract Assignments')
+    subcontracted_qty = fields.Float(
+        string='Assigned Quantity', compute='_compute_subcontracting',
+        store=True, digits=(12, 3))
+    subcontract_cost = fields.Monetary(
+        string='Assigned Cost', compute='_compute_subcontracting', store=True,
+        help='What the subcontractors charge for the quantities assigned.')
+    unassigned_qty = fields.Float(
+        string='Unassigned Quantity', compute='_compute_subcontracting',
+        store=True, digits=(12, 3))
+    is_over_assigned = fields.Boolean(
+        string='Over-assigned', compute='_compute_subcontracting', store=True,
+        help='More of this item has been handed to subcontractors than the '
+             'bill of quantities carries.')
+    subcontract_margin = fields.Monetary(
+        string='Margin after Subcontracting',
+        compute='_compute_subcontracting', store=True,
+        help='What the client pays for the assigned quantity, less what the '
+             'subcontractors charge for it.')
+    subcontract_margin_percent = fields.Float(
+        string='Margin after Subcontracting (%)',
+        compute='_compute_subcontracting', store=True)
+
+    @api.depends('subcontract_line_ids.qty', 'subcontract_line_ids.amount',
+                 'qty', 'unit_rate')
+    def _compute_subcontracting(self):
+        for line in self:
+            assigned = sum(line.subcontract_line_ids.mapped('qty'))
+            cost = sum(line.subcontract_line_ids.mapped('amount'))
+            line.subcontracted_qty = assigned
+            line.subcontract_cost = cost
+            line.unassigned_qty = line.qty - assigned
+            line.is_over_assigned = assigned > line.qty
+            revenue = assigned * line.unit_rate
+            line.subcontract_margin = revenue - cost
+            line.subcontract_margin_percent = (
+                100.0 * line.subcontract_margin / revenue) if revenue else 0.0
