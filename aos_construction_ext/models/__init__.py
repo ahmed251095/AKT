@@ -10,6 +10,7 @@ from . import construction_tender
 from . import construction_boq_line
 from . import construction_subcontract_line
 from . import construction_subcontract
+from . import construction_work_order_line
 from . import construction_project
 from . import construction_document
 from . import construction_hr_case

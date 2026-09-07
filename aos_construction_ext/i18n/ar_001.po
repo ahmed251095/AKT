@@ -804,6 +804,11 @@ msgid "In Progress"
 msgstr "قيد التنفيذ"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__inhouse_scope_qty
+msgid "In-house Scope"
+msgstr "نصيب التنفيذ الذاتي"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
 msgid "Incomplete Bid File"
 msgstr "ملف عطاء غير مكتمل"
@@ -1526,6 +1531,11 @@ msgstr "الحالة"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
 msgid "Status"
 msgstr "الحالة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__inhouse_available_qty
+msgid "Still Available"
+msgstr "المتاح للتخطيط"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext

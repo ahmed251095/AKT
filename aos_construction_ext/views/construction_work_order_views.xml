@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_work_order_form_ext" model="ir.ui.view">
+        <field name="name">construction.work.order.form.ext</field>
+        <field name="model">construction.work.order</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_work_order_form"/>
+        <field name="arch" type="xml">
+            <!-- What is ours to do, next to what is being planned. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='planned_qty']" position="before">
+                <field name="inhouse_scope_qty" optional="show"/>
+                <field name="inhouse_available_qty" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

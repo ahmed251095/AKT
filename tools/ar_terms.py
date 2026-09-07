@@ -454,4 +454,6 @@ AR = {
     "New Certificate": "مستخلص فارغ",
     "Done In-house": "منجز ذاتياً",
     "Done by Subcontractors": "منجز بالباطن",
+    "In-house Scope": "نصيب التنفيذ الذاتي",
+    "Still Available": "المتاح للتخطيط",
 }
