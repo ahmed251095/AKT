@@ -452,4 +452,6 @@ AR = {
     "Certify Progress": "استخلاص الإنجاز",
     "Blank Certificate": "مستخلص فارغ",
     "New Certificate": "مستخلص فارغ",
+    "Done In-house": "منجز ذاتياً",
+    "Done by Subcontractors": "منجز بالباطن",
 }

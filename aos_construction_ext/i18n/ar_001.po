@@ -548,6 +548,16 @@ msgid "Documents Ready (%)"
 msgstr "اكتمال المستندات (%)"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__own_progress_qty
+msgid "Done In-house"
+msgstr "منجز ذاتياً"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__subcontract_progress_qty
+msgid "Done by Subcontractors"
+msgstr "منجز بالباطن"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__drawing
 msgid "Drawings"
 msgstr "الرسومات"

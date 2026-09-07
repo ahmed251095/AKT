@@ -143,22 +143,37 @@ class ConstructionBoqLine(models.Model):
     # ------------------------------------------------------------------
     # Progress
     # ------------------------------------------------------------------
+    own_progress_qty = fields.Float(
+        string='Done In-house', compute='_compute_overall_progress',
+        digits=(12, 3),
+        help='Accepted on work orders, counted only up to the part of the '
+             'item that was not handed to a subcontractor.')
+    subcontract_progress_qty = fields.Float(
+        string='Done by Subcontractors', compute='_compute_overall_progress',
+        digits=(12, 3),
+        help='Certified to subcontractors, counted only up to what they were '
+             'assigned.')
     progress_qty = fields.Float(
         string='Completed Quantity', compute='_compute_overall_progress',
-        digits=(12, 3),
-        help='Executed by our own crews plus certified to subcontractors.')
+        digits=(12, 3))
     progress_percent = fields.Float(
         compute='_compute_overall_progress',
-        help='Work done against the bill of quantities. The base module '
-             'counted work orders only, so an item built entirely by a '
-             'subcontractor stayed at zero however much of it was certified.')
+        help='In-house execution plus certified subcontract work. Each side '
+             'is capped at its own share of the item, so an item that is part '
+             'self-performed and part subcontracted is never counted twice.')
 
     def _compute_overall_progress(self):
         for line in self:
-            done = line.executed_qty + line.subcontract_certified_qty
-            line.progress_qty = min(done, line.qty) if line.qty else done
-            line.progress_percent = (
-                min(100.0, done / line.qty * 100.0)) if line.qty else 0.0
+            assigned = min(line.subcontracted_qty, line.qty) if line.qty \
+                else line.subcontracted_qty
+            own_scope = max(line.qty - assigned, 0.0)
+            own = min(line.executed_qty, own_scope)
+            subbed = min(line.subcontract_certified_qty, assigned)
+            line.own_progress_qty = own
+            line.subcontract_progress_qty = subbed
+            line.progress_qty = own + subbed
+            line.progress_percent = min(
+                100.0, line.progress_qty / line.qty * 100.0) if line.qty else 0.0
 
     @api.depends('item_no', 'description')
     def _compute_display_name(self):

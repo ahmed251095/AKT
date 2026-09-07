@@ -30,6 +30,8 @@
             <!-- Over-run is the number the site argues about, so it belongs
                  next to the executed quantity rather than in a report. -->
             <xpath expr="//field[@name='line_ids']/list/field[@name='executed_qty']" position="before">
+                <field name="own_progress_qty" optional="hide"/>
+                <field name="subcontract_progress_qty" optional="hide"/>
                 <field name="progress_qty" optional="show"/>
             </xpath>
 
