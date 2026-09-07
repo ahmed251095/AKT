@@ -408,4 +408,6 @@ AR = {
     "Project Documents": "مستندات المشروع",
     "Tender Document Fee": "ثمن كراسة الشروط",
     "HR Cases": "حالات الموارد البشرية",
+    "Only the construction management can answer a request to open an operation.":
+        "لا يرد على طلب فتح العملية إلا إدارة المقاولات.",
 }

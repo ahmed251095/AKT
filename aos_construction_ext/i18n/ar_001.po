@@ -897,6 +897,12 @@ msgid "Only a tender waiting for approval can be rejected."
 msgstr "لا يُرفض إلا ما هو بانتظار موافقة الإدارة."
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_tender.py:0
+msgid "Only the construction management can answer a request to open an operation."
+msgstr "لا يرد على طلب فتح العملية إلا إدارة المقاولات."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__state__open
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
 msgid "Open"

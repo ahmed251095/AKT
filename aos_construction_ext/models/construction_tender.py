@@ -206,6 +206,20 @@ class ConstructionTender(models.Model):
     # ------------------------------------------------------------------
     # Approval cycle
     # ------------------------------------------------------------------
+    MANAGEMENT_GROUP = 'aos_construction_ext.group_construction_dept_management'
+
+    def _check_management(self):
+        """Hiding the button is presentation, not control.
+
+        Without this the decision could still be taken over RPC, or by anyone
+        who edits the view, which would leave the whole approval cycle
+        decorative.
+        """
+        if not self.env.user.has_group(self.MANAGEMENT_GROUP):
+            raise UserError(self.env._(
+                'Only the construction management can answer a request to '
+                'open an operation.'))
+
     def action_request_approval(self):
         """Ask management to open the operation.
 
@@ -227,6 +241,7 @@ class ConstructionTender(models.Model):
         return True
 
     def action_approve(self):
+        self._check_management()
         for tender in self:
             if tender.state != 'pending_approval':
                 raise UserError(self.env._(
@@ -255,6 +270,7 @@ class ConstructionTender(models.Model):
         }
 
     def action_reject(self, reason=None):
+        self._check_management()
         for tender in self:
             if tender.state != 'pending_approval':
                 raise UserError(self.env._(
