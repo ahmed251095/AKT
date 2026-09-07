@@ -132,6 +132,45 @@ class ConstructionTender(models.Model):
         store=True)
 
     # ------------------------------------------------------------------
+    # Labour and shifts
+    # ------------------------------------------------------------------
+    labour_line_ids = fields.One2many(
+        'construction.labour.line', 'tender_id', string='Labour Requirement')
+    labour_man_shifts = fields.Integer(
+        string='Man-shifts', compute='_compute_labour_review')
+    labour_estimated_cost = fields.Monetary(
+        string='Estimated Labour Cost', currency_field='currency_id',
+        compute='_compute_labour_review')
+    priced_operating_cost = fields.Monetary(
+        string='Operating Cost in Prices', currency_field='currency_id',
+        compute='_compute_labour_review',
+        help='What the item prices already carry for execution: the operating '
+             'cost of every item times its quantity.')
+    labour_variance = fields.Monetary(
+        string='Labour Headroom', currency_field='currency_id',
+        compute='_compute_labour_review',
+        help='Operating cost in the prices, less the labour actually planned. '
+             'A negative figure means the crews cost more than the bid allows.')
+    labour_variance_percent = fields.Float(
+        string='Labour Headroom (%)', compute='_compute_labour_review')
+    labour_over_budget = fields.Boolean(
+        string='Labour Over Budget', compute='_compute_labour_review')
+
+    def _compute_labour_review(self):
+        for tender in self:
+            priced = sum(line.qty * line.operating_cost
+                         for line in tender.line_ids if not line.is_section)
+            estimated = sum(tender.labour_line_ids.mapped('total_cost'))
+            tender.labour_man_shifts = sum(
+                tender.labour_line_ids.mapped('man_shifts'))
+            tender.labour_estimated_cost = estimated
+            tender.priced_operating_cost = priced
+            tender.labour_variance = priced - estimated
+            tender.labour_variance_percent = (
+                100.0 * (priced - estimated) / priced) if priced else 0.0
+            tender.labour_over_budget = bool(estimated) and estimated > priced
+
+    # ------------------------------------------------------------------
     # Reminders
     # ------------------------------------------------------------------
     reminder_days = fields.Integer(
@@ -441,6 +480,7 @@ class ConstructionTender(models.Model):
         for tender in self:
             tender._propagate_pricing_to_boq()
             tender._propagate_to_project()
+            tender._copy_labour_to_project()
         return result
 
     def _propagate_pricing_to_boq(self):
@@ -512,6 +552,15 @@ class ConstructionTender(models.Model):
         if values:
             project.write(values)
         return values
+
+    def _copy_labour_to_project(self):
+        """Hand the site the crew plan the office estimated."""
+        self.ensure_one()
+        project = self.project_id
+        if not project or project.labour_line_ids:
+            return
+        for line in self.labour_line_ids:
+            line.copy({'tender_id': False, 'project_id': project.id})
 
     def action_lose(self):
         """A lost tender stays open until the bid bond comes back."""

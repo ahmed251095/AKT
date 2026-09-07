@@ -197,6 +197,33 @@ class ConstructionProject(models.Model):
         string='Net Margin (%)', compute='_compute_cost_breakdown')
 
     # ------------------------------------------------------------------
+    # Labour and shifts
+    # ------------------------------------------------------------------
+    labour_line_ids = fields.One2many(
+        'construction.labour.line', 'project_id', string='Labour Requirement')
+    labour_man_shifts = fields.Integer(
+        string='Man-shifts', compute='_compute_labour_plan')
+    labour_estimated_cost = fields.Monetary(
+        string='Estimated Labour Cost', currency_field='currency_id',
+        compute='_compute_labour_plan')
+    labour_actual_cost = fields.Monetary(
+        string='Actual Labour Cost', currency_field='currency_id',
+        compute='_compute_labour_plan',
+        help='Approved expenses booked as labour.')
+    labour_remaining = fields.Monetary(
+        string='Labour Left to Spend', currency_field='currency_id',
+        compute='_compute_labour_plan')
+
+    def _compute_labour_plan(self):
+        for project in self:
+            estimated = sum(project.labour_line_ids.mapped('total_cost'))
+            project.labour_man_shifts = sum(
+                project.labour_line_ids.mapped('man_shifts'))
+            project.labour_estimated_cost = estimated
+            project.labour_actual_cost = project.expense_labour
+            project.labour_remaining = estimated - project.expense_labour
+
+    # ------------------------------------------------------------------
     # HR follow-up
     # ------------------------------------------------------------------
     hr_case_ids = fields.One2many(

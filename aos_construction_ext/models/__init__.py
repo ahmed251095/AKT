@@ -5,6 +5,7 @@ from . import res_config_settings
 from . import construction_authority_type
 from . import construction_document_type
 from . import pricing
+from . import construction_labour
 from . import construction_tender_line
 from . import construction_tender
 from . import construction_boq_line

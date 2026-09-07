@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_labour_type_list" model="ir.ui.view">
+        <field name="name">construction.labour.type.list</field>
+        <field name="model">construction.labour.type</field>
+        <field name="arch" type="xml">
+            <list string="Labour Types" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="default_hours"/>
+                <field name="default_shift_rate"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="active" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_construction_labour_type" model="ir.actions.act_window">
+        <field name="name">Labour Types</field>
+        <field name="res_model">construction.labour.type</field>
+        <field name="view_mode">list</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">List the trades your sites work in</p>
+            <p>Each one carries the shift length and the rate the estimate starts from.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_construction_labour_type"
+              name="Labour Types"
+              parent="aos_construction_management.menu_construction_configuration"
+              action="action_construction_labour_type"
+              sequence="30"/>
+
+    <!-- The estimate on the tender, next to the money the prices allow for it. -->
+    <record id="view_construction_tender_form_labour" model="ir.ui.view">
+        <field name="name">construction.tender.form.labour</field>
+        <field name="model">construction.tender</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_tender_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Labour &amp; Shifts" name="labour">
+                    <group>
+                        <group string="Review">
+                            <field name="priced_operating_cost"/>
+                            <field name="labour_estimated_cost"/>
+                            <field name="labour_variance"
+                                   decoration-danger="labour_over_budget"/>
+                            <field name="labour_variance_percent"/>
+                            <field name="labour_over_budget" invisible="1"/>
+                        </group>
+                        <group string="Effort">
+                            <field name="labour_man_shifts"/>
+                            <field name="operation_duration_days"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-warning" role="alert"
+                         invisible="not labour_over_budget">
+                        The crews planned cost more than the item prices allow for execution.
+                        Either the rates in the prices are too low, or the crews are too many.
+                    </div>
+                    <field name="labour_line_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="labour_type_id"/>
+                            <field name="boq_line_id" optional="show"/>
+                            <field name="crew_size"/>
+                            <field name="shift_count"/>
+                            <field name="man_shifts" sum="Man-shifts"/>
+                            <field name="hours_per_shift" optional="hide"/>
+                            <field name="total_hours" optional="hide" sum="Total Hours"/>
+                            <field name="shift_rate"/>
+                            <field name="total_cost" sum="Estimated Cost"/>
+                            <field name="note" optional="hide"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- The same plan on the project, against what labour actually cost. -->
+    <record id="view_construction_project_form_labour" model="ir.ui.view">
+        <field name="name">construction.project.form.labour</field>
+        <field name="model">construction.project</field>
+        <field name="inherit_id" ref="aos_construction_ext.view_construction_project_form_ext"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='stores']" position="after">
+                <page string="Labour &amp; Shifts" name="labour">
+                    <group>
+                        <group>
+                            <field name="labour_man_shifts"/>
+                            <field name="labour_estimated_cost"/>
+                        </group>
+                        <group>
+                            <field name="labour_actual_cost"/>
+                            <field name="labour_remaining"/>
+                        </group>
+                    </group>
+                    <field name="labour_line_ids">
+                        <list editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="labour_type_id"/>
+                            <field name="boq_line_id" optional="show"/>
+                            <field name="wbs_id" optional="hide"/>
+                            <field name="crew_size"/>
+                            <field name="shift_count"/>
+                            <field name="man_shifts" sum="Man-shifts"/>
+                            <field name="shift_rate"/>
+                            <field name="total_cost" sum="Estimated Cost"/>
+                            <field name="note" optional="hide"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

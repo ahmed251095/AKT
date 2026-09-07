@@ -29,8 +29,14 @@ msgstr "غياب"
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__active
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__active
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__active
 msgid "Active"
 msgstr "نشط"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__labour_actual_cost
+msgid "Actual Labour Cost"
+msgstr "تكلفة العمالة الفعلية"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
@@ -160,6 +166,7 @@ msgid "Award Decision"
 msgstr "موعد البت"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__boq_line_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__boq_line_id
 msgid "BOQ Item"
 msgstr "بند المقايسة"
@@ -380,6 +387,7 @@ msgstr "ملاحظات الإقفال"
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__code
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__code
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__code
 msgid "Code"
 msgstr "الكود"
 
@@ -475,8 +483,15 @@ msgid "Cost Rate"
 msgstr "سعر التكلفة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__crew_size
+msgid "Crew Size"
+msgstr "عدد أفراد الوردية"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__currency_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__currency_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__currency_id
 msgid "Currency"
 msgstr "العملة"
@@ -505,6 +520,11 @@ msgstr "القيمة المعلنة للعملية"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__default_bid_bond_percent
 msgid "Default Bid Bond (%)"
 msgstr "نسبة التأمين الابتدائي الافتراضية (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__default_shift_rate
+msgid "Default Shift Rate"
+msgstr "أجر الوردية الافتراضي"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -594,6 +614,11 @@ msgid "Due on %s."
 msgstr "الموعد %s."
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_labour
+msgid "Effort"
+msgstr "المجهود"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__electrical_engineer_id
 msgid "Electrical Engineer"
 msgstr "مهندس كهرباء"
@@ -618,6 +643,17 @@ msgstr "موعد فتح المظاريف"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_equipment
 msgid "Equipment"
 msgstr "المعدات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__total_cost
+msgid "Estimated Cost"
+msgstr "التكلفة التقديرية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__labour_estimated_cost
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_estimated_cost
+msgid "Estimated Labour Cost"
+msgstr "تكلفة العمالة التقديرية"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__4
@@ -807,6 +843,12 @@ msgid "Hold Requested By"
 msgstr "طلب الإيقاف"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__hours_per_shift
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__default_hours
+msgid "Hours per Shift"
+msgstr "ساعات الوردية"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Human Resources"
 msgstr "الموارد البشرية"
@@ -893,6 +935,51 @@ msgid "Item No."
 msgstr "رقم البند"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_labour
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_labour
+msgid "Labour & Shifts"
+msgstr "العمالة والورديات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_variance
+msgid "Labour Headroom"
+msgstr "فائض موازنة العمالة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_variance_percent
+msgid "Labour Headroom (%)"
+msgstr "فائض موازنة العمالة (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__labour_remaining
+msgid "Labour Left to Spend"
+msgstr "المتبقي من موازنة العمالة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_over_budget
+msgid "Labour Over Budget"
+msgstr "العمالة تتجاوز الموازنة"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_labour_line
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__labour_line_ids
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_line_ids
+msgid "Labour Requirement"
+msgstr "تقدير العمالة"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_labour_type
+msgid "Labour Type"
+msgstr "نوع العمالة"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_labour_type
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_labour_type
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_labour_type_list
+msgid "Labour Types"
+msgstr "أنواع العمالة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__legal
 msgid "Legal File"
 msgstr "الملف القانوني"
@@ -922,6 +1009,13 @@ msgstr "مدير الحركة"
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__bond_pending
 msgid "Lost - Bond Not Released"
 msgstr "خاسرة - التأمين لم يُرد"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__man_shifts
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__labour_man_shifts
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_man_shifts
+msgid "Man-shifts"
+msgstr "ورديات الأفراد"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
@@ -978,6 +1072,7 @@ msgstr "المستندات الناقصة"
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__name
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__name
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__name
 msgid "Name"
 msgstr "الاسم"
 
@@ -1007,6 +1102,8 @@ msgstr "غير مطلوب"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__note
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__note
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__note
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__note
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__note
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__notes
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
@@ -1087,6 +1184,11 @@ msgstr "تم رفض فتح العملية. السبب: %s"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__operating_cost
 msgid "Operating Cost"
 msgstr "تكلفة التشغيل"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__priced_operating_cost
+msgid "Operating Cost in Prices"
+msgstr "تكلفة التشغيل داخل الأسعار"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__operation_duration_days
@@ -1235,6 +1337,7 @@ msgstr "نسبة الإنجاز"
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__project_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project_hold__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__project_id
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__scope__project
@@ -1306,6 +1409,11 @@ msgstr "فرق الكمية"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__qty_to_certify
 msgid "Quantity to Certify"
 msgstr "الكمية المستحقة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__shift_rate
+msgid "Rate per Person / Shift"
+msgstr "أجر الفرد للوردية"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__rating
@@ -1494,6 +1602,11 @@ msgid "Revenue"
 msgstr "الإيرادات"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_labour
+msgid "Review"
+msgstr "المراجعة"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 msgid "Running"
 msgstr "جارٍ"
@@ -1512,6 +1625,8 @@ msgstr "سعر البيع"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__sequence
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__sequence
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__sequence
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__sequence
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__sequence
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__sequence
 msgid "Sequence"
 msgstr "الترتيب"
@@ -1545,6 +1660,11 @@ msgstr "حدد الجهة المالكة قبل طلب الموافقة."
 #: model:ir.ui.menu,name:aos_construction_ext.menu_construction_ext_settings
 msgid "Settings"
 msgstr "الإعدادات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__shift_count
+msgid "Shifts"
+msgstr "عدد الورديات"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__stock_location_id
@@ -1674,6 +1794,7 @@ msgstr "تاريخ المراجعة الفنية"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__tender_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__tender_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_reject__tender_id
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__scope__tender
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
@@ -1788,10 +1909,20 @@ msgid "Total Cost"
 msgstr "إجمالي التكلفة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__total_hours
+msgid "Total Hours"
+msgstr "إجمالي الساعات"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__markup_percent
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__markup_percent
 msgid "Total Markup (%)"
 msgstr "إجمالي نسبة الإضافة (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__labour_type_id
+msgid "Trade"
+msgstr "الحرفة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__case_type
@@ -1843,6 +1974,11 @@ msgstr "القيمة المستحقة"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__variance_cost
 msgid "Variance Cost"
 msgstr "تكلفة الفرق"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__wbs_id
+msgid "WBS Phase"
+msgstr "مرحلة العمل"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
