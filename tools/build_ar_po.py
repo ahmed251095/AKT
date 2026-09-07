@@ -183,7 +183,10 @@ def render(entries):
         for module in sorted(entries[src]):
             out.append('')
             out.append(f'#. module: {module}')
-            for occ in sorted(entries[src][module]):
+            occurrences = sorted(entries[src][module])
+            if any(o.startswith('code:') for o in occurrences):
+                out.append('#. odoo-python')
+            for occ in occurrences:
                 out.append(f'#: {occ}')
             out.append(f'msgid "{esc(src)}"')
             out.append(f'msgstr "{esc(AR[src])}"')
@@ -200,7 +203,10 @@ def render_module(entries, module):
             continue
         out.append('')
         out.append(f'#. module: {module}')
-        for occ in sorted(entries[src][module]):
+        occurrences = sorted(entries[src][module])
+        if any(o.startswith('code:') for o in occurrences):
+            out.append('#. odoo-python')
+        for occ in occurrences:
             out.append(f'#: {occ}')
         out.append(f'msgid "{esc(src)}"')
         out.append(f'msgstr "{esc(AR[src])}"')

@@ -16,6 +16,7 @@ msgstr ""
 
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "%(label)s for %(tender)s"
 msgstr "%(label)s لـ %(tender)s"
@@ -53,6 +54,7 @@ msgid "Amount"
 msgstr "المبلغ"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Answered by management."
 msgstr "تم الرد من الإدارة."
@@ -83,6 +85,7 @@ msgid "Approve Opening"
 msgstr "اعتماد فتح العملية"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Approve opening of tender %s"
 msgstr "اعتماد فتح المناقصة %s"
@@ -119,6 +122,7 @@ msgid "Award Decision"
 msgstr "موعد البت"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__base_cost
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__base_cost
@@ -162,11 +166,13 @@ msgid "Bid File"
 msgstr "ملف العطاء"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Bid bond forfeited: %s."
 msgstr "تمت مصادرة التأمين الابتدائي: %s."
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Bid bond released."
 msgstr "تم رد التأمين الابتدائي."
@@ -284,6 +290,7 @@ msgid "Certified Subcontractor Work"
 msgstr "أعمال مقاولي الباطن المعتمدة"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
@@ -318,6 +325,7 @@ msgid "Conditions Booklet"
 msgstr "كراسة الشروط"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Conditions booklet purchased for %s."
 msgstr "تم شراء كراسة الشروط بمبلغ %s."
@@ -380,6 +388,7 @@ msgid "Cost Rate"
 msgstr "سعر التكلفة"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 msgid "Currency"
 msgstr "العملة"
@@ -410,6 +419,7 @@ msgid "Default Bid Bond (%)"
 msgstr "نسبة التأمين الابتدائي الافتراضية (%)"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__description
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
@@ -471,6 +481,7 @@ msgid "Drive Folder"
 msgstr "مجلد Drive"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__dry_cost
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__dry_cost
@@ -478,6 +489,7 @@ msgid "Dry Cost"
 msgstr "تكلفة الخامات"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Due on %s."
 msgstr "الموعد %s."
@@ -622,6 +634,7 @@ msgid "HR Case"
 msgstr "حالة موارد بشرية"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 #: model:ir.actions.act_window,name:aos_construction_ext.action_construction_hr_case
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hr_case_count
@@ -671,6 +684,7 @@ msgid "Hold Approved By"
 msgstr "اعتمد الإيقاف"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 #: model:ir.model,name:aos_construction_ext.model_construction_project_hold
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_hold_form
@@ -746,6 +760,7 @@ msgid "Issuing Bank"
 msgstr "البنك المُصدِر"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 msgid "Item No."
 msgstr "رقم البند"
@@ -852,26 +867,31 @@ msgid "On Hold"
 msgstr "موقوف"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Only a draft tender can be sent for approval."
 msgstr "لا تُرسل للموافقة إلا مناقصة في حالة مسودة."
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "Only a running project can move to handover."
 msgstr "لا ينتقل للتسليم إلا مشروع جارٍ."
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Only a tender the management has approved and the technical office is studying can be submitted."
 msgstr "لا يُقدَّم العطاء إلا لمناقصة اعتمدتها الإدارة ويدرسها المكتب الفني."
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Only a tender waiting for approval can be approved."
 msgstr "لا يُعتمد إلا ما هو بانتظار موافقة الإدارة."
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Only a tender waiting for approval can be rejected."
 msgstr "لا يُرفض إلا ما هو بانتظار موافقة الإدارة."
@@ -883,16 +903,19 @@ msgid "Open"
 msgstr "مفتوح"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Opening approved. Budget released: %(budget)s."
 msgstr "تم اعتماد فتح العملية. المبلغ المفرج عنه: %(budget)s."
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Opening rejected. Reason: %s"
 msgstr "تم رفض فتح العملية. السبب: %s"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__operating_cost
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__operating_cost
@@ -962,6 +985,7 @@ msgid "Performance Bond Required"
 msgstr "التأمين النهائي مطلوب"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "Performance bond released."
 msgstr "تم رد التأمين النهائي."
@@ -978,6 +1002,7 @@ msgid "Price before Expenses"
 msgstr "السعر قبل المصاريف"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Price the tender items before submitting."
 msgstr "سعّر بنود المناقصة قبل التقديم."
@@ -1019,6 +1044,7 @@ msgid "Project"
 msgstr "مشروع"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__document_ids
 msgid "Project Documents"
@@ -1040,6 +1066,7 @@ msgid "Project Manager"
 msgstr "مدير المشروع"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "Project put on hold. Reason: %s"
 msgstr "تم إيقاف المشروع. السبب: %s"
@@ -1107,6 +1134,7 @@ msgid "Reject"
 msgstr "رفض"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 #: model:ir.model,name:aos_construction_ext.model_construction_tender_reject
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_reject_form
@@ -1187,6 +1215,7 @@ msgid "Requested Engineers"
 msgstr "المهندسون المطلوبون"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Requested budget: %(budget)s. Submission deadline: %(deadline)s."
 msgstr "المبلغ المطلوب: %(budget)s. موعد التسليم: %(deadline)s."
@@ -1255,16 +1284,19 @@ msgid "Sequence"
 msgstr "الترتيب"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Set the submission deadline before asking for approval."
 msgstr "حدد موعد التسليم قبل طلب الموافقة."
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Set the tender document fee first."
 msgstr "حدد ثمن كراسة الشروط أولاً."
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Set the tendering authority before asking for approval."
 msgstr "حدد الجهة المالكة قبل طلب الموافقة."
@@ -1379,6 +1411,7 @@ msgid "Tender"
 msgstr "مناقصة"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_price
 msgid "Tender Document Fee"
@@ -1400,6 +1433,7 @@ msgid "Tender Item"
 msgstr "بند المناقصة"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 msgid "Tender No."
 msgstr "رقم المناقصة"
@@ -1410,11 +1444,13 @@ msgid "Tender Reminder (days)"
 msgstr "تذكير المناقصات (أيام)"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Tender document fee - %s"
 msgstr "ثمن كراسة الشروط - %s"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Tender lost. Kept open until the bid bond of %s is released."
 msgstr "خسرنا المناقصة. تبقى مفتوحة حتى يُرد التأمين الابتدائي %s."
@@ -1431,11 +1467,13 @@ msgid "Tenders"
 msgstr "المناقصات"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "The bid bond has to be issued before the bid is submitted."
 msgstr "يجب إصدار التأمين الابتدائي قبل تقديم العطاء."
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "The booklet fee can only be spent after management has approved opening the tender."
 msgstr "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإدارة لفتح العملية."
@@ -1469,6 +1507,7 @@ msgid "Type"
 msgstr "النوع"
 
 #. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__unit_rate
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__unit_rate
