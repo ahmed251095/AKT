@@ -888,7 +888,7 @@ msgstr "رقم البند"
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__category__labour
 msgid "Labour"
-msgstr "عمالة"
+msgstr "العمالة"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__line_ids
@@ -1972,7 +1972,7 @@ msgstr "تنفيذ الأعمال"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__work_order_id
 #: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order_line__construction_work_order_id
 msgid "Work Order"
-msgstr "أمر شغل"
+msgstr "أمر الشغل"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__work_order_count

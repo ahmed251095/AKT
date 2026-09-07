@@ -11,6 +11,47 @@
                 <field name="inhouse_scope_qty" optional="show"/>
                 <field name="inhouse_available_qty" optional="show"/>
             </xpath>
+
+            <!-- What the item really cost, and where the money went. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='actual_cost']" position="before">
+                <field name="purchase_cost" optional="show" sum="Purchases"/>
+                <field name="labour_cost" optional="show" sum="Labour"/>
+                <field name="other_cost" optional="hide" sum="Other Costs"/>
+                <field name="earned_cost" optional="show" sum="Earned Cost"/>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='actual_cost']" position="after">
+                <field name="actual_unit_cost" optional="show"/>
+                <field name="cost_variance" optional="show" sum="Cost Variance"/>
+            </xpath>
+
+            <xpath expr="//field[@name='actual_cost']" position="after">
+                <field name="earned_cost"/>
+                <field name="cost_variance"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_expense_form_ext" model="ir.ui.view">
+        <field name="name">construction.expense.form.ext</field>
+        <field name="model">construction.expense</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_expense_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='wbs_id']" position="after">
+                <field name="work_order_id"/>
+                <field name="boq_line_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_purchase_order_form_construction_ext" model="ir.ui.view">
+        <field name="name">purchase.order.form.construction.ext</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="aos_construction_management.purchase_order_form_construction"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='construction_project_id']" position="after">
+                <field name="construction_work_order_id"/>
+            </xpath>
         </field>
     </record>
 

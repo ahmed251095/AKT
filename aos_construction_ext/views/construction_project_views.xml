@@ -186,6 +186,7 @@
                         <group string="In-house Execution Control">
                             <group>
                                 <field name="execution_earned_cost"/>
+                                <field name="execution_actual_cost"/>
                             </group>
                             <group>
                                 <field name="execution_cost_variance"/>

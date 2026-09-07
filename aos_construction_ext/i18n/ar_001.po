@@ -35,6 +35,7 @@ msgstr "نشط"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__actual_cost
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__actual_cost
 msgid "Actual Cost"
 msgstr "التكلفة الفعلية"
 
@@ -42,6 +43,11 @@ msgstr "التكلفة الفعلية"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__labour_actual_cost
 msgid "Actual Labour Cost"
 msgstr "تكلفة العمالة الفعلية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__actual_unit_cost
+msgid "Actual Unit Cost"
+msgstr "تكلفة الوحدة الفعلية"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
@@ -171,6 +177,7 @@ msgid "Award Decision"
 msgstr "موعد البت"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__boq_line_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__boq_line_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__boq_line_id
 msgid "BOQ Item"
@@ -488,6 +495,12 @@ msgid "Cost Rate"
 msgstr "سعر التكلفة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__cost_variance
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__cost_variance
+msgid "Cost Variance"
+msgstr "فرق التكلفة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__crew_size
 msgid "Crew Size"
 msgstr "عدد أفراد الوردية"
@@ -617,6 +630,12 @@ msgstr "تكلفة الخامات"
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Due on %s."
 msgstr "الموعد %s."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__earned_cost
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__earned_cost
+msgid "Earned Cost"
+msgstr "التكلفة المكتسبة"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_labour
@@ -869,6 +888,11 @@ msgid "In Progress"
 msgstr "قيد التنفيذ"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__execution_actual_cost
+msgid "In-house Actual Cost"
+msgstr "التكلفة الفعلية للتنفيذ الذاتي"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__execution_cost_variance
 msgid "In-house Cost Variance"
 msgstr "فرق تكلفة التنفيذ الذاتي"
@@ -953,6 +977,11 @@ msgstr "هامش البند (%)"
 #: code:addons/aos_construction_ext/controllers/main.py:0
 msgid "Item No."
 msgstr "رقم البند"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__labour_cost
+msgid "Labour"
+msgstr "العمالة"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_labour
@@ -1227,6 +1256,11 @@ msgid "Other"
 msgstr "أخرى"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__other_cost
+msgid "Other Costs"
+msgstr "تكاليف أخرى"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_other
 msgid "Other Expenses"
 msgstr "مصروفات أخرى"
@@ -1418,6 +1452,11 @@ msgstr "تاريخ التقديم"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_purchase_date
 msgid "Purchase Date"
 msgstr "تاريخ الشراء"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__purchase_cost
+msgid "Purchases"
+msgstr "المشتريات"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2039,6 +2078,13 @@ msgstr "لماذا لا تستحق العملية الفتح؟"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
 msgid "Won"
 msgstr "فائزة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__work_order_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_purchase_order__construction_work_order_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_purchase_order_line__construction_work_order_id
+msgid "Work Order"
+msgstr "أمر الشغل"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__work_type

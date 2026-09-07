@@ -11,6 +11,8 @@ from . import construction_tender
 from . import construction_boq_line
 from . import construction_subcontract_line
 from . import construction_subcontract
+from . import construction_expense
+from . import purchase_order
 from . import construction_work_order_line
 from . import construction_wbs
 from . import construction_project

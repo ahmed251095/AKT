@@ -174,17 +174,18 @@ class ConstructionProject(models.Model):
     execution_earned_cost = fields.Monetary(
         string='In-house Work at Cost', currency_field='currency_id',
         compute='_compute_cost_breakdown',
-        help='Work accepted on work orders, valued at the item cost rates. '
-             'This is what the work we did ourselves was budgeted to cost, '
-             'not money spent -- the spending shows up as wages, materials '
-             'and purchases.')
+        help='Work accepted on work orders, valued at the item cost rates: '
+             'what the work we did ourselves should have cost.')
+    execution_actual_cost = fields.Monetary(
+        string='In-house Actual Cost', currency_field='currency_id',
+        compute='_compute_cost_breakdown',
+        help='Purchases, wages and expenses actually booked against the work '
+             'orders.')
     execution_cost_variance = fields.Monetary(
         string='In-house Cost Variance', currency_field='currency_id',
         compute='_compute_cost_breakdown',
-        help='What our own work was budgeted to cost, less the wages, '
-             'materials and equipment actually booked against the project. '
-             'A negative figure means we are spending more than the item '
-             'rates allowed.')
+        help='Earned less actual. A negative figure means our own work is '
+             'costing more than the item rates allowed.')
     direct_purchase_total = fields.Monetary(
         string='Direct Purchases', currency_field='currency_id',
         compute='_compute_cost_breakdown',
@@ -318,11 +319,17 @@ class ConstructionProject(models.Model):
         for project, billing_type, amount in billing_groups:
             billings.setdefault(project.id, {})[billing_type] = amount
 
-        execution = self.env['construction.work.order.line']._read_group(
-            [('project_id', 'in', self.ids),
-             ('work_order_id.state', '!=', 'cancelled')],
-            ['project_id'], ['actual_cost:sum'])
-        executed = {project.id: amount for project, amount in execution}
+        # Earned and actual are computed per line from live purchase and
+        # expense records, so they cannot be aggregated by the database.
+        execution_lines = self.env['construction.work.order.line'].search([
+            ('project_id', 'in', self.ids),
+            ('work_order_id.state', '!=', 'cancelled'),
+        ])
+        earned, spent = {}, {}
+        for line in execution_lines:
+            key = line.project_id.id
+            earned[key] = earned.get(key, 0.0) + line.earned_cost
+            spent[key] = spent.get(key, 0.0) + line.actual_cost
 
         direct_purchases = self.env['purchase.order']._read_group(
             [('construction_project_id', 'in', self.ids),
@@ -341,11 +348,10 @@ class ConstructionProject(models.Model):
                 'subcontractor', 0.0)
             project.customer_certified_total = by_type.get('customer', 0.0)
             project.direct_purchase_total = purchased.get(project.id, 0.0)
-            project.execution_earned_cost = executed.get(project.id, 0.0)
+            project.execution_earned_cost = earned.get(project.id, 0.0)
+            project.execution_actual_cost = spent.get(project.id, 0.0)
             project.execution_cost_variance = (
-                project.execution_earned_cost
-                - project.expense_labour - project.expense_material
-                - project.expense_equipment)
+                project.execution_earned_cost - project.execution_actual_cost)
             project.project_total_cost = (
                 sum(by_category.values())
                 + project.subcontract_certified_total

@@ -2,6 +2,9 @@ from odoo import api, fields, models
 from odoo.tools import float_compare
 from odoo.exceptions import ValidationError
 
+#: Purchases only count once the order is committed.
+PURCHASE_STATES = ('purchase', 'done')
+
 
 class ConstructionWorkOrder(models.Model):
     _inherit = 'construction.work.order'
@@ -12,12 +15,23 @@ class ConstructionWorkOrder(models.Model):
         compute='_compute_line_costs', store=True, readonly=False)
     actual_cost = fields.Monetary(
         compute='_compute_line_costs', store=True, readonly=False)
+    earned_cost = fields.Monetary(
+        string='Earned Cost', compute='_compute_line_costs', store=True,
+        help='Accepted work valued at the item cost rates: what it should '
+             'have cost.')
+    cost_variance = fields.Monetary(
+        string='Cost Variance', compute='_compute_line_costs', store=True,
+        help='Earned cost less what was actually spent. Negative means the '
+             'work cost more than the rates allowed.')
 
-    @api.depends('line_ids.planned_cost', 'line_ids.actual_cost')
+    @api.depends('line_ids.planned_cost', 'line_ids.actual_cost',
+                 'line_ids.earned_cost')
     def _compute_line_costs(self):
         for order in self:
             order.planned_cost = sum(order.line_ids.mapped('planned_cost'))
             order.actual_cost = sum(order.line_ids.mapped('actual_cost'))
+            order.earned_cost = sum(order.line_ids.mapped('earned_cost'))
+            order.cost_variance = order.earned_cost - order.actual_cost
 
 
 class ConstructionWorkOrderLine(models.Model):
@@ -60,6 +74,64 @@ class ConstructionWorkOrderLine(models.Model):
         if self.boq_line_id:
             self.planned_qty = self.inhouse_available_qty
         return result
+
+    # ------------------------------------------------------------------
+    # Cost: what this item actually cost, from the money spent on it
+    # ------------------------------------------------------------------
+    purchase_cost = fields.Monetary(
+        string='Purchases', compute='_compute_actual_costs',
+        help='Committed purchase order lines booked against this item on '
+             'this work order.')
+    labour_cost = fields.Monetary(
+        string='Labour', compute='_compute_actual_costs',
+        help='Approved labour expenses booked against this item.')
+    other_cost = fields.Monetary(
+        string='Other Costs', compute='_compute_actual_costs',
+        help='Approved material, equipment and overhead expenses booked '
+             'against this item.')
+    actual_cost = fields.Monetary(compute='_compute_actual_costs')
+    actual_unit_cost = fields.Monetary(
+        string='Actual Unit Cost', compute='_compute_actual_costs',
+        help='What one unit really cost: total spend divided by the accepted '
+             'quantity.')
+    earned_cost = fields.Monetary(
+        string='Earned Cost', compute='_compute_actual_costs',
+        help='Accepted quantity at the item cost rate: what it should have '
+             'cost.')
+    cost_variance = fields.Monetary(
+        string='Cost Variance', compute='_compute_actual_costs')
+
+    def _compute_actual_costs(self):
+        PurchaseLine = self.env['purchase.order.line']
+        Expense = self.env['construction.expense']
+        for line in self:
+            order, boq = line.work_order_id, line.boq_line_id
+            purchases = labour = other = 0.0
+            if order and boq:
+                po_lines = PurchaseLine.search([
+                    ('construction_work_order_id', '=', order.id),
+                    ('construction_boq_line_id', '=', boq.id),
+                    ('order_id.state', 'in', PURCHASE_STATES),
+                ])
+                purchases = sum(po_lines.mapped('price_subtotal'))
+                expenses = Expense.search([
+                    ('work_order_id', '=', order.id),
+                    ('boq_line_id', '=', boq.id),
+                    ('state', '=', 'approved'),
+                ])
+                labour = sum(expenses.filtered(
+                    lambda e: e.category == 'labour').mapped('amount'))
+                other = sum(expenses.filtered(
+                    lambda e: e.category != 'labour').mapped('amount'))
+            line.purchase_cost = purchases
+            line.labour_cost = labour
+            line.other_cost = other
+            line.actual_cost = purchases + labour + other
+            line.actual_unit_cost = (
+                line.actual_cost / line.accepted_qty) if line.accepted_qty \
+                else 0.0
+            line.earned_cost = line.accepted_qty * line.unit_cost
+            line.cost_variance = line.earned_cost - line.actual_cost
 
     @api.constrains('accepted_qty', 'boq_line_id')
     def _check_total_execution(self):
