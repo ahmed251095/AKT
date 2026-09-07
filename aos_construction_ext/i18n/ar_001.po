@@ -1135,6 +1135,17 @@ msgid "Reference"
 msgstr "المرجع"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Refresh from Tender"
+msgstr "تحديث من المناقصة"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "Refreshed from tender %s."
+msgstr "تم التحديث من المناقصة %s."
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Register Booklet Fee Payment"
 msgstr "تسجيل صرف ثمن الكراسة"
@@ -1494,6 +1505,18 @@ msgstr "يجب إصدار التأمين الابتدائي قبل تقديم ا
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "The booklet fee can only be spent after management has approved opening the tender."
 msgstr "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإدارة لفتح العملية."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "The tender has nothing filled in that the project is missing."
+msgstr "لا يوجد في المناقصة بيان ناقص لدى المشروع."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "This project did not come from a tender."
+msgstr "هذا المشروع لم يأتِ من مناقصة."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__to_issue

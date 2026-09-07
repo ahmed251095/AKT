@@ -480,18 +480,38 @@ class ConstructionTender(models.Model):
         values['tender_line_id'] = tender_line.id
         return values
 
-    def _propagate_to_project(self):
+    #: Copied onto the awarded project, and refreshed on demand afterwards.
+    #: Each entry is (tender field, project field).
+    PROJECT_CARRY_OVER = [
+        ('authority_type_id', 'authority_type_id'),
+        ('financial_responsible_id', 'financial_responsible_id'),
+        ('operation_duration_days', 'contract_duration_days'),
+        ('location', 'location'),
+    ]
+
+    def _propagate_to_project(self, overwrite=False):
+        """Carry the tender data the project needs onto the awarded project.
+
+        By default only empty project fields are filled, because after award
+        the project owns its own data: the signed contract may name a different
+        duration or a different body than the tender did.
+        """
         self.ensure_one()
         project = self.project_id
         if not project:
             return
-        values = {
-            'authority_type_id': self.authority_type_id.id,
-            'financial_responsible_id': self.financial_responsible_id.id,
-        }
-        if self.operation_duration_days and not project.end_date:
-            values['contract_duration_days'] = self.operation_duration_days
-        project.write(values)
+        values = {}
+        for tender_field, project_field in self.PROJECT_CARRY_OVER:
+            source = self[tender_field]
+            if hasattr(source, 'id'):
+                source = source.id
+            if not source:
+                continue
+            if overwrite or not project[project_field]:
+                values[project_field] = source
+        if values:
+            project.write(values)
+        return values
 
     def action_lose(self):
         """A lost tender stays open until the bid bond comes back."""

@@ -44,6 +44,13 @@
                 <field name="authority_type_id"/>
             </xpath>
 
+            <xpath expr="//header/button[@name='action_activate']" position="before">
+                <field name="tender_id" invisible="1"/>
+                <button name="action_sync_from_tender" type="object"
+                        string="Refresh from Tender"
+                        invisible="not tender_id"/>
+            </xpath>
+
             <xpath expr="//field[@name='end_date']" position="after">
                 <field name="contract_duration_days"/>
             </xpath>

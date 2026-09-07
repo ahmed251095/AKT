@@ -63,6 +63,29 @@ class ConstructionProject(models.Model):
         domain="[('usage', '=', 'internal')]")
 
     # ------------------------------------------------------------------
+    # Origin refresh
+    # ------------------------------------------------------------------
+    def action_sync_from_tender(self):
+        """Pull the tender data across again.
+
+        The award copies what the tender knew at that moment; anything the
+        estimation office fills in afterwards -- the authority, the operation
+        duration -- would otherwise never reach the project.
+        """
+        self.ensure_one()
+        if not self.tender_id:
+            raise UserError(self.env._(
+                'This project did not come from a tender.'))
+        filled = self.tender_id._propagate_to_project(overwrite=True)
+        if not filled:
+            raise UserError(self.env._(
+                'The tender has nothing filled in that the project is '
+                'missing.'))
+        self.message_post(body=self.env._(
+            'Refreshed from tender %s.', self.tender_id.display_name))
+        return True
+
+    # ------------------------------------------------------------------
     # Project file
     # ------------------------------------------------------------------
     document_ids = fields.One2many(
@@ -263,6 +286,29 @@ class ConstructionProject(models.Model):
                 100.0 * project.project_net_profit
                 / project.customer_certified_total
                 if project.customer_certified_total else 0.0)
+
+    # ------------------------------------------------------------------
+    # Origin refresh
+    # ------------------------------------------------------------------
+    def action_sync_from_tender(self):
+        """Pull the tender data across again.
+
+        The award copies what the tender knew at that moment; anything the
+        estimation office fills in afterwards -- the authority, the operation
+        duration -- would otherwise never reach the project.
+        """
+        self.ensure_one()
+        if not self.tender_id:
+            raise UserError(self.env._(
+                'This project did not come from a tender.'))
+        filled = self.tender_id._propagate_to_project(overwrite=True)
+        if not filled:
+            raise UserError(self.env._(
+                'The tender has nothing filled in that the project is '
+                'missing.'))
+        self.message_post(body=self.env._(
+            'Refreshed from tender %s.', self.tender_id.display_name))
+        return True
 
     # ------------------------------------------------------------------
     # Project file
