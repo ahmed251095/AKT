@@ -68,9 +68,6 @@
         <field name="model">construction.work.order</field>
         <field name="inherit_id" ref="aos_construction_management.view_construction_work_order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='progress_percent']" position="attributes">
-                <attribute name="widget"/>
-            </xpath>
             <xpath expr="//field[@name='completion_percent']" position="attributes">
                 <attribute name="widget"/>
             </xpath>
