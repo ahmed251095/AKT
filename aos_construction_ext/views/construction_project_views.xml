@@ -183,6 +183,14 @@
                                 <field name="direct_purchase_total"/>
                             </group>
                         </group>
+                        <group string="In-house Execution Control">
+                            <group>
+                                <field name="execution_earned_cost"/>
+                            </group>
+                            <group>
+                                <field name="execution_cost_variance"/>
+                            </group>
+                        </group>
                     </page>
 
                     <page string="Handover &amp; Closure" name="closure">

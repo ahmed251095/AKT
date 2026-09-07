@@ -3,6 +3,23 @@ from odoo.tools import float_compare
 from odoo.exceptions import ValidationError
 
 
+class ConstructionWorkOrder(models.Model):
+    _inherit = 'construction.work.order'
+
+    # The base module leaves these as plain fields nobody fills, so a work
+    # order whose lines carry real money shows zero at the top.
+    planned_cost = fields.Monetary(
+        compute='_compute_line_costs', store=True, readonly=False)
+    actual_cost = fields.Monetary(
+        compute='_compute_line_costs', store=True, readonly=False)
+
+    @api.depends('line_ids.planned_cost', 'line_ids.actual_cost')
+    def _compute_line_costs(self):
+        for order in self:
+            order.planned_cost = sum(order.line_ids.mapped('planned_cost'))
+            order.actual_cost = sum(order.line_ids.mapped('actual_cost'))
+
+
 class ConstructionWorkOrderLine(models.Model):
     _inherit = 'construction.work.order.line'
 

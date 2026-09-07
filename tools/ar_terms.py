@@ -544,4 +544,7 @@ AR = {
     "Helper": "مساعد",
     "Equipment Operator": "مشغّل معدة",
     "Driver": "سائق",
+    "In-house Work at Cost": "قيمة التنفيذ الذاتي بالتكلفة",
+    "In-house Cost Variance": "فرق تكلفة التنفيذ الذاتي",
+    "In-house Execution Control": "رقابة التنفيذ الذاتي",
 }

@@ -34,6 +34,11 @@ msgid "Active"
 msgstr "نشط"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__actual_cost
+msgid "Actual Cost"
+msgstr "التكلفة الفعلية"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__labour_actual_cost
 msgid "Actual Labour Cost"
 msgstr "تكلفة العمالة الفعلية"
@@ -864,9 +869,24 @@ msgid "In Progress"
 msgstr "قيد التنفيذ"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__execution_cost_variance
+msgid "In-house Cost Variance"
+msgstr "فرق تكلفة التنفيذ الذاتي"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "In-house Execution Control"
+msgstr "رقابة التنفيذ الذاتي"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__inhouse_scope_qty
 msgid "In-house Scope"
 msgstr "نصيب التنفيذ الذاتي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__execution_earned_cost
+msgid "In-house Work at Cost"
+msgstr "قيمة التنفيذ الذاتي بالتكلفة"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
@@ -1267,6 +1287,11 @@ msgstr "التأمين النهائي مطلوب"
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "Performance bond released."
 msgstr "تم رد التأمين النهائي."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__planned_cost
+msgid "Planned Cost"
+msgstr "التكلفة المخططة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__1
