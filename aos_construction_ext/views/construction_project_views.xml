@@ -18,6 +18,14 @@
                 <button name="action_performance_bond_released" type="object"
                         string="Bond Released"
                         invisible="performance_bond_state not in ('issued', 'held')"/>
+                <button name="action_admin_bond_issued" type="object"
+                        string="Administrative Bond Issued"
+                        invisible="not admin_bond_required
+                                   or admin_bond_state != 'to_issue'
+                                   or state == 'draft'"/>
+                <button name="action_admin_bond_released" type="object"
+                        string="Administrative Bond Released"
+                        invisible="admin_bond_state not in ('issued', 'held')"/>
             </xpath>
 
             <xpath expr="//header/field[@name='state']" position="attributes">
@@ -44,6 +52,12 @@
                 <field name="authority_type_id"/>
             </xpath>
 
+            <!-- Long text reads across the sheet, not in a label column. -->
+            <xpath expr="//group[@string='Description']" position="replace">
+                <separator string="Description"/>
+                <field name="description" nolabel="1"/>
+            </xpath>
+
             <xpath expr="//header/button[@name='action_activate']" position="before">
                 <field name="tender_id" invisible="1"/>
                 <button name="action_sync_from_tender" type="object"
@@ -57,7 +71,7 @@
 
             <xpath expr="//sheet/group[2]" position="after">
                 <group string="Hold" invisible="state != 'on_hold'">
-                    <field name="hold_reason" nolabel="1" colspan="2"/>
+                    <field name="hold_reason" nolabel="1"/>
                     <field name="hold_date"/>
                     <field name="hold_approved_by"/>
                 </group>
@@ -130,9 +144,9 @@
                         </group>
                     </page>
 
-                    <page string="Performance Bond" name="performance_bond">
+                    <page string="Bonds" name="performance_bond">
                         <group>
-                            <group string="Amount">
+                            <group string="Performance Bond">
                                 <field name="performance_bond_required"/>
                                 <field name="performance_bond_percent"
                                        invisible="not performance_bond_required"/>
@@ -147,6 +161,24 @@
                                 <field name="performance_bond_expiry_date"/>
                                 <field name="performance_bond_return_date"
                                        invisible="performance_bond_state not in ('released', 'forfeited')"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Administrative Bond">
+                                <field name="admin_bond_required"/>
+                                <field name="admin_bond_percent"
+                                       invisible="not admin_bond_required"/>
+                                <field name="admin_bond_amount"
+                                       invisible="not admin_bond_required"/>
+                                <field name="admin_bond_state"/>
+                            </group>
+                            <group string="Instrument" invisible="not admin_bond_required">
+                                <field name="admin_bond_bank_id"/>
+                                <field name="admin_bond_ref"/>
+                                <field name="admin_bond_issue_date"/>
+                                <field name="admin_bond_expiry_date"/>
+                                <field name="admin_bond_return_date"
+                                       invisible="admin_bond_state not in ('released', 'forfeited')"/>
                             </group>
                         </group>
                     </page>
@@ -225,9 +257,9 @@
                                 <field name="final_handover_date"/>
                             </group>
                         </group>
-                        <group string="Closure Notes">
-                            <field name="closure_note" nolabel="1"/>
-                        </group>
+                        <separator string="Closure Notes"/>
+                        <field name="closure_note" nolabel="1"
+                               placeholder="What is left, and what was agreed on handover..."/>
                     </page>
 
                 </notebook>

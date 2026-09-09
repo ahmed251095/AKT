@@ -78,8 +78,39 @@ msgstr "نسبة الإدارة (%)"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
-msgid "Amount"
-msgstr "المبلغ"
+msgid "Administrative Bond"
+msgstr "التأمين الإداري"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_bond_percent
+msgid "Administrative Bond (%)"
+msgstr "نسبة التأمين الإداري (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_bond_amount
+msgid "Administrative Bond Amount"
+msgstr "قيمة التأمين الإداري"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Administrative Bond Issued"
+msgstr "تم إصدار التأمين الإداري"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Administrative Bond Released"
+msgstr "تم رد التأمين الإداري"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_bond_required
+msgid "Administrative Bond Required"
+msgstr "التأمين الإداري مطلوب"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "Administrative bond released."
+msgstr "تم رد التأمين الإداري."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -245,6 +276,7 @@ msgid "Bill of Quantities"
 msgstr "مقايسة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_bond_expiry_date
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_expiry_date
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_expiry_date
 msgid "Bond Expiry Date"
@@ -261,6 +293,7 @@ msgid "Bond Instrument"
 msgstr "نوع الضمان"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_bond_issue_date
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_issue_date
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_issue_date
 msgid "Bond Issue Date"
@@ -279,12 +312,14 @@ msgid "Bond Outstanding"
 msgstr "تأمين قائم"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_bond_ref
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_ref
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_ref
 msgid "Bond Reference"
 msgstr "رقم خطاب الضمان"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_bond_return_date
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_return_date
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_return_date
 msgid "Bond Release Date"
@@ -297,10 +332,16 @@ msgid "Bond Released"
 msgstr "تم رد التأمين"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_bond_state
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_state
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_state
 msgid "Bond Status"
 msgstr "حالة التأمين"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "Bonds"
+msgstr "التأمينات"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
@@ -550,6 +591,7 @@ msgstr "أجر الوردية الافتراضي"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__description
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__description
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Description"
 msgstr "الوصف"
 
@@ -797,6 +839,7 @@ msgid "Forecast at Completion"
 msgstr "التوقع عند الإتمام"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__admin_bond_state__forfeited
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__forfeited
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__forfeited
 msgid "Forfeited"
@@ -862,6 +905,7 @@ msgid "Held Since"
 msgstr "موقوف منذ"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__admin_bond_state__held
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__held
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__held
 msgid "Held by Client"
@@ -969,6 +1013,7 @@ msgid "Issue Date"
 msgstr "تاريخ الإصدار"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__admin_bond_state__issued
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__issued
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__issued
 msgid "Issued"
@@ -980,6 +1025,7 @@ msgid "Issues"
 msgstr "المشاكل"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_bond_bank_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_bank_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_bank_id
 msgid "Issuing Bank"
@@ -1172,6 +1218,7 @@ msgid "No."
 msgstr "م"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__admin_bond_state__not_required
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__not_required
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__not_required
 msgid "Not Required"
@@ -1594,6 +1641,7 @@ msgid "Rejection Reason"
 msgstr "سبب الرفض"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__admin_bond_state__released
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__released
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__released
 msgid "Released"
@@ -2020,6 +2068,7 @@ msgid "This project did not come from a tender."
 msgstr "هذا المشروع لم يأتِ من مناقصة."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__admin_bond_state__to_issue
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__to_issue
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__to_issue
 msgid "To Issue"
@@ -2139,6 +2188,11 @@ msgid "What happened?"
 msgstr "ماذا حدث؟"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
+msgid "What is left, and what was agreed on handover..."
+msgstr "ما تبقى، وما تم الاتفاق عليه عند التسليم..."
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_hold_form
 msgid "Why is the site stopping, and what unblocks it?"
 msgstr "لماذا يتوقف الموقع، وما الذي يعيد تشغيله؟"
@@ -2164,3 +2218,15 @@ msgstr "أمر الشغل"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__work_type
 msgid "Work Type"
 msgstr "نوع العمل"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "administrative bond"
+msgstr "التأمين الإداري"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "performance bond"
+msgstr "التأمين النهائي"

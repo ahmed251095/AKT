@@ -7,6 +7,10 @@
         <field name="inherit_id" ref="aos_construction_management.view_construction_subcontract_form"/>
         <field name="arch" type="xml">
 
+            <xpath expr="//field[@name='scope_of_work']" position="attributes">
+                <attribute name="nolabel">1</attribute>
+            </xpath>
+
             <xpath expr="//field[@name='contract_value']" position="attributes">
                 <attribute name="readonly">line_ids</attribute>
             </xpath>

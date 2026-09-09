@@ -121,9 +121,9 @@
                             <field name="approval_date"/>
                         </group>
                     </group>
-                    <group string="Rejection Reason" invisible="state != 'rejected'">
-                        <field name="rejection_reason" nolabel="1"/>
-                    </group>
+                    <separator string="Rejection Reason" invisible="state != 'rejected'"/>
+                    <field name="rejection_reason" nolabel="1"
+                           invisible="state != 'rejected'"/>
                 </page>
 
                 <page string="Booklet &amp; Bond" name="booklet_bond">
@@ -202,10 +202,9 @@
                             <field name="technical_review_date"/>
                         </group>
                     </group>
-                    <group string="Opinion">
-                        <field name="technical_office_opinion" nolabel="1"
-                               placeholder="Do we bid, and on what terms?"/>
-                    </group>
+                    <separator string="Opinion"/>
+                    <field name="technical_office_opinion" nolabel="1"
+                           placeholder="Do we bid, and on what terms?"/>
                 </page>
 
             </xpath>
