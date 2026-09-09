@@ -183,6 +183,12 @@ msgid "Approved By"
 msgstr "اعتمدها"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_type_form
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__subcontract_cost
 msgid "Assigned Cost"
 msgstr "تكلفة الإسناد"
@@ -195,7 +201,6 @@ msgstr "الموظفون المكلفون"
 
 #. module: aos_construction_ext
 #: model:ir.actions.act_window,name:aos_construction_ext.action_construction_subcontract_line
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__line_count
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__line_ids
 #: model:ir.ui.menu,name:aos_construction_ext.menu_construction_subcontract_line
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
@@ -304,6 +309,11 @@ msgid "Bill of Quantities"
 msgstr "مقايسة"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
+msgid "Blank Certificate"
+msgstr "مستخلص فارغ"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_expiry_date
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_expiry_date
 msgid "Bond Expiry Date"
@@ -330,6 +340,11 @@ msgstr "تاريخ إصدار الضمان"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Bond Issued"
 msgstr "تم إصدار التأمين"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Bond Not Released"
+msgstr "التأمين لم يُرد"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
@@ -403,6 +418,7 @@ msgstr "إيداع نقدي"
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
 #: code:addons/aos_construction_ext/models/construction_subcontract.py:0
 msgid "Certificate - %s"
 msgstr "مستخلص - %s"
@@ -576,6 +592,12 @@ msgstr "عدد أفراد الوردية"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_hr_employee__currency_id
 msgid "Currency"
 msgstr "العملة"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "Customer Certificate"
+msgstr "مستخلص عميل"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__date
@@ -989,11 +1011,6 @@ msgid "Hold Reason"
 msgstr "سبب الإيقاف"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hold_requested_by
-msgid "Hold Requested By"
-msgstr "طلب الإيقاف"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__hours_per_shift
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__default_hours
 msgid "Hours per Shift"
@@ -1308,6 +1325,12 @@ msgstr "غير منسوب لبند"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
 msgid "Notes"
 msgstr "ملاحظات"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "Nothing new to certify. Record progress on the bill of quantities first."
+msgstr "لا يوجد جديد للاستخلاص. سجّل الإنجاز على المقايسة أولاً."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -1722,7 +1745,7 @@ msgstr "رفض المناقصة"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
 msgid "Rejected"
-msgstr "مرفوض"
+msgstr "مرفوضة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__rejected
@@ -1905,6 +1928,12 @@ msgstr "سبتمبر ٢٠٢٦"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__sequence
 msgid "Sequence"
 msgstr "الترتيب"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "Set the product on these BOQ items before raising a certificate:\n%s"
+msgstr "حدد المنتج على بنود المقايسة الآتية قبل إصدار مستخلص:\n%s"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2331,6 +2360,7 @@ msgid "Validity"
 msgstr "سريان الضمان"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__amount_to_certify
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__amount_to_certify
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__amount_to_certify
 msgid "Value to Certify"

@@ -613,4 +613,16 @@ AR = {
         "%(employee)s محمّل بنسبة %(total)s%% على مشاريع هذه الفترة، وهي أكثر من شهر كامل.",
     "Some expenses from this distribution are no longer in the approved state. Handle them by hand before resetting.":
         "بعض مصروفات هذا التوزيع لم تعد في حالة معتمد. عالجها يدوياً قبل إعادة التعيين.",
+    "Bond Not Released": "التأمين لم يُرد",
+    "Rejected": "مرفوضة",
+    "On Hold": "موقوف",
+    "Expired": "منتهي",
+    "Archived": "مؤرشف",
+    "Certify Progress": "استخلاص الإنجاز",
+    "Customer Certificate": "مستخلص عميل",
+    "Value to Certify": "القيمة المستحقة",
+    "Nothing new to certify. Record progress on the bill of quantities first.":
+        "لا يوجد جديد للاستخلاص. سجّل الإنجاز على المقايسة أولاً.",
+    "Set the product on these BOQ items before raising a certificate:\n%s":
+        "حدد المنتج على بنود المقايسة الآتية قبل إصدار مستخلص:\n%s",
 }

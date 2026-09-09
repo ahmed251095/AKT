@@ -8,8 +8,6 @@ class ConstructionSubcontract(models.Model):
     line_ids = fields.One2many(
         'construction.subcontract.line', 'subcontract_id',
         string='Assigned Items')
-    line_count = fields.Integer(
-        string='Assigned Items', compute='_compute_line_totals')
     assigned_total = fields.Monetary(
         string='Assigned Value', compute='_compute_line_totals', store=True,
         help='Sum of the items handed to this subcontractor.')
@@ -36,7 +34,6 @@ class ConstructionSubcontract(models.Model):
     @api.depends('line_ids.amount', 'line_ids.margin')
     def _compute_line_totals(self):
         for contract in self:
-            contract.line_count = len(contract.line_ids)
             contract.assigned_total = sum(contract.line_ids.mapped('amount'))
             contract.assigned_margin = sum(contract.line_ids.mapped('margin'))
             revenue = contract.assigned_total + contract.assigned_margin

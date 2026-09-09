@@ -158,11 +158,18 @@ def parse_xml(module):
             if not arch:
                 continue
             seen = set()
-            for sm in re.finditer(r'\b(?:string|placeholder|title)="([^"]+)"', arch.group(1)):
-                src = sm.group(1).replace('&amp;', '&')
-                if src in AR and src not in seen:
-                    seen.add(src)
-                    yield (f'model_terms:ir.ui.view,arch_db:{module}.{xmlid}', src)
+            patterns = (
+                r'\b(?:string|placeholder|title)="([^"]+)"',
+                # An inherited view sets a label through an attribute tag.
+                r'<attribute name="(?:string|placeholder|title)">([^<]+)</attribute>',
+            )
+            for pattern in patterns:
+                for sm in re.finditer(pattern, arch.group(1)):
+                    src = sm.group(1).replace('&amp;', '&').strip()
+                    if src in AR and src not in seen:
+                        seen.add(src)
+                        yield (f'model_terms:ir.ui.view,arch_db:{module}.{xmlid}',
+                               src)
         for mm in re.finditer(r'<menuitem[^>]*\bid="([\w.]+)"[^>]*?\bname="([^"]+)"', text, re.S):
             yield (f'model:ir.ui.menu,name:{module}.{mm.group(1)}', mm.group(2))
         for mm in re.finditer(r'<menuitem[^>]*\bname="([^"]+)"[^>]*?\bid="([\w.]+)"', text, re.S):

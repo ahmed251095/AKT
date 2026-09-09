@@ -32,4 +32,15 @@
               groups="aos_construction_management.group_construction_manager"
               sequence="1"/>
 
+    <!--
+        Progress Billing bills a percentage of the contract typed by hand,
+        unconnected to the bill of quantities and invisible to the profit
+        statement, so it is a second way to bill the same work that nothing
+        reconciles. Payment certificates carry the quantities and the money.
+        The model is left in place; only the way in is closed.
+    -->
+    <record id="aos_construction_management.menu_construction_progress_billing" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+
 </odoo>

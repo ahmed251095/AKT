@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, Command
 from odoo.exceptions import UserError
 
 from .construction_wbs import _weighted_progress
@@ -65,29 +65,6 @@ class ConstructionProject(models.Model):
         domain="[('usage', '=', 'internal')]")
 
     # ------------------------------------------------------------------
-    # Origin refresh
-    # ------------------------------------------------------------------
-    def action_sync_from_tender(self):
-        """Pull the tender data across again.
-
-        The award copies what the tender knew at that moment; anything the
-        estimation office fills in afterwards -- the authority, the operation
-        duration -- would otherwise never reach the project.
-        """
-        self.ensure_one()
-        if not self.tender_id:
-            raise UserError(self.env._(
-                'This project did not come from a tender.'))
-        filled = self.tender_id._propagate_to_project(overwrite=True)
-        if not filled:
-            raise UserError(self.env._(
-                'The tender has nothing filled in that the project is '
-                'missing.'))
-        self.message_post(body=self.env._(
-            'Refreshed from tender %s.', self.tender_id.display_name))
-        return True
-
-    # ------------------------------------------------------------------
     # Project file
     # ------------------------------------------------------------------
     document_ids = fields.One2many(
@@ -133,8 +110,6 @@ class ConstructionProject(models.Model):
     # ------------------------------------------------------------------
     hold_reason = fields.Text(string='Hold Reason', readonly=True, copy=False)
     hold_date = fields.Date(string='Held Since', readonly=True, copy=False)
-    hold_requested_by = fields.Many2one(
-        'res.users', string='Hold Requested By', readonly=True, copy=False)
     hold_approved_by = fields.Many2one(
         'res.users', string='Hold Approved By', readonly=True, copy=False)
 
@@ -433,6 +408,86 @@ class ConstructionProject(models.Model):
                 and project.subcontract_certified_total)
 
     # ------------------------------------------------------------------
+    # Billing the client
+    # ------------------------------------------------------------------
+    amount_to_certify = fields.Monetary(
+        string='Value to Certify', currency_field='currency_id',
+        compute='_compute_client_certification',
+        help='Work completed on the bill of quantities that has not been put '
+             'on a certificate to the client yet.')
+
+    def _compute_client_certification(self):
+        BoqLine = self.env['construction.boq.line']
+        for project in self:
+            total = 0.0
+            lines = BoqLine.search([
+                ('boq_id.project_id', '=', project.id),
+                ('is_section', '=', False),
+            ])
+            for line in lines:
+                pending = line.progress_qty - line.customer_certified_qty
+                if pending > 0:
+                    total += pending * line.unit_rate
+            project.amount_to_certify = total
+
+    def action_certify_progress(self):
+        """Raise the client certificate for the work completed so far.
+
+        The mirror of certifying a subcontractor: the site records progress
+        against the items, and the certificate follows from it rather than
+        being retyped line by line.
+        """
+        self.ensure_one()
+        BoqLine = self.env['construction.boq.line']
+        lines = BoqLine.search([
+            ('boq_id.project_id', '=', self.id), ('is_section', '=', False),
+        ])
+        pending = [
+            (line, line.progress_qty - line.customer_certified_qty)
+            for line in lines
+        ]
+        pending = [(line, qty) for line, qty in pending if qty > 0]
+        if not pending:
+            raise UserError(self.env._(
+                'Nothing new to certify. Record progress on the bill of '
+                'quantities first.'))
+        missing = [line for line, _qty in pending if not line.product_id]
+        if missing:
+            raise UserError(self.env._(
+                'Set the product on these BOQ items before raising a '
+                'certificate:\n%s',
+                '\n'.join('- %s' % line.display_name for line in missing)))
+
+        billing = self.env['construction.ra.billing'].create({
+            'name': self.env._('Certificate - %s', self.display_name),
+            'billing_type': 'customer',
+            'project_id': self.id,
+            'partner_id': self.client_id.id,
+            'billing_date': fields.Date.context_today(self),
+            'line_ids': [
+                Command.create({
+                    'product_id': line.product_id.id,
+                    'boq_line_id': line.id,
+                    'boq_line_description': line.description,
+                    'work_type': line.work_type,
+                    'uom_id': line.uom_id.id,
+                    'boq_qty': line.qty,
+                    'qty_previous': line.customer_certified_qty,
+                    'qty_current': qty,
+                    'unit_rate': line.unit_rate,
+                    'wbs_id': line.wbs_id.id,
+                }) for line, qty in pending
+            ],
+        })
+        return {
+            'type': 'ir.actions.act_window',
+            'name': self.env._('Customer Certificate'),
+            'res_model': 'construction.ra.billing',
+            'res_id': billing.id,
+            'view_mode': 'form',
+        }
+
+    # ------------------------------------------------------------------
     # Origin refresh
     # ------------------------------------------------------------------
     def action_sync_from_tender(self):
@@ -493,7 +548,6 @@ class ConstructionProject(models.Model):
             project.write({
                 'hold_reason': reason,
                 'hold_date': fields.Date.context_today(project),
-                'hold_requested_by': self.env.user.id,
                 'hold_approved_by': self.env.user.id,
             })
             super(ConstructionProject, project).action_hold()
@@ -506,7 +560,6 @@ class ConstructionProject(models.Model):
         self.filtered('hold_reason').write({
             'hold_reason': False,
             'hold_date': False,
-            'hold_requested_by': False,
             'hold_approved_by': False,
         })
         return result

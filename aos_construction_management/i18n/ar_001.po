@@ -1446,7 +1446,7 @@ msgstr "رفض"
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_expense__state__rejected
 msgid "Rejected"
-msgstr "مرفوض"
+msgstr "مرفوضة"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__rejected_qty

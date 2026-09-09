@@ -165,6 +165,7 @@
                                 <field name="invoiced_revenue" readonly="1"/>
                             </group>
                             <group string="Result">
+                                <field name="amount_to_certify"/>
                                 <field name="project_total_cost"/>
                                 <field name="project_net_profit"/>
                                 <field name="project_net_margin"/>
