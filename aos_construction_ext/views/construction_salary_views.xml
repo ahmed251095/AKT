@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_salary_distribution_form" model="ir.ui.view">
+        <field name="name">construction.salary.distribution.form</field>
+        <field name="model">construction.salary.distribution</field>
+        <field name="arch" type="xml">
+            <form string="Salary Distribution">
+                <header>
+                    <button name="action_post" type="object" string="Post to Projects"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_reset" type="object" string="Reset to Draft"
+                            invisible="state != 'posted'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,posted"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_expenses" type="object"
+                                class="oe_stat_button" icon="fa-money"
+                                invisible="state != 'posted'">
+                            <field name="total_allocated" widget="statinfo"
+                                   string="Allocated"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="September 2026"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group>
+                            <field name="employee_count"/>
+                            <field name="total_allocated"/>
+                            <field name="currency_id" groups="base.group_multi_currency"/>
+                        </group>
+                    </group>
+                    <field name="line_ids" readonly="state != 'draft'">
+                        <list editable="bottom">
+                            <field name="employee_id"/>
+                            <field name="employee_cost"/>
+                            <field name="project_id"/>
+                            <field name="percent" sum="Share (%)"/>
+                            <field name="amount" sum="Allocated"/>
+                            <field name="expense_id" optional="hide"/>
+                            <field name="currency_id" column_invisible="1"/>
+                        </list>
+                    </field>
+                    <separator string="Notes"/>
+                    <field name="note" nolabel="1"
+                           placeholder="How the shares were decided this month..."/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_salary_distribution_list" model="ir.ui.view">
+        <field name="name">construction.salary.distribution.list</field>
+        <field name="model">construction.salary.distribution</field>
+        <field name="arch" type="xml">
+            <list string="Salary Distributions"
+                  decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="employee_count"/>
+                <field name="total_allocated" sum="Total Allocated"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'posted'"/>
+                <field name="currency_id" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_construction_salary_distribution" model="ir.actions.act_window">
+        <field name="name">Salary Distribution</field>
+        <field name="res_model">construction.salary.distribution</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Spread staff cost over the sites</p>
+            <p>An engineer on three projects costs all three. Set each person's share for
+               the month and post it, and every project carries the people who ran it.</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_construction_salary_distribution"
+              name="Salary Distribution"
+              parent="aos_construction_management.menu_construction_root"
+              action="action_construction_salary_distribution"
+              sequence="62"/>
+
+    <record id="view_employee_form_construction_cost" model="ir.ui.view">
+        <field name="name">hr.employee.form.construction.cost</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='job_title']" position="after">
+                <field name="construction_monthly_cost"
+                       groups="aos_construction_management.group_construction_manager"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

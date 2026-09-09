@@ -59,6 +59,7 @@ Adds the operating model actually used by the contractor on top of
         'views/construction_work_order_views.xml',
         'views/construction_labour_views.xml',
         'views/construction_hr_case_views.xml',
+        'views/construction_salary_views.xml',
         'views/res_config_settings_views.xml',
         'views/construction_ext_menus.xml',
         'report/construction_reports.xml',

@@ -30,9 +30,33 @@ msgstr "\"%s\" موجود بالفعل."
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_salary.py:0
+msgid "%(employee)s - %(period)s"
+msgstr "%(employee)s - %(period)s"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_salary.py:0
+msgid "%(employee)s is allocated %(total)s%% across the projects in this period, which is more than a whole month."
+msgstr "%(employee)s محمّل بنسبة %(total)s%% على مشاريع هذه الفترة، وهي أكثر من شهر كامل."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "%(label)s for %(tender)s"
 msgstr "%(label)s لـ %(tender)s"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_salary.py:0
+msgid "%(percent)s%% of the monthly cost of %(employee)s."
+msgstr "%(percent)s%% من التكلفة الشهرية لـ %(employee)s."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_salary.py:0
+msgid "A share cannot be negative."
+msgstr "نسبة التحميل لا تكون بالسالب."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__case_type__absence
@@ -68,6 +92,12 @@ msgid "Add Unassigned BOQ Items"
 msgstr "إضافة بنود المقايسة غير المسندة"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_salary.py:0
+msgid "Add the allocations before posting."
+msgstr "أضف التحميلات قبل الترحيل."
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Administration"
 msgstr "الإدارة"
@@ -93,6 +123,17 @@ msgstr "نسبة الإدارة (%)"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_handover_date
 msgid "Administrative Handover"
 msgstr "التسليم الإداري"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__amount
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
+msgid "Allocated"
+msgstr "المحمّل"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__line_ids
+msgid "Allocations"
+msgstr "التحميلات"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
@@ -351,6 +392,7 @@ msgstr "إلغاء"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__state__cancelled
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_salary_distribution__state__cancelled
 msgid "Cancelled"
 msgstr "ملغي"
 
@@ -528,7 +570,10 @@ msgstr "عدد أفراد الوردية"
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__currency_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__currency_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__currency_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__currency_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__currency_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_hr_employee__currency_id
 msgid "Currency"
 msgstr "العملة"
 
@@ -626,6 +671,11 @@ msgid "Done by Subcontractors"
 msgstr "منجز بالباطن"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_salary_distribution__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__drawing
 msgid "Drawings"
 msgstr "الرسومات"
@@ -667,12 +717,14 @@ msgstr "مهندس كهرباء"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__employee_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__employee_id
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
 msgid "Employee"
 msgstr "الموظف"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__employee_count
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__employee_count
 msgid "Employees"
 msgstr "الموظفون"
 
@@ -717,6 +769,17 @@ msgstr "الهامش المتوقع"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expected_margin_percent
 msgid "Expected Margin (%)"
 msgstr "الهامش المتوقع (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__expense_id
+msgid "Expense"
+msgstr "المصروف"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_salary.py:0
+msgid "Expenses"
+msgstr "المصروفات"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -827,6 +890,11 @@ msgid "Forfeited"
 msgstr "مُصادر"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__date_from
+msgid "From"
+msgstr "من"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "General Expenses"
 msgstr "المصاريف العمومية"
@@ -930,6 +998,11 @@ msgstr "طلب الإيقاف"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__default_hours
 msgid "Hours per Shift"
 msgstr "ساعات الوردية"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
+msgid "How the shares were decided this month..."
+msgstr "كيف تم تحديد النسب هذا الشهر..."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
@@ -1178,6 +1251,16 @@ msgid "Missing Documents"
 msgstr "المستندات الناقصة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__employee_cost
+msgid "Monthly Cost"
+msgstr "التكلفة الشهرية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_hr_employee__construction_monthly_cost
+msgid "Monthly Cost to Projects"
+msgstr "التكلفة الشهرية المحمّلة على المشاريع"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__name
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__name
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__name
@@ -1217,10 +1300,12 @@ msgstr "غير منسوب لبند"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document_type__note
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__note
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__note
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__note
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__notes
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_type_form
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
 msgid "Notes"
 msgstr "ملاحظات"
 
@@ -1235,6 +1320,12 @@ msgstr "لا يوجد جديد للاستخلاص. حدد نسبة الإنجا�
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 msgid "On Hold"
 msgstr "موقوف"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_salary.py:0
+msgid "Only a draft distribution can be posted."
+msgstr "لا يُرحَّل إلا توزيع في حالة مسودة."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -1387,6 +1478,11 @@ msgid "Performance bond released."
 msgstr "تم رد التأمين النهائي."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__name
+msgid "Period"
+msgstr "الفترة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__planned_cost
 msgid "Planned Cost"
 msgstr "التكلفة المخططة"
@@ -1395,6 +1491,16 @@ msgstr "التكلفة المخططة"
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__1
 msgid "Poor"
 msgstr "ضعيف"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
+msgid "Post to Projects"
+msgstr "ترحيل على المشاريع"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_salary_distribution__state__posted
+msgid "Posted"
+msgstr "مُرحّل"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__price_before_expenses
@@ -1468,6 +1574,7 @@ msgstr "نسبة الإنجاز"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project_hold__project_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__project_id
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__scope__project
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
@@ -1716,6 +1823,11 @@ msgid "Required by Default"
 msgstr "مطلوب افتراضياً"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
+msgid "Reset to Draft"
+msgstr "إرجاع لمسودة"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
 msgid "Reset to Open"
 msgstr "إعادة فتح"
@@ -1757,9 +1869,32 @@ msgid "Salaries & Wages"
 msgstr "المرتبات والأجور"
 
 #. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_salary_distribution_line
+msgid "Salary Allocation"
+msgstr "تحميل راتب"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_salary_distribution
+#: model:ir.model,name:aos_construction_ext.model_construction_salary_distribution
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_salary_distribution
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
+msgid "Salary Distribution"
+msgstr "توزيع الرواتب"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_list
+msgid "Salary Distributions"
+msgstr "توزيعات الرواتب"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__boq_unit_rate
 msgid "Selling Rate"
 msgstr "سعر البيع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
+msgid "September 2026"
+msgstr "سبتمبر ٢٠٢٦"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__sequence
@@ -1802,6 +1937,11 @@ msgid "Settings"
 msgstr "الإعدادات"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__percent
+msgid "Share (%)"
+msgstr "نسبة التحميل (%)"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__shift_count
 msgid "Shifts"
 msgstr "عدد الورديات"
@@ -1815,6 +1955,12 @@ msgstr "موقع المخزون"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__warehouse_id
 msgid "Site Warehouse"
 msgstr "مخزن الموقع"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_salary.py:0
+msgid "Some expenses from this distribution are no longer in the approved state. Handle them by hand before resetting."
+msgstr "بعض مصروفات هذا التوزيع لم تعد في حالة معتمد. عالجها يدوياً قبل إعادة التعيين."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
@@ -1834,6 +1980,7 @@ msgstr "الحالة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__state
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__state
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
@@ -2056,6 +2203,12 @@ msgstr "التأمين النهائي لـ \"%s\" لم يُرد بعد."
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_salary.py:0
+msgid "The period ends before it starts."
+msgstr "الفترة تنتهي قبل أن تبدأ."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_subcontract_line.py:0
 msgid "The subcontractor rate for \"%(item)s\" is %(rate)s, above the %(budget)s the item was priced to cost.\nEither negotiate the rate down, or correct the item cost in the bill of quantities if the estimate was wrong."
 msgstr "سعر المقاول لـ \"%(item)s\" هو %(rate)s، وهو أعلى من %(budget)s التي سُعّر البند على أساسها.\nإما أن تفاوض على خفض السعر، أو تصحح تكلفة البند في المقايسة إذا كان التقدير خاطئاً."
@@ -2085,6 +2238,11 @@ msgid "This project did not come from a tender."
 msgstr "هذا المشروع لم يأتِ من مناقصة."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__date_to
+msgid "To"
+msgstr "إلى"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__to_issue
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_state__to_issue
 msgid "To Issue"
@@ -2095,6 +2253,11 @@ msgstr "للإصدار"
 #: code:addons/aos_construction_ext/controllers/main.py:0
 msgid "Total"
 msgstr "الإجمالي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__total_allocated
+msgid "Total Allocated"
+msgstr "إجمالي المحمّل"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__customer_certified_total

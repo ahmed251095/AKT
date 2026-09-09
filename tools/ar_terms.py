@@ -582,4 +582,35 @@ AR = {
     "Execution of \"%(item)s\" would reach %(total)s against a bill quantity of %(qty)s.\nAccepted on work orders: %(accepted)s\nCertified to subcontractors: %(certified)s":
         "تنفيذ \"%(item)s\" سيصل إلى %(total)s مقابل كمية مقايسة %(qty)s.\nالمقبول على أوامر الشغل: %(accepted)s\nالمعتمد لمقاولي الباطن: %(certified)s",
     "Tax %": "نسبة الضريبة %",
+    # ---- salary distribution ----
+    "Salary Distribution": "توزيع الرواتب",
+    "Salary Distributions": "توزيعات الرواتب",
+    "Salary Allocation": "تحميل راتب",
+    "Allocations": "التحميلات",
+    "Monthly Cost to Projects": "التكلفة الشهرية المحمّلة على المشاريع",
+    "Monthly Cost": "التكلفة الشهرية",
+    "Share (%)": "نسبة التحميل (%)",
+    "Allocated": "المحمّل",
+    "Total Allocated": "إجمالي المحمّل",
+    "Period": "الفترة",
+    "From": "من",
+    "To": "إلى",
+    "Post to Projects": "ترحيل على المشاريع",
+    "Posted": "مُرحّل",
+    "Expense": "المصروف",
+    "September 2026": "سبتمبر ٢٠٢٦",
+    "How the shares were decided this month...":
+        "كيف تم تحديد النسب هذا الشهر...",
+    "The period ends before it starts.": "الفترة تنتهي قبل أن تبدأ.",
+    "Only a draft distribution can be posted.":
+        "لا يُرحَّل إلا توزيع في حالة مسودة.",
+    "Add the allocations before posting.": "أضف التحميلات قبل الترحيل.",
+    "A share cannot be negative.": "نسبة التحميل لا تكون بالسالب.",
+    "%(employee)s - %(period)s": "%(employee)s - %(period)s",
+    "%(percent)s%% of the monthly cost of %(employee)s.":
+        "%(percent)s%% من التكلفة الشهرية لـ %(employee)s.",
+    "%(employee)s is allocated %(total)s%% across the projects in this period, which is more than a whole month.":
+        "%(employee)s محمّل بنسبة %(total)s%% على مشاريع هذه الفترة، وهي أكثر من شهر كامل.",
+    "Some expenses from this distribution are no longer in the approved state. Handle them by hand before resetting.":
+        "بعض مصروفات هذا التوزيع لم تعد في حالة معتمد. عالجها يدوياً قبل إعادة التعيين.",
 }
