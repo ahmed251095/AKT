@@ -136,10 +136,11 @@ class ConstructionSubcontractLine(models.Model):
     def _compute_certified(self):
         Billing = self.env['construction.ra.billing.line']
         for line in self:
+            # A draft certificate claims its quantity too, or the same work
+            # gets certified again while the first one is being checked.
             certified = Billing.search([
                 ('billing_id.subcontract_id', '=', line.subcontract_id.id),
-                ('billing_id.state', 'in',
-                 ('approved', 'invoiced', 'paid')),
+                ('billing_id.state', '!=', 'cancelled'),
                 ('boq_line_id', '=', line.boq_line_id.id),
             ])
             line.certified_qty = sum(certified.mapped('qty_current'))

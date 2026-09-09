@@ -419,16 +419,34 @@ class ConstructionProject(models.Model):
     def _compute_client_certification(self):
         BoqLine = self.env['construction.boq.line']
         for project in self:
-            total = 0.0
             lines = BoqLine.search([
                 ('boq_id.project_id', '=', project.id),
                 ('is_section', '=', False),
             ])
-            for line in lines:
-                pending = line.progress_qty - line.customer_certified_qty
-                if pending > 0:
-                    total += pending * line.unit_rate
-            project.amount_to_certify = total
+            project.amount_to_certify = sum(
+                qty * line.unit_rate
+                for line, qty in project._pending_client_quantities(lines))
+
+    @staticmethod
+    def _claimed_quantity(boq_line):
+        """Quantity already on a certificate to the client.
+
+        A draft certificate claims its quantity just as an approved one does:
+        counting only approved ones would let the same work be certified twice
+        while the first certificate is still being checked.
+        """
+        claimed = boq_line.billing_line_ids.filtered(
+            lambda cert: cert.billing_id.billing_type == 'customer'
+            and cert.billing_id.state != 'cancelled')
+        return sum(claimed.mapped('qty_current'))
+
+    def _pending_client_quantities(self, boq_lines):
+        result = []
+        for line in boq_lines:
+            pending = line.progress_qty - self._claimed_quantity(line)
+            if pending > 0:
+                result.append((line, pending))
+        return result
 
     def action_certify_progress(self):
         """Raise the client certificate for the work completed so far.
@@ -442,11 +460,7 @@ class ConstructionProject(models.Model):
         lines = BoqLine.search([
             ('boq_id.project_id', '=', self.id), ('is_section', '=', False),
         ])
-        pending = [
-            (line, line.progress_qty - line.customer_certified_qty)
-            for line in lines
-        ]
-        pending = [(line, qty) for line, qty in pending if qty > 0]
+        pending = self._pending_client_quantities(lines)
         if not pending:
             raise UserError(self.env._(
                 'Nothing new to certify. Record progress on the bill of '
@@ -472,7 +486,7 @@ class ConstructionProject(models.Model):
                     'work_type': line.work_type,
                     'uom_id': line.uom_id.id,
                     'boq_qty': line.qty,
-                    'qty_previous': line.customer_certified_qty,
+                    'qty_previous': self._claimed_quantity(line),
                     'qty_current': qty,
                     'unit_rate': line.unit_rate,
                     'wbs_id': line.wbs_id.id,
