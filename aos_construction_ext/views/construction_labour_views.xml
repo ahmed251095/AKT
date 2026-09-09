@@ -45,8 +45,7 @@
                         <group string="Review">
                             <field name="priced_operating_cost"/>
                             <field name="labour_estimated_cost"/>
-                            <field name="labour_variance"
-                                   decoration-danger="labour_over_budget"/>
+                            <field name="labour_variance"/>
                             <field name="labour_variance_percent"/>
                             <field name="labour_over_budget" invisible="1"/>
                         </group>
