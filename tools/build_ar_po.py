@@ -139,6 +139,31 @@ def parse_code(module):
                 yield (f'code:addons/{rel}:0', src)
 
 
+#: Seeded configuration whose names people read on screen.
+DATA_MODELS = {
+    'construction.document.type': 'name',
+    'construction.authority.type': 'name',
+    'construction.labour.type': 'name',
+}
+
+
+def parse_data(module):
+    """Yield the translatable names of records the module seeds."""
+    for path in sorted(glob.glob(f'{BASE}/{module}/data/*.xml')):
+        text = open(path).read()
+        for rec in re.finditer(
+                r'<record\s+id="([\w.]+)"\s+model="([\w.]+)"(.*?)</record>',
+                text, re.S):
+            xmlid, model, body = rec.group(1), rec.group(2), rec.group(3)
+            field = DATA_MODELS.get(model)
+            if not field:
+                continue
+            value = re.search(rf'<field name="{field}">([^<]+)</field>', body)
+            if value:
+                yield (f'model:{model},{field}:{module}.{xmlid}',
+                       value.group(1).strip())
+
+
 def parse_xml(module):
     for path in sorted(glob.glob(f'{BASE}/{module}/views/*.xml') +
                        glob.glob(f'{BASE}/{module}/wizard/*.xml')):
@@ -180,7 +205,7 @@ def build():
     entries = {}   # source -> {module -> set(occurrences)}
     for module in MODULES:
         for occ, src in (list(parse_python(module)) + list(parse_xml(module))
-                         + list(parse_code(module))):
+                         + list(parse_code(module)) + list(parse_data(module))):
             if src not in AR:
                 continue
             entries.setdefault(src, {}).setdefault(module, set()).add(occ)

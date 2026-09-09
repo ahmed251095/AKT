@@ -625,4 +625,24 @@ AR = {
         "لا يوجد جديد للاستخلاص. سجّل الإنجاز على المقايسة أولاً.",
     "Set the product on these BOQ items before raising a certificate:\n%s":
         "حدد المنتج على بنود المقايسة الآتية قبل إصدار مستخلص:\n%s",
+    # ---- seeded configuration records ----
+    "Endowments Authority": "هيئة الأوقاف",
+    "Agricultural Company": "شركة زراعية",
+    "Military Entity": "جهة عسكرية",
+    "Private Owner": "مالك خاص",
+
+    "Commercial Register": "سجل تجاري",
+    "Tax Card": "بطاقة ضريبية",
+    "VAT Registration Certificate": "شهادة تسجيل ضريبة القيمة المضافة",
+    "Contractors Classification Certificate": "شهادة تصنيف المقاولين",
+    "Record of Similar Works": "بيان أعمال مماثلة",
+    "Technical Staff and Equipment List": "بيان العمالة الفنية والمعدات",
+    "Conditions Booklet (stamped)": "كراسة الشروط مختومة",
+    "Priced Schedule of Quantities": "جدول الكميات المسعّر",
+    "Bank Solvency Letter": "خطاب ملاءة بنكي",
+    "Signed Contract": "العقد الموقّع",
+    "Award Letter": "خطاب الترسية",
+    "Contract Bill of Quantities": "مقايسة العقد",
+    "Construction Drawings": "الرسومات التنفيذية",
+    "Site Handover Minutes": "محضر تسليم الموقع",
 }
