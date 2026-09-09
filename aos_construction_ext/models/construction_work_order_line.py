@@ -80,15 +80,15 @@ class ConstructionWorkOrderLine(models.Model):
     # ------------------------------------------------------------------
     purchase_cost = fields.Monetary(
         string='Purchases', compute='_compute_actual_costs', store=False,
-        help='Committed purchase order lines booked against this item on '
-             'this work order.')
+        help='Purchase orders, plus material and equipment expenses, booked '
+             'against this item on this work order.')
     labour_cost = fields.Monetary(
         string='Labour', compute='_compute_actual_costs',
         help='Approved labour expenses booked against this item.')
     other_cost = fields.Monetary(
         string='Other Costs', compute='_compute_actual_costs',
-        help='Approved material, equipment and overhead expenses booked '
-             'against this item.')
+        help='Approved overhead and miscellaneous expenses booked against '
+             'this item.')
     actual_cost = fields.Monetary(
         compute='_compute_actual_costs', store=False)
     actual_unit_cost = fields.Monetary(
@@ -120,10 +120,13 @@ class ConstructionWorkOrderLine(models.Model):
                     ('boq_line_id', '=', boq.id),
                     ('state', '=', 'approved'),
                 ])
-                labour = sum(expenses.filtered(
-                    lambda e: e.category == 'labour').mapped('amount'))
-                other = sum(expenses.filtered(
-                    lambda e: e.category != 'labour').mapped('amount'))
+                for expense in expenses:
+                    if expense.category == 'labour':
+                        labour += expense.amount
+                    elif expense.category in ('material', 'equipment'):
+                        purchases += expense.amount
+                    else:
+                        other += expense.amount
             line.purchase_cost = purchases
             line.labour_cost = labour
             line.other_cost = other
