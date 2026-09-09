@@ -1,4 +1,6 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
+from odoo.tools import float_compare
 
 
 class ConstructionSubcontractLine(models.Model):
@@ -76,6 +78,12 @@ class ConstructionSubcontractLine(models.Model):
     amount_to_certify = fields.Monetary(
         string='Value to Certify', compute='_compute_certified')
 
+    price_headroom = fields.Monetary(
+        string='Headroom to Cost', compute='_compute_amounts', store=True,
+        help='Our own cost rate for the item less what the subcontractor '
+             'charges. What is left of the item budget before handing it out '
+             'starts eating the priced margin.')
+
     currency_id = fields.Many2one(
         related='subcontract_id.currency_id', string='Currency')
     notes = fields.Char(string='Notes')
@@ -88,7 +96,7 @@ class ConstructionSubcontractLine(models.Model):
             line.description = line.boq_line_id.description
             line.uom_id = line.boq_line_id.uom_id
 
-    @api.depends('qty', 'unit_price', 'boq_unit_rate')
+    @api.depends('qty', 'unit_price', 'boq_unit_rate', 'boq_cost_rate')
     def _compute_amounts(self):
         for line in self:
             line.amount = line.qty * line.unit_price
@@ -96,6 +104,29 @@ class ConstructionSubcontractLine(models.Model):
             line.margin = revenue - line.amount
             line.margin_percent = (
                 100.0 * line.margin / revenue) if revenue else 0.0
+            line.price_headroom = line.boq_cost_rate - line.unit_price
+
+    @api.constrains('unit_price', 'boq_line_id')
+    def _check_price_within_item_cost(self):
+        """An item may not be handed out for more than it was priced to cost.
+
+        The cost rate is the budget the bid was built on. Paying a
+        subcontractor above it spends margin that was already promised to the
+        client's price, and nothing else in the system would notice.
+        """
+        for line in self:
+            budget = line.boq_line_id.cost_rate
+            if not budget:
+                # An item priced by hand carries no cost budget to check.
+                continue
+            if float_compare(line.unit_price, budget, precision_digits=2) > 0:
+                raise ValidationError(self.env._(
+                    'The subcontractor rate for "%(item)s" is %(rate)s, above '
+                    'the %(budget)s the item was priced to cost.\n'
+                    'Either negotiate the rate down, or correct the item cost '
+                    'in the bill of quantities if the estimate was wrong.',
+                    item=line.boq_line_id.display_name,
+                    rate=line.unit_price, budget=budget))
 
     @api.depends('qty', 'progress_percent')
     def _compute_progress(self):

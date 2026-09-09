@@ -862,6 +862,11 @@ msgid "Handover & Closure"
 msgstr "التسليم والإقفال"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__price_headroom
+msgid "Headroom to Cost"
+msgstr "المتاح حتى سعر التكلفة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__hold_date
 msgid "Held Since"
 msgstr "موقوف منذ"

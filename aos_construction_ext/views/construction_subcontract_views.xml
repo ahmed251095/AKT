@@ -54,6 +54,7 @@
                             <field name="boq_unit_rate" optional="show"/>
                             <field name="boq_cost_rate" optional="hide"/>
                             <field name="unit_price"/>
+                            <field name="price_headroom" optional="show"/>
                             <field name="amount" sum="Assigned Value"/>
                             <field name="progress_percent"/>
                             <field name="progress_qty" optional="show"/>

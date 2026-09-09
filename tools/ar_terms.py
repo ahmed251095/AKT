@@ -576,4 +576,7 @@ AR = {
     "What is left, and what was agreed on handover...":
         "ما تبقى، وما تم الاتفاق عليه عند التسليم...",
     "Administrative Handover": "التسليم الإداري",
+    "Headroom to Cost": "المتاح حتى سعر التكلفة",
+    'The subcontractor rate for "%(item)s" is %(rate)s, above the %(budget)s the item was priced to cost.\nEither negotiate the rate down, or correct the item cost in the bill of quantities if the estimate was wrong.':
+        'سعر المقاول لـ "%(item)s" هو %(rate)s، وهو أعلى من %(budget)s التي سُعّر البند على أساسها.\nإما أن تفاوض على خفض السعر، أو تصحح تكلفة البند في المقايسة إذا كان التقدير خاطئاً.',
 }
