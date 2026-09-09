@@ -75,9 +75,15 @@ class ConstructionRABilling(models.Model):
         for record in self:
             record.advance_outstanding = record._advance_outstanding()
 
-    # Depends on stored fields only: a stored field that leans on a computed
-    # one that is not stored never gets recomputed.
-    @api.depends('total_amount', 'billing_type', 'subcontract_id.advance_amount',
+    # Sums the lines rather than reading total_amount: the base computes the
+    # total and the net payable together, so reading the total here would ask
+    # for a figure that is still being computed and get a zero back -- leaving
+    # the net payable with no recovery deducted.
+    #
+    # Depending on stored fields only matters just as much: a stored field
+    # that leans on a computed one that is not stored never gets recomputed.
+    @api.depends('line_ids.amount', 'billing_type',
+                 'subcontract_id.advance_amount',
                  'subcontract_id.contract_value', 'project_id.advance_amount',
                  'project_id.contract_value')
     def _compute_advance_recovery(self):
@@ -86,9 +92,9 @@ class ConstructionRABilling(models.Model):
             if not advance or not contract_value:
                 record.advance_recovery = 0.0
                 continue
-            share = advance / contract_value
+            certified = sum(record.line_ids.mapped('amount'))
             due = float_round(
-                record.total_amount * share,
+                certified * advance / contract_value,
                 precision_rounding=record.currency_id.rounding or 0.01)
             record.advance_recovery = min(due, record._advance_outstanding())
 
