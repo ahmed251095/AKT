@@ -18,14 +18,6 @@
                 <button name="action_performance_bond_released" type="object"
                         string="Bond Released"
                         invisible="performance_bond_state not in ('issued', 'held')"/>
-                <button name="action_admin_bond_issued" type="object"
-                        string="Administrative Bond Issued"
-                        invisible="not admin_bond_required
-                                   or admin_bond_state != 'to_issue'
-                                   or state == 'draft'"/>
-                <button name="action_admin_bond_released" type="object"
-                        string="Administrative Bond Released"
-                        invisible="admin_bond_state not in ('issued', 'held')"/>
             </xpath>
 
             <xpath expr="//header/field[@name='state']" position="attributes">
@@ -53,9 +45,8 @@
             </xpath>
 
             <!-- Long text reads across the sheet, not in a label column. -->
-            <xpath expr="//group[@string='Description']" position="replace">
-                <separator string="Description"/>
-                <field name="description" nolabel="1"/>
+            <xpath expr="//field[@name='description']" position="attributes">
+                <attribute name="nolabel">1</attribute>
             </xpath>
 
             <xpath expr="//header/button[@name='action_activate']" position="before">
@@ -69,14 +60,9 @@
                 <field name="contract_duration_days"/>
             </xpath>
 
-            <xpath expr="//sheet/group[2]" position="after">
-                <group string="Hold" invisible="state != 'on_hold'">
-                    <field name="hold_reason" nolabel="1"/>
-                    <field name="hold_date"/>
-                    <field name="hold_approved_by"/>
-                </group>
-            </xpath>
 
+            <!-- Applied before the Hold group below, so group[3] is still
+                 the Description group at this point. -->
             <xpath expr="//sheet/group[3]" position="after">
                 <notebook>
 
@@ -144,9 +130,9 @@
                         </group>
                     </page>
 
-                    <page string="Bonds" name="performance_bond">
+                    <page string="Performance Bond" name="performance_bond">
                         <group>
-                            <group string="Performance Bond">
+                            <group string="Amount">
                                 <field name="performance_bond_required"/>
                                 <field name="performance_bond_percent"
                                        invisible="not performance_bond_required"/>
@@ -161,24 +147,6 @@
                                 <field name="performance_bond_expiry_date"/>
                                 <field name="performance_bond_return_date"
                                        invisible="performance_bond_state not in ('released', 'forfeited')"/>
-                            </group>
-                        </group>
-                        <group>
-                            <group string="Administrative Bond">
-                                <field name="admin_bond_required"/>
-                                <field name="admin_bond_percent"
-                                       invisible="not admin_bond_required"/>
-                                <field name="admin_bond_amount"
-                                       invisible="not admin_bond_required"/>
-                                <field name="admin_bond_state"/>
-                            </group>
-                            <group string="Instrument" invisible="not admin_bond_required">
-                                <field name="admin_bond_bank_id"/>
-                                <field name="admin_bond_ref"/>
-                                <field name="admin_bond_issue_date"/>
-                                <field name="admin_bond_expiry_date"/>
-                                <field name="admin_bond_return_date"
-                                       invisible="admin_bond_state not in ('released', 'forfeited')"/>
                             </group>
                         </group>
                     </page>
@@ -254,6 +222,7 @@
                         <group>
                             <group>
                                 <field name="initial_handover_date"/>
+                                <field name="admin_handover_date"/>
                                 <field name="final_handover_date"/>
                             </group>
                         </group>
@@ -263,6 +232,13 @@
                     </page>
 
                 </notebook>
+            </xpath>
+            <xpath expr="//sheet/group[2]" position="after">
+                <group string="Hold" invisible="state != 'on_hold'">
+                    <field name="hold_reason" nolabel="1"/>
+                    <field name="hold_date"/>
+                    <field name="hold_approved_by"/>
+                </group>
             </xpath>
 
         </field>

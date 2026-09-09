@@ -129,55 +129,6 @@ class ConstructionProject(models.Model):
         string='Bond Status', default='to_issue', copy=False, tracking=True)
 
     # ------------------------------------------------------------------
-    # Administrative bond
-    # ------------------------------------------------------------------
-    admin_bond_required = fields.Boolean(
-        string='Administrative Bond Required')
-    admin_bond_percent = fields.Float(string='Administrative Bond (%)')
-    admin_bond_amount = fields.Monetary(
-        string='Administrative Bond Amount', currency_field='currency_id',
-        compute='_compute_admin_bond_amount', store=True, readonly=False)
-    admin_bond_bank_id = fields.Many2one('res.bank', string='Issuing Bank')
-    admin_bond_ref = fields.Char(string='Bond Reference')
-    admin_bond_issue_date = fields.Date(string='Bond Issue Date')
-    admin_bond_expiry_date = fields.Date(string='Bond Expiry Date')
-    admin_bond_return_date = fields.Date(
-        string='Bond Release Date', copy=False)
-    admin_bond_state = fields.Selection(
-        [('not_required', 'Not Required'),
-         ('to_issue', 'To Issue'),
-         ('issued', 'Issued'),
-         ('held', 'Held by Client'),
-         ('released', 'Released'),
-         ('forfeited', 'Forfeited')],
-        string='Bond Status', default='not_required', copy=False,
-        tracking=True)
-
-    @api.depends('contract_value', 'admin_bond_percent',
-                 'admin_bond_required')
-    def _compute_admin_bond_amount(self):
-        for project in self:
-            if not project.admin_bond_required:
-                project.admin_bond_amount = 0.0
-                continue
-            project.admin_bond_amount = (
-                project.contract_value * project.admin_bond_percent / 100.0)
-
-    def action_admin_bond_issued(self):
-        self.write({'admin_bond_state': 'issued'})
-        return True
-
-    def action_admin_bond_released(self):
-        for project in self:
-            project.write({
-                'admin_bond_state': 'released',
-                'admin_bond_return_date': fields.Date.context_today(project),
-            })
-            project.message_post(body=self.env._(
-                'Administrative bond released.'))
-        return True
-
-    # ------------------------------------------------------------------
     # Hold
     # ------------------------------------------------------------------
     hold_reason = fields.Text(string='Hold Reason', readonly=True, copy=False)
@@ -193,6 +144,10 @@ class ConstructionProject(models.Model):
     initial_handover_date = fields.Date(
         string='Initial Handover', copy=False,
         help='Date the client took provisional delivery of the works.')
+    admin_handover_date = fields.Date(
+        string='Administrative Handover', copy=False,
+        help='Date the works were handed to the body that will operate them, '
+             'between provisional and final acceptance.')
     final_handover_date = fields.Date(
         string='Final Handover', copy=False,
         help='Date the maintenance period ended and the works were finally '
@@ -519,55 +474,6 @@ class ConstructionProject(models.Model):
         return True
 
     # ------------------------------------------------------------------
-    # Administrative bond
-    # ------------------------------------------------------------------
-    admin_bond_required = fields.Boolean(
-        string='Administrative Bond Required')
-    admin_bond_percent = fields.Float(string='Administrative Bond (%)')
-    admin_bond_amount = fields.Monetary(
-        string='Administrative Bond Amount', currency_field='currency_id',
-        compute='_compute_admin_bond_amount', store=True, readonly=False)
-    admin_bond_bank_id = fields.Many2one('res.bank', string='Issuing Bank')
-    admin_bond_ref = fields.Char(string='Bond Reference')
-    admin_bond_issue_date = fields.Date(string='Bond Issue Date')
-    admin_bond_expiry_date = fields.Date(string='Bond Expiry Date')
-    admin_bond_return_date = fields.Date(
-        string='Bond Release Date', copy=False)
-    admin_bond_state = fields.Selection(
-        [('not_required', 'Not Required'),
-         ('to_issue', 'To Issue'),
-         ('issued', 'Issued'),
-         ('held', 'Held by Client'),
-         ('released', 'Released'),
-         ('forfeited', 'Forfeited')],
-        string='Bond Status', default='not_required', copy=False,
-        tracking=True)
-
-    @api.depends('contract_value', 'admin_bond_percent',
-                 'admin_bond_required')
-    def _compute_admin_bond_amount(self):
-        for project in self:
-            if not project.admin_bond_required:
-                project.admin_bond_amount = 0.0
-                continue
-            project.admin_bond_amount = (
-                project.contract_value * project.admin_bond_percent / 100.0)
-
-    def action_admin_bond_issued(self):
-        self.write({'admin_bond_state': 'issued'})
-        return True
-
-    def action_admin_bond_released(self):
-        for project in self:
-            project.write({
-                'admin_bond_state': 'released',
-                'admin_bond_return_date': fields.Date.context_today(project),
-            })
-            project.message_post(body=self.env._(
-                'Administrative bond released.'))
-        return True
-
-    # ------------------------------------------------------------------
     # Hold
     # ------------------------------------------------------------------
     def action_hold(self):
@@ -623,20 +529,12 @@ class ConstructionProject(models.Model):
                 raise UserError(self.env._(
                     'Record the initial handover date before closing "%s".',
                     project.display_name))
-            outstanding = []
             if project.performance_bond_required and \
                     project.performance_bond_state not in (
                         'released', 'forfeited'):
-                outstanding.append(self.env._('performance bond'))
-            if project.admin_bond_required and \
-                    project.admin_bond_state not in ('released', 'forfeited'):
-                outstanding.append(self.env._('administrative bond'))
-            if outstanding:
                 raise UserError(self.env._(
-                    'These bonds of "%(project)s" have not been released '
-                    'yet: %(bonds)s.',
-                    project=project.display_name,
-                    bonds=', '.join(outstanding)))
+                    'The performance bond of "%s" has not been released yet.',
+                    project.display_name))
             open_certificates = self.env['construction.ra.billing'].search_count([
                 ('project_id', '=', project.id),
                 ('state', 'in', ('draft', 'submitted')),

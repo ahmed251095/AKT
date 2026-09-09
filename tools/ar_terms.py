@@ -572,19 +572,8 @@ AR = {
     "Tax (%)": "نسبة الضريبة (%)",
     "Tax Value": "قيمة الضريبة",
     "Price before Tax": "السعر قبل الضريبة",
-    "Bonds": "التأمينات",
     "Performance Bond": "التأمين النهائي",
-    "Administrative Bond": "التأمين الإداري",
-    "Administrative Bond (%)": "نسبة التأمين الإداري (%)",
-    "Administrative Bond Amount": "قيمة التأمين الإداري",
-    "Administrative Bond Required": "التأمين الإداري مطلوب",
-    "Administrative Bond Issued": "تم إصدار التأمين الإداري",
-    "Administrative Bond Released": "تم رد التأمين الإداري",
-    "Administrative bond released.": "تم رد التأمين الإداري.",
-    "performance bond": "التأمين النهائي",
-    "administrative bond": "التأمين الإداري",
-    'These bonds of "%(project)s" have not been released yet: %(bonds)s.':
-        'التأمينات الآتية لـ "%(project)s" لم تُرد بعد: %(bonds)s.',
     "What is left, and what was agreed on handover...":
         "ما تبقى، وما تم الاتفاق عليه عند التسليم...",
+    "Administrative Handover": "التسليم الإداري",
 }
