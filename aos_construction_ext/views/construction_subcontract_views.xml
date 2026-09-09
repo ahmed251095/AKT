@@ -11,6 +11,14 @@
                 <attribute name="nolabel">1</attribute>
             </xpath>
 
+            <xpath expr="//field[@name='advance_percent']" position="after">
+                <field name="advance_amount"/>
+                <field name="advance_recovered" readonly="1"
+                       invisible="advance_amount == 0"/>
+                <field name="advance_balance" readonly="1"
+                       invisible="advance_amount == 0"/>
+            </xpath>
+
             <xpath expr="//field[@name='contract_value']" position="attributes">
                 <attribute name="readonly">line_ids</attribute>
             </xpath>

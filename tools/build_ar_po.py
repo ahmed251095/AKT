@@ -203,13 +203,17 @@ def parse_xml(module):
 
 def build():
     entries = {}   # source -> {module -> set(occurrences)}
+    missing = set()
     for module in MODULES:
         for occ, src in (list(parse_python(module)) + list(parse_xml(module))
                          + list(parse_code(module)) + list(parse_data(module))):
             if src not in AR:
+                # Silently dropping these is how English kept leaking into an
+                # otherwise Arabic screen.
+                missing.add(src)
                 continue
             entries.setdefault(src, {}).setdefault(module, set()).add(occ)
-    return entries
+    return entries, missing
 
 
 HEADER = '''# Translation of Odoo Server.
@@ -269,7 +273,12 @@ def render_module(entries, module):
 
 
 if __name__ == '__main__':
-    e = build()
+    e, missing = build()
+    if missing:
+        print(f'MISSING {len(missing)} term(s) from ar_terms.py:',
+              file=sys.stderr)
+        for term in sorted(missing):
+            print(f'  {term!r}', file=sys.stderr)
     for module in MODULES:
         path = f'{BASE}/{module}/i18n/ar_001.po'
         os.makedirs(os.path.dirname(path), exist_ok=True)

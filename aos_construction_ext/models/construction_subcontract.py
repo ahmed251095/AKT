@@ -26,6 +26,17 @@ class ConstructionSubcontract(models.Model):
     amount_to_certify = fields.Monetary(
         string='Value to Certify', compute='_compute_progress')
 
+    # The base carries an advance percentage that nothing ever acts on.
+    advance_amount = fields.Monetary(
+        string='Advance Amount', compute='_compute_advance', store=True,
+        readonly=False,
+        help='Paid up front against the contract and recovered from the '
+             'certificates as work is done.')
+    advance_recovered = fields.Monetary(
+        string='Advance Recovered', compute='_compute_advance_recovered')
+    advance_balance = fields.Monetary(
+        string='Advance Outstanding', compute='_compute_advance_recovered')
+
     # Re-declared so a contract priced item by item totals itself up. Kept
     # writable for the lump-sum contracts that carry no item breakdown.
     contract_value = fields.Monetary(
@@ -49,6 +60,23 @@ class ConstructionSubcontract(models.Model):
                 100.0 * done / assigned) if assigned else 0.0
             contract.amount_to_certify = sum(
                 contract.line_ids.mapped('amount_to_certify'))
+
+    @api.depends('contract_value', 'advance_percent')
+    def _compute_advance(self):
+        for contract in self:
+            contract.advance_amount = (
+                contract.contract_value * contract.advance_percent / 100.0)
+
+    @api.depends('billing_ids.state', 'billing_ids.advance_recovery',
+                 'advance_amount')
+    def _compute_advance_recovered(self):
+        for contract in self:
+            confirmed = contract.billing_ids.filtered(
+                lambda b: b.state in ('approved', 'invoiced', 'paid'))
+            contract.advance_recovered = sum(
+                confirmed.mapped('advance_recovery'))
+            contract.advance_balance = max(
+                contract.advance_amount - contract.advance_recovered, 0.0)
 
     @api.depends('line_ids.amount')
     def _compute_contract_value(self):

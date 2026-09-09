@@ -54,6 +54,7 @@ Adds the operating model actually used by the contractor on top of
         'views/construction_boq_views.xml',
         'views/construction_percentage_fix_views.xml',
         'views/account_payment_views.xml',
+        'views/construction_billing_views.xml',
         'views/construction_project_views.xml',
         'views/construction_subcontract_views.xml',
         'views/construction_work_order_views.xml',

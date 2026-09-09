@@ -279,6 +279,41 @@ class ConstructionProject(models.Model):
             ])
             project.progress = _weighted_progress(lines)
 
+    # ------------------------------------------------------------------
+    # Advance received from the client
+    # ------------------------------------------------------------------
+    advance_percent = fields.Float(
+        string='Advance (%)',
+        help='Share of the contract the client pays up front.')
+    advance_amount = fields.Monetary(
+        string='Advance Amount', compute='_compute_advance', store=True,
+        readonly=False,
+        help='Received from the client up front and recovered from the '
+             'payment certificates as work is done.')
+    advance_recovered = fields.Monetary(
+        string='Advance Recovered', compute='_compute_advance_recovered')
+    advance_balance = fields.Monetary(
+        string='Advance Outstanding', compute='_compute_advance_recovered')
+
+    @api.depends('contract_value', 'advance_percent')
+    def _compute_advance(self):
+        for project in self:
+            project.advance_amount = (
+                project.contract_value * project.advance_percent / 100.0)
+
+    def _compute_advance_recovered(self):
+        Billing = self.env['construction.ra.billing']
+        for project in self:
+            certificates = Billing.search([
+                ('project_id', '=', project.id),
+                ('billing_type', '=', 'customer'),
+                ('state', 'in', ('approved', 'invoiced', 'paid')),
+            ])
+            project.advance_recovered = sum(
+                certificates.mapped('advance_recovery'))
+            project.advance_balance = max(
+                project.advance_amount - project.advance_recovered, 0.0)
+
     @api.depends('employee_ids')
     def _compute_employee_count(self):
         for project in self:

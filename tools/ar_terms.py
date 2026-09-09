@@ -645,4 +645,14 @@ AR = {
     "Site Handover Minutes": "محضر تسليم الموقع",
     "Work orders accept %(accepted)s of \"%(item)s\", but only %(scope)s is ours to execute: %(assigned)s of the %(qty)s in the bill is assigned to subcontractors.\nReduce the assignment first if we are doing this work ourselves.":
         "أوامر الشغل تقبل %(accepted)s من \"%(item)s\"، والمتاح لنا %(scope)s فقط: %(assigned)s من %(qty)s في المقايسة مسندة لمقاولي الباطن.\nقلّل الإسناد أولاً إذا كنا سننفذ هذا العمل بأنفسنا.",
+    "Advance (%)": "الدفعة المقدمة (%)",
+    "Advance Amount": "قيمة الدفعة المقدمة",
+    "Advance Outstanding": "المتبقي من الدفعة المقدمة",
+    "Advance Recovered": "المسترد من الدفعة المقدمة",
+    "Distribution": "التوزيع",
+    "Progress": "نسبة الإنجاز",
+    "Progress on \"%(item)s\" is %(percent)s%%. It has to be between 0 and 100.":
+        "نسبة الإنجاز في \"%(item)s\" هي %(percent)s%%، ويجب أن تكون بين 0 و100.",
+    "Recovering %(recovery)s exceeds the %(outstanding)s of advance still outstanding on this contract.":
+        "استرداد %(recovery)s يتجاوز %(outstanding)s المتبقية من الدفعة المقدمة على هذا العقد.",
 }

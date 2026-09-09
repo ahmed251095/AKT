@@ -125,6 +125,35 @@ msgid "Administrative Handover"
 msgstr "التسليم الإداري"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__advance_percent
+msgid "Advance (%)"
+msgstr "الدفعة المقدمة (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__advance_amount
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__advance_amount
+msgid "Advance Amount"
+msgstr "قيمة الدفعة المقدمة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__advance_balance
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_ra_billing__advance_outstanding
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__advance_balance
+msgid "Advance Outstanding"
+msgstr "المتبقي من الدفعة المقدمة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__advance_recovered
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__advance_recovered
+msgid "Advance Recovered"
+msgstr "المسترد من الدفعة المقدمة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_ra_billing__advance_recovery
+msgid "Advance Recovery"
+msgstr "خصم الدفعة المقدمة"
+
+#. module: aos_construction_ext
 #: model:construction.authority.type,name:aos_construction_ext.authority_type_agricultural
 msgid "Agricultural Company"
 msgstr "شركة زراعية"
@@ -688,6 +717,11 @@ msgstr "الوصف"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__direct_purchase_total
 msgid "Direct Purchases"
 msgstr "المشتريات المباشرة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__distribution_id
+msgid "Distribution"
+msgstr "التوزيع"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
@@ -1378,6 +1412,7 @@ msgstr "صافي الربح"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_ra_billing_list_ext
 msgid "No."
 msgstr "م"
 
@@ -1679,6 +1714,11 @@ msgid "Profit Statement"
 msgstr "بيان الأرباح"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_wbs__progress
+msgid "Progress"
+msgstr "نسبة الإنجاز"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__progress_percent
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__progress_percent
 msgid "Progress (%)"
@@ -1688,6 +1728,12 @@ msgstr "نسبة الإنجاز (%)"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__progress_percent
 msgid "Progress Percent"
 msgstr "نسبة الإنجاز"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_subcontract_line.py:0
+msgid "Progress on \"%(item)s\" is %(percent)s%%. It has to be between 0 and 100."
+msgstr "نسبة الإنجاز في \"%(item)s\" هي %(percent)s%%، ويجب أن تكون بين 0 و100."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__project_id
@@ -1807,6 +1853,12 @@ msgstr "بيان أعمال مماثلة"
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "Record the initial handover date before closing \"%s\"."
 msgstr "سجّل تاريخ التسليم الابتدائي قبل إقفال \"%s\"."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_billing.py:0
+msgid "Recovering %(recovery)s exceeds the %(outstanding)s of advance still outstanding on this contract."
+msgstr "استرداد %(recovery)s يتجاوز %(outstanding)s المتبقية من الدفعة المقدمة على هذا العقد."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__reference

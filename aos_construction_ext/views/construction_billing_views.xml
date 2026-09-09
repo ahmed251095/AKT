@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_construction_ra_billing_form_ext" model="ir.ui.view">
+    <field name="name">construction.ra.billing.form.ext</field>
+    <field name="model">construction.ra.billing</field>
+    <field name="inherit_id" ref="aos_construction_management.view_construction_ra_billing_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//div[hasclass('oe_title')]/field[@name='ref']" position="after">
+        <div class="text-muted">
+          <label for="ra_number" class="oe_inline"/>
+          <field name="ra_number" readonly="1" class="oe_inline"/>
+        </div>
+      </xpath>
+      <xpath expr="//field[@name='advance_recovery']" position="before">
+        <field name="advance_outstanding" readonly="1"
+               invisible="advance_outstanding == 0"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_construction_ra_billing_list_ext" model="ir.ui.view">
+    <field name="name">construction.ra.billing.list.ext</field>
+    <field name="model">construction.ra.billing</field>
+    <field name="inherit_id" ref="aos_construction_management.view_construction_ra_billing_list"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='name']" position="after">
+        <field name="ra_number" string="No."/>
+      </xpath>
+      <xpath expr="//field[@name='retention_amount']" position="after">
+        <field name="advance_recovery" optional="show"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

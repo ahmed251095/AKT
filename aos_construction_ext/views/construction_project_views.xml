@@ -171,6 +171,16 @@
                                 <field name="project_net_margin"/>
                             </group>
                         </group>
+                        <group string="Client Advance">
+                            <group>
+                                <field name="advance_percent"/>
+                                <field name="advance_amount"/>
+                            </group>
+                            <group>
+                                <field name="advance_recovered" readonly="1"/>
+                                <field name="advance_balance" readonly="1"/>
+                            </group>
+                        </group>
                         <group string="Forecast at Completion">
                             <group>
                                 <field name="contract_value" readonly="1"/>

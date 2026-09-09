@@ -106,6 +106,16 @@ class ConstructionSubcontractLine(models.Model):
                 100.0 * line.margin / revenue) if revenue else 0.0
             line.price_headroom = line.boq_cost_rate - line.unit_price
 
+    @api.constrains('progress_percent')
+    def _check_progress_percent(self):
+        for line in self:
+            if not 0.0 <= line.progress_percent <= 100.0:
+                raise ValidationError(self.env._(
+                    'Progress on "%(item)s" is %(percent)s%%. It has to be '
+                    'between 0 and 100.',
+                    item=line.description or line.display_name,
+                    percent=line.progress_percent))
+
     @api.constrains('unit_price', 'boq_line_id')
     def _check_price_within_item_cost(self):
         """An item may not be handed out for more than it was priced to cost.
