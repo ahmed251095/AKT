@@ -172,11 +172,6 @@ msgid "Authority Types"
 msgstr "أنواع الجهات"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__award_decision_date
-msgid "Award Decision"
-msgstr "موعد البت"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__boq_line_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__boq_line_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__boq_line_id
@@ -664,11 +659,6 @@ msgid "Employees"
 msgstr "الموظفون"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__envelope_opening_date
-msgid "Envelope Opening"
-msgstr "موعد فتح المظاريف"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_equipment
 msgid "Equipment"
 msgstr "المعدات"
@@ -775,6 +765,11 @@ msgstr "المدير المالي"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__financial_responsible_id
 msgid "Finance Responsible"
 msgstr "المسؤول المالي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__award_decision_date
+msgid "Financial Award Decision"
+msgstr "موعد البت المالي"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__financial
@@ -1379,6 +1374,12 @@ msgid "Price before Expenses"
 msgstr "السعر قبل المصاريف"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__price_before_tax
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__price_before_tax
+msgid "Price before Tax"
+msgstr "السعر قبل الضريبة"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "Price the tender items before submitting."
@@ -1866,9 +1867,32 @@ msgid "Submission Deadline"
 msgstr "موعد التسليم"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__tax_percent
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__tax_percent
+msgid "Tax (%)"
+msgstr "نسبة الضريبة (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__tax_amount
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__tax_amount
+msgid "Tax Value"
+msgstr "قيمة الضريبة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__tax_ids
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__tax_ids
+msgid "Taxes"
+msgstr "الضرائب"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Team"
 msgstr "الفريق"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__envelope_opening_date
+msgid "Technical Envelope Opening"
+msgstr "موعد فتح المظاريف الفني"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__technical

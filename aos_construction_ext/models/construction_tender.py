@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, Command
 from odoo.exceptions import UserError
 
 from . import pricing
@@ -7,8 +7,9 @@ from . import pricing
 #: reminder from being raised twice for the same date.
 REMINDER_DATES = [
     ('submission_deadline', 'reminder_submission_sent', 'Submission deadline'),
-    ('envelope_opening_date', 'reminder_envelope_sent', 'Envelope opening'),
-    ('award_decision_date', 'reminder_award_sent', 'Award decision'),
+    ('envelope_opening_date', 'reminder_envelope_sent',
+     'Technical envelope opening'),
+    ('award_decision_date', 'reminder_award_sent', 'Financial award decision'),
 ]
 
 
@@ -27,12 +28,13 @@ class ConstructionTender(models.Model):
         help='Execution period the tender conditions allow, counted from the '
              'site handover.')
     envelope_opening_date = fields.Datetime(
-        string='Envelope Opening',
-        help='When the client opens the envelopes. Later than the submission '
-             'deadline.')
+        string='Technical Envelope Opening',
+        help='When the client opens the technical envelopes. Later than the '
+             'submission deadline.')
     award_decision_date = fields.Datetime(
-        string='Award Decision',
-        help='When the client is expected to announce the award.')
+        string='Financial Award Decision',
+        help='When the financial envelopes are opened and the award is '
+             'decided.')
 
     financial_responsible_id = fields.Many2one(
         'res.users', string='Finance Responsible',
@@ -518,6 +520,8 @@ class ConstructionTender(models.Model):
         values['cost_rate'] = tender_line.cost_rate
         values['unit_rate'] = tender_line.unit_rate
         values['tender_line_id'] = tender_line.id
+        values[pricing.PRICING_COPY_TAXES] = [
+            Command.set(tender_line.tax_ids.ids)]
         return values
 
     #: Copied onto the awarded project, and refreshed on demand afterwards.

@@ -33,6 +33,25 @@ class ConstructionTenderLine(models.Model):
         string='General Expenses (%)', default=lambda self:
         self.env.company.construction_expense_percent)
 
+    tax_ids = fields.Many2many(
+        'account.tax', string='Taxes',
+        help='Taxes priced into the rate, picked from the taxes defined on '
+             'the system. Percentage taxes only; a fixed-amount tax cannot '
+             'be built into a unit rate.')
+    tax_percent = fields.Float(
+        string='Tax (%)', compute='_compute_tax_percent', store=True)
+    price_before_tax = fields.Monetary(
+        string='Price before Tax', compute='_compute_pricing', store=True)
+    tax_amount = fields.Monetary(
+        string='Tax Value', compute='_compute_pricing', store=True)
+
+    @api.depends('tax_ids')
+    def _compute_tax_percent(self):
+        for line in self:
+            line.tax_percent = sum(
+                tax.amount for tax in line.tax_ids
+                if tax.amount_type == 'percent')
+
     base_cost = fields.Monetary(
         string='Base Cost', compute='_compute_pricing', store=True,
         help='Dry cost plus operating cost, before any markup.')

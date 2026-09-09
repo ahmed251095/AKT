@@ -61,8 +61,8 @@ class ConstructionTenderSheet(http.Controller):
             (_('Dry Cost'), 14), (_('Operating Cost'), 14),
             (_('Base Cost'), 14), (_('Profit %'), 10),
             (_('Contingency %'), 12), (_('Administration %'), 14),
-            (_('Expenses %'), 12), (_('Unit Rate'), 14),
-            (_('Total'), 16),
+            (_('Expenses %'), 12), (_('Tax %'), 10),
+            (_('Unit Rate'), 14), (_('Total'), 16),
         ]
         last_col = len(columns) - 1
 
@@ -100,8 +100,9 @@ class ConstructionTenderSheet(http.Controller):
             sheet.write_number(row, 9, line.contingency_percent, percent)
             sheet.write_number(row, 10, line.admin_percent, percent)
             sheet.write_number(row, 11, line.expense_percent, percent)
-            sheet.write_number(row, 12, line.unit_rate, number)
-            sheet.write_number(row, 13, line.amount, number)
+            sheet.write_number(row, 12, line.tax_percent, percent)
+            sheet.write_number(row, 13, line.unit_rate, number)
+            sheet.write_number(row, 14, line.amount, number)
             row += 1
 
         sheet.write(row, 0, _('Total'), total_label)

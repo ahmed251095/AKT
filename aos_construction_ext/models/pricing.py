@@ -6,9 +6,15 @@ in place -- and the rate is built up from there:
 
     base      = dry_cost + operating_cost
     marked_up = base x (1 + profit% + contingency% + admin%)
-    unit_rate = marked_up x (1 + expenses%)
+    with_exp  = marked_up x (1 + expenses%)
+    unit_rate = with_exp x (1 + tax%)
 
-Worked example from the pricing sheet: (2000 + 1000) x 1.40 x 1.14 = 4788.
+Worked example from the pricing sheet: (2000 + 1000) x 1.40 x 1.14 = 4788,
+with no tax selected.
+
+Tax comes last because the taxes a contractor prices in -- withholding, stamp
+duty -- are deducted from the payment, so the rate has to be grossed up for
+them to still net the intended price.
 
 The field declarations are repeated in the two concrete models on purpose:
 both already own ``cost_rate``, ``unit_rate`` and ``currency_id`` from the base
@@ -19,7 +25,7 @@ attributes the base module set on them. Only the arithmetic is shared.
 PRICING_DEPENDS = (
     'dry_cost', 'operating_cost', 'profit_percent', 'contingency_percent',
     'admin_percent', 'expense_percent', 'use_pricing_formula', 'cost_rate',
-    'is_section',
+    'is_section', 'tax_percent',
 )
 
 
@@ -29,6 +35,7 @@ def compute_pricing(lines):
         if line.is_section:
             line.markup_percent = line.base_cost = line.markup_amount = 0.0
             line.price_before_expenses = line.expense_amount = 0.0
+            line.price_before_tax = line.tax_amount = 0.0
             continue
         markup = (line.profit_percent + line.contingency_percent
                   + line.admin_percent)
@@ -40,6 +47,9 @@ def compute_pricing(lines):
         line.markup_amount = marked_up - base
         line.price_before_expenses = marked_up
         line.expense_amount = marked_up * (line.expense_percent / 100.0)
+        with_expenses = marked_up + line.expense_amount
+        line.price_before_tax = with_expenses
+        line.tax_amount = with_expenses * (line.tax_percent / 100.0)
 
 
 def compute_cost_rate(lines):
@@ -56,8 +66,8 @@ def compute_unit_rate(lines):
     for line in lines:
         if line.is_section or not line.use_pricing_formula:
             continue
-        line.unit_rate = line.price_before_expenses * (
-            1.0 + line.expense_percent / 100.0)
+        line.unit_rate = line.price_before_tax * (
+            1.0 + line.tax_percent / 100.0)
 
 
 def default_ratios(company):
@@ -74,3 +84,6 @@ PRICING_COPY_FIELDS = (
     'use_pricing_formula', 'dry_cost', 'operating_cost', 'profit_percent',
     'contingency_percent', 'admin_percent', 'expense_percent',
 )
+
+#: Copied separately: a many2many needs its own command.
+PRICING_COPY_TAXES = 'tax_ids'

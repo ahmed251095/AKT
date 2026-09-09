@@ -83,6 +83,10 @@
                 <field name="admin_percent" optional="hide"/>
                 <field name="markup_percent" optional="show"/>
                 <field name="expense_percent" optional="hide"/>
+                <field name="price_before_tax" optional="hide"/>
+                <field name="tax_ids" widget="many2many_tags" optional="show"/>
+                <field name="tax_percent" optional="show"/>
+                <field name="tax_amount" optional="hide"/>
             </xpath>
 
             <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="attributes">
