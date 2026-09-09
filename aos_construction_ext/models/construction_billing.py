@@ -60,17 +60,26 @@ class ConstructionRABilling(models.Model):
             return contract.advance_amount, contract.contract_value
         return self.project_id.advance_amount, self.project_id.contract_value
 
+    def _advance_outstanding(self):
+        """Advance left to recover before this certificate."""
+        self.ensure_one()
+        advance, _value = self._advance_source()
+        recovered = sum(self.search(
+            self._certificate_series_domain() +
+            [('state', 'in', CONFIRMED_STATES)]).mapped('advance_recovery'))
+        return max(advance - recovered, 0.0)
+
     @api.depends('billing_type', 'subcontract_id.advance_amount',
                  'project_id.advance_amount', 'previous_billed')
     def _compute_advance_outstanding(self):
         for record in self:
-            advance, _value = record._advance_source()
-            recovered = sum(self.search(
-                record._certificate_series_domain() +
-                [('state', 'in', CONFIRMED_STATES)]).mapped('advance_recovery'))
-            record.advance_outstanding = max(advance - recovered, 0.0)
+            record.advance_outstanding = record._advance_outstanding()
 
-    @api.depends('total_amount', 'advance_outstanding')
+    # Depends on stored fields only: a stored field that leans on a computed
+    # one that is not stored never gets recomputed.
+    @api.depends('total_amount', 'billing_type', 'subcontract_id.advance_amount',
+                 'subcontract_id.contract_value', 'project_id.advance_amount',
+                 'project_id.contract_value')
     def _compute_advance_recovery(self):
         for record in self:
             advance, contract_value = record._advance_source()
@@ -81,16 +90,16 @@ class ConstructionRABilling(models.Model):
             due = float_round(
                 record.total_amount * share,
                 precision_rounding=record.currency_id.rounding or 0.01)
-            record.advance_recovery = min(due, record.advance_outstanding)
+            record.advance_recovery = min(due, record._advance_outstanding())
 
     @api.constrains('advance_recovery')
     def _check_advance_recovery(self):
         for record in self:
-            if float_compare(record.advance_recovery,
-                             record.advance_outstanding,
+            outstanding = record._advance_outstanding()
+            if float_compare(record.advance_recovery, outstanding,
                              precision_digits=2) > 0:
                 raise ValidationError(self.env._(
                     'Recovering %(recovery)s exceeds the %(outstanding)s of '
                     'advance still outstanding on this contract.',
                     recovery=record.advance_recovery,
-                    outstanding=record.advance_outstanding))
+                    outstanding=outstanding))
