@@ -838,12 +838,6 @@ msgid "Exceeds"
 msgstr "أعلى من المتوقع"
 
 #. module: aos_construction_ext
-#. odoo-python
-#: code:addons/aos_construction_ext/models/construction_work_order_line.py:0
-msgid "Execution of \"%(item)s\" would reach %(total)s against a bill quantity of %(qty)s.\nAccepted on work orders: %(accepted)s\nCertified to subcontractors: %(certified)s"
-msgstr "تنفيذ \"%(item)s\" سيصل إلى %(total)s مقابل كمية مقايسة %(qty)s.\nالمقبول على أوامر الشغل: %(accepted)s\nالمعتمد لمقاولي الباطن: %(certified)s"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expected_cost
 msgid "Expected Cost"
 msgstr "التكلفة المتوقعة"
@@ -2570,3 +2564,9 @@ msgstr "أمر الشغل"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__work_type
 msgid "Work Type"
 msgstr "نوع العمل"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_work_order_line.py:0
+msgid "Work orders accept %(accepted)s of \"%(item)s\", but only %(scope)s is ours to execute: %(assigned)s of the %(qty)s in the bill is assigned to subcontractors.\nReduce the assignment first if we are doing this work ourselves."
+msgstr "أوامر الشغل تقبل %(accepted)s من \"%(item)s\"، والمتاح لنا %(scope)s فقط: %(assigned)s من %(qty)s في المقايسة مسندة لمقاولي الباطن.\nقلّل الإسناد أولاً إذا كنا سننفذ هذا العمل بأنفسنا."

@@ -13,8 +13,10 @@ class ConstructionWorkOrder(models.Model):
     # order whose lines carry real money shows zero at the top.
     # Not stored: the line figures are computed live from purchase and
     # expense records, and a stored total cannot be told when those change.
-    planned_cost = fields.Monetary(compute='_compute_line_costs')
-    actual_cost = fields.Monetary(compute='_compute_line_costs')
+    planned_cost = fields.Monetary(
+        compute='_compute_line_costs', store=False)
+    actual_cost = fields.Monetary(
+        compute='_compute_line_costs', store=False)
     earned_cost = fields.Monetary(
         string='Earned Cost', compute='_compute_line_costs',
         help='Accepted work valued at the item cost rates: what it should '
@@ -77,7 +79,7 @@ class ConstructionWorkOrderLine(models.Model):
     # Cost: what this item actually cost, from the money spent on it
     # ------------------------------------------------------------------
     purchase_cost = fields.Monetary(
-        string='Purchases', compute='_compute_actual_costs',
+        string='Purchases', compute='_compute_actual_costs', store=False,
         help='Committed purchase order lines booked against this item on '
              'this work order.')
     labour_cost = fields.Monetary(
@@ -87,7 +89,8 @@ class ConstructionWorkOrderLine(models.Model):
         string='Other Costs', compute='_compute_actual_costs',
         help='Approved material, equipment and overhead expenses booked '
              'against this item.')
-    actual_cost = fields.Monetary(compute='_compute_actual_costs')
+    actual_cost = fields.Monetary(
+        compute='_compute_actual_costs', store=False)
     actual_unit_cost = fields.Monetary(
         string='Actual Unit Cost', compute='_compute_actual_costs',
         help='What one unit really cost: total spend divided by the accepted '
@@ -141,12 +144,13 @@ class ConstructionWorkOrderLine(models.Model):
             accepted = sum(
                 other.accepted_qty for other in boq.work_order_line_ids
                 if other.work_order_id.state != 'cancelled')
-            total = accepted + boq.subcontract_certified_qty
-            if float_compare(total, boq.qty, precision_digits=3) > 0:
+            scope = max(boq.qty - boq.subcontracted_qty, 0.0)
+            if float_compare(accepted, scope, precision_digits=3) > 0:
                 raise ValidationError(self.env._(
-                    'Execution of "%(item)s" would reach %(total)s against a '
-                    'bill quantity of %(qty)s.\n'
-                    'Accepted on work orders: %(accepted)s\n'
-                    'Certified to subcontractors: %(certified)s',
-                    item=boq.display_name, total=total, qty=boq.qty,
-                    accepted=accepted, certified=boq.subcontract_certified_qty))
+                    'Work orders accept %(accepted)s of "%(item)s", but only '
+                    '%(scope)s is ours to execute: %(assigned)s of the '
+                    '%(qty)s in the bill is assigned to subcontractors.\n'
+                    'Reduce the assignment first if we are doing this work '
+                    'ourselves.',
+                    accepted=accepted, item=boq.display_name, scope=scope,
+                    assigned=boq.subcontracted_qty, qty=boq.qty))

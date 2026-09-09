@@ -579,8 +579,6 @@ AR = {
         "المستندات الآتية منتهية الصلاحية:\n%s",
     "Set the service product on the subcontract, or on these BOQ items, before raising a certificate:\n%s":
         "حدد منتج الخدمة على تعاقد الباطن، أو على بنود المقايسة الآتية، قبل إصدار مستخلص:\n%s",
-    "Execution of \"%(item)s\" would reach %(total)s against a bill quantity of %(qty)s.\nAccepted on work orders: %(accepted)s\nCertified to subcontractors: %(certified)s":
-        "تنفيذ \"%(item)s\" سيصل إلى %(total)s مقابل كمية مقايسة %(qty)s.\nالمقبول على أوامر الشغل: %(accepted)s\nالمعتمد لمقاولي الباطن: %(certified)s",
     "Tax %": "نسبة الضريبة %",
     # ---- salary distribution ----
     "Salary Distribution": "توزيع الرواتب",
@@ -645,4 +643,6 @@ AR = {
     "Contract Bill of Quantities": "مقايسة العقد",
     "Construction Drawings": "الرسومات التنفيذية",
     "Site Handover Minutes": "محضر تسليم الموقع",
+    "Work orders accept %(accepted)s of \"%(item)s\", but only %(scope)s is ours to execute: %(assigned)s of the %(qty)s in the bill is assigned to subcontractors.\nReduce the assignment first if we are doing this work ourselves.":
+        "أوامر الشغل تقبل %(accepted)s من \"%(item)s\"، والمتاح لنا %(scope)s فقط: %(assigned)s من %(qty)s في المقايسة مسندة لمقاولي الباطن.\nقلّل الإسناد أولاً إذا كنا سننفذ هذا العمل بأنفسنا.",
 }
