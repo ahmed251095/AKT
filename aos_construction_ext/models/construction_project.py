@@ -133,14 +133,17 @@ class ConstructionProject(models.Model):
                     'final_handover_date')
     def _check_handover_order(self):
         """Handover runs provisional, then administrative, then final."""
-        stages = (
-            ('initial_handover_date', 'Initial Handover'),
-            ('admin_handover_date', 'Administrative Handover'),
-            ('final_handover_date', 'Final Handover'),
-        )
+        stages = ('initial_handover_date', 'admin_handover_date',
+                  'final_handover_date')
+
+        def label(field_name):
+            # The field's own label, so the message reads in the user's
+            # language rather than mixing English stage names into it.
+            return self._fields[field_name].get_description(self.env)['string']
+
         for project in self:
-            previous_field = previous_label = None
-            for field_name, label in stages:
+            previous_field = None
+            for field_name in stages:
                 date = project[field_name]
                 if not date:
                     continue
@@ -149,10 +152,10 @@ class ConstructionProject(models.Model):
                         '%(later)s is dated %(later_date)s, before the '
                         '%(earlier)s on %(earlier_date)s. Handover runs '
                         'provisional, then administrative, then final.',
-                        later=self.env._(label), later_date=date,
-                        earlier=self.env._(previous_label),
+                        later=label(field_name), later_date=date,
+                        earlier=label(previous_field),
                         earlier_date=project[previous_field]))
-                previous_field, previous_label = field_name, label
+                previous_field = field_name
 
     # ------------------------------------------------------------------
     # Cost and profit analysis
