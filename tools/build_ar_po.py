@@ -101,17 +101,40 @@ def parse_python(module):
                                sm.group(2))
 
 
+STRING_RE = r"""(?:'(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*")"""
+ESCAPES = {'\\n': '\n', '\\t': '\t', '\\r': '\r',
+           '\\"': '"', "\\'": "'", '\\\\': '\\'}
+
+
+def unescape(text):
+    """Turn the escapes written in the source into the characters Python sees."""
+    out, i = [], 0
+    while i < len(text):
+        pair = text[i:i + 2]
+        if pair in ESCAPES:
+            out.append(ESCAPES[pair])
+            i += 2
+        else:
+            out.append(text[i])
+            i += 1
+    return ''.join(out)
+
+
 def parse_code(module):
-    """Messages raised from Python are referenced by their source path."""
+    """Messages raised from Python are referenced by their source path.
+
+    The literals are matched per quote style, so a quote inside a message --
+    'the rate for "%(item)s" is too high' -- does not cut the match short.
+    """
     for path in sorted(glob.glob(f'{BASE}/{module}/models/*.py') +
                        glob.glob(f'{BASE}/{module}/wizard/*.py') +
                        glob.glob(f'{BASE}/{module}/controllers/*.py')):
         rel = os.path.relpath(path, BASE)
         text = open(path).read()
-        for m in re.finditer(r"(?:self\.env\._|_)\(\s*((?:(['\"])(?:[^'\"\\\\]|\\\\.)*\2\s*)+)",
+        for m in re.finditer(r"(?:self\.env\._|\b_)\(\s*((?:" + STRING_RE + r"\s*)+)",
                              text):
-            parts = re.findall(r"(['\"])((?:[^'\"\\\\]|\\\\.)*)\1", m.group(1))
-            src = ''.join(p[1] for p in parts)
+            parts = re.findall(STRING_RE, m.group(1))
+            src = ''.join(unescape(part[1:-1]) for part in parts)
             if src:
                 yield (f'code:addons/{rel}:0', src)
 

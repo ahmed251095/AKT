@@ -365,10 +365,6 @@ AR = {
         "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإدارة لفتح العملية.",
     "The bid bond has to be issued before the bid is submitted.":
         "يجب إصدار التأمين الابتدائي قبل تقديم العطاء.",
-    "These required documents are still missing:\\n%s":
-        "المستندات المطلوبة الآتية ما زالت ناقصة:\\n%s",
-    "These documents have expired:\\n%s":
-        "المستندات الآتية منتهية الصلاحية:\\n%s",
     "Price the tender items before submitting.":
         "سعّر بنود المناقصة قبل التقديم.",
     "Set the tender document fee first.":
@@ -494,8 +490,6 @@ AR = {
         "اختر منتج الخدمة الخاص بتعاقد الباطن.",
     "No approved product quantities are available.":
         "لا توجد كميات معتمدة متاحة.",
-    "Set the service product on the subcontract, or on these BOQ ":
-        "حدد منتج الخدمة على تعاقد الباطن، أو على بنود المقايسة الآتية ",
 
     # report and record labels built in code
     "%s - Initial BOQ": "%s - المقايسة المبدئية",
@@ -579,4 +573,13 @@ AR = {
     "Headroom to Cost": "المتاح حتى سعر التكلفة",
     'The subcontractor rate for "%(item)s" is %(rate)s, above the %(budget)s the item was priced to cost.\nEither negotiate the rate down, or correct the item cost in the bill of quantities if the estimate was wrong.':
         'سعر المقاول لـ "%(item)s" هو %(rate)s، وهو أعلى من %(budget)s التي سُعّر البند على أساسها.\nإما أن تفاوض على خفض السعر، أو تصحح تكلفة البند في المقايسة إذا كان التقدير خاطئاً.',
+    "These required documents are still missing:\n%s":
+        "المستندات المطلوبة الآتية ما زالت ناقصة:\n%s",
+    "These documents have expired:\n%s":
+        "المستندات الآتية منتهية الصلاحية:\n%s",
+    "Set the service product on the subcontract, or on these BOQ items, before raising a certificate:\n%s":
+        "حدد منتج الخدمة على تعاقد الباطن، أو على بنود المقايسة الآتية، قبل إصدار مستخلص:\n%s",
+    "Execution of \"%(item)s\" would reach %(total)s against a bill quantity of %(qty)s.\nAccepted on work orders: %(accepted)s\nCertified to subcontractors: %(certified)s":
+        "تنفيذ \"%(item)s\" سيصل إلى %(total)s مقابل كمية مقايسة %(qty)s.\nالمقبول على أوامر الشغل: %(accepted)s\nالمعتمد لمقاولي الباطن: %(certified)s",
+    "Tax %": "نسبة الضريبة %",
 }

@@ -17,6 +17,19 @@ msgstr ""
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "\"%(project)s\" still has %(count)s payment certificate(s) that are neither approved nor cancelled."
+msgstr "\"%(project)s\" ما زال به %(count)s مستخلص غير معتمد وغير ملغي."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_authority_type.py:0
+#: code:addons/aos_construction_ext/models/construction_document_type.py:0
+msgid "\"%s\" already exists."
+msgstr "\"%s\" موجود بالفعل."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "%(label)s for %(tender)s"
 msgstr "%(label)s لـ %(tender)s"
@@ -683,6 +696,12 @@ msgstr "تكلفة العمالة التقديرية"
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__4
 msgid "Exceeds"
 msgstr "أعلى من المتوقع"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_work_order_line.py:0
+msgid "Execution of \"%(item)s\" would reach %(total)s against a bill quantity of %(qty)s.\nAccepted on work orders: %(accepted)s\nCertified to subcontractors: %(certified)s"
+msgstr "تنفيذ \"%(item)s\" سيصل إلى %(total)s مقابل كمية مقايسة %(qty)s.\nالمقبول على أوامر الشغل: %(accepted)s\nالمعتمد لمقاولي الباطن: %(certified)s"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expected_cost
@@ -1552,6 +1571,12 @@ msgid "Reason"
 msgstr "السبب"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "Record the initial handover date before closing \"%s\"."
+msgstr "سجّل تاريخ التسليم الابتدائي قبل إقفال \"%s\"."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__reference
 msgid "Reference"
 msgstr "المرجع"
@@ -1749,8 +1774,8 @@ msgstr "الترتيب"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_subcontract.py:0
-msgid "Set the service product on the subcontract, or on these BOQ "
-msgstr "حدد منتج الخدمة على تعاقد الباطن، أو على بنود المقايسة الآتية "
+msgid "Set the service product on the subcontract, or on these BOQ items, before raising a certificate:\n%s"
+msgstr "حدد منتج الخدمة على تعاقد الباطن، أو على بنود المقايسة الآتية، قبل إصدار مستخلص:\n%s"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -1875,6 +1900,12 @@ msgstr "التقديم"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
 msgid "Submission Deadline"
 msgstr "موعد التسليم"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/controllers/main.py:0
+msgid "Tax %"
+msgstr "نسبة الضريبة %"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__tax_percent
@@ -2020,8 +2051,32 @@ msgstr "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإ�
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "The performance bond of \"%s\" has not been released yet."
+msgstr "التأمين النهائي لـ \"%s\" لم يُرد بعد."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_subcontract_line.py:0
+msgid "The subcontractor rate for \"%(item)s\" is %(rate)s, above the %(budget)s the item was priced to cost.\nEither negotiate the rate down, or correct the item cost in the bill of quantities if the estimate was wrong."
+msgstr "سعر المقاول لـ \"%(item)s\" هو %(rate)s، وهو أعلى من %(budget)s التي سُعّر البند على أساسها.\nإما أن تفاوض على خفض السعر، أو تصحح تكلفة البند في المقايسة إذا كان التقدير خاطئاً."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "The tender has nothing filled in that the project is missing."
 msgstr "لا يوجد في المناقصة بيان ناقص لدى المشروع."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_tender.py:0
+msgid "These documents have expired:\n%s"
+msgstr "المستندات الآتية منتهية الصلاحية:\n%s"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_tender.py:0
+msgid "These required documents are still missing:\n%s"
+msgstr "المستندات المطلوبة الآتية ما زالت ناقصة:\n%s"
 
 #. module: aos_construction_ext
 #. odoo-python
