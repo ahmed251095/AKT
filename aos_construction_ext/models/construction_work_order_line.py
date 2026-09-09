@@ -62,21 +62,20 @@ class ConstructionWorkOrderLine(models.Model):
             line.inhouse_scope_qty = scope
             line.inhouse_available_qty = max(scope - planned_elsewhere, 0.0)
 
-    # The base fills the cost rate from an onchange alone, so a line created
-    # by import or by another module carries a zero rate -- and every earned
-    # figure built on it reads zero.
-    unit_cost = fields.Monetary(
-        compute='_compute_unit_cost', store=True, readonly=False,
-        help='Item cost rate from the bill of quantities. Override it where '
-             'this crew genuinely costs something else.')
+    @api.model_create_multi
+    def create(self, vals_list):
+        """Fall back to the item's cost rate.
 
-    @api.depends('boq_line_id')
-    def _compute_unit_cost(self):
-        for line in self:
-            if line.boq_line_id and not line.unit_cost:
-                line.unit_cost = line.boq_line_id.cost_rate
-            else:
-                line.unit_cost = line.unit_cost
+        The base fills the rate from an onchange alone, so a line created by
+        import or by another module carries a zero rate -- and every earned
+        figure built on it reads zero while the whole spend shows as overrun.
+        """
+        BoqLine = self.env['construction.boq.line']
+        for vals in vals_list:
+            if not vals.get('unit_cost') and vals.get('boq_line_id'):
+                vals['unit_cost'] = BoqLine.browse(
+                    vals['boq_line_id']).cost_rate
+        return super().create(vals_list)
 
     @api.onchange('boq_line_id')
     def _onchange_boq_line_id(self):
