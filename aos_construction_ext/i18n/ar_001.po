@@ -2526,6 +2526,11 @@ msgid "Unit"
 msgstr "الوحدة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__unit_cost
+msgid "Unit Cost"
+msgstr "تكلفة الوحدة"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__unit_rate
