@@ -655,4 +655,8 @@ AR = {
         "نسبة الإنجاز في \"%(item)s\" هي %(percent)s%%، ويجب أن تكون بين 0 و100.",
     "Recovering %(recovery)s exceeds the %(outstanding)s of advance still outstanding on this contract.":
         "استرداد %(recovery)s يتجاوز %(outstanding)s المتبقية من الدفعة المقدمة على هذا العقد.",
+    "%(later)s is dated %(later_date)s, before the %(earlier)s on %(earlier_date)s. Handover runs provisional, then administrative, then final.":
+        "%(later)s مؤرخ في %(later_date)s، أي قبل %(earlier)s في %(earlier_date)s. التسليم يتم ابتدائي ثم إداري ثم نهائي.",
+    "The performance bond on %(project)s secures the works until final acceptance. Record the final handover date before releasing it.":
+        "خطاب ضمان حسن التنفيذ في %(project)s يغطي الأعمال حتى الاستلام النهائي. سجّل تاريخ التسليم النهائي قبل الإفراج عنه.",
 }

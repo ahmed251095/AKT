@@ -1,5 +1,5 @@
 from odoo import api, fields, models, Command
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 from .construction_wbs import _weighted_progress
 
@@ -128,6 +128,31 @@ class ConstructionProject(models.Model):
         help='Date the maintenance period ended and the works were finally '
              'accepted.')
     closure_note = fields.Text(string='Closure Notes')
+
+    @api.constrains('initial_handover_date', 'admin_handover_date',
+                    'final_handover_date')
+    def _check_handover_order(self):
+        """Handover runs provisional, then administrative, then final."""
+        stages = (
+            ('initial_handover_date', 'Initial Handover'),
+            ('admin_handover_date', 'Administrative Handover'),
+            ('final_handover_date', 'Final Handover'),
+        )
+        for project in self:
+            previous_field = previous_label = None
+            for field_name, label in stages:
+                date = project[field_name]
+                if not date:
+                    continue
+                if previous_field and date < project[previous_field]:
+                    raise ValidationError(self.env._(
+                        '%(later)s is dated %(later_date)s, before the '
+                        '%(earlier)s on %(earlier_date)s. Handover runs '
+                        'provisional, then administrative, then final.',
+                        later=self.env._(label), later_date=date,
+                        earlier=self.env._(previous_label),
+                        earlier_date=project[previous_field]))
+                previous_field, previous_label = field_name, label
 
     # ------------------------------------------------------------------
     # Cost and profit analysis
@@ -654,6 +679,12 @@ class ConstructionProject(models.Model):
 
     def action_performance_bond_released(self):
         for project in self:
+            if not project.final_handover_date:
+                raise UserError(self.env._(
+                    'The performance bond on %(project)s secures the works '
+                    'until final acceptance. Record the final handover date '
+                    'before releasing it.',
+                    project=project.display_name))
             project.write({
                 'performance_bond_state': 'released',
                 'performance_bond_return_date': fields.Date.context_today(

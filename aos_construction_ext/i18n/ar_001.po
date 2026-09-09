@@ -48,6 +48,12 @@ msgstr "%(label)s لـ %(tender)s"
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "%(later)s is dated %(later_date)s, before the %(earlier)s on %(earlier_date)s. Handover runs provisional, then administrative, then final."
+msgstr "%(later)s مؤرخ في %(later_date)s، أي قبل %(earlier)s في %(earlier_date)s. التسليم يتم ابتدائي ثم إداري ثم نهائي."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_salary.py:0
 msgid "%(percent)s%% of the monthly cost of %(employee)s."
 msgstr "%(percent)s%% من التكلفة الشهرية لـ %(employee)s."
@@ -2413,6 +2419,12 @@ msgstr "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإ�
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "The performance bond of \"%s\" has not been released yet."
 msgstr "التأمين النهائي لـ \"%s\" لم يُرد بعد."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_project.py:0
+msgid "The performance bond on %(project)s secures the works until final acceptance. Record the final handover date before releasing it."
+msgstr "خطاب ضمان حسن التنفيذ في %(project)s يغطي الأعمال حتى الاستلام النهائي. سجّل تاريخ التسليم النهائي قبل الإفراج عنه."
 
 #. module: aos_construction_ext
 #. odoo-python
