@@ -58,6 +58,33 @@ def iter_fields(body):
         yield fname, ftype, body[i + 1:j]
 
 
+# A field's xmlid belongs to the module that first declared it. Redefining
+# one in an extension does not move it, so keying the translation on the
+# extension leaves the entry unresolvable and the old wording in place.
+FIELD_ORIGIN = {}
+
+
+def index_field_origins():
+    for module in MODULES:
+        for path in sorted(glob.glob(f'{BASE}/{module}/models/*.py') +
+                           glob.glob(f'{BASE}/{module}/wizard/*.py')):
+            text = open(path).read()
+            for body in re.split(r'\nclass\s+\w+\([^)]*\):', text)[1:]:
+                name = re.search(r"_name\s*=\s*'([\w.]+)'", body)
+                inherit = (re.search(r"_inherit\s*=\s*'([\w.]+)'", body)
+                           or re.search(r"_inherit\s*=\s*\[\s*'([\w.]+)'", body))
+                model = (name.group(1) if name
+                         else (inherit.group(1) if inherit else None))
+                if not model:
+                    continue
+                for fname, _ftype, _args in iter_fields(body):
+                    FIELD_ORIGIN.setdefault((model, fname), module)
+
+
+def owner_of(model, fname, module):
+    return FIELD_ORIGIN.get((model, fname), module)
+
+
 def parse_python(module):
     """Yield (occurrence, source) for every field, selection and model name."""
     for path in sorted(glob.glob(f'{BASE}/{module}/models/*.py') +
@@ -92,8 +119,9 @@ def parse_python(module):
                     continue
                 else:
                     text_ = auto_label(fname)
+                owner = owner_of(model, fname, module)
                 yield (f'model:ir.model.fields,field_description:'
-                       f'{module}.field_{mk}__{fname}', text_)
+                       f'{owner}.field_{mk}__{fname}', text_)
                 # The tooltip behind every "?" on a form. Reading only the
                 # label left all of them in English.
                 tip = re.search(
@@ -105,11 +133,11 @@ def parse_python(module):
                     joined = ' '.join(joined.split())
                     if joined:
                         yield (f'model:ir.model.fields,help:'
-                               f'{module}.field_{mk}__{fname}', joined)
+                               f'{owner}.field_{mk}__{fname}', joined)
                 for sm in re.finditer(r"\(\s*'([\w.+-]+)'\s*,\s*'([^']+)'\s*\)", args):
                     if sm.group(2) in AR:
                         yield (f'model:ir.model.fields.selection,name:'
-                               f'{module}.selection__{mk}__{fname}__{sm.group(1)}',
+                               f'{owner}.selection__{mk}__{fname}__{sm.group(1)}',
                                sm.group(2))
 
 
@@ -410,6 +438,7 @@ def render_module(entries, module):
 
 
 if __name__ == '__main__':
+    index_field_origins()
     e, missing = build()
     if missing:
         print(f'MISSING {len(missing)} term(s) from ar_terms.py:',

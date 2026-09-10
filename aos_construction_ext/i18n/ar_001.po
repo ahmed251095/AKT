@@ -167,8 +167,8 @@ msgid "Active"
 msgstr "نشط"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__actual_cost
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__actual_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__actual_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__actual_cost
 msgid "Actual Cost"
 msgstr "التكلفة الفعلية"
 
@@ -245,7 +245,7 @@ msgid "Advance Recovered"
 msgstr "المسترد من الدفعة المقدمة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_ra_billing__advance_recovery
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__advance_recovery
 msgid "Advance Recovery"
 msgstr "خصم الدفعة المقدمة"
 
@@ -800,7 +800,7 @@ msgid "Contract Duration (days)"
 msgstr "مدة العقد (أيام)"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__contract_value
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__contract_value
 msgid "Contract Value"
 msgstr "قيمة العقد"
 
@@ -830,8 +830,8 @@ msgid "Cost Breakdown"
 msgstr "تفصيل التكلفة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__cost_rate
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__cost_rate
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__cost_rate
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__cost_rate
 msgid "Cost Rate"
 msgstr "سعر التكلفة"
 
@@ -1130,8 +1130,8 @@ msgid "Estimated Labour Cost"
 msgstr "تكلفة العمالة التقديرية"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_material_requisition_line__unit_price
 #: model:ir.model.fields,field_description:aos_construction_ext.field_purchase_order_line__estimated_unit_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__unit_price
 msgid "Estimated Unit Cost"
 msgstr "التكلفة التقديرية للوحدة"
 
@@ -1371,7 +1371,7 @@ msgid "HR Supervisor"
 msgstr "مشرف الموارد البشرية"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__state__handover
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_project__state__handover
 msgid "Handover"
 msgstr "تحت التسليم"
 
@@ -1497,7 +1497,7 @@ msgid "In-house Work at Cost"
 msgstr "قيمة التنفيذ الذاتي بالتكلفة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__progress_percent
+#: model:ir.model.fields,help:aos_construction_management.field_construction_boq_line__progress_percent
 msgid "In-house execution plus certified subcontract work. Each side is capped at its own share of the item, so an item that is part self-performed and part subcontracted is never counted twice."
 msgstr "التنفيذ الذاتي زائد أعمال الباطن المعتمدة. كل جانب محدود بنصيبه من البند، فالبند المنفَّذ جزء ذاتياً وجزء بالإسناد لا يُحسب مرتين."
 
@@ -1680,7 +1680,7 @@ msgid "Logistics Manager"
 msgstr "مدير الحركة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__bond_pending
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__bond_pending
 msgid "Lost - Bond Not Released"
 msgstr "خاسرة - التأمين لم يُرد"
 
@@ -2072,7 +2072,7 @@ msgid "Period"
 msgstr "الفترة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__planned_cost
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__planned_cost
 msgid "Planned Cost"
 msgstr "التكلفة المخططة"
 
@@ -2174,7 +2174,7 @@ msgid "Profit Statement"
 msgstr "بيان الأرباح"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_wbs__progress
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__progress
 msgid "Progress"
 msgstr "نسبة الإنجاز"
 
@@ -2185,7 +2185,7 @@ msgid "Progress (%)"
 msgstr "نسبة الإنجاز (%)"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__progress_percent
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__progress_percent
 msgid "Progress Percent"
 msgstr "نسبة الإنجاز"
 
@@ -2357,7 +2357,7 @@ msgid "Record the initial handover date before closing \"%s\"."
 msgstr "سجّل تاريخ التسليم الابتدائي قبل إقفال \"%s\"."
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_ra_billing__advance_recovery
+#: model:ir.model.fields,help:aos_construction_management.field_construction_ra_billing__advance_recovery
 msgid "Recovered in proportion to the work certified, and never more than the advance still outstanding. Edit it if the contract recovers on a different schedule."
 msgstr "يُسترد بنسبة الأعمال المستخلصة، وبما لا يتجاوز المتبقي من الدفعة المقدمة. عدّله إذا كان العقد يسترد بجدول مختلف."
 
@@ -2409,7 +2409,7 @@ msgid "Rejected"
 msgstr "مرفوضة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__rejected
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__rejected
 msgid "Rejected by Management"
 msgstr "مرفوضة من الإدارة"
 
@@ -2689,8 +2689,8 @@ msgid "Start Handover"
 msgstr "بدء التسليم"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__state
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__state
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__state
 msgid "State"
 msgstr "الحالة"
 
@@ -3156,8 +3156,8 @@ msgstr "الوحدة"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__unit_rate
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__unit_rate
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__unit_rate
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__unit_rate
 msgid "Unit Rate"
 msgstr "سعر الوحدة"
 
@@ -3221,7 +3221,7 @@ msgid "Waiting Approval"
 msgstr "بانتظار الموافقة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__pending_approval
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__pending_approval
 msgid "Waiting Management Approval"
 msgstr "بانتظار موافقة الإدارة"
 
@@ -3236,7 +3236,7 @@ msgid "Warning"
 msgstr "إنذار"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_wbs__progress
+#: model:ir.model.fields,help:aos_construction_management.field_construction_wbs__progress
 msgid "Weighted by item value, so a large item moves the phase more than a small one."
 msgstr "مرجَّحة بقيمة البند، فالبند الكبير يحرّك المرحلة أكثر من الصغير."
 
@@ -3306,7 +3306,7 @@ msgid "What the whole bill of quantities will cost once finished: assigned work 
 msgstr "ما ستكلفه المقايسة كاملة عند انتهائها: الأعمال المسندة بأسعار مقاولي الباطن، والباقي بتكلفتنا."
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_material_requisition_line__unit_price
+#: model:ir.model.fields,help:aos_construction_management.field_construction_material_requisition_line__unit_price
 msgid "What this material is expected to cost, for approving the request against the budget. The price comes from the vendor on the purchase order."
 msgstr "المتوقع أن تكلفه هذه المادة، لاعتماد الطلب في حدود الميزانية. السعر نفسه يأتي من المورد على أمر الشراء."
 
@@ -3358,7 +3358,7 @@ msgstr "فائزة"
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__work_order_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_purchase_order__construction_work_order_id
-#: model:ir.model.fields,field_description:aos_construction_ext.field_purchase_order_line__construction_work_order_id
+#: model:ir.model.fields,field_description:aos_construction_management.field_purchase_order_line__construction_work_order_id
 msgid "Work Order"
 msgstr "أمر الشغل"
 
