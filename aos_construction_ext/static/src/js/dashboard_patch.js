@@ -20,6 +20,21 @@ patch(ConstructionDashboard.prototype, {
         this.state.total_billed = customerCertificates.reduce(
             (total, record) => total + (record.total_amount || 0), 0
         );
+
+        // A project under handover appeared in none of the four cards, so the
+        // breakdown never added up to the total.
+        const projects = await this.orm.searchRead(
+            "construction.project", [], ["state", "actual_cost"]
+        );
+        this.state.handover_projects = projects.filter(
+            (project) => project.state === "handover"
+        ).length;
+
+        // Approved expenses are only part of what a project costs. Shown next
+        // to certified revenue on its own, they flatter the result.
+        this.state.total_actual_cost = projects.reduce(
+            (total, project) => total + (project.actual_cost || 0), 0
+        );
     },
 
     // The base builds these action dictionaries with bare strings, so every

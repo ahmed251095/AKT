@@ -72,6 +72,7 @@ Adds the operating model actually used by the contractor on top of
     'assets': {
         'web.assets_backend': [
             'aos_construction_ext/static/src/js/dashboard_patch.js',
+            'aos_construction_ext/static/src/xml/dashboard_cards.xml',
         ],
     },
     'license': 'LGPL-3',

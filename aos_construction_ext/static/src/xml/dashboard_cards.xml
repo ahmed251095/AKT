@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+  <t t-inherit="aos_construction_management.ConstructionDashboard"
+     t-inherit-mode="extension">
+
+    <!-- Projects row: a project under handover belonged to none of the four
+         cards, so the states never added up to the total. -->
+    <xpath expr="//div[hasclass('row')][1]" position="inside">
+      <div class="col-12 col-sm-6 col-xl-3">
+        <div class="card border-0 shadow-sm h-100 o_dashboard_card"
+             t-on-click="() => this.openProjects('handover')">
+          <div class="card-body d-flex align-items-center gap-3 p-3">
+            <div class="rounded-3 p-3 bg-info bg-opacity-10 d-flex">
+              <i class="fa fa-handshake-o fa-lg text-info"/>
+            </div>
+            <div>
+              <div class="fs-2 fw-bold lh-1 text-info"
+                   t-esc="state.handover_projects"/>
+              <div class="text-muted small mt-1">Under Handover</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </xpath>
+
+    <!-- Financials row: certified revenue needs the whole cost beside it, not
+         just the expenses that happen to be booked as expenses. -->
+    <xpath expr="//div[hasclass('row')][2]" position="inside">
+      <div class="col-12 col-sm-6 col-xl-4">
+        <div class="card border-0 shadow-sm h-100 o_dashboard_card"
+             t-on-click="() => this.openProjects()">
+          <div class="card-body d-flex align-items-center gap-3 p-3">
+            <div class="rounded-3 p-3 bg-secondary bg-opacity-10 d-flex">
+              <i class="fa fa-balance-scale fa-lg text-secondary"/>
+            </div>
+            <div>
+              <div class="fs-5 fw-bold lh-1 text-secondary">
+                <span t-esc="formatCurrency(state.total_actual_cost)"/>
+              </div>
+              <div class="text-muted small mt-1">Total Actual Cost</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </xpath>
+
+  </t>
+
+</templates>

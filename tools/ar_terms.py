@@ -900,4 +900,6 @@ AR = {
     "Quick Actions": "إجراءات سريعة",
     "All Projects": "كل المشاريع",
     "Loading...": "جارٍ التحميل...",
+    "Under Handover": "تحت التسليم",
+    "Total Actual Cost": "إجمالي التكلفة الفعلية",
 }

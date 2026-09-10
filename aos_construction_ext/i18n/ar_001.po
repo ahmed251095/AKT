@@ -3092,6 +3092,12 @@ msgid "Total"
 msgstr "الإجمالي"
 
 #. module: aos_construction_ext
+#. odoo-javascript
+#: code:addons/aos_construction_ext/static/src/xml/dashboard_cards.xml:0
+msgid "Total Actual Cost"
+msgstr "إجمالي التكلفة الفعلية"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__total_allocated
 msgid "Total Allocated"
 msgstr "إجمالي المحمّل"
@@ -3152,6 +3158,12 @@ msgstr "الوحدة"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__unassigned_qty
 msgid "Unassigned Quantity"
 msgstr "الكمية غير المسندة"
+
+#. module: aos_construction_ext
+#. odoo-javascript
+#: code:addons/aos_construction_ext/static/src/xml/dashboard_cards.xml:0
+msgid "Under Handover"
+msgstr "تحت التسليم"
 
 #. module: aos_construction_ext
 #. odoo-python
