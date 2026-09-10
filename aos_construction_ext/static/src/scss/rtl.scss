@@ -21,6 +21,17 @@
     text-align: right;
 }
 
+// The top bar has the same problem: the brand sat on the left and the systray
+// on the right, the wrong way round for Arabic.
+//
+// Only the bar. Flipping `.o_rtl.o_web_client` instead mirrors containers that
+// already carry mirrored rules -- tried it, and the content overflowed the
+// viewport with the page header gone.
+.o_rtl .o_main_navbar {
+    /*rtl:ignore*/
+    direction: rtl;
+}
+
 // ---------------------------------------------------------------------------
 // Card size
 // ---------------------------------------------------------------------------
