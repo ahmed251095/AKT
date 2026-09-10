@@ -69,6 +69,11 @@ Adds the operating model actually used by the contractor on top of
         'report/project_profit_statement_template.xml',
     ],
     'post_init_hook': 'post_init_hook',
+    'assets': {
+        'web.assets_backend': [
+            'aos_construction_ext/static/src/js/dashboard_patch.js',
+        ],
+    },
     'license': 'LGPL-3',
     'installable': True,
     'application': False,

@@ -283,6 +283,33 @@ def message_key(tag, attrs, text):
     return key
 
 
+def parse_assets(module):
+    """Wording inside the OWL dashboard: template text and _t() calls.
+
+    These live in the assets bundle, so Odoo keys them on the source file
+    rather than on a record, and marks them odoo-javascript.
+    """
+    for path in sorted(glob.glob(f'{BASE}/{module}/static/src/xml/*.xml') +
+                       glob.glob(f'{BASE}/{module}/static/src/js/*.js')):
+        rel = path[len(f'{BASE}/'):]
+        occurrence = f'code:addons/{rel}:0'
+        text = open(path).read()
+        seen = set()
+        if path.endswith('.xml'):
+            # Odoo takes the plain text of a template node here; unlike a view
+            # arch, inline markup is not part of the key.
+            matches = (m.group(1) for m in re.finditer(r'>([^<>{}]+)<', text))
+        else:
+            matches = (m.group(0)[1:-1]
+                       for m in re.finditer(rf'(?<=_t\()\s*{STRING_RE}', text))
+        for raw in matches:
+            src = ' '.join(raw.replace('&amp;', '&').split())
+            if not src or src in seen or not is_human_text(src):
+                continue
+            seen.add(src)
+            yield (occurrence, src)
+
+
 def parse_reports(module):
     """QWeb report templates carry their own visible wording."""
     for path in sorted(glob.glob(f'{BASE}/{module}/report/*.xml') +
@@ -366,7 +393,8 @@ def build():
     for module in MODULES:
         for occ, src in (list(parse_python(module)) + list(parse_xml(module))
                          + list(parse_code(module)) + list(parse_data(module))
-                         + list(parse_reports(module))):
+                         + list(parse_reports(module))
+                         + list(parse_assets(module))):
             if isinstance(src, tuple):
                 missing.add(src[1])
                 continue
@@ -428,7 +456,12 @@ def render_module(entries, module):
         out.append('')
         out.append(f'#. module: {module}')
         occurrences = sorted(entries[src][module])
-        if any(o.startswith('code:') for o in occurrences):
+        code = [o for o in occurrences if o.startswith('code:')]
+        # A term can appear in both an asset file and a Python file, and Odoo
+        # marks each kind it finds.
+        if any('/static/src/' in o for o in code):
+            out.append('#. odoo-javascript')
+        if any('/static/src/' not in o for o in code):
             out.append('#. odoo-python')
         for occ in occurrences:
             out.append(f'#: {occ}')

@@ -68,6 +68,12 @@ msgid "Active"
 msgstr "نشط"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Active Projects"
+msgstr "مشاريع نشطة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__actual_cost
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__actual_cost
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__actual_cost
@@ -122,6 +128,12 @@ msgstr "نسبة الدفعة المقدمة"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing__advance_recovery
 msgid "Advance Recovery"
 msgstr "خصم الدفعة المقدمة"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "All Projects"
+msgstr "كل المشاريع"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__amount
@@ -199,6 +211,8 @@ msgid "BILL OF QUANTITIES"
 msgstr "جدول الكميات"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_boq
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 msgid "BOQ"
@@ -465,6 +479,12 @@ msgid "Completed"
 msgstr "مكتمل"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Completed Projects"
+msgstr "مشاريع مكتملة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__completion_percent
 msgid "Completion Percent"
 msgstr "نسبة الإتمام"
@@ -503,6 +523,12 @@ msgstr "مستخلص أعمال"
 #: model:ir.model,name:aos_construction_management.model_construction_expense
 msgid "Construction Expense"
 msgstr "مصروف مشروع"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Construction Management"
+msgstr "إدارة المقاولات"
 
 #. module: aos_construction_management
 #: model:ir.model,name:aos_construction_management.model_construction_ra_billing
@@ -784,6 +810,8 @@ msgid "Expense Details"
 msgstr "بيانات المصروف"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
 #: model:ir.actions.act_window,name:aos_construction_management.action_construction_expense
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_expenses
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
@@ -822,6 +850,12 @@ msgstr "الرقابة المالية"
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 msgid "Financial Summary"
 msgstr "الملخص المالي"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Financials"
+msgstr "الماليات"
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_boq_line__work_type__finishing
@@ -1106,15 +1140,29 @@ msgid "Notes:"
 msgstr "ملاحظات:"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_project__state__on_hold
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 msgid "On Hold"
-msgstr "موقوف"
+msgstr "موقوفة"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
 msgid "Open Invoice / Bill"
 msgstr "فتح الفاتورة"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Open Quality Checks"
+msgstr "فحوص جودة مفتوحة"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Operations"
+msgstr "العمليات"
 
 #. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_material_requisition__state__ordered
@@ -1182,6 +1230,18 @@ msgstr "المستخلصات"
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_subcontract_form
 msgid "Payment Terms"
 msgstr "شروط السداد"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Pending Requisitions"
+msgstr "طلبات توريد معلّقة"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Pending Work Orders"
+msgstr "أوامر شغل جارية"
 
 #. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
@@ -1358,11 +1418,19 @@ msgid "Project Name..."
 msgstr "اسم المشروع..."
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Project Overview Dashboard"
+msgstr "لوحة متابعة المشاريع"
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.report_boq_template
 msgid "Project:"
 msgstr "المشروع:"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
 #: model:ir.actions.act_window,name:aos_construction_management.action_construction_project
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_projects
 msgid "Projects"
@@ -1452,6 +1520,8 @@ msgid "Quality Checklist Item"
 msgstr "بند قائمة فحص الجودة"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
 #: model:ir.actions.act_window,name:aos_construction_management.action_construction_quality_check
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_quality_check
 msgid "Quality Checks"
@@ -1463,6 +1533,14 @@ msgid "Quantity"
 msgstr "الكمية"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Quick Actions"
+msgstr "إجراءات سريعة"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_ra_billing
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 msgid "RA Billing"
@@ -1560,6 +1638,8 @@ msgid "Requisition"
 msgstr "طلب التوريد"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 msgid "Requisitions"
 msgstr "طلبات التوريد"
@@ -1938,6 +2018,12 @@ msgid "Total BOQ Amount"
 msgstr "إجمالي قيمة المقايسة"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Total BOQ Value (Approved)"
+msgstr "إجمالي قيمة المقايسات المعتمدة"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__total_estimated_cost
 msgid "Total Estimated Cost"
 msgstr "إجمالي التكلفة التقديرية"
@@ -1946,6 +2032,24 @@ msgstr "إجمالي التكلفة التقديرية"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__total_expenses
 msgid "Total Expenses"
 msgstr "إجمالي المصروفات"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Total Expenses (Approved)"
+msgstr "إجمالي المصروفات المعتمدة"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Total Projects"
+msgstr "إجمالي المشاريع"
+
+#. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
+msgid "Total RA Billed (Approved)"
+msgstr "إجمالي المستخلص للعميل (معتمد)"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__uom_id
@@ -2057,6 +2161,8 @@ msgid "Work Order Count"
 msgstr "عدد أوامر الشغل"
 
 #. module: aos_construction_management
+#. odoo-javascript
+#: code:addons/aos_construction_management/static/src/xml/construction_dashboard.xml:0
 #: model:ir.actions.act_window,name:aos_construction_management.action_construction_work_order
 #: model:ir.ui.menu,name:aos_construction_management.menu_construction_work_orders
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form

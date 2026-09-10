@@ -1718,8 +1718,10 @@ msgid "Mason"
 msgstr "بنّاء"
 
 #. module: aos_construction_ext
+#. odoo-javascript
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
+#: code:addons/aos_construction_ext/static/src/js/dashboard_patch.js:0
 msgid "Material Requisitions"
 msgstr "طلبات توريد المواد"
 
@@ -1861,7 +1863,7 @@ msgstr "عطاء عن:"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 msgid "On Hold"
-msgstr "موقوف"
+msgstr "موقوفة"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2237,6 +2239,8 @@ msgid "Project put on hold. Reason: %s"
 msgstr "تم إيقاف المشروع. السبب: %s"
 
 #. module: aos_construction_ext
+#. odoo-javascript
+#: code:addons/aos_construction_ext/static/src/js/dashboard_patch.js:0
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 msgid "Projects"
 msgstr "المشاريع"
@@ -2283,8 +2287,10 @@ msgid "Purchases, wages and expenses actually booked against the work orders."
 msgstr "المشتريات والأجور والمصروفات المسجَّلة فعلاً على أوامر الشغل."
 
 #. module: aos_construction_ext
+#. odoo-javascript
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
+#: code:addons/aos_construction_ext/static/src/js/dashboard_patch.js:0
 msgid "Quality Checks"
 msgstr "فحوصات الجودة"
 
@@ -3353,8 +3359,10 @@ msgid "Work Order"
 msgstr "أمر الشغل"
 
 #. module: aos_construction_ext
+#. odoo-javascript
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
+#: code:addons/aos_construction_ext/static/src/js/dashboard_patch.js:0
 msgid "Work Orders"
 msgstr "أوامر الشغل"
 
