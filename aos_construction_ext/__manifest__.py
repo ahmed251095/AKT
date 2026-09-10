@@ -71,6 +71,7 @@ Adds the operating model actually used by the contractor on top of
     'post_init_hook': 'post_init_hook',
     'assets': {
         'web.assets_backend': [
+            'aos_construction_ext/static/src/scss/rtl.scss',
             'aos_construction_ext/static/src/js/dashboard_patch.js',
             'aos_construction_ext/static/src/xml/dashboard_cards.xml',
         ],

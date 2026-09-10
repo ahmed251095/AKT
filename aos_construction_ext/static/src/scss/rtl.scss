@@ -1,0 +1,14 @@
+// Odoo's own right-to-left bundle pins the web client to `direction: ltr` and
+// gets its mirroring from physically flipped rules instead. Odoo's own views
+// survive that, but anything laid out with plain Bootstrap -- a flex row, a
+// logical margin -- keeps reading left to right even in Arabic, so this
+// module's dashboard came out back to front.
+//
+// Scoped to this module's own screens: putting it on the whole web client
+// would double-flip Odoo's components, which already carry mirrored rules.
+.o_rtl {
+    .o_construction_dashboard {
+        direction: rtl;
+        text-align: right;
+    }
+}
