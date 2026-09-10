@@ -1,59 +1,50 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
+from odoo.tools import float_compare
 
 
 class ConstructionMaterialRequisition(models.Model):
     _inherit = 'construction.material.requisition'
 
-    def action_create_rfq(self):
-        """Let the vendor set the price.
+    def action_approve(self):
+        """Approving a requisition is approving quantities.
 
-        The base copies the requisition's estimate into the request for
-        quotation, so a figure the site put in to get the request approved
-        arrives at the vendor as an agreed price -- and from there it becomes
-        the project's actual cost. The estimate is kept on the line for
-        comparison instead, and the price comes from the vendor.
+        The base only flipped the state, so a line could reach the request for
+        quotation with nothing approved on it and fall back to whatever the
+        site asked for. Approving now states the quantity: the requested
+        amount unless the approver cut it down.
+        """
+        for line in self.line_ids.filtered(lambda l: not l.qty_approved):
+            line.qty_approved = line.qty_requested
+        return super().action_approve()
+
+    def action_create_rfq(self):
+        """Send the vendor quantities, not a price.
+
+        The base copied the requisition's own figure into the quotation as
+        price_unit, so a number typed in to get the request approved arrived
+        at the vendor as an agreed price -- and from there became the
+        project's actual cost. Pricing belongs to the quotation, where it has
+        its own approval.
         """
         result = super().action_create_rfq()
-        orders = self.purchase_order_ids.filtered(
-            lambda order: order.state in ('draft', 'sent'))
-        for line in orders.order_line:
-            line.estimated_unit_cost = line.price_unit
-        orders.order_line._clear_price_for_quotation()
+        self.purchase_order_ids.filtered(
+            lambda order: order.state in ('draft', 'sent')
+        ).order_line.price_unit = 0.0
         return result
 
 
 class ConstructionMaterialRequisitionLine(models.Model):
     _inherit = 'construction.material.requisition.line'
 
-    unit_price = fields.Monetary(
-        string='Estimated Unit Cost',
-        help='What this material is expected to cost, for approving the '
-             'request against the budget. The price comes from the vendor on '
-             'the purchase order.')
-    boq_cost_rate = fields.Monetary(
-        string='Item Cost Rate', related='boq_line_id.cost_rate',
-        help='The rate the bill of quantities item was priced on.')
-
-    @api.depends('qty_requested', 'qty_approved', 'unit_price')
-    def _compute_subtotal(self):
-        """Value what was approved, once somebody has approved something.
-
-        The base always valued the requested quantity, so cutting a request
-        down at approval left the estimate reading the original ask.
-        """
+    @api.constrains('qty_approved', 'qty_requested')
+    def _check_qty_approved(self):
         for line in self:
-            quantity = line.qty_approved or line.qty_requested
-            line.subtotal = quantity * line.unit_price
-
-    @api.onchange('product_id', 'boq_line_id')
-    def _onchange_product_id(self):
-        """Estimate from the item the project was priced on.
-
-        A product's standard cost is a warehouse average and is often zero on
-        a construction catalogue; the bill of quantities rate is the figure
-        the job was actually costed against.
-        """
-        result = super()._onchange_product_id()
-        if self.boq_line_id and self.boq_line_id.cost_rate:
-            self.unit_price = self.boq_line_id.cost_rate
-        return result
+            if float_compare(line.qty_approved, line.qty_requested,
+                             precision_digits=3) > 0:
+                raise ValidationError(self.env._(
+                    'Approving %(approved)s of "%(item)s" is more than the '
+                    '%(requested)s the site asked for.',
+                    approved=line.qty_approved,
+                    item=line.description or line.display_name,
+                    requested=line.qty_requested))

@@ -875,4 +875,11 @@ AR = {
         "الأعمال المقبولة في أوامر الشغل مقيَّمة بتكلفة وحدات البنود: ما كان يجب أن يكلفه ما نفّذناه بأنفسنا.",
     "Work completed on the bill of quantities that has not been put on a certificate to the client yet.":
         "الأعمال المنفَّذة من المقايسة والتي لم تُدرج بعد في مستخلص للعميل.",
+    "Over Item Rate": "زيادة عن فئة البند",
+    "The rate the bill of quantities item was priced on. What the job can afford to pay for one unit.":
+        "الفئة التي سُعّر بند المقايسة على أساسها. ما يستطيع المشروع تحمّله للوحدة الواحدة.",
+    "Quoted price less the item cost rate, per unit. A positive figure eats into the margin the item was priced with.":
+        "السعر المعروض ناقص فئة تكلفة البند، للوحدة. الرقم الموجب يأكل من الهامش الذي سُعّر البند به.",
+    "Approving %(approved)s of \"%(item)s\" is more than the %(requested)s the site asked for.":
+        "اعتماد %(approved)s من \"%(item)s\" أكبر من %(requested)s التي طلبها الموقع.",
 }

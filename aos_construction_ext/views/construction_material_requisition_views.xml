@@ -6,13 +6,28 @@
     <field name="model">construction.material.requisition</field>
     <field name="inherit_id" ref="aos_construction_management.view_construction_material_requisition_form"/>
     <field name="arch" type="xml">
-      <!-- A request says what the site needs and roughly what it should cost.
-           The price itself belongs to the vendor, on the purchase order. -->
-      <xpath expr="//field[@name='line_ids']/list/field[@name='unit_price']" position="before">
-        <field name="boq_cost_rate" readonly="1" optional="show"/>
-      </xpath>
+      <!-- A requisition says what the site needs and how much of it. Money on
+           this screen invites approving a price that only the vendor can
+           state, and the quotation has its own approval for that. -->
       <xpath expr="//field[@name='line_ids']/list/field[@name='unit_price']" position="attributes">
-        <attribute name="readonly">state not in ('draft', 'submitted')</attribute>
+        <attribute name="column_invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='line_ids']/list/field[@name='subtotal']" position="attributes">
+        <attribute name="column_invisible">1</attribute>
+      </xpath>
+      <xpath expr="//field[@name='total_estimated_cost']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_construction_material_requisition_list_ext" model="ir.ui.view">
+    <field name="name">construction.material.requisition.list.ext</field>
+    <field name="model">construction.material.requisition</field>
+    <field name="inherit_id" ref="aos_construction_management.view_construction_material_requisition_list"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='total_estimated_cost']" position="attributes">
+        <attribute name="column_invisible">1</attribute>
       </xpath>
     </field>
   </record>
@@ -23,12 +38,11 @@
     <field name="inherit_id" ref="purchase.purchase_order_form"/>
     <field name="arch" type="xml">
       <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="before">
-        <field name="estimated_unit_cost" readonly="1"
-               optional="show" invisible="not estimated_unit_cost"/>
+        <field name="construction_boq_line_id" column_invisible="1"/>
+        <field name="boq_cost_rate" readonly="1" optional="show"/>
       </xpath>
       <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="after">
-        <field name="estimate_variance" readonly="1"
-               optional="show" invisible="not estimated_unit_cost"/>
+        <field name="price_over_boq_rate" readonly="1" optional="show"/>
       </xpath>
     </field>
   </record>

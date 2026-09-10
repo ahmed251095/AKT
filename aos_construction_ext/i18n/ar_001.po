@@ -255,11 +255,6 @@ msgid "Advance still to be recovered from this party before this certificate."
 msgstr "المتبقي من الدفعة المقدمة الواجب استرداده من هذا الطرف قبل هذا المستخلص."
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_purchase_order_line__estimate_variance
-msgid "Against Estimate"
-msgstr "الفرق عن التقدير"
-
-#. module: aos_construction_ext
 #: model:construction.authority.type,name:aos_construction_ext.authority_type_agricultural
 msgid "Agricultural Company"
 msgstr "شركة زراعية"
@@ -348,6 +343,12 @@ msgstr "المصروفات العامة والمتنوعة المعتمدة ال
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 msgid "Approved payment certificates"
 msgstr "المستخلصات المعتمدة"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_material_requisition.py:0
+msgid "Approving %(approved)s of \"%(item)s\" is more than the %(requested)s the site asked for."
+msgstr "اعتماد %(approved)s من \"%(item)s\" أكبر من %(requested)s التي طلبها الموقع."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_form
@@ -1114,11 +1115,6 @@ msgid "Equipment Operator"
 msgstr "مشغّل معدة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_purchase_order_line__estimate_variance
-msgid "Estimate less quoted price, per unit. Negative means the vendor is dearer than the request assumed."
-msgstr "التقدير ناقص السعر المعروض، للوحدة. السالب يعني أن المورد أغلى من افتراض الطلب."
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__total_cost
 msgid "Estimated Cost"
 msgstr "التكلفة التقديرية"
@@ -1128,12 +1124,6 @@ msgstr "التكلفة التقديرية"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_estimated_cost
 msgid "Estimated Labour Cost"
 msgstr "تكلفة العمالة التقديرية"
-
-#. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_purchase_order_line__estimated_unit_cost
-#: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition_line__unit_price
-msgid "Estimated Unit Cost"
-msgstr "التكلفة التقديرية للوحدة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_hr_case__rating__4
@@ -1562,7 +1552,7 @@ msgid "Item"
 msgstr "بند"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_material_requisition_line__boq_cost_rate
+#: model:ir.model.fields,field_description:aos_construction_ext.field_purchase_order_line__boq_cost_rate
 msgid "Item Cost Rate"
 msgstr "تكلفة وحدة البند"
 
@@ -1988,6 +1978,11 @@ msgid "Outstanding"
 msgstr "قائم"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_purchase_order_line__price_over_boq_rate
+msgid "Over Item Rate"
+msgstr "زيادة عن فئة البند"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__is_over_assigned
 msgid "Over-assigned"
 msgstr "إسناد زائد"
@@ -2313,6 +2308,11 @@ msgstr "الكمية المعتمدة لمقاول الباطن من هذا ال
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__qty_to_certify
 msgid "Quantity to Certify"
 msgstr "الكمية المستحقة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_purchase_order_line__price_over_boq_rate
+msgid "Quoted price less the item cost rate, per unit. A positive figure eats into the margin the item was priced with."
+msgstr "السعر المعروض ناقص فئة تكلفة البند، للوحدة. الرقم الموجب يأكل من الهامش الذي سُعّر البند به."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__shift_rate
@@ -3009,9 +3009,9 @@ msgid "The project carries both subcontractor certificates and expenses filed un
 msgstr "المشروع يحمل مستخلصات لمقاولي الباطن ومصروفات مسجَّلة تحت فئة مقاولي الباطن، ومن المرجح جداً أن نفس المبلغ محسوب مرتين."
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_material_requisition_line__boq_cost_rate
-msgid "The rate the bill of quantities item was priced on."
-msgstr "الفئة التي سُعّر بند المقايسة على أساسها."
+#: model:ir.model.fields,help:aos_construction_ext.field_purchase_order_line__boq_cost_rate
+msgid "The rate the bill of quantities item was priced on. What the job can afford to pay for one unit."
+msgstr "الفئة التي سُعّر بند المقايسة على أساسها. ما يستطيع المشروع تحمّله للوحدة الواحدة."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -3286,11 +3286,6 @@ msgid "What the item prices already carry for execution: the operating cost of e
 msgstr "ما يحمله تسعير البنود بالفعل للتنفيذ: تكلفة تشغيل كل بند مضروبة في كميته."
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_purchase_order_line__estimated_unit_cost
-msgid "What the material requisition expected this to cost. Compare it with the price the vendor quoted."
-msgstr "ما توقعه طلب التوريد أن تكلفه. قارنه بالسعر الذي قدّمه المورد."
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__variance_cost
 msgid "What the quantity variance costs us at the item cost rate."
 msgstr "ما يكلفنا فرق الكمية بتكلفة وحدة البند."
@@ -3304,11 +3299,6 @@ msgstr "ما يأخذه مقاولو الباطن مقابل الكميات ال
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_project__forecast_cost
 msgid "What the whole bill of quantities will cost once finished: assigned work at the subcontractors rates, the rest at our own cost rates."
 msgstr "ما ستكلفه المقايسة كاملة عند انتهائها: الأعمال المسندة بأسعار مقاولي الباطن، والباقي بتكلفتنا."
-
-#. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_management.field_construction_material_requisition_line__unit_price
-msgid "What this material is expected to cost, for approving the request against the budget. The price comes from the vendor on the purchase order."
-msgstr "المتوقع أن تكلفه هذه المادة، لاعتماد الطلب في حدود الميزانية. السعر نفسه يأتي من المورد على أمر الشراء."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_hr_employee__construction_monthly_cost
