@@ -177,12 +177,43 @@ def is_human_text(src):
     return True
 
 
-# Presentation tags whose text content is read by a person, not by the ORM.
+# Block tags: their text stands alone as a message.
+BLOCK_TAGS = 'div|h1|h2|h3|h4|h5|p|th|td|caption|label|li'
+# Inline tags: Odoo folds these into the message of the block around them, so
+# the message key carries the markup. A translation has to carry it too.
+INLINE_TAGS = 'span|strong|b|i|em|small|u'
+
 TEXT_NODE_PATTERN = (
-    r'<(?:span|div|h1|h2|h3|h4|h5|p|label|b|strong|small|th|td)\b[^>]*>'
-    r'([^<>{}]*[A-Za-z]{3}[^<>{}]*)</'
-    r'(?:span|div|h1|h2|h3|h4|h5|p|label|b|strong|small|th|td)>'
+    rf'<({BLOCK_TAGS}|{INLINE_TAGS})(\b[^>]*)>'
+    r'([^<>{}]*[A-Za-z]{3}[^<>{}]*)'
+    rf'</(?:{BLOCK_TAGS}|{INLINE_TAGS})>'
 )
+
+# Message keys the parsers build by wrapping a glossary term in its markup.
+DERIVED = {}
+
+
+def arabic_for(src):
+    return AR.get(src) or DERIVED.get(src)
+
+
+def message_key(tag, attrs, text):
+    """The key Odoo will look this text up by, and its Arabic.
+
+    Returns None when the text has no Arabic term yet, so the caller can
+    report it rather than drop it.
+    """
+    text = ' '.join(text.replace('&amp;', '&').split())
+    if not text or not is_human_text(text):
+        return None
+    arabic = AR.get(text)
+    if not re.fullmatch(INLINE_TAGS, tag):
+        return text if arabic else ('MISSING', text)
+    if not arabic:
+        return ('MISSING', text)
+    key = f'<{tag}{attrs}>{text}</{tag}>'
+    DERIVED[key] = f'<{tag}{attrs}>{arabic}</{tag}>'
+    return key
 
 
 def parse_reports(module):
@@ -197,12 +228,17 @@ def parse_reports(module):
             for pattern in (r'\b(?:string|placeholder|title)="([^"]+)"',
                             TEXT_NODE_PATTERN):
                 for sm in re.finditer(pattern, body, re.S):
-                    src = ' '.join(
-                        sm.group(1).replace('&amp;', '&').split())
-                    if src and src not in seen and is_human_text(src):
-                        seen.add(src)
-                        yield (f'model_terms:ir.ui.view,arch_db:{module}.{xmlid}',
-                               src)
+                    if pattern is TEXT_NODE_PATTERN:
+                        src = message_key(sm.group(1), sm.group(2),
+                                          sm.group(3))
+                    else:
+                        src = ' '.join(
+                            sm.group(1).replace('&amp;', '&').split())
+                    if not src or src in seen:
+                        continue
+                    seen.add(src)
+                    yield (f'model_terms:ir.ui.view,arch_db:{module}.{xmlid}',
+                           src)
 
 
 def parse_xml(module):
@@ -235,12 +271,17 @@ def parse_xml(module):
             )
             for pattern in patterns:
                 for sm in re.finditer(pattern, arch.group(1), re.S):
-                    src = ' '.join(
-                        sm.group(1).replace('&amp;', '&').split())
-                    if src not in seen and is_human_text(src):
-                        seen.add(src)
-                        yield (f'model_terms:ir.ui.view,arch_db:{module}.{xmlid}',
-                               src)
+                    if pattern is TEXT_NODE_PATTERN:
+                        src = message_key(sm.group(1), sm.group(2),
+                                          sm.group(3))
+                    else:
+                        src = ' '.join(
+                            sm.group(1).replace('&amp;', '&').split())
+                    if not src or src in seen:
+                        continue
+                    seen.add(src)
+                    yield (f'model_terms:ir.ui.view,arch_db:{module}.{xmlid}',
+                           src)
         for mm in re.finditer(r'<menuitem[^>]*\bid="([\w.]+)"[^>]*?\bname="([^"]+)"', text, re.S):
             yield (f'model:ir.ui.menu,name:{module}.{mm.group(1)}', mm.group(2))
         for mm in re.finditer(r'<menuitem[^>]*\bname="([^"]+)"[^>]*?\bid="([\w.]+)"', text, re.S):
@@ -254,7 +295,12 @@ def build():
         for occ, src in (list(parse_python(module)) + list(parse_xml(module))
                          + list(parse_code(module)) + list(parse_data(module))
                          + list(parse_reports(module))):
-            if src not in AR:
+            if isinstance(src, tuple):
+                missing.add(src[1])
+                continue
+            if re.match(r'https?://', src):
+                continue          # placeholder URLs are not wording
+            if arabic_for(src) is None:
                 # Silently dropping these is how English kept leaking into an
                 # otherwise Arabic screen.
                 missing.add(src)
@@ -295,7 +341,7 @@ def render(entries):
             for occ in occurrences:
                 out.append(f'#: {occ}')
             out.append(f'msgid "{esc(src)}"')
-            out.append(f'msgstr "{esc(AR[src])}"')
+            out.append(f'msgstr "{esc(arabic_for(src))}"')
     return '\n'.join(out) + '\n'
 
 
@@ -315,7 +361,7 @@ def render_module(entries, module):
         for occ in occurrences:
             out.append(f'#: {occ}')
         out.append(f'msgid "{esc(src)}"')
-        out.append(f'msgstr "{esc(AR[src])}"')
+        out.append(f'msgstr "{esc(arabic_for(src))}"')
     return '\n'.join(out) + '\n'
 
 

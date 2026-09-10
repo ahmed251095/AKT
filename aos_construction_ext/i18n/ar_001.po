@@ -59,6 +59,81 @@ msgid "%(percent)s%% of the monthly cost of %(employee)s."
 msgstr "%(percent)s%% من التكلفة الشهرية لـ %(employee)s."
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "<span t-out=\"doc.operation_duration_days\"/>days</span>"
+msgstr "<span t-out=\"doc.operation_duration_days\"/>يوم</span>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "<strong>Authorised Signature</strong>"
+msgstr "<strong>التوقيع المعتمد</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
+msgid "<strong>Client</strong>"
+msgstr "<strong>العميل</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
+msgid "<strong>Contract Value</strong>"
+msgstr "<strong>قيمة العقد</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "<strong>Execution Period</strong>"
+msgstr "<strong>مدة التنفيذ</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "<strong>For and on behalf of</strong>"
+msgstr "<strong>بالنيابة عن</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
+msgid "<strong>Forecast margin</strong>"
+msgstr "<strong>الهامش المتوقع</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "<strong>Location</strong>"
+msgstr "<strong>الموقع</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
+msgid "<strong>Net profit</strong>"
+msgstr "<strong>صافي الربح</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
+msgid "<strong>Progress</strong>"
+msgstr "<strong>نسبة الإنجاز</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
+msgid "<strong>Status</strong>"
+msgstr "<strong>الحالة</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "<strong>Submission Deadline</strong>"
+msgstr "<strong>موعد التسليم</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "<strong>Tender No.</strong>"
+msgstr "<strong>رقم المناقصة</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "<strong>Tender Type</strong>"
+msgstr "<strong>نوع المناقصة</strong>"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
+msgid "<strong>Total cost</strong>"
+msgstr "<strong>إجمالي التكلفة</strong>"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_salary.py:0
 msgid "A share cannot be negative."
@@ -266,11 +341,6 @@ msgstr "الكمية المسندة"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__amount
 msgid "Assigned Value"
 msgstr "قيمة الإسناد"
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
-msgid "Authorised Signature"
-msgstr "التوقيع المعتمد"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__authority_type_id
@@ -519,7 +589,6 @@ msgstr "استخلاص الإنجاز"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
 msgid "Client"
@@ -650,7 +719,6 @@ msgstr "مدة العقد (أيام)"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__contract_value
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 msgid "Contract Value"
 msgstr "قيمة العقد"
 
@@ -913,11 +981,6 @@ msgid "Exceeds"
 msgstr "أعلى من المتوقع"
 
 #. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
-msgid "Execution Period"
-msgstr "مدة التنفيذ"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expected_cost
 msgid "Expected Cost"
 msgstr "التكلفة المتوقعة"
@@ -1036,11 +1099,6 @@ msgid "Finishing Worker"
 msgstr "عامل تشطيبات"
 
 #. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
-msgid "For and on behalf of"
-msgstr "بالنيابة عن"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__forecast_cost
 msgid "Forecast Cost at Completion"
 msgstr "التكلفة المتوقعة عند الإتمام"
@@ -1064,11 +1122,6 @@ msgstr "التوقع حتى الإنجاز"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 msgid "Forecast cost at completion"
 msgstr "التكلفة المتوقعة حتى الإنجاز"
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
-msgid "Forecast margin"
-msgstr "الهامش المتوقع"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_state__forfeited
@@ -1375,11 +1428,6 @@ msgid "Load Standard Checklist"
 msgstr "تحميل قائمة المستندات القياسية"
 
 #. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
-msgid "Location"
-msgstr "الموقع"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__logistics_manager_id
 msgid "Logistics Manager"
 msgstr "مدير الحركة"
@@ -1492,17 +1540,13 @@ msgstr "نسبة صافي الربح"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
-msgid "Net profit"
-msgstr "صافي الربح"
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 msgid "Net profit compares what has been certified to the client against the cost incurred so far, so both sides cover the same work. Forecast margin looks ahead instead: the whole contract against what the remaining work is expected to cost, with assigned items at the subcontractors rates and the rest at our own."
 msgstr "صافي الربح يقارن ما استُخلص للعميل بالتكلفة المنصرفة حتى الآن، فيكون الطرفان عن نفس الأعمال. أما الهامش المتوقع فينظر للأمام: قيمة العقد كاملة مقابل التكلفة المتوقعة لما تبقى من أعمال، بأسعار مقاولي الباطن للبنود المسندة وبتكلفتنا لما عداها."
 
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_ra_billing_list_ext
 msgid "No."
 msgstr "م"
 
@@ -1810,7 +1854,6 @@ msgstr "بيان الأرباح"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_wbs__progress
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 msgid "Progress"
 msgstr "نسبة الإنجاز"
 
@@ -2281,7 +2324,6 @@ msgstr "الحالة"
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_hr_case__state
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__state
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_search
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
@@ -2350,7 +2392,6 @@ msgid "Submission"
 msgstr "التقديم"
 
 #. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
 msgid "Submission Deadline"
 msgstr "موعد التسليم"
@@ -2469,7 +2510,6 @@ msgstr "بند المناقصة"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
 msgid "Tender No."
 msgstr "رقم المناقصة"
 
@@ -2477,11 +2517,6 @@ msgstr "رقم المناقصة"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_reminder_days
 msgid "Tender Reminder (days)"
 msgstr "تذكير المناقصات (أيام)"
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
-msgid "Tender Type"
-msgstr "نوع المناقصة"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2630,11 +2665,6 @@ msgid "Total Markup (%)"
 msgstr "إجمالي نسبة الإضافة (%)"
 
 #. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
-msgid "Total cost"
-msgstr "إجمالي التكلفة"
-
-#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
 msgid "Total offer value"
 msgstr "إجمالي قيمة العطاء"
@@ -2768,11 +2798,6 @@ msgstr "نوع العمل"
 #: code:addons/aos_construction_ext/models/construction_work_order_line.py:0
 msgid "Work orders accept %(accepted)s of \"%(item)s\", but only %(scope)s is ours to execute: %(assigned)s of the %(qty)s in the bill is assigned to subcontractors.\nReduce the assignment first if we are doing this work ourselves."
 msgstr "أوامر الشغل تقبل %(accepted)s من \"%(item)s\"، والمتاح لنا %(scope)s فقط: %(assigned)s من %(qty)s في المقايسة مسندة لمقاولي الباطن.\nقلّل الإسناد أولاً إذا كنا سننفذ هذا العمل بأنفسنا."
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
-msgid "days"
-msgstr "يوم"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement

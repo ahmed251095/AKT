@@ -33,6 +33,11 @@ msgid "%s Certificate"
 msgstr "مستخلص %s"
 
 #. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
+msgid "<span class=\"o_stat_text\">Tender</span>"
+msgstr "<span class=\"o_stat_text\">مناقصة</span>"
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__accepted_qty
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__accepted_qty
 msgid "Accepted Qty"
@@ -1529,6 +1534,11 @@ msgid "Remarks & Corrective Action"
 msgstr "الملاحظات والإجراء التصحيحي"
 
 #. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_quality_check_form
+msgid "Remarks..."
+msgstr "ملاحظات..."
+
+#. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_material_requisition__requested_by
 msgid "Requested By"
 msgstr "طلبها"
@@ -1829,7 +1839,6 @@ msgstr "المواصفات الفنية وتعليمات التسليم..."
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender_line__tender_id
-#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 msgid "Tender"
 msgstr "مناقصة"
 
