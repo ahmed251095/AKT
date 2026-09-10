@@ -1,14 +1,17 @@
+// ---------------------------------------------------------------------------
+// Direction
+// ---------------------------------------------------------------------------
 // Odoo's right-to-left bundle pins the web client to `direction: ltr` and
 // mirrors its own components with physically flipped rules instead. Odoo's
 // views survive that, but anything laid out with plain Bootstrap -- a flex
 // row, a logical margin -- keeps reading left to right even in Arabic, so
-// this module's dashboard came out back to front.
+// this dashboard came out back to front.
 //
 // The /*rtl:ignore*/ directive matters: without it rtlcss flips this very
 // declaration to `ltr` while building the RTL bundle, which is how Odoo's own
 // `.o_web_client { direction: ltr }` ended up there.
 //
-// Scoped to this module's own screens on purpose: putting it on the whole web
+// Scoped to this module's screens on purpose: setting it on the whole web
 // client would double-flip Odoo's components, which already carry mirrored
 // rules.
 .o_rtl .o_construction_dashboard {
@@ -16,4 +19,53 @@
     direction: rtl;
     /*rtl:ignore*/
     text-align: right;
+}
+
+// ---------------------------------------------------------------------------
+// Card size
+// ---------------------------------------------------------------------------
+// The cards were sized for four to a row. Now that the projects row carries
+// five and the financials row four, they share the width evenly and shrink to
+// fit rather than dropping the last card onto a line of its own.
+//
+// Bootstrap's spacing and font utilities are declared !important, so matching
+// them takes the same weight.
+.o_construction_dashboard {
+
+    @media (min-width: 1200px) {
+        .row > [class*="col-"] {
+            flex: 1 0 0%;
+            width: auto;
+            max-width: none;
+        }
+    }
+
+    .o_dashboard_card {
+        .card-body {
+            padding: 0.7rem !important;
+            gap: 0.6rem !important;
+        }
+
+        // the tinted square holding the icon
+        .rounded-3 {
+            padding: 0.55rem !important;
+        }
+
+        .fa-lg {
+            font-size: 1rem;
+        }
+
+        .fs-2 {
+            font-size: 1.35rem !important;
+        }
+
+        .fs-5 {
+            font-size: 0.95rem !important;
+        }
+
+        .small {
+            font-size: 0.72rem !important;
+            line-height: 1.35;
+        }
+    }
 }
