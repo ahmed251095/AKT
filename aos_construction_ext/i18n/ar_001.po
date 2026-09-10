@@ -2805,6 +2805,11 @@ msgid "Work orders accept %(accepted)s of \"%(item)s\", but only %(scope)s is ou
 msgstr "أوامر الشغل تقبل %(accepted)s من \"%(item)s\"، والمتاح لنا %(scope)s فقط: %(assigned)s من %(qty)s في المقايسة مسندة لمقاولي الباطن.\nقلّل الإسناد أولاً إذا كنا سننفذ هذا العمل بأنفسنا."
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "days"
+msgstr "يوم"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 msgid "of which invoiced"
 msgstr "منها مفوتر"

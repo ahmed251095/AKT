@@ -194,8 +194,10 @@ TEXT_NODE_PATTERN = (
 LOOSE_TEXT_PATTERN = (
     r'>([^<>{}]*[A-Za-z]{3}[^<>{}]*)<'
 )
+# The (?<!/) keeps a self-closing tag out: text after <span t-out=".."/> is
+# the parent's wording, not the span's.
 INLINE_WRAPPED = re.compile(
-    rf'<({INLINE_TAGS})\b[^>]*>[^<>{{}}]*$')
+    rf'<({INLINE_TAGS})\b[^>]*(?<!/)>[^<>{{}}]*$')
 # <attribute name="class">btn-secondary</attribute> is an inheritance
 # directive, not wording. Only name="string" carries a label, and that has
 # its own pattern.
