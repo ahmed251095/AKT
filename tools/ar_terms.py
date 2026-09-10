@@ -703,4 +703,176 @@ AR = {
     "Subtotal (": "الإجمالي الجزئي (",
     "Notes:": "ملاحظات:",
     "| Priority:": "| الأولوية:",
+    "Estimated Unit Cost": "التكلفة التقديرية للوحدة",
+    "Item Cost Rate": "تكلفة وحدة البند",
+    "Against Estimate": "الفرق عن التقدير",
+    "What this material is expected to cost, for approving the request against the budget. The price comes from the vendor on the purchase order.":
+        "المتوقع أن تكلفه هذه المادة، لاعتماد الطلب في حدود الميزانية. السعر نفسه يأتي من المورد على أمر الشراء.",
+    "The rate the bill of quantities item was priced on.":
+        "الفئة التي سُعّر بند المقايسة على أساسها.",
+    "What the material requisition expected this to cost. Compare it with the price the vendor quoted.":
+        "ما توقعه طلب التوريد أن تكلفه. قارنه بالسعر الذي قدّمه المورد.",
+    "Estimate less quoted price, per unit. Negative means the vendor is dearer than the request assumed.":
+        "التقدير ناقص السعر المعروض، للوحدة. السالب يعني أن المورد أغلى من افتراض الطلب.",
+    "Accepted on work orders, counted only up to the part of the item that was not handed to a subcontractor.":
+        "المقبول في أوامر الشغل، محسوباً في حدود الجزء غير المسند لمقاول باطن فقط.",
+    "Accepted quantity at the item cost rate: what it should have cost.":
+        "الكمية المقبولة بتكلفة وحدة البند: ما كان يجب أن تكلفه.",
+    "Accepted work valued at the item cost rates: what it should have cost.":
+        "الأعمال المقبولة مقيَّمة بتكلفة وحدات البنود: ما كان يجب أن تكلفه.",
+    "Advance still to be recovered from this party before this certificate.":
+        "المتبقي من الدفعة المقدمة الواجب استرداده من هذا الطرف قبل هذا المستخلص.",
+    "Allowance for unforeseen site conditions and price variations.":
+        "مخصص للظروف غير المتوقعة في الموقع وتغيّر الأسعار.",
+    "Approved expenses booked as labour.": "المصروفات المعتمدة المسجَّلة كعمالة.",
+    "Approved labour expenses booked against this item.": "مصروفات العمالة المعتمدة المسجَّلة على هذا البند.",
+    "Approved overhead and miscellaneous expenses booked against this item.":
+        "المصروفات العامة والمتنوعة المعتمدة المسجَّلة على هذا البند.",
+    "Bid bond this authority normally asks for.": "التأمين الابتدائي الذي تطلبه هذه الجهة عادةً.",
+    "Build the rate from cost and ratios. Uncheck to type the cost and selling rates by hand, for items quoted as a lump sum.":
+        "بناء السعر من التكلفة والنسب. أزل التحديد لإدخال التكلفة وسعر البيع يدوياً، للبنود المسعّرة بالمقطوعية.",
+    "Cash the tender needs up front: booklet fee, bond and study costs. This is what management approves.":
+        "النقدية التي تحتاجها المناقصة مقدماً: قيمة الكراسة والتأمين وتكاليف الدراسة. هذا ما توافق عليه الإدارة.",
+    "Certified to subcontractors, counted only up to what they were assigned.":
+        "المعتمد لمقاولي الباطن، محسوباً في حدود ما أُسند إليهم فقط.",
+    "Completed less already certified: what the next certificate covers.":
+        "المنفَّذ ناقص ما استُخلص سابقاً: ما يغطيه المستخلص القادم.",
+    "Completed value against assigned value, so a big item counts for more than a small one.":
+        "قيمة المنفَّذ مقابل قيمة المسند، فيكون للبند الكبير وزن أكبر من الصغير.",
+    "Contract value less the forecast cost: the profit the project is heading for, rather than the profit booked so far.":
+        "قيمة العقد ناقص التكلفة المتوقعة: الربح الذي يتجه إليه المشروع، لا الربح المحقق حتى الآن.",
+    "Crew size times shifts: the labour the estimate commits to.": "عدد الطاقم × عدد الورديات: العمالة التي يلتزم بها التقدير.",
+    "Date the client took provisional delivery of the works.": "تاريخ استلام العميل للأعمال استلاماً ابتدائياً.",
+    "Date the maintenance period ended and the works were finally accepted.":
+        "تاريخ انتهاء فترة الصيانة والاستلام النهائي للأعمال.",
+    "Date the works were handed to the body that will operate them, between provisional and final acceptance.":
+        "تاريخ تسليم الأعمال للجهة التي ستشغّلها، بين الاستلام الابتدائي والنهائي.",
+    "Default bid bond percentage of the estimated bid value.": "النسبة الافتراضية للتأمين الابتدائي من قيمة العطاء التقديرية.",
+    "Default performance bond percentage of the contract value.": "النسبة الافتراضية لضمان حسن التنفيذ من قيمة العقد.",
+    "Dry cost plus operating cost, before any markup.": "تكلفة الخامات زائد تكلفة التشغيل، قبل أي إضافة.",
+    "Earned cost less what was actually spent. Negative means the work cost more than the rates allowed.":
+        "التكلفة المكتسبة ناقص ما أُنفق فعلاً. السالب يعني أن العمل كلّف أكثر مما تسمح به الفئات.",
+    "Earned less actual. A negative figure means our own work is costing more than the item rates allowed.":
+        "المكتسبة ناقص الفعلية. الرقم السالب يعني أن تنفيذنا الذاتي يكلّف أكثر مما تسمح به فئات البنود.",
+    "Endowment, agricultural company, ministry, private owner... It drives the paperwork and the bid bond the client expects.":
+        "هيئة أوقاف، شركة زراعية، وزارة، مالك خاص... تحدد المستندات والتأمين الابتدائي الذي يطلبه العميل.",
+    "Engineers the technical office asks to be freed for the study.":
+        "المهندسون الذين يطلب المكتب الفني تفريغهم للدراسة.",
+    "Executed quantity less the quantity in the bill of quantities. A positive figure is work done beyond what the client priced.":
+        "الكمية المنفَّذة ناقص كمية المقايسة. الرقم الموجب يعني أعمالاً نُفِّذت زيادة على ما سعّره العميل.",
+    "Execution period agreed in the contract.": "مدة التنفيذ المتفق عليها في العقد.",
+    "Execution period the tender conditions allow, counted from the site handover.":
+        "مدة التنفيذ التي تسمح بها شروط المناقصة، محسوبة من تسليم الموقع.",
+    "Filled in for appraisals.": "تُستكمل في حالات التقييم.",
+    "General expenses applied on the marked-up price, the last step of the build-up.":
+        "المصروفات العامة المطبَّقة على السعر بعد الإضافات، آخر خطوة في بناء السعر.",
+    "Government bodies usually require a bid bond and a classification certificate.":
+        "الجهات الحكومية تطلب عادةً تأميناً ابتدائياً وشهادة تصنيف.",
+    "How many days before a tender date the responsible users are reminded.":
+        "عدد الأيام قبل موعد المناقصة التي يُنبَّه فيها المسؤولون.",
+    "How many shifts this crew is needed for.": "عدد الورديات المطلوبة لهذا الطاقم.",
+    "How much of this item the engineer accepts as complete. This is what the next certificate is measured from.":
+        "ما يعتمده المهندس من هذا البند كمنفَّذ. هذا هو الأساس الذي يُقاس عليه المستخلص القادم.",
+    "In-house execution plus certified subcontract work. Each side is capped at its own share of the item, so an item that is part self-performed and part subcontracted is never counted twice.":
+        "التنفيذ الذاتي زائد أعمال الباطن المعتمدة. كل جانب محدود بنصيبه من البند، فالبند المنفَّذ جزء ذاتياً وجزء بالإسناد لا يُحسب مرتين.",
+    "In-house scope less what other work orders already plan for this item.":
+        "نصيبنا من البند ناقص ما تخططه أوامر شغل أخرى لهذا البند.",
+    "Incurred cost with no work order or item on it. The higher this is, the less the item-level costing can be trusted.":
+        "تكلفة منصرفة بلا أمر شغل ولا بند. كلما زادت، قلّت الثقة في تكلفة البنود.",
+    "Labour, equipment and execution cost of putting one unit in place.":
+        "تكلفة العمالة والمعدات والتنفيذ لوضع وحدة واحدة في موقعها.",
+    "Leave empty for crews that serve the whole site.": "اتركه فارغاً للطواقم التي تخدم الموقع بالكامل.",
+    "Link to the shared folder holding the contract, the BOQ and the drawings.":
+        "رابط المجلد المشترك الذي يضم العقد والمقايسة والرسومات.",
+    "Loaded as a required line when the standard checklist is pulled onto a tender or a project.":
+        "يُحمَّل كسطر مطلوب عند تحميل القائمة القياسية على مناقصة أو مشروع.",
+    "Material cost of one unit, at the price the purchasing department can buy it today.":
+        "تكلفة خامات الوحدة الواحدة، بالسعر الذي يمكن لقسم المشتريات الشراء به اليوم.",
+    "Money the project has actually incurred: approved expenses, subcontractor work certified to date, and purchases received against the project.":
+        "ما أنفقه المشروع فعلاً: المصروفات المعتمدة، وأعمال مقاولي الباطن المستخلصة حتى تاريخه، والمشتريات المستلمة على المشروع.",
+    "More of this item has been handed to subcontractors than the bill of quantities carries.":
+        "المسند لمقاولي الباطن من هذا البند أكبر من الكمية الموجودة في المقايسة.",
+    "Net profit added on top of the item cost.": "صافي الربح المضاف على تكلفة البند.",
+    "Operating cost in the prices, less the labour actually planned. A negative figure means the crews cost more than the bid allows.":
+        "تكلفة التشغيل في التسعير ناقص العمالة المخططة فعلاً. الرقم السالب يعني أن الطواقم تكلّف أكثر مما يسمح به العطاء.",
+    "Our own cost rate for the item less what the subcontractor charges. What is left of the item budget before handing it out starts eating the priced margin.":
+        "تكلفة وحدة البند عندنا ناقص ما يأخذه المقاول. المتبقي من ميزانية البند قبل أن يبدأ الإسناد في أكل الهامش المسعَّر.",
+    "Owns plant movement and transport between sites.": "مسؤول عن حركة المعدات والنقل بين المواقع.",
+    "Paid up front against the contract and recovered from the certificates as work is done.":
+        "تُدفع مقدماً على العقد وتُسترد من المستخلصات مع تقدم الأعمال.",
+    "Papers such as the tax card or the classification certificate carry an expiry date that has to be valid on submission day.":
+        "مستندات مثل البطاقة الضريبية أو شهادة التصنيف لها تاريخ انتهاء يجب أن يكون سارياً يوم التقديم.",
+    "People of this trade working one shift.": "عدد أفراد هذه المهنة في الوردية الواحدة.",
+    "Profit + contingency + administration.": "الربح + الطوارئ + المصروفات الإدارية.",
+    "Purchase orders booked on the project, excluding those raised against a subcontract, which the subcontractor certificates already account for.":
+        "أوامر الشراء المسجَّلة على المشروع، باستثناء المُصدرة على عقد باطن لأن مستخلصات المقاول تحسبها بالفعل.",
+    "Purchase orders, plus material and equipment expenses, booked against this item on this work order.":
+        "أوامر الشراء، ومعها مصروفات الخامات والمعدات، المسجَّلة على هذا البند في أمر الشغل هذا.",
+    "Purchases, wages and expenses actually booked against the work orders.":
+        "المشتريات والأجور والمصروفات المسجَّلة فعلاً على أوامر الشغل.",
+    "Quantity of this item already certified to the subcontractor.":
+        "الكمية المعتمدة لمقاول الباطن من هذا البند.",
+    "Received from the client up front and recovered from the payment certificates as work is done.":
+        "تُستلم من العميل مقدماً وتُسترد من المستخلصات مع تقدم الأعمال.",
+    "Recovered in proportion to the work certified, and never more than the advance still outstanding. Edit it if the contract recovers on a different schedule.":
+        "يُسترد بنسبة الأعمال المستخلصة، وبما لا يتجاوز المتبقي من الدفعة المقدمة. عدّله إذا كان العقد يسترد بجدول مختلف.",
+    "Share of head office administration carried by the item.": "نصيب البند من المصروفات الإدارية للمركز الرئيسي.",
+    "Share of the contract the client pays up front.": "نسبة العقد التي يدفعها العميل مقدماً.",
+    "Sum of the items handed to this subcontractor.": "مجموع البنود المسندة لمقاول الباطن هذا.",
+    "Taken from the employee, and editable for a month that differs.":
+        "تأتي من كارت الموظف، وقابلة للتعديل في شهر يختلف.",
+    "Taxes priced into the rate, picked from the taxes defined on the system. Percentage taxes only; a fixed-amount tax cannot be built into a unit rate.":
+        "الضرائب المحمَّلة على السعر، تُختار من الضرائب المعرَّفة على النظام. الضرائب النسبية فقط؛ الضريبة ذات المبلغ الثابت لا يمكن بناؤها داخل سعر وحدة.",
+    "The accountant who owns this project file.": "المحاسب المسؤول عن ملف هذا المشروع.",
+    "The assigned quantity at what the subcontractors charge, plus the rest at our own cost rate. What the item will cost once it is done, rather than what it was budgeted at.":
+        "الكمية المسندة بأسعار مقاولي الباطن، والباقي بتكلفتنا. ما سيكلفه البند عند انتهائه، لا ما كان مقدَّراً له.",
+    "The part of the BOQ item that was not handed to a subcontractor, so it is ours to execute.":
+        "الجزء من بند المقايسة غير المسند لمقاول باطن، وهو نصيبنا في التنفيذ.",
+    "The part of the incurred cost that carries a work order and an item. Part of the total, never added to it.":
+        "الجزء من التكلفة المنصرفة الذي يحمل أمر شغل وبنداً. جزء من الإجمالي ولا يُضاف إليه.",
+    "The payment that settled the booklet fee.": "الدفعة التي سُدِّدت بها قيمة الكراسة.",
+    "The priced tender item this BOQ item was created from.": "بند المناقصة المسعَّر الذي أُنشئ منه بند المقايسة هذا.",
+    "The project carries both subcontractor certificates and expenses filed under the subcontractor category, so the same money is very likely counted twice.":
+        "المشروع يحمل مستخلصات لمقاولي الباطن ومصروفات مسجَّلة تحت فئة مقاولي الباطن، ومن المرجح جداً أن نفس المبلغ محسوب مرتين.",
+    "The tender whose conditions booklet this payment pays for. Settling the payment marks the booklet as purchased.":
+        "المناقصة التي تُسدَّد بهذه الدفعة قيمة كراسة شروطها. تسوية الدفعة تُعلّم الكراسة كمُشتراة.",
+    "The work order this purchase serves. Filled from the material requisition, and editable for a purchase raised directly.":
+        "أمر الشغل الذي يخدمه هذا الشراء. يُملأ من طلب التوريد، وقابل للتعديل في الشراء المباشر.",
+    "Total certificates less total cost.": "إجمالي المستخلصات ناقص إجمالي التكلفة.",
+    "Value of the payment certificates approved for the client.": "قيمة المستخلصات المعتمدة للعميل.",
+    "Value the client states in the tender announcement.": "القيمة التي يعلنها العميل في إعلان المناقصة.",
+    "Warehouse the site draws its materials from.": "المخزن الذي يصرف منه الموقع مواده.",
+    "Weighted by item value, so a large item moves the phase more than a small one.":
+        "مرجَّحة بقيمة البند، فالبند الكبير يحرّك المرحلة أكثر من الصغير.",
+    "What one person of this trade costs for one shift.": "ما يكلفه فرد واحد من هذه المهنة في وردية واحدة.",
+    "What one unit really cost: total spend divided by the accepted quantity.":
+        "ما كلفته الوحدة فعلاً: إجمالي المنصرف مقسوماً على الكمية المقبولة.",
+    "What the client pays for the assigned quantity, less what the subcontractors charge for it.":
+        "ما يدفعه العميل مقابل الكمية المسندة، ناقص ما يأخذه مقاولو الباطن عليها.",
+    "What the client pays for these quantities, less what this subcontractor charges for them.":
+        "ما يدفعه العميل مقابل هذه الكميات، ناقص ما يأخذه هذا المقاول عليها.",
+    "What the client pays us for this quantity, less what the subcontractor charges for it.":
+        "ما يدفعه لنا العميل مقابل هذه الكمية، ناقص ما يأخذه المقاول عليها.",
+    "What the conditions booklet costs to buy from the client.": "قيمة شراء كراسة الشروط من العميل.",
+    "What the item prices already carry for execution: the operating cost of every item times its quantity.":
+        "ما يحمله تسعير البنود بالفعل للتنفيذ: تكلفة تشغيل كل بند مضروبة في كميته.",
+    "What the quantity variance costs us at the item cost rate.": "ما يكلفنا فرق الكمية بتكلفة وحدة البند.",
+    "What the subcontractors charge for the quantities assigned.": "ما يأخذه مقاولو الباطن مقابل الكميات المسندة.",
+    "What the whole bill of quantities will cost once finished: assigned work at the subcontractors rates, the rest at our own cost rates.":
+        "ما ستكلفه المقايسة كاملة عند انتهائها: الأعمال المسندة بأسعار مقاولي الباطن، والباقي بتكلفتنا.",
+    "What this person costs the company in a month -- salary plus insurance and allowances. This is the figure spread over the projects they work on.":
+        "ما يكلفه هذا الشخص للشركة في الشهر — الراتب زائد التأمينات والبدلات. هذا هو الرقم الذي يُوزَّع على المشاريع التي يعمل عليها.",
+    "What we pay the subcontractor for one unit.": "ما ندفعه لمقاول الباطن مقابل الوحدة الواحدة.",
+    "When the client opens the technical envelopes. Later than the submission deadline.":
+        "موعد فتح العميل للمظاريف الفنية. لاحق لموعد التسليم.",
+    "When the financial envelopes are opened and the award is decided.":
+        "موعد فتح المظاريف المالية والبت في الترسية.",
+    "Whether the technical office recommends bidding, and on what terms.":
+        "هل يوصي المكتب الفني بالتقدم للمناقصة، وبأي شروط.",
+    "Who owns the financial envelope and the bond for this tender.":
+        "المسؤول عن المظروف المالي والتأمين في هذه المناقصة.",
+    "Work accepted on work orders, valued at the item cost rates: what the work we did ourselves should have cost.":
+        "الأعمال المقبولة في أوامر الشغل مقيَّمة بتكلفة وحدات البنود: ما كان يجب أن يكلفه ما نفّذناه بأنفسنا.",
+    "Work completed on the bill of quantities that has not been put on a certificate to the client yet.":
+        "الأعمال المنفَّذة من المقايسة والتي لم تُدرج بعد في مستخلص للعميل.",
 }

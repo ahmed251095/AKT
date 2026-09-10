@@ -94,6 +94,18 @@ def parse_python(module):
                     text_ = auto_label(fname)
                 yield (f'model:ir.model.fields,field_description:'
                        f'{module}.field_{mk}__{fname}', text_)
+                # The tooltip behind every "?" on a form. Reading only the
+                # label left all of them in English.
+                tip = re.search(
+                    rf"help=\s*\(?\s*((?:{STRING_RE}\s*)+)", args, re.S)
+                if tip:
+                    joined = ''.join(
+                        unescape(m.group(0)[1:-1])
+                        for m in re.finditer(STRING_RE, tip.group(1)))
+                    joined = ' '.join(joined.split())
+                    if joined:
+                        yield (f'model:ir.model.fields,help:'
+                               f'{module}.field_{mk}__{fname}', joined)
                 for sm in re.finditer(r"\(\s*'([\w.+-]+)'\s*,\s*'([^']+)'\s*\)", args):
                     if sm.group(2) in AR:
                         yield (f'model:ir.model.fields.selection,name:'
@@ -402,8 +414,10 @@ if __name__ == '__main__':
     if missing:
         print(f'MISSING {len(missing)} term(s) from ar_terms.py:',
               file=sys.stderr)
-        for term in sorted(missing):
-            print(f'  {term!r}', file=sys.stderr)
+        for term in sorted(missing)[:12]:
+            print(f'  {term[:100]!r}', file=sys.stderr)
+        if len(missing) > 12:
+            print(f'  ... and {len(missing) - 12} more', file=sys.stderr)
     for module in MODULES:
         path = f'{BASE}/{module}/i18n/ar_001.po'
         os.makedirs(os.path.dirname(path), exist_ok=True)

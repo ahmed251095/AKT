@@ -6,6 +6,7 @@ from . import construction_authority_type
 from . import construction_document_type
 from . import pricing
 from . import construction_labour
+from . import construction_material_requisition
 from . import construction_tender_line
 from . import construction_tender
 from . import construction_billing

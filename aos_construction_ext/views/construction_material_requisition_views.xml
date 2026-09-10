@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_construction_material_requisition_form_ext" model="ir.ui.view">
+    <field name="name">construction.material.requisition.form.ext</field>
+    <field name="model">construction.material.requisition</field>
+    <field name="inherit_id" ref="aos_construction_management.view_construction_material_requisition_form"/>
+    <field name="arch" type="xml">
+      <!-- A request says what the site needs and roughly what it should cost.
+           The price itself belongs to the vendor, on the purchase order. -->
+      <xpath expr="//field[@name='line_ids']/list/field[@name='unit_price']" position="before">
+        <field name="boq_cost_rate" readonly="1" optional="show"/>
+      </xpath>
+      <xpath expr="//field[@name='line_ids']/list/field[@name='unit_price']" position="attributes">
+        <attribute name="readonly">state not in ('draft', 'submitted')</attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_purchase_order_form_construction_ext" model="ir.ui.view">
+    <field name="name">purchase.order.form.construction.ext</field>
+    <field name="model">purchase.order</field>
+    <field name="inherit_id" ref="purchase.purchase_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="before">
+        <field name="estimated_unit_cost" readonly="1"
+               optional="show" invisible="not estimated_unit_cost"/>
+      </xpath>
+      <xpath expr="//field[@name='order_line']/list/field[@name='price_unit']" position="after">
+        <field name="estimate_variance" readonly="1"
+               optional="show" invisible="not estimated_unit_cost"/>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

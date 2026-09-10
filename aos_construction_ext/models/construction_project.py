@@ -699,6 +699,65 @@ class ConstructionProject(models.Model):
     # ------------------------------------------------------------------
     # Smart buttons
     # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Smart-button breadcrumbs
+    # ------------------------------------------------------------------
+    # The base builds these action dictionaries with bare Python strings, so
+    # the breadcrumb over a smart button stayed English no matter how complete
+    # the translation file was.
+    @staticmethod
+    def _renamed(action, name):
+        if isinstance(action, dict):
+            action['name'] = name
+        return action
+
+    def action_view_boq(self):
+        return self._renamed(super().action_view_boq(), self.env._('BOQ'))
+
+    def action_view_wbs(self):
+        return self._renamed(super().action_view_wbs(),
+                             self.env._('WBS Phases'))
+
+    def action_view_work_orders(self):
+        return self._renamed(super().action_view_work_orders(),
+                             self.env._('Work Orders'))
+
+    def action_view_requisitions(self):
+        return self._renamed(super().action_view_requisitions(),
+                             self.env._('Material Requisitions'))
+
+    def action_view_subcontracts(self):
+        return self._renamed(super().action_view_subcontracts(),
+                             self.env._('Subcontracts'))
+
+    def action_view_billing(self):
+        return self._renamed(super().action_view_billing(),
+                             self.env._('Payment Certificates'))
+
+    def action_view_quality(self):
+        return self._renamed(super().action_view_quality(),
+                             self.env._('Quality Checks'))
+
+    def action_view_expenses(self):
+        return self._renamed(super().action_view_expenses(),
+                             self.env._('Expenses'))
+
+    def action_view_tender(self):
+        return self._renamed(super().action_view_tender(),
+                             self.env._('Tender'))
+
+    def action_view_purchase_orders(self):
+        return self._renamed(super().action_view_purchase_orders(),
+                             self.env._('Purchase Orders'))
+
+    def action_view_vendor_bills(self):
+        return self._renamed(super().action_view_vendor_bills(),
+                             self.env._('Vendor Bills'))
+
+    def action_view_customer_invoices(self):
+        return self._renamed(super().action_view_customer_invoices(),
+                             self.env._('Customer Invoices'))
+
     def action_view_documents(self):
         self.ensure_one()
         return {
