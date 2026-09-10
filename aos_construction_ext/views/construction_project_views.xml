@@ -16,7 +16,7 @@
 
             <xpath expr="//field[@name='gross_margin']" position="after">
                 <field name="project_net_profit" readonly="1"/>
-                <field name="project_net_margin" widget="percentage" readonly="1"/>
+                <field name="project_net_margin" readonly="1"/>
             </xpath>
 
             <xpath expr="//header/button[@name='action_complete']" position="before">
@@ -165,11 +165,7 @@
 
                     <page string="Profit Statement" name="profit">
                         <div class="alert alert-warning" role="alert"
-                             invisible="not subcontract_cost_overlap">
-                            This project carries both subcontractor certificates and expenses
-                            filed under the subcontractor category, so the same money is very
-                            likely counted twice. Record subcontractor cost one way only.
-                        </div>
+                             invisible="not subcontract_cost_overlap">This project carries both subcontractor certificates and expenses filed under the subcontractor category, so the same money is very likely counted twice. Record subcontractor cost one way only.</div>
                         <field name="subcontract_cost_overlap" invisible="1"/>
                         <group>
                             <group string="Revenue">

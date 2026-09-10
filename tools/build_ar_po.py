@@ -164,6 +164,47 @@ def parse_data(module):
                        value.group(1).strip())
 
 
+def is_human_text(src):
+    """Wording a person reads, as opposed to a field path or an expression."""
+    if not re.search(r'[A-Za-z]{3}', src):
+        return False
+    if re.fullmatch(r'[\w.]+', src) and '.' in src:   # model.field paths
+        return False
+    if any(ch in src for ch in '$#'):
+        return False
+    if re.match(r'https?://', src):        # placeholder URLs
+        return False
+    return True
+
+
+# Presentation tags whose text content is read by a person, not by the ORM.
+TEXT_NODE_PATTERN = (
+    r'<(?:span|div|h1|h2|h3|h4|h5|p|label|b|strong|small|th|td)\b[^>]*>'
+    r'([^<>{}]*[A-Za-z]{3}[^<>{}]*)</'
+    r'(?:span|div|h1|h2|h3|h4|h5|p|label|b|strong|small|th|td)>'
+)
+
+
+def parse_reports(module):
+    """QWeb report templates carry their own visible wording."""
+    for path in sorted(glob.glob(f'{BASE}/{module}/report/*.xml') +
+                       glob.glob(f'{BASE}/{module}/reports/*.xml')):
+        text = open(path).read()
+        for tpl in re.finditer(r'<template\s+id="([\w.]+)"(.*?)</template>',
+                               text, re.S):
+            xmlid, body = tpl.group(1), tpl.group(2)
+            seen = set()
+            for pattern in (r'\b(?:string|placeholder|title)="([^"]+)"',
+                            TEXT_NODE_PATTERN):
+                for sm in re.finditer(pattern, body, re.S):
+                    src = ' '.join(
+                        sm.group(1).replace('&amp;', '&').split())
+                    if src and src not in seen and is_human_text(src):
+                        seen.add(src)
+                        yield (f'model_terms:ir.ui.view,arch_db:{module}.{xmlid}',
+                               src)
+
+
 def parse_xml(module):
     for path in sorted(glob.glob(f'{BASE}/{module}/views/*.xml') +
                        glob.glob(f'{BASE}/{module}/wizard/*.xml')):
@@ -187,11 +228,16 @@ def parse_xml(module):
                 r'\b(?:string|placeholder|title)="([^"]+)"',
                 # An inherited view sets a label through an attribute tag.
                 r'<attribute name="(?:string|placeholder|title)">([^<]+)</attribute>',
+                # Text a person actually reads on screen: smart-button labels,
+                # empty-state copy, the wording inside an alert. Reading only
+                # attributes left all of it in English.
+                TEXT_NODE_PATTERN,
             )
             for pattern in patterns:
-                for sm in re.finditer(pattern, arch.group(1)):
-                    src = sm.group(1).replace('&amp;', '&').strip()
-                    if src in AR and src not in seen:
+                for sm in re.finditer(pattern, arch.group(1), re.S):
+                    src = ' '.join(
+                        sm.group(1).replace('&amp;', '&').split())
+                    if src not in seen and is_human_text(src):
                         seen.add(src)
                         yield (f'model_terms:ir.ui.view,arch_db:{module}.{xmlid}',
                                src)
@@ -206,7 +252,8 @@ def build():
     missing = set()
     for module in MODULES:
         for occ, src in (list(parse_python(module)) + list(parse_xml(module))
-                         + list(parse_code(module)) + list(parse_data(module))):
+                         + list(parse_code(module)) + list(parse_data(module))
+                         + list(parse_reports(module))):
             if src not in AR:
                 # Silently dropping these is how English kept leaking into an
                 # otherwise Arabic screen.

@@ -659,4 +659,44 @@ AR = {
         "%(later)s مؤرخ في %(later_date)s، أي قبل %(earlier)s في %(earlier_date)s. التسليم يتم ابتدائي ثم إداري ثم نهائي.",
     "The performance bond on %(project)s secures the works until final acceptance. Record the final handover date before releasing it.":
         "خطاب ضمان حسن التنفيذ في %(project)s يغطي الأعمال حتى الاستلام النهائي. سجّل تاريخ التسليم النهائي قبل الإفراج عنه.",
+    "Approved payment certificates": "المستخلصات المعتمدة",
+    "Authorised Signature": "التوقيع المعتمد",
+    "BILL OF QUANTITIES": "جدول الكميات",
+    "BOQ Ref:": "مرجع المقايسة:",
+    "Bid bond attached": "خطاب التأمين الابتدائي مرفق",
+    "Checked By": "روجع بواسطة",
+    "Client Advance": "الدفعة المقدمة من العميل",
+    "Client:": "العميل:",
+    "Contract value": "قيمة العقد",
+    "Date:": "التاريخ:",
+    "Execution Period": "مدة التنفيذ",
+    "For and on behalf of": "بالنيابة عن",
+    "Forecast at completion": "التوقع حتى الإنجاز",
+    "Forecast cost at completion": "التكلفة المتوقعة حتى الإنجاز",
+    "Forecast margin": "الهامش المتوقع",
+    "GRAND TOTAL": "الإجمالي العام",
+    "Net margin": "نسبة صافي الربح",
+    "Net profit": "صافي الربح",
+    "Prepared By": "أُعِدّ بواسطة",
+    "Pricing Build-up": "بناء السعر",
+    "Project Manager:": "مدير المشروع:",
+    "Project Profit Statement": "بيان أرباح المشروع",
+    "Project:": "المشروع:",
+    "Status:": "الحالة:",
+    "Total cost": "إجمالي التكلفة",
+    "Total offer value": "إجمالي قيمة العطاء",
+    "days": "يوم",
+    "of which invoiced": "منها مفوتر",
+    "Having examined the conditions booklet, the drawings and the schedule of quantities of the above operation, we offer to execute the whole of the works described therein for the total sum stated below, within the period stated above and in accordance with the tender conditions.":
+        "بعد أن اطلعنا على كراسة الشروط والمواصفات والرسومات وجدول الكميات الخاص بالعملية الموضحة أعلاه، نتقدم بعطائنا لتنفيذ كامل الأعمال الواردة بها بالمبلغ الإجمالي المبيَّن أدناه، وخلال المدة المحددة أعلاه، ووفقاً لشروط المناقصة.",
+    "This offer remains valid and binding upon us for the period stated in the tender conditions, and may be accepted at any time before it expires.":
+        "هذا العطاء سارٍ وملزم لنا خلال المدة المنصوص عليها في شروط المناقصة، ويجوز قبوله في أي وقت قبل انتهائها.",
+    "Net profit compares what has been certified to the client against the cost incurred so far, so both sides cover the same work. Forecast margin looks ahead instead: the whole contract against what the remaining work is expected to cost, with assigned items at the subcontractors rates and the rest at our own.":
+        "صافي الربح يقارن ما استُخلص للعميل بالتكلفة المنصرفة حتى الآن، فيكون الطرفان عن نفس الأعمال. أما الهامش المتوقع فينظر للأمام: قيمة العقد كاملة مقابل التكلفة المتوقعة لما تبقى من أعمال، بأسعار مقاولي الباطن للبنود المسندة وبتكلفتنا لما عداها.",
+    "The crews planned cost more than the item prices allow for execution. Either the rates in the prices are too low, or the crews are too many.":
+        "تكلفة الطواقم المخططة أعلى من المسموح به في تسعير البنود. إما أن الفئات في التسعير منخفضة، أو أن الطواقم أكثر من اللازم.",
+    "This project carries both subcontractor certificates and expenses filed under the subcontractor category, so the same money is very likely counted twice above.":
+        "هذا المشروع يحمل مستخلصات لمقاولي الباطن ومصروفات مسجَّلة تحت فئة مقاولي الباطن في نفس الوقت، ومن المرجح جداً أن نفس المبلغ محسوب مرتين أعلاه.",
+    "This project carries both subcontractor certificates and expenses filed under the subcontractor category, so the same money is very likely counted twice. Record subcontractor cost one way only.":
+        "هذا المشروع يحمل مستخلصات لمقاولي الباطن ومصروفات مسجَّلة تحت فئة مقاولي الباطن في نفس الوقت، ومن المرجح جداً أن نفس المبلغ محسوب مرتين. سجّل تكلفة مقاولي الباطن بطريقة واحدة فقط.",
 }

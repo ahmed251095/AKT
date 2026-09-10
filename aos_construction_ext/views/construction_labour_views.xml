@@ -55,10 +55,7 @@
                         </group>
                     </group>
                     <div class="alert alert-warning" role="alert"
-                         invisible="not labour_over_budget">
-                        The crews planned cost more than the item prices allow for execution.
-                        Either the rates in the prices are too low, or the crews are too many.
-                    </div>
+                         invisible="not labour_over_budget">The crews planned cost more than the item prices allow for execution. Either the rates in the prices are too low, or the crews are too many.</div>
                     <field name="labour_line_ids">
                         <list editable="bottom">
                             <field name="sequence" widget="handle"/>
