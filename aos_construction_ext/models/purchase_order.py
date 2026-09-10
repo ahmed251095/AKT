@@ -40,6 +40,8 @@ class PurchaseOrderLine(models.Model):
     @api.depends('boq_cost_rate', 'price_unit')
     def _compute_price_over_boq_rate(self):
         for line in self:
+            # Nothing to compare while the quotation is still waiting on the
+            # vendor: an empty price would otherwise read as a big saving.
             line.price_over_boq_rate = (
                 line.price_unit - line.boq_cost_rate
-                if line.boq_cost_rate else 0.0)
+                if line.boq_cost_rate and line.price_unit else 0.0)
