@@ -7,6 +7,18 @@
         <field name="inherit_id" ref="aos_construction_management.view_construction_project_form"/>
         <field name="arch" type="xml">
 
+            <!-- The base headline reads invoiced revenue against all cost
+                 incurred, so a project that has certified work but not yet
+                 raised the invoices shows its entire cost as a loss. -->
+            <xpath expr="//field[@name='invoiced_revenue']" position="after">
+                <field name="customer_certified_total" readonly="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='gross_margin']" position="after">
+                <field name="project_net_profit" readonly="1"/>
+                <field name="project_net_margin" widget="percentage" readonly="1"/>
+            </xpath>
+
             <xpath expr="//header/button[@name='action_complete']" position="before">
                 <button name="action_start_handover" type="object" string="Start Handover"
                         class="btn-primary" invisible="state != 'active'"/>
