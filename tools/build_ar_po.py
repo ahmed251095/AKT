@@ -189,12 +189,37 @@ TEXT_NODE_PATTERN = (
     rf'</(?:{BLOCK_TAGS}|{INLINE_TAGS})>'
 )
 
+# Wording that shares its element with a QWeb field -- "Subtotal (" before an
+# amount, "days" after a duration. Matching whole elements only skipped these.
+LOOSE_TEXT_PATTERN = (
+    r'>([^<>{}]*[A-Za-z]{3}[^<>{}]*)<'
+)
+INLINE_WRAPPED = re.compile(
+    rf'<({INLINE_TAGS})\b[^>]*>[^<>{{}}]*$')
+# <attribute name="class">btn-secondary</attribute> is an inheritance
+# directive, not wording. Only name="string" carries a label, and that has
+# its own pattern.
+DIRECTIVE = re.compile(r'<attribute\b[^>]*>[^<>{}]*$')
+
 # Message keys the parsers build by wrapping a glossary term in its markup.
 DERIVED = {}
 
 
 def arabic_for(src):
     return AR.get(src) or DERIVED.get(src)
+
+
+def loose_key(arch, match):
+    """A bare text run's key, unless an inline tag already claims it."""
+    before = arch[:match.start(1)]
+    if DIRECTIVE.search(before):
+        return None
+    if INLINE_WRAPPED.search(before):
+        return None          # message_key() emits this one with its markup
+    text = ' '.join(match.group(1).replace('&amp;', '&').split())
+    if not text or not is_human_text(text):
+        return None
+    return text if AR.get(text) else ('MISSING', text)
 
 
 def message_key(tag, attrs, text):
@@ -226,11 +251,13 @@ def parse_reports(module):
             xmlid, body = tpl.group(1), tpl.group(2)
             seen = set()
             for pattern in (r'\b(?:string|placeholder|title)="([^"]+)"',
-                            TEXT_NODE_PATTERN):
+                            TEXT_NODE_PATTERN, LOOSE_TEXT_PATTERN):
                 for sm in re.finditer(pattern, body, re.S):
                     if pattern is TEXT_NODE_PATTERN:
                         src = message_key(sm.group(1), sm.group(2),
                                           sm.group(3))
+                    elif pattern is LOOSE_TEXT_PATTERN:
+                        src = loose_key(body, sm)
                     else:
                         src = ' '.join(
                             sm.group(1).replace('&amp;', '&').split())
@@ -268,12 +295,15 @@ def parse_xml(module):
                 # empty-state copy, the wording inside an alert. Reading only
                 # attributes left all of it in English.
                 TEXT_NODE_PATTERN,
+                LOOSE_TEXT_PATTERN,
             )
             for pattern in patterns:
                 for sm in re.finditer(pattern, arch.group(1), re.S):
                     if pattern is TEXT_NODE_PATTERN:
                         src = message_key(sm.group(1), sm.group(2),
                                           sm.group(3))
+                    elif pattern is LOOSE_TEXT_PATTERN:
+                        src = loose_key(arch.group(1), sm)
                     else:
                         src = ' '.join(
                             sm.group(1).replace('&amp;', '&').split())

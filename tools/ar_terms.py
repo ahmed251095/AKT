@@ -699,4 +699,8 @@ AR = {
         "هذا المشروع يحمل مستخلصات لمقاولي الباطن ومصروفات مسجَّلة تحت فئة مقاولي الباطن في نفس الوقت، ومن المرجح جداً أن نفس المبلغ محسوب مرتين أعلاه.",
     "This project carries both subcontractor certificates and expenses filed under the subcontractor category, so the same money is very likely counted twice. Record subcontractor cost one way only.":
         "هذا المشروع يحمل مستخلصات لمقاولي الباطن ومصروفات مسجَّلة تحت فئة مقاولي الباطن في نفس الوقت، ومن المرجح جداً أن نفس المبلغ محسوب مرتين. سجّل تكلفة مقاولي الباطن بطريقة واحدة فقط.",
+    "Offer for:": "عطاء عن:",
+    "Subtotal (": "الإجمالي الجزئي (",
+    "Notes:": "ملاحظات:",
+    "| Priority:": "| الأولوية:",
 }

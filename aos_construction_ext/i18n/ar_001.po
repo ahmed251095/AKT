@@ -1589,6 +1589,11 @@ msgid "Nothing new to certify. Set the progress on the assigned items first."
 msgstr "لا يوجد جديد للاستخلاص. حدد نسبة الإنجاز على البنود المسندة أولاً."
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
+msgid "Offer for:"
+msgstr "عطاء عن:"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 msgid "On Hold"

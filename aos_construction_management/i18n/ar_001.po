@@ -1101,6 +1101,11 @@ msgid "Notes"
 msgstr "ملاحظات"
 
 #. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.report_boq_template
+msgid "Notes:"
+msgstr "ملاحظات:"
+
+#. module: aos_construction_management
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_project__state__on_hold
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_project_form
 msgid "On Hold"
@@ -1823,6 +1828,11 @@ msgid "Subtotal"
 msgstr "الإجمالي الفرعي"
 
 #. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.report_boq_template
+msgid "Subtotal ("
+msgstr "الإجمالي الجزئي ("
+
+#. module: aos_construction_management
 #: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_ra_billing_form
 msgid "Summary"
 msgstr "الملخص"
@@ -2071,3 +2081,8 @@ msgstr "كميات أمر الشغل لا تكون بالسالب."
 #: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_quality_check__check_type__workmanship
 msgid "Workmanship"
 msgstr "جودة التنفيذ"
+
+#. module: aos_construction_management
+#: model_terms:ir.ui.view,arch_db:aos_construction_management.view_construction_work_order_form
+msgid "| Priority:"
+msgstr "| الأولوية:"
