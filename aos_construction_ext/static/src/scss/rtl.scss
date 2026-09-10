@@ -1,14 +1,19 @@
-// Odoo's own right-to-left bundle pins the web client to `direction: ltr` and
-// gets its mirroring from physically flipped rules instead. Odoo's own views
-// survive that, but anything laid out with plain Bootstrap -- a flex row, a
-// logical margin -- keeps reading left to right even in Arabic, so this
-// module's dashboard came out back to front.
+// Odoo's right-to-left bundle pins the web client to `direction: ltr` and
+// mirrors its own components with physically flipped rules instead. Odoo's
+// views survive that, but anything laid out with plain Bootstrap -- a flex
+// row, a logical margin -- keeps reading left to right even in Arabic, so
+// this module's dashboard came out back to front.
 //
-// Scoped to this module's own screens: putting it on the whole web client
-// would double-flip Odoo's components, which already carry mirrored rules.
-.o_rtl {
-    .o_construction_dashboard {
-        direction: rtl;
-        text-align: right;
-    }
+// The /*rtl:ignore*/ directive matters: without it rtlcss flips this very
+// declaration to `ltr` while building the RTL bundle, which is how Odoo's own
+// `.o_web_client { direction: ltr }` ended up there.
+//
+// Scoped to this module's own screens on purpose: putting it on the whole web
+// client would double-flip Odoo's components, which already carry mirrored
+// rules.
+.o_rtl .o_construction_dashboard {
+    /*rtl:ignore*/
+    direction: rtl;
+    /*rtl:ignore*/
+    text-align: right;
 }
