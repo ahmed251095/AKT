@@ -187,12 +187,14 @@ class ConstructionTender(models.Model):
             ('draft',),
             ('pending_approval', 'Waiting Management Approval'),
             ('rejected', 'Rejected by Management'),
+            ('bond_setup', 'Bond'),
             ('lost',),
             ('bond_pending', 'Lost - Bond Not Released'),
         ],
         ondelete={
             'pending_approval': 'set default',
             'rejected': 'set default',
+            'bond_setup': 'set default',
             'bond_pending': 'set default',
         })
 
@@ -288,7 +290,7 @@ class ConstructionTender(models.Model):
                 raise UserError(self.env._(
                     'Only a tender waiting for approval can be approved.'))
             tender.write({
-                'state': 'in_progress',
+                'state': 'bond_setup',
                 'approval_user_id': self.env.user.id,
                 'approval_date': fields.Datetime.now(),
                 'rejection_reason': False,
@@ -595,7 +597,29 @@ class ConstructionTender(models.Model):
         return True
 
     def action_bond_issued(self):
+        """Issuing the bond is what ends the bond stage."""
         self.write({'bid_bond_state': 'issued'})
+        for tender in self:
+            if tender.state == 'bond_setup':
+                tender.state = 'in_progress'
+        return True
+
+    def action_start_preparation(self):
+        """Leave the bond stage and start pricing the bid.
+
+        The office only gets here once the money the opening needed is out:
+        a bond in hand when the authority asks for one.
+        """
+        for tender in self:
+            if tender.state != 'bond_setup':
+                raise UserError(self.env._(
+                    'Only a tender in the bond stage can move to bid '
+                    'preparation.'))
+            if tender.bid_bond_required and \
+                    tender.bid_bond_state not in ('issued', 'held'):
+                raise UserError(self.env._(
+                    'The bid bond has not been issued yet.'))
+            tender.state = 'in_progress'
         return True
 
     def action_bond_forfeited(self):

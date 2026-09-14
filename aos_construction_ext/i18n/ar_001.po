@@ -305,11 +305,6 @@ msgstr "تاريخ الاعتماد"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
-msgid "Approval Request"
-msgstr "طلب الفتح"
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Approve Opening"
 msgstr "اعتماد فتح العملية"
 
@@ -507,6 +502,11 @@ msgstr "مقايسة"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
 msgid "Blank Certificate"
 msgstr "مستخلص فارغ"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__bond_setup
+msgid "Bond"
+msgstr "التأمين"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_expiry_date
@@ -1062,11 +1062,6 @@ msgid "Earned less actual. A negative figure means our own work is costing more 
 msgstr "المكتسبة ناقص الفعلية. الرقم السالب يعني أن تنفيذنا الذاتي يكلّف أكثر مما تسمح به فئات البنود."
 
 #. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_labour
-msgid "Effort"
-msgstr "المجهود"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__electrical_engineer_id
 msgid "Electrical Engineer"
 msgstr "مهندس كهرباء"
@@ -1579,7 +1574,6 @@ msgstr "العمالة"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_labour
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_labour
 msgid "Labour & Shifts"
 msgstr "العمالة والورديات"
 
@@ -1882,6 +1876,12 @@ msgstr "لا تُرسل للموافقة إلا مناقصة في حالة مس�
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "Only a running project can move to handover."
 msgstr "لا ينتقل للتسليم إلا مشروع جارٍ."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_tender.py:0
+msgid "Only a tender in the bond stage can move to bid preparation."
+msgstr "المناقصة لازم تكون في مرحلة التأمين عشان تبدأ إعداد العطاء."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2391,11 +2391,6 @@ msgstr "تم التحديث من المناقصة %s."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
-msgid "Register Booklet Fee Payment"
-msgstr "تسجيل صرف ثمن الكراسة"
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_reject_form
 msgid "Reject"
 msgstr "رفض"
@@ -2421,7 +2416,6 @@ msgstr "مرفوضة من الإدارة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__rejection_reason
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Rejection Reason"
 msgstr "سبب الرفض"
 
@@ -2493,11 +2487,6 @@ msgid "Requested budget: %(budget)s. Submission deadline: %(deadline)s."
 msgstr "المبلغ المطلوب: %(budget)s. موعد التسليم: %(deadline)s."
 
 #. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
-msgid "Requested from Management"
-msgstr "المطلوب من الإدارة"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__is_required
 msgid "Required"
 msgstr "مطلوب"
@@ -2543,11 +2532,6 @@ msgstr "النتيجة"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Revenue"
 msgstr "الإيرادات"
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_labour
-msgid "Review"
-msgstr "المراجعة"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
@@ -2688,6 +2672,11 @@ msgstr "بعض مصروفات هذا التوزيع لم تعد في حالة م
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_hr_case_form
 msgid "Start"
 msgstr "بدء"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Start Bid Preparation"
+msgstr "بدء إعداد العطاء"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
@@ -2957,6 +2946,12 @@ msgstr "الكمية المسندة بأسعار مقاولي الباطن، و�
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
+msgid "The bid bond has not been issued yet."
+msgstr "التأمين الابتدائي لسه ما اتصدرش."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "The bid bond has to be issued before the bid is submitted."
 msgstr "يجب إصدار التأمين الابتدائي قبل تقديم العطاء."
 
@@ -2965,11 +2960,6 @@ msgstr "يجب إصدار التأمين الابتدائي قبل تقديم ا
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "The booklet fee can only be spent after management has approved opening the tender."
 msgstr "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإدارة لفتح العملية."
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_labour
-msgid "The crews planned cost more than the item prices allow for execution. Either the rates in the prices are too low, or the crews are too many."
-msgstr "تكلفة الطواقم المخططة أعلى من المسموح به في تسعير البنود. إما أن الفئات في التسعير منخفضة، أو أن الطواقم أكثر من اللازم."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_work_order_line__inhouse_scope_qty

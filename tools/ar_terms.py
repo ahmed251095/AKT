@@ -62,6 +62,11 @@ AR = {
     "Waiting Approval": "بانتظار الموافقة",
     "Waiting Management Approval": "بانتظار موافقة الإدارة",
     "Rejected by Management": "مرفوضة من الإدارة",
+    "Bond": "التأمين", "Start Bid Preparation": "بدء إعداد العطاء",
+    "Only a tender in the bond stage can move to bid preparation.":
+        "المناقصة لازم تكون في مرحلة التأمين عشان تبدأ إعداد العطاء.",
+    "The bid bond has not been issued yet.":
+        "التأمين الابتدائي لسه ما اتصدرش.",
     "Lost - Bond Not Released": "خاسرة - التأمين لم يُرد",
     "Preparing Bid": "إعداد العطاء", "RFQ Created": "تم إنشاء طلب عرض السعر",
     "Invoiced/Billed": "مفوتر", "Not Required": "غير مطلوب", "To Issue": "للإصدار",

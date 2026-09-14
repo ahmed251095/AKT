@@ -23,7 +23,11 @@
                         groups="aos_construction_ext.group_construction_dept_management"/>
                 <button name="action_buy_tender_document" type="object"
                         string="Booklet Purchased"
-                        invisible="state != 'in_progress' or tender_doc_purchased"/>
+                        invisible="state not in ('bond_setup', 'in_progress')
+                                   or tender_doc_purchased"/>
+                <button name="action_start_preparation" type="object"
+                        string="Start Bid Preparation" class="btn-primary"
+                        invisible="state != 'bond_setup'"/>
             </xpath>
 
             <xpath expr="//header/button[@name='action_cancel']" position="after">
@@ -41,7 +45,7 @@
             </xpath>
 
             <xpath expr="//header/field[@name='state']" position="attributes">
-                <attribute name="statusbar_visible">draft,pending_approval,in_progress,submitted,won</attribute>
+                <attribute name="statusbar_visible">draft,pending_approval,bond_setup,in_progress,submitted,won</attribute>
             </xpath>
 
             <!-- Ribbons make the two states that need an eye impossible to miss. -->
@@ -60,7 +64,7 @@
                  the booklet and the bond, and what the job is. Everything else
                  gets filled after the approval comes back. -->
             <xpath expr="//notebook/page[1]" position="attributes">
-                <attribute name="invisible">state in ('draft', 'pending_approval')</attribute>
+                <attribute name="invisible">state in ('draft', 'pending_approval', 'bond_setup')</attribute>
             </xpath>
 
             <xpath expr="//field[@name='tender_type']" position="after">
@@ -159,7 +163,7 @@
                     </group>
                 </page>
 
-                <page string="Bid File" name="documents" invisible="state in ('draft', 'pending_approval')">
+                <page string="Bid File" name="documents" invisible="state in ('draft', 'pending_approval', 'bond_setup')">
                     <div class="mb-3">
                         <button name="action_load_standard_documents" type="object"
                                 string="Load Standard Checklist" class="btn-secondary"/>
@@ -191,7 +195,7 @@
                     </field>
                 </page>
 
-                <page string="Technical Office" name="technical_office" invisible="state in ('draft', 'pending_approval')">
+                <page string="Technical Office" name="technical_office" invisible="state in ('draft', 'pending_approval', 'bond_setup')">
                     <group>
                         <group>
                             <field name="technical_office_user_id"/>
