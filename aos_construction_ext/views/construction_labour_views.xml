@@ -33,50 +33,6 @@
               action="action_construction_labour_type"
               sequence="30"/>
 
-    <!-- The estimate on the tender, next to the money the prices allow for it. -->
-    <record id="view_construction_tender_form_labour" model="ir.ui.view">
-        <field name="name">construction.tender.form.labour</field>
-        <field name="model">construction.tender</field>
-        <field name="inherit_id" ref="aos_construction_management.view_construction_tender_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//notebook" position="inside">
-                <page string="Labour &amp; Shifts" name="labour" invisible="state in ('draft', 'pending_approval')">
-                    <group>
-                        <group string="Review">
-                            <field name="priced_operating_cost"/>
-                            <field name="labour_estimated_cost"/>
-                            <field name="labour_variance"/>
-                            <field name="labour_variance_percent"/>
-                            <field name="labour_over_budget" invisible="1"/>
-                        </group>
-                        <group string="Effort">
-                            <field name="labour_man_shifts"/>
-                            <field name="operation_duration_days"/>
-                        </group>
-                    </group>
-                    <div class="alert alert-warning" role="alert"
-                         invisible="not labour_over_budget">The crews planned cost more than the item prices allow for execution. Either the rates in the prices are too low, or the crews are too many.</div>
-                    <field name="labour_line_ids">
-                        <list editable="bottom">
-                            <field name="sequence" widget="handle"/>
-                            <field name="labour_type_id"/>
-                            <field name="boq_line_id" optional="show"/>
-                            <field name="crew_size"/>
-                            <field name="shift_count"/>
-                            <field name="man_shifts" sum="Man-shifts"/>
-                            <field name="hours_per_shift" optional="hide"/>
-                            <field name="total_hours" optional="hide" sum="Total Hours"/>
-                            <field name="shift_rate"/>
-                            <field name="total_cost" sum="Estimated Cost"/>
-                            <field name="note" optional="hide"/>
-                            <field name="currency_id" column_invisible="1"/>
-                        </list>
-                    </field>
-                </page>
-            </xpath>
-        </field>
-    </record>
-
     <!-- The same plan on the project, against what labour actually cost. -->
     <record id="view_construction_project_form_labour" model="ir.ui.view">
         <field name="name">construction.project.form.labour</field>
