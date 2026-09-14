@@ -93,6 +93,19 @@
                 <field name="reminder_days"/>
             </xpath>
 
+            <!-- One company, one currency: the field stays for the monetary
+                 widgets to read, it just stops taking up a row and a column. -->
+            <xpath expr="//field[@name='currency_id'][@groups='base.group_multi_currency']"
+                   position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="groups"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='currency_id']"
+                   position="attributes">
+                <attribute name="column_invisible">1</attribute>
+                <attribute name="invisible"/>
+            </xpath>
+
             <!-- The number comes off the authority's own sheet; the office reads
                  the description. The section flag still drives what the other
                  columns show, so it stays in the view without a column. -->
