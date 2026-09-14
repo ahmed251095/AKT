@@ -56,8 +56,10 @@ class ConstructionTenderLine(models.Model):
         string='Base Cost', compute='_compute_pricing', store=True,
         help='Dry cost plus operating cost, before any markup.')
     markup_percent = fields.Float(
-        string='Total Markup (%)', compute='_compute_pricing', store=True,
-        help='Profit + contingency + administration.')
+        string='Total Markup (%)', compute='_compute_markup', store=True,
+        readonly=False,
+        help='Profit + contingency + administration. Type over it to price '
+             'this item at a different markup.')
     markup_amount = fields.Monetary(
         string='Markup Value', compute='_compute_pricing', store=True)
     price_before_expenses = fields.Monetary(
@@ -73,6 +75,10 @@ class ConstructionTenderLine(models.Model):
     unit_rate = fields.Monetary(
         compute='_compute_unit_rate', store=True, readonly=False)
 
+    @api.depends(*pricing.MARKUP_DEPENDS)
+    def _compute_markup(self):
+        pricing.compute_markup(self)
+
     @api.depends(*pricing.PRICING_DEPENDS)
     def _compute_pricing(self):
         pricing.compute_pricing(self)
@@ -82,7 +88,7 @@ class ConstructionTenderLine(models.Model):
     def _compute_cost_rate(self):
         pricing.compute_cost_rate(self)
 
-    @api.depends('price_before_expenses', 'expense_percent',
+    @api.depends('price_before_tax', 'tax_percent',
                  'use_pricing_formula', 'is_section')
     def _compute_unit_rate(self):
         pricing.compute_unit_rate(self)

@@ -808,7 +808,8 @@ AR = {
     "Papers such as the tax card or the classification certificate carry an expiry date that has to be valid on submission day.":
         "مستندات مثل البطاقة الضريبية أو شهادة التصنيف لها تاريخ انتهاء يجب أن يكون سارياً يوم التقديم.",
     "People of this trade working one shift.": "عدد أفراد هذه المهنة في الوردية الواحدة.",
-    "Profit + contingency + administration.": "الربح + الطوارئ + المصروفات الإدارية.",
+    "Profit + contingency + administration. Type over it to price this item at a different markup.":
+        "الربح + الطوارئ + المصروفات الإدارية. تقدر تكتب فوقها لو البند ده بنسبة إضافة مختلفة.",
     "Purchase orders booked on the project, excluding those raised against a subcontract, which the subcontractor certificates already account for.":
         "أوامر الشراء المسجَّلة على المشروع، باستثناء المُصدرة على عقد باطن لأن مستخلصات المقاول تحسبها بالفعل.",
     "Purchase orders, plus material and equipment expenses, booked against this item on this work order.":
