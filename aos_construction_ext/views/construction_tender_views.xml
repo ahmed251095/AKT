@@ -174,8 +174,11 @@
                             <field name="financial_file_ready"/>
                         </group>
                     </group>
-                    <field name="document_ids">
-                        <list editable="bottom"
+                    <!-- The row stays a checklist line; the arrow at its end opens the
+                         paper itself, to upload it or to pull it back down. -->
+                    <field name="document_ids"
+                           context="{'form_view_ref': 'aos_construction_ext.view_construction_document_form'}">
+                        <list editable="bottom" open_form_view="1"
                               decoration-danger="is_expired"
                               decoration-warning="is_required and not is_submitted">
                             <field name="sequence" widget="handle"/>
@@ -186,7 +189,7 @@
                             <field name="is_expired" optional="hide"/>
                             <field name="is_required"/>
                             <field name="is_submitted" widget="boolean_toggle"/>
-                            <field name="attachment_ids" widget="many2many_binary" string="Files"/>
+                            <field name="attachment_count" string="Files"/>
                         </list>
                     </field>
                 </page>
