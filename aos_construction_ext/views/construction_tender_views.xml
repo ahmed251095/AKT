@@ -93,6 +93,16 @@
                 <field name="reminder_days"/>
             </xpath>
 
+            <!-- The number comes off the authority's own sheet; the office reads
+                 the description. The section flag still drives what the other
+                 columns show, so it stays in the view without a column. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='item_no']"
+                   position="replace"/>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='is_section']"
+                   position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+
             <!-- The build-up columns. The estimator fills the two cost columns;
                  the rate and the amount follow from them. -->
             <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="before">
