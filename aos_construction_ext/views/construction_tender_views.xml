@@ -198,18 +198,6 @@
                     </field>
                 </page>
 
-                <page string="Technical Office" name="technical_office" invisible="state in ('draft', 'pending_approval', 'bond_setup')">
-                    <group>
-                        <group>
-                            <field name="technical_office_user_id"/>
-                            <field name="technical_review_date"/>
-                        </group>
-                    </group>
-                    <separator string="Opinion"/>
-                    <field name="technical_office_opinion" nolabel="1"
-                           placeholder="Do we bid, and on what terms?"/>
-                </page>
-
             </xpath>
         </field>
     </record>
