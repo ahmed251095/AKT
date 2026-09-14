@@ -504,7 +504,7 @@ msgid "Blank Certificate"
 msgstr "مستخلص فارغ"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__bond_setup
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__bond_setup
 msgid "Bond"
 msgstr "التأمين"
 
@@ -1356,7 +1356,7 @@ msgid "HR Supervisor"
 msgstr "مشرف الموارد البشرية"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_project__state__handover
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__state__handover
 msgid "Handover"
 msgstr "تحت التسليم"
 
@@ -1664,7 +1664,7 @@ msgid "Logistics Manager"
 msgstr "مدير الحركة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__bond_pending
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__bond_pending
 msgid "Lost - Bond Not Released"
 msgstr "خاسرة - التأمين لم يُرد"
 
@@ -2410,7 +2410,7 @@ msgid "Rejected"
 msgstr "مرفوضة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__rejected
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__rejected
 msgid "Rejected by Management"
 msgstr "مرفوضة من الإدارة"
 
@@ -3229,7 +3229,7 @@ msgid "Waiting Approval"
 msgstr "بانتظار الموافقة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields.selection,name:aos_construction_management.selection__construction_tender__state__pending_approval
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__pending_approval
 msgid "Waiting Management Approval"
 msgstr "بانتظار موافقة الإدارة"
 

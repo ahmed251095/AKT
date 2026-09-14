@@ -136,8 +136,12 @@ def parse_python(module):
                                f'{owner}.field_{mk}__{fname}', joined)
                 for sm in re.finditer(r"\(\s*'([\w.+-]+)'\s*,\s*'([^']+)'\s*\)", args):
                     if sm.group(2) in AR:
+                        # A selection value belongs to the module that writes
+                        # it, not to the one that declared the field: values
+                        # added through selection_add are recorded under the
+                        # extending module, so `owner` would point nowhere.
                         yield (f'model:ir.model.fields.selection,name:'
-                               f'{owner}.selection__{mk}__{fname}__{sm.group(1)}',
+                               f'{module}.selection__{mk}__{fname}__{sm.group(1)}',
                                sm.group(2))
 
 
