@@ -122,7 +122,7 @@
                         <group string="Conditions Booklet">
                             <field name="tender_doc_value"/>
                             <field name="tender_doc_price"/>
-                            <field name="tender_doc_purchased"/>
+                            <field name="tender_doc_purchased" readonly="1"/>
                             <field name="tender_doc_purchase_date"
                                    invisible="not tender_doc_purchased"/>
                             <field name="tender_doc_payment_id"/>
@@ -132,7 +132,7 @@
                             <field name="bid_bond_percent" invisible="not bid_bond_required"/>
                             <field name="bid_bond_amount" invisible="not bid_bond_required"/>
                             <field name="bid_bond_type" invisible="not bid_bond_required"/>
-                            <field name="bid_bond_state"/>
+                            <field name="bid_bond_state" invisible="1"/>
                         </group>
                     </group>
 
@@ -144,12 +144,8 @@
                             <field name="rejection_reason" invisible="state != 'rejected'"/>
                         </group>
                     </group>
-                    <div class="mb-3">
-                        <button name="action_register_tender_doc_payment" type="object"
-                                string="Register Booklet Fee Payment" class="btn-secondary"
-                                invisible="state in ('draft', 'pending_approval', 'rejected')"/>
-                    </div>
-                    <group invisible="not bid_bond_required">
+                    <!-- Only a letter of guarantee has a bank, a reference and a validity window. -->
+                    <group invisible="not bid_bond_required or bid_bond_type != 'letter_guarantee'">
                         <group string="Instrument">
                             <field name="bid_bond_bank_id"/>
                             <field name="bid_bond_ref"/>
