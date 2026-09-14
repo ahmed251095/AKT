@@ -25,9 +25,12 @@
                         string="Booklet Purchased"
                         invisible="state not in ('bond_setup', 'in_progress')
                                    or tender_doc_purchased"/>
+                <!-- Issuing the bond is the way out of the bond stage. This is only
+                     the way out for a tender the authority asks no bond for. -->
                 <button name="action_start_preparation" type="object"
                         string="Start Bid Preparation" class="btn-primary"
-                        invisible="state != 'bond_setup'"/>
+                        invisible="state != 'bond_setup'
+                                   or (bid_bond_required and bid_bond_state == 'to_issue')"/>
             </xpath>
 
             <xpath expr="//header/button[@name='action_cancel']" position="after">
