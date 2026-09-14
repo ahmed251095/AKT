@@ -56,6 +56,13 @@
                 <attribute name="invisible">state not in ('lost', 'bond_pending')</attribute>
             </xpath>
 
+            <!-- While the file is still a draft the office is only asking for it to be
+                 opened: the booklet and the bond, and what the job is. Everything else
+                 gets filled after management approves. -->
+            <xpath expr="//notebook/page[1]" position="attributes">
+                <attribute name="invisible">state == 'draft'</attribute>
+            </xpath>
+
             <xpath expr="//field[@name='tender_type']" position="after">
                 <field name="authority_type_id"/>
                 <field name="operation_duration_days"/>
@@ -110,7 +117,7 @@
             <!-- New pages, in the order the office works through them. -->
             <xpath expr="//notebook" position="inside">
 
-                <page string="Approval Request" name="approval">
+                <page string="Approval Request" name="approval" invisible="state == 'draft'">
                     <group>
                         <group string="Requested from Management">
                             <field name="requested_budget"/>
@@ -163,7 +170,7 @@
                     </group>
                 </page>
 
-                <page string="Bid File" name="documents">
+                <page string="Bid File" name="documents" invisible="state == 'draft'">
                     <div class="mb-3">
                         <button name="action_load_standard_documents" type="object"
                                 string="Load Standard Checklist" class="btn-secondary"/>
@@ -195,7 +202,7 @@
                     </field>
                 </page>
 
-                <page string="Technical Office" name="technical_office">
+                <page string="Technical Office" name="technical_office" invisible="state == 'draft'">
                     <group>
                         <group>
                             <field name="technical_office_user_id"/>

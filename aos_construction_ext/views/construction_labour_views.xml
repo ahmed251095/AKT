@@ -40,7 +40,7 @@
         <field name="inherit_id" ref="aos_construction_management.view_construction_tender_form"/>
         <field name="arch" type="xml">
             <xpath expr="//notebook" position="inside">
-                <page string="Labour &amp; Shifts" name="labour">
+                <page string="Labour &amp; Shifts" name="labour" invisible="state == 'draft'">
                     <group>
                         <group string="Review">
                             <field name="priced_operating_cost"/>
