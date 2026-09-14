@@ -117,22 +117,6 @@
             <!-- New pages, in the order the office works through them. -->
             <xpath expr="//notebook" position="inside">
 
-                <page string="Approval Request" name="approval" invisible="state == 'draft'">
-                    <group>
-                        <group string="Requested from Management">
-                            <field name="requested_budget"/>
-                            <field name="requested_engineer_ids" widget="many2many_tags"/>
-                        </group>
-                        <group string="Decision">
-                            <field name="approval_user_id"/>
-                            <field name="approval_date"/>
-                        </group>
-                    </group>
-                    <separator string="Rejection Reason" invisible="state != 'rejected'"/>
-                    <field name="rejection_reason" nolabel="1"
-                           invisible="state != 'rejected'"/>
-                </page>
-
                 <page string="Booklet &amp; Bond" name="booklet_bond">
                     <group>
                         <group string="Conditions Booklet">
@@ -149,6 +133,15 @@
                             <field name="bid_bond_amount" invisible="not bid_bond_required"/>
                             <field name="bid_bond_type" invisible="not bid_bond_required"/>
                             <field name="bid_bond_state"/>
+                        </group>
+                    </group>
+
+                    <!-- Who let the file be opened, and when. -->
+                    <group>
+                        <group string="Decision" invisible="state in ('draft', 'pending_approval')">
+                            <field name="approval_user_id"/>
+                            <field name="approval_date"/>
+                            <field name="rejection_reason" invisible="state != 'rejected'"/>
                         </group>
                     </group>
                     <div class="mb-3">
