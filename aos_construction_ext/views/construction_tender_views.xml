@@ -39,9 +39,11 @@
                                    or state in ('draft', 'pending_approval', 'rejected')"/>
                 <button name="action_bond_released" type="object" string="Bond Released"
                         class="btn-primary"
-                        invisible="bid_bond_state not in ('issued', 'held')"/>
+                        invisible="bid_bond_state not in ('issued', 'held')
+                                   or state != 'submitted'"/>
                 <button name="action_bond_forfeited" type="object" string="Bond Forfeited"
-                        invisible="bid_bond_state not in ('issued', 'held')"/>
+                        invisible="bid_bond_state not in ('issued', 'held')
+                                   or state != 'submitted'"/>
                 <button name="action_print_pricing_sheet" type="object"
                         string="Pricing Sheet (Excel)" icon="fa-file-excel-o"
                         invisible="not line_ids"/>
@@ -60,13 +62,19 @@
             </xpath>
 
             <xpath expr="//notebook/page[3]" position="attributes">
+                <attribute name="name">loss</attribute>
                 <attribute name="invisible">state not in ('lost', 'bond_pending')</attribute>
+            </xpath>
+
+            <xpath expr="//notebook/page[2]" position="attributes">
+                <attribute name="name">scope</attribute>
             </xpath>
 
             <!-- Until management opens the file the office is only asking for it:
                  the booklet and the bond, and what the job is. Everything else
                  gets filled after the approval comes back. -->
             <xpath expr="//notebook/page[1]" position="attributes">
+                <attribute name="name">items</attribute>
                 <attribute name="invisible">state in ('draft', 'pending_approval', 'bond_setup')</attribute>
             </xpath>
 
@@ -198,6 +206,18 @@
                     </field>
                 </page>
 
+            </xpath>
+
+            <!-- Scope, then the booklet and the bond, then the bid file, and the
+                 priced items last: the order the office works through them. -->
+            <xpath expr="//notebook/page[@name='booklet_bond']" position="before">
+                <xpath expr="//notebook/page[@name='scope']" position="move"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='documents']" position="after">
+                <xpath expr="//notebook/page[@name='items']" position="move"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='items']" position="after">
+                <xpath expr="//notebook/page[@name='loss']" position="move"/>
             </xpath>
         </field>
     </record>
