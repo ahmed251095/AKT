@@ -182,14 +182,19 @@ class ConstructionTender(models.Model):
     reminder_envelope_sent = fields.Boolean(copy=False)
     reminder_award_sent = fields.Boolean(copy=False)
 
+    # The anchors matter: the statusbar draws the stages in the order of the
+    # selection, so every added value is pinned between the two base values it
+    # actually falls between in the office's cycle.
     state = fields.Selection(
         selection_add=[
             ('draft',),
             ('pending_approval', 'Waiting Management Approval'),
             ('rejected', 'Rejected by Management'),
             ('bond_setup', 'Bond'),
+            ('in_progress',),
             ('lost',),
             ('bond_pending', 'Lost - Bond Not Released'),
+            ('cancelled',),
         ],
         ondelete={
             'pending_approval': 'set default',
