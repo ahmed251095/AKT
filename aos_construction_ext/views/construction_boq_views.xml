@@ -26,8 +26,8 @@
 
             <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="before">
                 <field name="use_pricing_formula" optional="hide"/>
-                <field name="dry_cost" sum="Dry Cost"/>
-                <field name="operating_cost" sum="Operating Cost"/>
+                <field name="dry_cost" optional="hide" sum="Dry Cost"/>
+                <field name="operating_cost" optional="hide" sum="Operating Cost"/>
                 <field name="base_cost" optional="show" sum="Base Cost"/>
                 <field name="profit_percent" optional="hide"/>
                 <field name="contingency_percent" optional="hide"/>
@@ -35,7 +35,7 @@
                 <field name="markup_percent" optional="show"/>
                 <field name="expense_percent" optional="hide"/>
                 <field name="price_before_tax" optional="hide"/>
-                <field name="tax_ids" widget="many2many_tags" optional="show"/>
+                <field name="tax_ids" widget="many2many_tags" optional="hide"/>
                 <field name="tax_percent" optional="hide"/>
                 <field name="tax_amount" optional="hide"/>
             </xpath>
@@ -57,13 +57,13 @@
             </xpath>
 
             <xpath expr="//field[@name='line_ids']/list/field[@name='executed_qty']" position="before">
-                <field name="own_progress_qty" optional="hide"/>
-                <field name="subcontract_progress_qty" optional="hide"/>
+                <field name="own_progress_qty" optional="show"/>
+                <field name="subcontract_progress_qty" optional="show"/>
                 <field name="progress_qty" optional="show"/>
             </xpath>
 
             <xpath expr="//field[@name='line_ids']/list/field[@name='executed_qty']" position="after">
-                <field name="qty_variance" optional="show"/>
+                <field name="qty_variance" optional="hide"/>
                 <field name="variance_cost" optional="hide" sum="Variance Cost"/>
                 <field name="is_overrun" column_invisible="1"/>
                 <field name="tender_line_id" optional="hide"/>
