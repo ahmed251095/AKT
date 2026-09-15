@@ -24,6 +24,14 @@
                 <attribute name="column_invisible">1</attribute>
             </xpath>
 
+            <!-- An item is not owned by one phase: part of it can be executed in
+                 one and part in another, so the phase is picked on the work
+                 order instead. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='wbs_id']"
+                   position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+
             <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="before">
                 <field name="use_pricing_formula" optional="hide"/>
                 <field name="dry_cost" optional="hide" sum="Dry Cost"/>

@@ -6,6 +6,13 @@
         <field name="model">construction.work.order</field>
         <field name="inherit_id" ref="aos_construction_management.view_construction_work_order_form"/>
         <field name="arch" type="xml">
+            <!-- The item is not tied to a phase, so the work order picks from the
+                 whole bill of quantities and takes the quantity it needs. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='boq_line_id']"
+                   position="attributes">
+                <attribute name="domain">[('boq_id.project_id', '=', parent.project_id), ('is_section', '=', False)]</attribute>
+            </xpath>
+
             <!-- What is ours to do, next to what is being planned. -->
             <xpath expr="//field[@name='line_ids']/list/field[@name='planned_qty']" position="before">
                 <field name="inhouse_scope_qty" optional="show"/>
