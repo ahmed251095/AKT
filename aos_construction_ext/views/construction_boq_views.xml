@@ -7,6 +7,13 @@
         <field name="inherit_id" ref="aos_construction_management.view_construction_boq_form"/>
         <field name="arch" type="xml">
 
+            <!-- invisible="1" hides a cell's value, not its column. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='currency_id']"
+                   position="attributes">
+                <attribute name="column_invisible">1</attribute>
+                <attribute name="invisible"/>
+            </xpath>
+
             <!-- The office reads the description, not a number off a sheet. The
                  section flag still drives what the other columns show, so it
                  stays in the view without a column. -->
