@@ -6,6 +6,17 @@ from odoo.tools import float_compare
 class ConstructionMaterialRequisition(models.Model):
     _inherit = 'construction.material.requisition'
 
+    # The reference (MR-0001) already names the requisition; asking the site
+    # for a second title on top of it only produced "test" and "asd".
+    name = fields.Char(required=False)
+
+    @api.depends('name', 'ref')
+    def _compute_display_name(self):
+        for requisition in self:
+            requisition.display_name = (
+                requisition.name or requisition.ref
+                or self.env._('Requisition'))
+
     @api.onchange('work_order_id')
     def _onchange_work_order(self):
         """Take the project from the work order too.

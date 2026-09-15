@@ -9,6 +9,19 @@
       <!-- A requisition says what the site needs and how much of it. Money on
            this screen invites approving a price that only the vendor can
            state, and the quotation has its own approval for that. -->
+      <!-- An item is not owned by a phase any more, so the whole bill is
+           offered and the requisition takes what it needs. -->
+      <xpath expr="//field[@name='line_ids']/list/field[@name='boq_line_id']" position="attributes">
+        <attribute name="domain">[('boq_id.project_id', '=', parent.project_id), ('is_section', '=', False)]</attribute>
+      </xpath>
+
+      <!-- The reference is the title; there is no second name to type. -->
+      <xpath expr="//div[hasclass('oe_title')]" position="replace">
+        <div class="oe_title">
+          <h1><field name="ref" readonly="1"/></h1>
+        </div>
+      </xpath>
+
       <xpath expr="//field[@name='line_ids']/list/field[@name='unit_price']" position="attributes">
         <attribute name="column_invisible">1</attribute>
       </xpath>
@@ -26,7 +39,9 @@
     <field name="model">construction.material.requisition</field>
     <field name="inherit_id" ref="aos_construction_management.view_construction_material_requisition_list"/>
     <field name="arch" type="xml">
-      <xpath expr="//field[@name='total_estimated_cost']" position="attributes">
+      
+      <xpath expr="//field[@name='name']" position="replace"/>
+<xpath expr="//field[@name='total_estimated_cost']" position="attributes">
         <attribute name="column_invisible">1</attribute>
       </xpath>
     </field>
