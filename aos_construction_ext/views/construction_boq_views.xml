@@ -7,6 +7,16 @@
         <field name="inherit_id" ref="aos_construction_management.view_construction_boq_form"/>
         <field name="arch" type="xml">
 
+            <!-- The office reads the description, not a number off a sheet. The
+                 section flag still drives what the other columns show, so it
+                 stays in the view without a column. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='item_no']"
+                   position="replace"/>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='is_section']"
+                   position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+
             <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="before">
                 <field name="use_pricing_formula" optional="hide"/>
                 <field name="dry_cost" sum="Dry Cost"/>
