@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <menuitem id="menu_construction_documents"
+              name="Documents"
+              parent="aos_construction_management.menu_construction_root"
+              action="action_construction_document"
+              sequence="55"/>
+
     <menuitem id="menu_construction_hr_cases"
               name="HR Cases"
               parent="aos_construction_management.menu_construction_root"
