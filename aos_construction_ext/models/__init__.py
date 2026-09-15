@@ -19,5 +19,4 @@ from . import construction_work_order_line
 from . import construction_wbs
 from . import construction_project
 from . import construction_document
-from . import construction_hr_case
 from . import construction_salary

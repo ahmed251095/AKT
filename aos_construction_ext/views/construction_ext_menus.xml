@@ -7,12 +7,6 @@
               action="action_construction_document"
               sequence="55"/>
 
-    <menuitem id="menu_construction_hr_cases"
-              name="HR Cases"
-              parent="aos_construction_management.menu_construction_root"
-              action="action_construction_hr_case"
-              sequence="65"/>
-
     <menuitem id="menu_construction_authority_type"
               name="Authority Types"
               parent="aos_construction_management.menu_construction_configuration"

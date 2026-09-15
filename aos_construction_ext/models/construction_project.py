@@ -281,10 +281,6 @@ class ConstructionProject(models.Model):
     # ------------------------------------------------------------------
     # HR follow-up
     # ------------------------------------------------------------------
-    hr_case_ids = fields.One2many(
-        'construction.hr.case', 'project_id', string='HR Cases')
-    hr_case_count = fields.Integer(
-        string='HR Cases', compute='_compute_hr_case_count')
 
     state = fields.Selection(
         selection_add=[
@@ -351,11 +347,6 @@ class ConstructionProject(models.Model):
     def _compute_employee_count(self):
         for project in self:
             project.employee_count = len(project.employee_ids)
-
-    @api.depends('hr_case_ids')
-    def _compute_hr_case_count(self):
-        for project in self:
-            project.hr_case_count = len(project.hr_case_ids)
 
     @api.depends('contract_value', 'performance_bond_percent',
                  'performance_bond_required')
@@ -807,13 +798,3 @@ class ConstructionProject(models.Model):
             'context': {'default_project_id': self.id},
         }
 
-    def action_view_hr_cases(self):
-        self.ensure_one()
-        return {
-            'type': 'ir.actions.act_window',
-            'name': self.env._('HR Cases'),
-            'res_model': 'construction.hr.case',
-            'view_mode': 'list,form',
-            'domain': [('project_id', '=', self.id)],
-            'context': {'default_project_id': self.id},
-        }

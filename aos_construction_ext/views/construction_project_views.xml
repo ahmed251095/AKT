@@ -41,10 +41,6 @@
                         icon="fa-folder-open-o">
                     <field name="document_count" widget="statinfo" string="Documents"/>
                 </button>
-                <button name="action_view_hr_cases" type="object" class="oe_stat_button"
-                        icon="fa-users">
-                    <field name="hr_case_count" widget="statinfo" string="HR Cases"/>
-                </button>
             </xpath>
 
             <xpath expr="//sheet" position="inside">
