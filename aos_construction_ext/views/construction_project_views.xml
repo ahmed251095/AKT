@@ -265,6 +265,14 @@
                 </group>
             </xpath>
 
+            <!-- The two managers belong with the rest of the team, not in the
+                 header block that identifies the project. -->
+            <xpath expr="//page[@name='team']//field[@name='logistics_manager_id']"
+                   position="before">
+                <xpath expr="//field[@name='project_manager_id']" position="move"/>
+                <xpath expr="//field[@name='site_manager_id']" position="move"/>
+            </xpath>
+
         </field>
     </record>
 
