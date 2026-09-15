@@ -52,7 +52,7 @@
                  next to the executed quantity rather than in a report. -->
             <xpath expr="//field[@name='line_ids']/list/field[@name='budget_cost']" position="after">
                 <field name="expected_cost" optional="hide" sum="Expected Cost"/>
-                <field name="expected_margin" optional="show" sum="Expected Margin"/>
+                <field name="expected_margin" optional="hide" sum="Expected Margin"/>
                 <field name="expected_margin_percent" optional="hide"/>
             </xpath>
 
