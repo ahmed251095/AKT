@@ -61,11 +61,6 @@
                 <field name="authority_type_id"/>
             </xpath>
 
-            <!-- Long text reads across the sheet, not in a label column. -->
-            <xpath expr="//field[@name='description']" position="attributes">
-                <attribute name="nolabel">1</attribute>
-            </xpath>
-
             <xpath expr="//header/button[@name='action_activate']" position="before">
                 <field name="tender_id" invisible="1"/>
                 <button name="action_sync_from_tender" type="object"
@@ -263,6 +258,21 @@
                     <field name="hold_date"/>
                     <field name="hold_approved_by"/>
                 </group>
+            </xpath>
+
+            <!-- One company, one currency: the field stays for the monetary
+                 widgets to read, it just stops taking up a row. -->
+            <xpath expr="//field[@name='currency_id'][@groups='base.group_multi_currency']"
+                   position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="groups"/>
+            </xpath>
+
+            <!-- The description is part of what the project is; it reads with the
+                 rest of the project data, not as a section of its own. -->
+            <xpath expr="//group[field[@name='description']]" position="replace"/>
+            <xpath expr="//field[@name='authority_type_id']" position="after">
+                <field name="description"/>
             </xpath>
 
             <!-- The two managers belong with the rest of the team, not in the
