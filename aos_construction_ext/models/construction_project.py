@@ -90,6 +90,11 @@ class ConstructionProject(models.Model):
     performance_bond_amount = fields.Monetary(
         string='Performance Bond Amount', currency_field='currency_id',
         compute='_compute_performance_bond_amount', store=True, readonly=False)
+    performance_bond_type = fields.Selection(
+        [('cash', 'Cash Deposit'),
+         ('cheque', 'Certified Cheque'),
+         ('letter_guarantee', 'Letter of Guarantee')],
+        string='Bond Instrument', default='letter_guarantee')
     performance_bond_bank_id = fields.Many2one('res.bank', string='Issuing Bank')
     performance_bond_ref = fields.Char(string='Bond Reference')
     performance_bond_issue_date = fields.Date(string='Bond Issue Date')

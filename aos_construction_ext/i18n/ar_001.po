@@ -520,6 +520,7 @@ msgid "Bond Forfeited"
 msgstr "تم مصادرة التأمين"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__performance_bond_type
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__bid_bond_type
 msgid "Bond Instrument"
 msgstr "نوع الضمان"
@@ -618,6 +619,7 @@ msgid "Carpenter"
 msgstr "نجار مسلح"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_type__cash
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_type__cash
 msgid "Cash Deposit"
 msgstr "إيداع نقدي"
@@ -635,6 +637,7 @@ msgid "Certificate - %s"
 msgstr "مستخلص - %s"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_type__cheque
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_type__cheque
 msgid "Certified Cheque"
 msgstr "شيك مقبول الدفع"
@@ -1568,11 +1571,6 @@ msgid "Labour"
 msgstr "العمالة"
 
 #. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_labour
-msgid "Labour & Shifts"
-msgstr "العمالة والورديات"
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_variance
 msgid "Labour Headroom"
 msgstr "فائض موازنة العمالة"
@@ -1628,6 +1626,7 @@ msgid "Legal File"
 msgstr "الملف القانوني"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_type__letter_guarantee
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__bid_bond_type__letter_guarantee
 msgid "Letter of Guarantee"
 msgstr "خطاب ضمان"

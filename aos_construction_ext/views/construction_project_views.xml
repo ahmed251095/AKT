@@ -153,9 +153,14 @@
                                        invisible="not performance_bond_required"/>
                                 <field name="performance_bond_amount"
                                        invisible="not performance_bond_required"/>
+                                <field name="performance_bond_type"
+                                       invisible="not performance_bond_required"/>
                                 <field name="performance_bond_state"/>
                             </group>
-                            <group string="Instrument" invisible="not performance_bond_required">
+                            <!-- Only a letter of guarantee has a bank and a validity. -->
+                            <group string="Instrument"
+                                   invisible="not performance_bond_required
+                                              or performance_bond_type != 'letter_guarantee'">
                                 <field name="performance_bond_bank_id"/>
                                 <field name="performance_bond_ref"/>
                                 <field name="performance_bond_issue_date"/>
