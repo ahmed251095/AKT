@@ -93,6 +93,15 @@
                 <field name="reminder_days"/>
             </xpath>
 
+            <!-- The figure is a percentage; say so next to it. -->
+            <xpath expr="//field[@name='estimated_margin_percent']" position="replace">
+                <label for="estimated_margin_percent"/>
+                <div class="o_row">
+                    <field name="estimated_margin_percent" nolabel="1" readonly="1"/>
+                    <span>%</span>
+                </div>
+            </xpath>
+
             <!-- One company, one currency: the field stays for the monetary
                  widgets to read, it just stops taking up a row and a column. -->
             <xpath expr="//field[@name='currency_id'][@groups='base.group_multi_currency']"
