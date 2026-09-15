@@ -33,42 +33,4 @@
               action="action_construction_labour_type"
               sequence="30"/>
 
-    <!-- The same plan on the project, against what labour actually cost. -->
-    <record id="view_construction_project_form_labour" model="ir.ui.view">
-        <field name="name">construction.project.form.labour</field>
-        <field name="model">construction.project</field>
-        <field name="inherit_id" ref="aos_construction_ext.view_construction_project_form_ext"/>
-        <field name="arch" type="xml">
-            <xpath expr="//page[@name='stores']" position="after">
-                <page string="Labour &amp; Shifts" name="labour">
-                    <group>
-                        <group>
-                            <field name="labour_man_shifts"/>
-                            <field name="labour_estimated_cost"/>
-                        </group>
-                        <group>
-                            <field name="labour_actual_cost"/>
-                            <field name="labour_remaining"/>
-                        </group>
-                    </group>
-                    <field name="labour_line_ids">
-                        <list editable="bottom">
-                            <field name="sequence" widget="handle"/>
-                            <field name="labour_type_id"/>
-                            <field name="boq_line_id" optional="show"/>
-                            <field name="wbs_id" optional="hide"/>
-                            <field name="crew_size"/>
-                            <field name="shift_count"/>
-                            <field name="man_shifts" sum="Man-shifts"/>
-                            <field name="shift_rate"/>
-                            <field name="total_cost" sum="Estimated Cost"/>
-                            <field name="note" optional="hide"/>
-                            <field name="currency_id" column_invisible="1"/>
-                        </list>
-                    </field>
-                </page>
-            </xpath>
-        </field>
-    </record>
-
 </odoo>
