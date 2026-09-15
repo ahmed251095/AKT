@@ -44,12 +44,12 @@
                 <attribute name="readonly">use_pricing_formula</attribute>
             </xpath>
 
-            <!-- Same figure as the base cost while the formula is on, so it is
-                 off the default columns; it is still reachable for lump-sum
-                 items, where the estimator types it. -->
+            <!-- The same figure as the base cost while the formula is on, so it
+                 gets no column at all; the field stays for the budget and the
+                 margin, which are read off it. -->
             <xpath expr="//field[@name='line_ids']/list/field[@name='cost_rate']" position="attributes">
                 <attribute name="readonly">use_pricing_formula</attribute>
-                <attribute name="optional">hide</attribute>
+                <attribute name="column_invisible">1</attribute>
             </xpath>
 
             <!-- Over-run is the number the site argues about, so it belongs
