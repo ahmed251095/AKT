@@ -36,7 +36,7 @@
                 <field name="expense_percent" optional="hide"/>
                 <field name="price_before_tax" optional="hide"/>
                 <field name="tax_ids" widget="many2many_tags" optional="show"/>
-                <field name="tax_percent" column_invisible="1"/>
+                <field name="tax_percent" optional="hide"/>
                 <field name="tax_amount" optional="hide"/>
             </xpath>
 
