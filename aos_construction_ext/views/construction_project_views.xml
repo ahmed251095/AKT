@@ -126,9 +126,12 @@
                                 <field name="file_type"/>
                                 <field name="reference"/>
                                 <field name="expiry_date"/>
+                                <!-- No column of its own; it paints the row red. -->
+                                <field name="is_expired" column_invisible="1"/>
                                 <field name="is_required"/>
                                 <field name="is_submitted" widget="boolean_toggle"/>
-                                <field name="attachment_count" string="Files"/>
+                                <field name="attachment_ids" widget="many2many_binary"
+                                       string="Files"/>
                             </list>
                         </field>
                     </page>
