@@ -511,6 +511,39 @@ class ConstructionProject(models.Model):
                 result.append((line, pending))
         return result
 
+    # ------------------------------------------------------------------
+    # Cost centre
+    # ------------------------------------------------------------------
+    @api.model_create_multi
+    def create(self, vals_list):
+        projects = super().create(vals_list)
+        for project in projects:
+            if not project.analytic_account_id:
+                project.analytic_account_id = project._create_analytic_account()
+        return projects
+
+    def _create_analytic_account(self):
+        """Open the project's own cost centre.
+
+        Every purchase, bill and expense is posted against it, so it has to
+        exist from the first day of the file. Leaving it to be picked by hand
+        is how two projects end up sharing one account and the cost of each
+        stops being readable.
+        """
+        self.ensure_one()
+        plan = self.env['account.analytic.plan'].search([], order='id', limit=1)
+        if not plan:
+            plan = self.env['account.analytic.plan'].create({'name': 'Projects'})
+        name = ' - '.join(
+            part for part in (self.ref, self.name)
+            if part and part != 'New')
+        return self.env['account.analytic.account'].create({
+            'name': name or self.name,
+            'plan_id': plan.id,
+            'partner_id': self.client_id.id,
+            'company_id': self.env.company.id,
+        })
+
     def action_certify_progress(self):
         """Raise the client certificate for the work completed so far.
 
