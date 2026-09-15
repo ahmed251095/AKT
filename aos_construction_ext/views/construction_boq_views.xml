@@ -77,6 +77,26 @@
                 <attribute name="decoration-danger">is_overrun</attribute>
             </xpath>
 
+
+            <!-- The columns in the order the estimator reads them: what the item
+                 costs, what the budget carries, the markup, the sell rate, the
+                 money and what is left of it. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='base_cost']" position="after">
+                <xpath expr="//field[@name='line_ids']/list/field[@name='budget_cost']" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='budget_cost']" position="after">
+                <xpath expr="//field[@name='line_ids']/list/field[@name='markup_percent']" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='markup_percent']" position="after">
+                <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="after">
+                <xpath expr="//field[@name='line_ids']/list/field[@name='amount']" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='amount']" position="after">
+                <xpath expr="//field[@name='line_ids']/list/field[@name='budget_margin']" position="move"/>
+            </xpath>
+
         </field>
     </record>
 
