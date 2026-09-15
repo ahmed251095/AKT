@@ -6,6 +6,17 @@ from odoo.tools import float_compare
 class ConstructionMaterialRequisition(models.Model):
     _inherit = 'construction.material.requisition'
 
+    @api.onchange('work_order_id')
+    def _onchange_work_order(self):
+        """Take the project from the work order too.
+
+        The base fills the phase and stops there, leaving the project -- a
+        required field the work order already knows -- for the user to type.
+        """
+        super()._onchange_work_order()
+        if self.work_order_id:
+            self.project_id = self.work_order_id.project_id
+
     def action_approve(self):
         """Approving a requisition is approving quantities.
 
