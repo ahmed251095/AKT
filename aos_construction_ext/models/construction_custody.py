@@ -47,7 +47,7 @@ class ConstructionCustody(models.Model):
         'construction.custody.line', 'custody_id', string='Settlement',
         copy=False)
     settled_amount = fields.Monetary(
-        string='Settled', compute='_compute_amounts', store=True,
+        string='Settled Amount', compute='_compute_amounts', store=True,
         currency_field='currency_id')
     returned_amount = fields.Monetary(
         string='Cash Returned', currency_field='currency_id', tracking=True,

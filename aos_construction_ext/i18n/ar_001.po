@@ -2647,11 +2647,15 @@ msgid "Settings"
 msgstr "الإعدادات"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__settled_amount
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody__state__settled
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_search
 msgid "Settled"
-msgstr "المسوّى"
+msgstr "مسوّاة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__settled_amount
+msgid "Settled Amount"
+msgstr "إجمالي التسوية"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__line_ids
