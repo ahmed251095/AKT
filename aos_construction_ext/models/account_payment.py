@@ -57,3 +57,11 @@ class AccountPayment(models.Model):
                     'tender_doc_purchased': False,
                     'tender_doc_purchase_date': False,
                 })
+
+
+class AccountMove(models.Model):
+    _inherit = 'account.move'
+
+    construction_custody_id = fields.Many2one(
+        'construction.custody', string='Cash Custody', index=True, copy=False,
+        help='The custody this entry was raised for.')

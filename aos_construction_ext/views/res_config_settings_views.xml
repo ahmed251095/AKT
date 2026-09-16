@@ -24,6 +24,22 @@
                             <field name="construction_expense_percent"/>
                         </setting>
                     </block>
+                    <block title="Cash Custody"
+                           help="Accounts the custody entries are posted to. Until they are set the custody works without accounting entries.">
+                        <setting string="Custody Account" help="Asset account holding the cash while it is with the holder.">
+                            <field name="construction_custody_account_id"/>
+                        </setting>
+                        <setting string="Disbursement Journal" help="Where the cash leaves from and returns to.">
+                            <field name="construction_custody_journal_id"/>
+                        </setting>
+                        <setting string="Settlement Journal" help="Journal the settlement entry is booked in.">
+                            <field name="construction_custody_settlement_journal_id"/>
+                        </setting>
+                        <setting string="Default Expense Account" help="Used for a settlement line that carries no account of its own.">
+                            <field name="construction_custody_expense_account_id"/>
+                        </setting>
+                    </block>
+
                     <block title="Tenders">
                         <setting string="Reminder Lead Time" help="Days before a tender date the responsible users are reminded.">
                             <field name="construction_reminder_days"/>

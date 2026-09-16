@@ -614,9 +614,16 @@ msgstr "نجار مسلح"
 #. module: aos_construction_ext
 #: model:ir.actions.act_window,name:aos_construction_ext.action_construction_custody
 #: model:ir.model,name:aos_construction_ext.model_construction_custody
+#: model:ir.model.fields,field_description:aos_construction_ext.field_account_move__construction_custody_id
 #: model:ir.ui.menu,name:aos_construction_ext.menu_construction_custody
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Cash Custody"
 msgstr "العهد النقدية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_custody_account_id
+msgid "Cash Custody Account"
+msgstr "حساب العهد"
 
 #. module: aos_construction_ext
 #: model:ir.model,name:aos_construction_ext.model_construction_custody_line
@@ -916,9 +923,19 @@ msgid "Custody"
 msgstr "عهدة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_custody_journal_id
+msgid "Custody Disbursement Journal"
+msgstr "يومية صرف العهد"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__employee_id
 msgid "Custody Holder"
 msgstr "حامل العهدة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_custody_settlement_journal_id
+msgid "Custody Settlement Journal"
+msgstr "يومية تسوية العهد"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -971,6 +988,11 @@ msgstr "القيمة المعلنة للعملية"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_authority_type__default_bid_bond_percent
 msgid "Default Bid Bond (%)"
 msgstr "نسبة التأمين الابتدائي الافتراضية (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_custody_expense_account_id
+msgid "Default Custody Expense Account"
+msgstr "حساب المصروف الافتراضي للعهد"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__default_shift_rate
@@ -1149,6 +1171,11 @@ msgid "Engineers the technical office asks to be freed for the study."
 msgstr "المهندسون الذين يطلب المكتب الفني تفريغهم للدراسة."
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
+msgid "Entries"
+msgstr "القيود"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_equipment
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody_line__category__equipment
 msgid "Equipment"
@@ -1210,6 +1237,11 @@ msgstr "الهامش المتوقع (%)"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__expense_id
 msgid "Expense"
 msgstr "المصروف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_line__account_id
+msgid "Expense Account"
+msgstr "حساب المصروف"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -1590,6 +1622,19 @@ msgstr "هامش البند (%)"
 #: code:addons/aos_construction_ext/controllers/main.py:0
 msgid "Item No."
 msgstr "رقم البند"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
+msgid "Journal \"%s\" has no account to take the cash from."
+msgstr "اليومية \"%s\" مالهاش حساب تتصرف منه النقدية."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__move_ids
+msgid "Journal Entries"
+msgstr "القيود المحاسبية"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__labour_cost
@@ -3084,6 +3129,12 @@ msgstr "المستندات المطلوبة الآتية ما زالت ناقص�
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
 msgid "This custody has already been charged to a project and cannot be cancelled."
 msgstr "العهدة دي اتحمّلت على مشروع ومينفعش تتلغي."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
+msgid "This custody has posted journal entries. Reverse them before cancelling it."
+msgstr "العهدة دي ليها قيود مرحّلة. اعكسها الأول قبل ما تلغيها."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter

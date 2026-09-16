@@ -20,6 +20,27 @@ class ResCompany(models.Model):
         string='General Expenses Ratio (%)', default=14.0,
         help='General expenses applied on the marked-up price, '
              'the last step of the build-up.')
+    # ---- cash custody posting ----
+    # Left empty on purpose: the chart of accounts is the accountant's, and a
+    # guessed account posts real money to the wrong place.
+    construction_custody_account_id = fields.Many2one(
+        'account.account', string='Cash Custody Account',
+        domain="[('account_type', '=', 'asset_current')]",
+        help='Asset account the cash sits in while it is with the holder. '
+             'Debited when the custody goes out, credited as it is settled.')
+    construction_custody_journal_id = fields.Many2one(
+        'account.journal', string='Custody Disbursement Journal',
+        domain="[('type', 'in', ('cash', 'bank'))]",
+        help='Where the cash leaves from, and where returned cash goes back.')
+    construction_custody_settlement_journal_id = fields.Many2one(
+        'account.journal', string='Custody Settlement Journal',
+        domain="[('type', '=', 'general')]",
+        help='Journal the settlement entry is booked in.')
+    construction_custody_expense_account_id = fields.Many2one(
+        'account.account', string='Default Custody Expense Account',
+        domain="[('account_type', 'in', ('expense', 'expense_direct_cost'))]",
+        help='Used for a settlement line that carries no account of its own.')
+
     construction_reminder_days = fields.Integer(
         string='Tender Reminder (days)', default=2,
         help='How many days before a tender date the responsible users are '

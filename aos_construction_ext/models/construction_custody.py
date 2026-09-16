@@ -35,6 +35,9 @@ class ConstructionCustody(models.Model):
 
     amount = fields.Monetary(
         string='Amount Issued', currency_field='currency_id', tracking=True)
+    company_id = fields.Many2one(
+        'res.company', string='Company', required=True,
+        default=lambda self: self.env.company)
     currency_id = fields.Many2one(
         'res.currency', string='Currency',
         default=lambda self: self.env.company.currency_id)
@@ -60,6 +63,11 @@ class ConstructionCustody(models.Model):
     line_count = fields.Integer(compute='_compute_amounts')
     posted_count = fields.Integer(compute='_compute_amounts')
 
+    move_ids = fields.One2many(
+        'account.move', 'construction_custody_id', string='Journal Entries',
+        readonly=True)
+    move_count = fields.Integer(compute='_compute_amounts')
+
     state = fields.Selection(
         [('draft', 'Draft'),
          ('open', 'With Holder'),
@@ -76,7 +84,7 @@ class ConstructionCustody(models.Model):
         return super().create(vals_list)
 
     @api.depends('amount', 'returned_amount', 'line_ids.amount',
-                 'line_ids.expense_id')
+                 'line_ids.expense_id', 'move_ids')
     def _compute_amounts(self):
         for custody in self:
             custody.settled_amount = sum(custody.line_ids.mapped('amount'))
@@ -85,6 +93,7 @@ class ConstructionCustody(models.Model):
             custody.line_count = len(custody.line_ids)
             custody.posted_count = len(
                 custody.line_ids.filtered('expense_id'))
+            custody.move_count = len(custody.move_ids)
 
     @api.depends('ref', 'employee_id')
     def _compute_display_name(self):
@@ -92,6 +101,49 @@ class ConstructionCustody(models.Model):
             parts = [part for part in (custody.ref, custody.employee_id.name)
                      if part and part != 'New']
             custody.display_name = ' - '.join(parts) or self.env._('Custody')
+
+    # ------------------------------------------------------------------
+    # Accounting
+    # ------------------------------------------------------------------
+    def _custody_setup(self):
+        """The accounts the entries need, or a message naming what is missing.
+
+        Posting is optional: a company that has not configured the accounts
+        runs the custody as a pure operational record, which is how it worked
+        before the entries existed.
+        """
+        company = self.company_id or self.env.company
+        return {
+            'account': company.construction_custody_account_id,
+            'cash_journal': company.construction_custody_journal_id,
+            'settlement_journal':
+                company.construction_custody_settlement_journal_id,
+            'expense_account':
+                company.construction_custody_expense_account_id,
+        }
+
+    def _post_custody_move(self, journal, lines, ref):
+        """Create and post one entry against this custody."""
+        self.ensure_one()
+        move = self.env['account.move'].create({
+            'move_type': 'entry',
+            'journal_id': journal.id,
+            'date': self.date,
+            'ref': ref,
+            'construction_custody_id': self.id,
+            'line_ids': [(0, 0, vals) for vals in lines],
+        })
+        move.action_post()
+        return move
+
+    def _cash_account(self, setup):
+        journal = setup['cash_journal']
+        account = journal.default_account_id
+        if not account:
+            raise UserError(self.env._(
+                'Journal "%s" has no account to take the cash from.',
+                journal.display_name))
+        return account
 
     # ------------------------------------------------------------------
     # Flow
@@ -106,7 +158,28 @@ class ConstructionCustody(models.Model):
                 raise UserError(self.env._(
                     'Set the amount handed to the holder first.'))
             custody.state = 'open'
+            custody._post_disbursement()
         return True
+
+    def _post_disbursement(self):
+        """Dr the custody account, Cr the cash it came out of.
+
+        Skipped when the cash already left through a payment recorded in
+        accounting -- that entry exists, and posting again would double it.
+        """
+        self.ensure_one()
+        setup = self._custody_setup()
+        if self.payment_id or not (setup['account'] and setup['cash_journal']):
+            return False
+        cash = self._cash_account(setup)
+        label = self.env._('Custody %(ref)s - %(holder)s',
+                           ref=self.ref, holder=self.employee_id.name)
+        return self._post_custody_move(setup['cash_journal'], [
+            {'account_id': setup['account'].id, 'name': label,
+             'debit': self.amount, 'credit': 0.0},
+            {'account_id': cash.id, 'name': label,
+             'debit': 0.0, 'credit': self.amount},
+        ], label)
 
     def action_post_settlement(self):
         """Turn the receipts into cost on the projects they were spent for.
@@ -137,10 +210,46 @@ class ConstructionCustody(models.Model):
                     'state': 'approved',
                     'approved_by': self.env.user.id,
                 })
+            custody._post_settlement_move(pending)
             custody.message_post(body=self.env._(
                 '%(count)s settlement lines charged to their projects.',
                 count=len(pending)))
         return True
+
+    def _post_settlement_move(self, lines):
+        """Dr each line's expense account with the project on it, Cr the custody.
+
+        The analytic distribution is the project's own account, so the cost
+        lands on the project in the accounts exactly as it does in the
+        project's own figures.
+        """
+        self.ensure_one()
+        setup = self._custody_setup()
+        if not (setup['account'] and setup['settlement_journal']):
+            return False
+        move_lines = []
+        for line in lines:
+            account = line.account_id or setup['expense_account']
+            if not account:
+                raise UserError(self.env._(
+                    'Set an expense account on "%s", or a default one in the '
+                    'construction settings.', line.description))
+            move_lines.append({
+                'account_id': account.id,
+                'name': line.description,
+                'debit': line.amount,
+                'credit': 0.0,
+                'analytic_distribution':
+                    line.project_id._get_analytic_distribution(),
+            })
+        total = sum(lines.mapped('amount'))
+        label = self.env._('Custody settlement %s', self.ref)
+        move_lines.append({
+            'account_id': setup['account'].id, 'name': label,
+            'debit': 0.0, 'credit': total,
+        })
+        return self._post_custody_move(
+            setup['settlement_journal'], move_lines, label)
 
     def action_settle(self):
         """Close the custody once nothing is left with the holder."""
@@ -158,11 +267,42 @@ class ConstructionCustody(models.Model):
                     'The holder still carries %(balance)s. Record the cash '
                     'returned or add the missing receipts.',
                     balance=custody.balance))
+            custody._post_return()
             custody.state = 'settled'
         return True
 
+    def _post_return(self):
+        """Dr the cash it went back into, Cr the custody account."""
+        self.ensure_one()
+        setup = self._custody_setup()
+        if not self.returned_amount or not (
+                setup['account'] and setup['cash_journal']):
+            return False
+        cash = self._cash_account(setup)
+        label = self.env._('Custody %s returned', self.ref)
+        return self._post_custody_move(setup['cash_journal'], [
+            {'account_id': cash.id, 'name': label,
+             'debit': self.returned_amount, 'credit': 0.0},
+            {'account_id': setup['account'].id, 'name': label,
+             'debit': 0.0, 'credit': self.returned_amount},
+        ], label)
+
+    def action_view_moves(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': self.env._('Journal Entries'),
+            'res_model': 'account.move',
+            'view_mode': 'list,form',
+            'domain': [('id', 'in', self.move_ids.ids)],
+        }
+
     def action_cancel(self):
         for custody in self:
+            if custody.move_ids:
+                raise UserError(self.env._(
+                    'This custody has posted journal entries. Reverse them '
+                    'before cancelling it.'))
             if custody.line_ids.filtered('expense_id'):
                 raise UserError(self.env._(
                     'This custody has already been charged to a project and '
@@ -221,6 +361,13 @@ class ConstructionCustodyLine(models.Model):
     attachment_ids = fields.Many2many(
         'ir.attachment', 'construction_custody_line_attachment_rel',
         'line_id', 'attachment_id', string='Receipt')
+    account_id = fields.Many2one(
+        'account.account', string='Expense Account',
+        domain="[('account_type', 'in', ('expense', 'expense_direct_cost'))]",
+        default=lambda self:
+            self.env.company.construction_custody_expense_account_id,
+        help='Left empty, the default account from the construction '
+             'settings is used.')
     expense_id = fields.Many2one(
         'construction.expense', string='Charged Expense', readonly=True,
         copy=False, ondelete='set null')

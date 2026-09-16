@@ -62,6 +62,16 @@ AR = {
     "Waiting Approval": "بانتظار الموافقة",
     # ---- cash custody ----
     "Cash Custody": "العهد النقدية", "Custody": "عهدة",
+    "Cash Custody Account": "حساب العهد",
+    "Custody Disbursement Journal": "يومية صرف العهد",
+    "Custody Settlement Journal": "يومية تسوية العهد",
+    "Default Custody Expense Account": "حساب المصروف الافتراضي للعهد",
+    "Expense Account": "حساب المصروف", "Journal Entries": "القيود المحاسبية",
+    "Entries": "القيود",
+    "Journal \"%s\" has no account to take the cash from.":
+        "اليومية \"%s\" مالهاش حساب تتصرف منه النقدية.",
+    "This custody has posted journal entries. Reverse them before cancelling it.":
+        "العهدة دي ليها قيود مرحّلة. اعكسها الأول قبل ما تلغيها.",
     "Cash Custody Settlement Line": "سطر تسوية عهدة",
     "Custody Holder": "حامل العهدة", "Issue Date": "تاريخ الصرف",
     "Purpose": "الغرض", "Amount Issued": "المبلغ المصروف",

@@ -12,6 +12,16 @@ class ResConfigSettings(models.TransientModel):
         related='company_id.construction_admin_percent', readonly=False)
     construction_expense_percent = fields.Float(
         related='company_id.construction_expense_percent', readonly=False)
+    construction_custody_account_id = fields.Many2one(
+        related='company_id.construction_custody_account_id', readonly=False)
+    construction_custody_journal_id = fields.Many2one(
+        related='company_id.construction_custody_journal_id', readonly=False)
+    construction_custody_settlement_journal_id = fields.Many2one(
+        related='company_id.construction_custody_settlement_journal_id',
+        readonly=False)
+    construction_custody_expense_account_id = fields.Many2one(
+        related='company_id.construction_custody_expense_account_id',
+        readonly=False)
     construction_reminder_days = fields.Integer(
         related='company_id.construction_reminder_days', readonly=False)
     construction_bid_bond_percent = fields.Float(
