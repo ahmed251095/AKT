@@ -7,6 +7,12 @@
               action="action_construction_document"
               sequence="55"/>
 
+    <menuitem id="menu_construction_custody"
+              name="Cash Custody"
+              parent="aos_construction_management.menu_construction_root"
+              action="action_construction_custody"
+              sequence="82"/>
+
     <menuitem id="menu_construction_authority_type"
               name="Authority Types"
               parent="aos_construction_management.menu_construction_configuration"

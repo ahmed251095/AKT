@@ -22,5 +22,14 @@
             <field name="active" eval="True"/>
         </record>
 
+
+        <record id="seq_construction_custody" model="ir.sequence">
+            <field name="name">Cash Custody</field>
+            <field name="code">construction.custody</field>
+            <field name="prefix">CUST-</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
     </data>
 </odoo>

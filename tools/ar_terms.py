@@ -60,6 +60,37 @@ AR = {
     "Failed": "فشل", "Fail": "راسب", "Pass": "ناجح", "Conditional Pass": "ناجح بشروط",
     "Handover": "تحت التسليم", "In Handover": "تحت التسليم",
     "Waiting Approval": "بانتظار الموافقة",
+    # ---- cash custody ----
+    "Cash Custody": "العهد النقدية", "Custody": "عهدة",
+    "Cash Custody Settlement Line": "سطر تسوية عهدة",
+    "Custody Holder": "حامل العهدة", "Issue Date": "تاريخ الصرف",
+    "Purpose": "الغرض", "Amount Issued": "المبلغ المصروف",
+    "Disbursement Payment": "سند صرف العهدة",
+    "Settlement": "التسوية", "Settled": "المسوّى",
+    "Cash Returned": "النقدية المرتجعة",
+    "Balance with Holder": "الرصيد لدى الحامل",
+    "With Holder": "لدى الحامل", "Receipt": "الإيصال",
+    "Charged": "محمّل", "Charged Expense": "المصروف المحمّل",
+    "Charged Expenses": "المصروفات المحمّلة",
+    "Hand Over Cash": "صرف العهدة", "Charge Settlement": "تحميل التسوية",
+    "Close Custody": "إقفال العهدة", "Not Fully Settled": "غير مسوّاة بالكامل",
+    "Holder": "الحامل",
+    "Only a draft custody can be handed over.":
+        "العهدة لازم تكون مسودة عشان تتصرف.",
+    "Set the amount handed to the holder first.":
+        "حدد المبلغ المصروف للحامل الأول.",
+    "Only a custody with the holder can be settled.":
+        "التسوية بتتعمل للعهد اللي لسه لدى الحامل.",
+    "Every settlement line has already been charged.":
+        "كل سطور التسوية اتحمّلت على مشاريعها بالفعل.",
+    "Only a custody with the holder can be closed.":
+        "الإقفال بيتعمل للعهد اللي لسه لدى الحامل.",
+    "Charge the settlement to the projects before closing the custody.":
+        "حمّل التسوية على المشاريع قبل ما تقفل العهدة.",
+    "This custody has already been charged to a project and cannot be cancelled.":
+        "العهدة دي اتحمّلت على مشروع ومينفعش تتلغي.",
+    "Record the cash the site is holding": "سجّل النقدية اللي في إيد الموقع",
+
     "Waiting Management Approval": "بانتظار موافقة الإدارة",
     "Rejected by Management": "مرفوضة من الإدارة",
     "Bond": "التأمين", "Start Bid Preparation": "بدء إعداد العطاء",

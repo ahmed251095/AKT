@@ -949,7 +949,7 @@ msgstr "تم فحصه"
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__issue_date
 msgid "Issue Date"
-msgstr "تاريخ الإصدار"
+msgstr "تاريخ الصرف"
 
 #. module: aos_construction_management
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__item_no
