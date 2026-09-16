@@ -229,6 +229,12 @@ class ConstructionCustody(models.Model):
             return False
         move_lines = []
         for line in lines:
+            # A project opened before the module created cost centres has no
+            # analytic account, and the entry would carry the cost with
+            # nothing to read it against. Open one rather than post it blind.
+            project = line.project_id
+            if not project.analytic_account_id:
+                project.analytic_account_id = project._create_analytic_account()
             account = line.account_id or setup['expense_account']
             if not account:
                 raise UserError(self.env._(
@@ -240,7 +246,7 @@ class ConstructionCustody(models.Model):
                 'debit': line.amount,
                 'credit': 0.0,
                 'analytic_distribution':
-                    line.project_id._get_analytic_distribution(),
+                    project._get_analytic_distribution(),
             })
         total = sum(lines.mapped('amount'))
         label = self.env._('Custody settlement %s', self.ref)
