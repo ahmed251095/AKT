@@ -570,6 +570,11 @@ msgid "Booklet & Bond"
 msgstr "الكراسة والتأمين"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__booklet
+msgid "Booklet Purchase"
+msgstr "شراء كراسة الشروط"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_purchased
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Booklet Purchased"

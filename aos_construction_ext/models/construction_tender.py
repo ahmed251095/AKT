@@ -190,6 +190,7 @@ class ConstructionTender(models.Model):
             ('draft',),
             ('pending_approval', 'Waiting Management Approval'),
             ('rejected', 'Rejected by Management'),
+            ('booklet', 'Booklet Purchase'),
             ('bond_setup', 'Bond'),
             ('in_progress',),
             ('lost',),
@@ -199,6 +200,7 @@ class ConstructionTender(models.Model):
         ondelete={
             'pending_approval': 'set default',
             'rejected': 'set default',
+            'booklet': 'set default',
             'bond_setup': 'set default',
             'bond_pending': 'set default',
         })
@@ -295,7 +297,7 @@ class ConstructionTender(models.Model):
                 raise UserError(self.env._(
                     'Only a tender waiting for approval can be approved.'))
             tender.write({
-                'state': 'bond_setup',
+                'state': 'booklet',
                 'approval_user_id': self.env.user.id,
                 'approval_date': fields.Datetime.now(),
                 'rejection_reason': False,
@@ -382,6 +384,8 @@ class ConstructionTender(models.Model):
                 'tender_doc_purchased': True,
                 'tender_doc_purchase_date': fields.Date.context_today(tender),
             })
+            if tender.state == 'booklet':
+                tender.state = 'bond_setup'
             tender.message_post(body=self.env._(
                 'Conditions booklet purchased for %s.', tender.tender_doc_price))
         return True
