@@ -106,6 +106,8 @@ AR = {
     "Rejected by Management": "مرفوضة من الإدارة",
     "Bond": "التأمين", "Start Bid Preparation": "بدء إعداد العطاء",
     "Booklet Purchase": "شراء كراسة الشروط",
+    "The bid bond is issued after the conditions booklet is bought.":
+        "التأمين الابتدائي بيتصدر بعد شراء كراسة الشروط."
     "Only a tender in the bond stage can move to bid preparation.":
         "المناقصة لازم تكون في مرحلة التأمين عشان تبدأ إعداد العطاء.",
     "The bid bond has not been issued yet.":

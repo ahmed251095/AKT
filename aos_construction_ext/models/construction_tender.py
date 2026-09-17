@@ -606,7 +606,18 @@ class ConstructionTender(models.Model):
         return True
 
     def action_bond_issued(self):
-        """Issuing the bond is what ends the bond stage."""
+        """Issuing the bond is what ends the bond stage.
+
+        Guarded in the model, not only by hiding the button: the bond is
+        arranged after the booklet is bought, and a tender that skipped that
+        stage would carry an issued bond with no booklet behind it.
+        """
+        for tender in self:
+            if tender.state in ('draft', 'pending_approval', 'rejected',
+                                'booklet'):
+                raise UserError(self.env._(
+                    'The bid bond is issued after the conditions booklet is '
+                    'bought.'))
         self.write({'bid_bond_state': 'issued'})
         for tender in self:
             if tender.state == 'bond_setup':
