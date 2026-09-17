@@ -61,6 +61,42 @@ AR = {
     "Handover": "تحت التسليم", "In Handover": "تحت التسليم",
     "Waiting Approval": "بانتظار الموافقة",
     # ---- cash custody ----
+    "Money": "المال", "Company": "الشركة",
+    "Line Count": "عدد السطور", "Move Count": "عدد القيود",
+    "Posted Count": "عدد المحمّل",
+    "Custody Account": "حساب العهد",
+    "Disbursement Journal": "يومية الصرف",
+    "Settlement Journal": "يومية التسوية",
+    "Default Expense Account": "حساب المصروف الافتراضي",
+    "The person the cash is handed to. The custody stays open against this employee until it is settled.":
+        "الشخص اللي بيتسلّم النقدية. العهدة بتفضل مفتوحة عليه لحد ما تتسوّى.",
+    "Left empty for an office custody spent across several sites; each settlement line still names the project it is charged to.":
+        "سيبه فاضي لو عهدة مكتب بتتصرف على أكتر من موقع؛ كل سطر تسوية بيحدد مشروعه بنفسه.",
+    "The payment that handed the cash over, if it was recorded in accounting.":
+        "الدفعة اللي اتصرفت بيها النقدية، لو اتسجّلت في المحاسبة.",
+    "Unspent cash handed back.": "النقدية اللي ما اتصرفتش واترجّعت.",
+    "Issued less what was settled and what came back. A negative figure is money the holder spent out of pocket.":
+        "المصروف ناقص المسوّى والمرتجع. الرقم السالب معناه إن الحامل صرف من جيبه.",
+    "The custody this entry was raised for.": "العهدة اللي القيد ده اتعمل ليها.",
+    "Left empty, the default account from the construction settings is used.":
+        "لو سبته فاضي بيتستخدم الحساب الافتراضي من إعدادات المقاولات.",
+    "Asset account the cash sits in while it is with the holder. Debited when the custody goes out, credited as it is settled.":
+        "حساب الأصول اللي النقدية بتقعد فيه طول ما هي مع الحامل. بيتقفل مدين عند الصرف ودائن مع التسوية.",
+    "Where the cash leaves from, and where returned cash goes back.":
+        "النقدية بتخرج منه، والمرتجع بيرجع ليه.",
+    "Journal the settlement entry is booked in.": "اليومية اللي قيد التسوية بيتسجّل فيها.",
+    "Used for a settlement line that carries no account of its own.":
+        "بيتستخدم للسطر اللي مالوش حساب خاص بيه.",
+    "%(count)s settlement lines charged to their projects.":
+        "%(count)s سطر تسوية اتحمّلوا على مشاريعهم.",
+    "Custody %(ref)s - %(holder)s": "عهدة %(ref)s - %(holder)s",
+    "Custody %s returned": "مرتجع عهدة %s",
+    "Custody settlement %s": "تسوية عهدة %s",
+    "Set an expense account on \"%s\", or a default one in the construction settings.":
+        "حدد حساب مصروف على \"%s\"، أو حساب افتراضي في إعدادات المقاولات.",
+    "The holder still carries %(balance)s. Record the cash returned or add the missing receipts.":
+        "الحامل لسه ماسك %(balance)s. سجّل النقدية المرتجعة أو ضيف الإيصالات الناقصة.",
+
     "Cash Custody": "العهد النقدية", "Custody": "عهدة",
     "Cash Custody Account": "حساب العهد",
     "Custody Disbursement Journal": "يومية صرف العهد",
@@ -107,7 +143,7 @@ AR = {
     "Bond": "التأمين", "Start Bid Preparation": "بدء إعداد العطاء",
     "Booklet Purchase": "شراء كراسة الشروط",
     "The bid bond is issued after the conditions booklet is bought.":
-        "التأمين الابتدائي بيتصدر بعد شراء كراسة الشروط."
+        "التأمين الابتدائي بيتصدر بعد شراء كراسة الشروط.",
     "Only a tender in the bond stage can move to bid preparation.":
         "المناقصة لازم تكون في مرحلة التأمين عشان تبدأ إعداد العطاء.",
     "The bid bond has not been issued yet.":
