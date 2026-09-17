@@ -88,9 +88,9 @@
 
     <menuitem id="menu_construction_salary_distribution"
               name="Salary Distribution"
-              parent="aos_construction_management.menu_construction_root"
+              parent="aos_construction_management.menu_construction_expenses"
               action="action_construction_salary_distribution"
-              sequence="62"/>
+              sequence="30"/>
 
     <record id="view_employee_form_construction_cost" model="ir.ui.view">
         <field name="name">hr.employee.form.construction.cost</field>

@@ -7,11 +7,23 @@
               action="action_construction_document"
               sequence="55"/>
 
+    <!-- Expenses stops being a list of its own and becomes the section the
+         money-out screens sit in. -->
+    <record id="aos_construction_management.menu_construction_expenses" model="ir.ui.menu">
+        <field name="action" eval="False"/>
+    </record>
+
+    <menuitem id="menu_construction_expense_list"
+              name="Expenses"
+              parent="aos_construction_management.menu_construction_expenses"
+              action="aos_construction_management.action_construction_expense"
+              sequence="10"/>
+
     <menuitem id="menu_construction_custody"
               name="Cash Custody"
-              parent="aos_construction_management.menu_construction_root"
+              parent="aos_construction_management.menu_construction_expenses"
               action="action_construction_custody"
-              sequence="82"/>
+              sequence="20"/>
 
     <menuitem id="menu_construction_authority_type"
               name="Authority Types"
