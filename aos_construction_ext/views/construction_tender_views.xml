@@ -93,6 +93,11 @@
                 <field name="reminder_days"/>
             </xpath>
 
+            <!-- The estimate belongs to the stage where the bid is priced. -->
+            <xpath expr="//group[field[@name='estimated_value']]" position="attributes">
+                <attribute name="invisible">state != 'in_progress'</attribute>
+            </xpath>
+
             <!-- The figure is a percentage; say so next to it. -->
             <xpath expr="//field[@name='estimated_margin_percent']" position="replace">
                 <label for="estimated_margin_percent"/>
