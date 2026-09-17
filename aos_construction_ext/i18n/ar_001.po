@@ -1301,6 +1301,7 @@ msgstr "حساب المصروف"
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 #: code:addons/aos_construction_ext/models/construction_salary.py:0
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_expense_list
 msgid "Expenses"
 msgstr "المصروفات"
 
