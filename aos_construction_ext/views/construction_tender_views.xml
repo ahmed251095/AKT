@@ -93,9 +93,10 @@
                 <field name="reminder_days"/>
             </xpath>
 
-            <!-- The estimate belongs to the stage where the bid is priced. -->
+            <!-- The estimate appears with the items it is the total of, and
+                 stays on the file after the bid goes in. -->
             <xpath expr="//group[field[@name='estimated_value']]" position="attributes">
-                <attribute name="invisible">state != 'in_progress'</attribute>
+                <attribute name="invisible">state in ('draft', 'pending_approval', 'booklet', 'bond_setup')</attribute>
             </xpath>
 
             <!-- The figure is a percentage; say so next to it. -->
