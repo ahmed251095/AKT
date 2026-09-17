@@ -48,6 +48,11 @@
                         invisible="state != 'on_hold'"/>
             </xpath>
 
+            <!-- Quality is optional; its button follows its menu. -->
+            <xpath expr="//button[@name='action_view_quality']" position="attributes">
+                <attribute name="groups">aos_construction_ext.group_construction_quality</attribute>
+            </xpath>
+
             <!-- Opened with the project, so there is nothing to pick here. -->
             <xpath expr="//field[@name='analytic_account_id']" position="attributes">
                 <attribute name="readonly">1</attribute>

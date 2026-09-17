@@ -2,6 +2,19 @@
 <odoo>
     <data noupdate="1">
 
+        <!-- Quality control is a module option: a contractor who does not run
+             site inspections switches it off and the screens go away. Held as
+             a group because that is what hides a menu in Odoo. -->
+        <record id="group_construction_quality" model="res.groups">
+            <field name="name">Construction / Quality Control</field>
+            <field name="comment">Site quality inspections and their checklists.</field>
+        </record>
+
+        <!-- On by default: the feature existed before it became optional. -->
+        <record id="base.group_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('group_construction_quality'))]"/>
+        </record>
+
         <!-- The six departments the company is organised in. They are plain
              checkbox groups, like the ones the base module ships, so one
              person can carry two hats in a small office. -->

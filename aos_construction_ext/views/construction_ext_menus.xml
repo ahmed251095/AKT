@@ -7,6 +7,10 @@
               action="action_construction_document"
               sequence="55"/>
 
+    <record id="aos_construction_management.menu_construction_quality" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('group_construction_quality')])]"/>
+    </record>
+
     <!-- Expenses stops being a list of its own and becomes the section the
          money-out screens sit in. -->
     <record id="aos_construction_management.menu_construction_expenses" model="ir.ui.menu">

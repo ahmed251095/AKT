@@ -24,6 +24,13 @@
                             <field name="construction_expense_percent"/>
                         </setting>
                     </block>
+                    <block title="Modules"
+                           help="Parts of the module you can switch off when the company does not work that way.">
+                        <setting string="Quality Control" help="Site inspections and their checklists. Switched off, the Quality menu disappears.">
+                            <field name="group_construction_quality"/>
+                        </setting>
+                    </block>
+
                     <block title="Cash Custody"
                            help="Accounts the custody entries are posted to. Until they are set the custody works without accounting entries.">
                         <setting string="Custody Account" help="Asset account holding the cash while it is with the holder.">

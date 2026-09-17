@@ -60,6 +60,11 @@ AR = {
     "Failed": "فشل", "Fail": "راسب", "Pass": "ناجح", "Conditional Pass": "ناجح بشروط",
     "Handover": "تحت التسليم", "In Handover": "تحت التسليم",
     "Waiting Approval": "بانتظار الموافقة",
+    "Quality Control": "فحص الجودة",
+    "Construction / Quality Control": "مقاولات / فحص الجودة",
+    "Site quality inspections and their checklists.": "فحوصات الجودة في الموقع وقوائم مراجعتها.",
+    "Modules": "الوحدات",
+
     # ---- cash custody ----
     "Money": "المال", "Company": "الشركة",
     "Line Count": "عدد السطور", "Move Count": "عدد القيود",

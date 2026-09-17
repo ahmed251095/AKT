@@ -1898,6 +1898,11 @@ msgid "Missing Documents"
 msgstr "المستندات الناقصة"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Modules"
+msgstr "الوحدات"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
 msgid "Money"
 msgstr "المال"
@@ -2468,6 +2473,12 @@ msgstr "الغرض"
 #: code:addons/aos_construction_ext/static/src/js/dashboard_patch.js:0
 msgid "Quality Checks"
 msgstr "فحوصات الجودة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_config_settings__group_construction_quality
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Quality Control"
+msgstr "فحص الجودة"
 
 #. module: aos_construction_ext
 #. odoo-python
