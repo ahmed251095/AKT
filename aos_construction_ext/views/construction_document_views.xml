@@ -100,7 +100,8 @@
         <field name="res_model">construction.document</field>
         <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="view_construction_document_search"/>
-        <field name="context">{'search_default_filter_missing': 1}</field>
+        <!-- Opens on what is still missing, one group per project. -->
+        <field name="context">{'search_default_filter_missing': 1, 'search_default_group_project': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Nothing is missing</p>
             <p>Papers pulled onto a tender or a project show up here until they are provided.</p>
