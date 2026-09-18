@@ -535,8 +535,8 @@ class ConstructionTender(models.Model):
             Command.set(tender_line.tax_ids.ids)]
         return values
 
-    #: Copied onto the awarded project, and refreshed on demand afterwards.
-    #: Each entry is (tender field, project field).
+    #: Copied onto the awarded project. Each entry is
+    #: (tender field, project field).
     PROJECT_CARRY_OVER = [
         ('authority_type_id', 'authority_type_id'),
         ('financial_responsible_id', 'financial_responsible_id'),
@@ -544,12 +544,12 @@ class ConstructionTender(models.Model):
         ('location', 'location'),
     ]
 
-    def _propagate_to_project(self, overwrite=False):
+    def _propagate_to_project(self):
         """Carry the tender data the project needs onto the awarded project.
 
-        By default only empty project fields are filled, because after award
-        the project owns its own data: the signed contract may name a different
-        duration or a different body than the tender did.
+        Only empty project fields are filled, because after award the project
+        owns its own data: the signed contract may name a different duration
+        or a different body than the tender did.
         """
         self.ensure_one()
         project = self.project_id
@@ -562,11 +562,10 @@ class ConstructionTender(models.Model):
                 source = source.id
             if not source:
                 continue
-            if overwrite or not project[project_field]:
+            if not project[project_field]:
                 values[project_field] = source
         if values:
             project.write(values)
-        return values
 
     def _copy_labour_to_project(self):
         """Hand the site the crew plan the office estimated."""

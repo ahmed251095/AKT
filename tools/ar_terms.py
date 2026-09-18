@@ -499,11 +499,6 @@ AR = {
         "لا يرد على طلب فتح العملية إلا إدارة المقاولات.",
     "Tender Document Fee For": "ثمن كراسة شروط لـ",
     "Conditions booklet fee settled by %s.": "تم سداد ثمن كراسة الشروط بالسند %s.",
-    "Refresh from Tender": "تحديث من المناقصة",
-    "This project did not come from a tender.": "هذا المشروع لم يأتِ من مناقصة.",
-    "The tender has nothing filled in that the project is missing.":
-        "لا يوجد في المناقصة بيان ناقص لدى المشروع.",
-    "Refreshed from tender %s.": "تم التحديث من المناقصة %s.",
     # ---- subcontract assignment ----
     "Subcontract Item": "بند إسناد",
     "Assigned Items": "البنود المسندة",

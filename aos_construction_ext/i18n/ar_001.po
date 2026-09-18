@@ -2567,17 +2567,6 @@ msgid "Reference"
 msgstr "المرجع"
 
 #. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
-msgid "Refresh from Tender"
-msgstr "تحديث من المناقصة"
-
-#. module: aos_construction_ext
-#. odoo-python
-#: code:addons/aos_construction_ext/models/construction_project.py:0
-msgid "Refreshed from tender %s."
-msgstr "تم التحديث من المناقصة %s."
-
-#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_reject_form
 msgid "Reject"
@@ -3241,12 +3230,6 @@ msgid "The subcontractor rate for \"%(item)s\" is %(rate)s, above the %(budget)s
 msgstr "سعر المقاول لـ \"%(item)s\" هو %(rate)s، وهو أعلى من %(budget)s التي سُعّر البند على أساسها.\nإما أن تفاوض على خفض السعر، أو تصحح تكلفة البند في المقايسة إذا كان التقدير خاطئاً."
 
 #. module: aos_construction_ext
-#. odoo-python
-#: code:addons/aos_construction_ext/models/construction_project.py:0
-msgid "The tender has nothing filled in that the project is missing."
-msgstr "لا يوجد في المناقصة بيان ناقص لدى المشروع."
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_account_payment__construction_tender_id
 msgid "The tender whose conditions booklet this payment pays for. Settling the payment marks the booklet as purchased."
 msgstr "المناقصة التي تُسدَّد بهذه الدفعة قيمة كراسة شروطها. تسوية الدفعة تُعلّم الكراسة كمُشتراة."
@@ -3294,12 +3277,6 @@ msgstr "هذا المشروع يحمل مستخلصات لمقاولي البا�
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "This project carries both subcontractor certificates and expenses filed under the subcontractor category, so the same money is very likely counted twice. Record subcontractor cost one way only."
 msgstr "هذا المشروع يحمل مستخلصات لمقاولي الباطن ومصروفات مسجَّلة تحت فئة مقاولي الباطن في نفس الوقت، ومن المرجح جداً أن نفس المبلغ محسوب مرتين. سجّل تكلفة مقاولي الباطن بطريقة واحدة فقط."
-
-#. module: aos_construction_ext
-#. odoo-python
-#: code:addons/aos_construction_ext/models/construction_project.py:0
-msgid "This project did not come from a tender."
-msgstr "هذا المشروع لم يأتِ من مناقصة."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__date_to
