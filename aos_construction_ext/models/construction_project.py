@@ -282,10 +282,12 @@ class ConstructionProject(models.Model):
     # HR follow-up
     # ------------------------------------------------------------------
 
+    #: The anchor goes *after* the new value: handover is the stage the
+    #: works pass through on the way to closure, so it sits before it.
     state = fields.Selection(
         selection_add=[
-            ('active',),
             ('handover', 'Handover'),
+            ('completed',),
         ],
         ondelete={'handover': 'set default'})
 

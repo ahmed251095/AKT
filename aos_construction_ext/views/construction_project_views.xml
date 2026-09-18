@@ -19,6 +19,12 @@
                 <field name="project_net_margin" readonly="1"/>
             </xpath>
 
+            <!-- Closure is reached from handover, which is exactly the
+                 stage the base module hid the button in. -->
+            <xpath expr="//header/button[@name='action_complete']" position="attributes">
+                <attribute name="invisible">state not in ('active', 'on_hold', 'handover')</attribute>
+            </xpath>
+
             <xpath expr="//header/button[@name='action_complete']" position="before">
                 <button name="action_start_handover" type="object" string="Start Handover"
                         class="btn-primary" invisible="state != 'active'"/>
