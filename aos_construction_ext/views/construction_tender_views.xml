@@ -99,11 +99,25 @@
                 <attribute name="invisible">state in ('draft', 'pending_approval', 'booklet', 'bond_setup')</attribute>
             </xpath>
 
+            <xpath expr="//field[@name='estimated_margin']" position="before">
+                <field name="estimated_admin" readonly="1"/>
+                <field name="estimated_tax" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='estimated_margin']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='estimated_margin']" position="after">
+                <field name="estimated_net_margin" readonly="1"
+                       groups="aos_construction_ext.group_construction_margin"/>
+            </xpath>
+
             <!-- The figure is a percentage; say so next to it. -->
             <xpath expr="//field[@name='estimated_margin_percent']" position="replace">
-                <label for="estimated_margin_percent"/>
-                <div class="o_row">
-                    <field name="estimated_margin_percent" nolabel="1" readonly="1"/>
+                <label for="estimated_net_margin_percent"
+                       groups="aos_construction_ext.group_construction_margin"/>
+                <div class="o_row"
+                     groups="aos_construction_ext.group_construction_margin">
+                    <field name="estimated_net_margin_percent" nolabel="1" readonly="1"/>
                     <span>%</span>
                 </div>
             </xpath>
@@ -159,6 +173,20 @@
 
             <xpath expr="//field[@name='line_ids']/list/field[@name='amount']" position="attributes">
                 <attribute name="sum">Total</attribute>
+            </xpath>
+
+            <!-- The gross margin gives way to the one net of tax and admin,
+                 and only the users trusted with it see either. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='margin']" position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='margin']" position="after">
+                <field name="admin_total" optional="hide" sum="Administration"/>
+                <field name="tax_total" optional="hide" sum="Tax"/>
+                <field name="net_margin" sum="Margin"
+                       groups="aos_construction_ext.group_construction_margin"/>
+                <field name="net_margin_percent" optional="hide"
+                       groups="aos_construction_ext.group_construction_margin"/>
             </xpath>
 
             <xpath expr="//field[@name='line_ids']" position="after">

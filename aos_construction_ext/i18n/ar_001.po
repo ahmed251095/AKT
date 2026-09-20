@@ -217,6 +217,16 @@ msgid "Administration Ratio (%)"
 msgstr "نسبة الإدارة (%)"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__admin_total
+msgid "Administration Total"
+msgstr "إجمالي الإدارة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__admin_amount
+msgid "Administration Value"
+msgstr "قيمة الإدارة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_handover_date
 msgid "Administrative Handover"
 msgstr "التسليم الإداري"
@@ -1241,6 +1251,11 @@ msgid "Equipment Operator"
 msgstr "مشغّل معدة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__estimated_admin
+msgid "Estimated Administration"
+msgstr "إجمالي الإدارة التقديري"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__total_cost
 msgid "Estimated Cost"
 msgstr "التكلفة التقديرية"
@@ -1250,6 +1265,16 @@ msgstr "التكلفة التقديرية"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_estimated_cost
 msgid "Estimated Labour Cost"
 msgstr "تكلفة العمالة التقديرية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__estimated_net_margin
+msgid "Estimated Margin"
+msgstr "الهامش التقديري"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__estimated_tax
+msgid "Estimated Tax"
+msgstr "إجمالي الضريبة التقديري"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -1827,7 +1852,13 @@ msgid "Management"
 msgstr "الإدارة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__net_margin
+msgid "Margin"
+msgstr "الهامش"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__assigned_margin_percent
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__net_margin_percent
 msgid "Margin (%)"
 msgstr "الهامش (%)"
 
@@ -2984,6 +3015,11 @@ msgstr "نسبة الضريبة (%)"
 #: model:construction.document.type,name:aos_construction_ext.document_type_tax_card
 msgid "Tax Card"
 msgstr "بطاقة ضريبية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__tax_total
+msgid "Tax Total"
+msgstr "إجمالي الضريبة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__tax_amount

@@ -65,6 +65,17 @@ AR = {
     "Site quality inspections and their checklists.": "فحوصات الجودة في الموقع وقوائم مراجعتها.",
     "Modules": "الوحدات",
 
+    "Construction / Margin": "مقاولات / الهامش",
+    "Sees the margin on tender items and on the tender totals.":
+        "يشوف الهامش على بنود المناقصة وعلى إجماليات المناقصة.",
+    "Administration Value": "قيمة الإدارة",
+    "Administration Total": "إجمالي الإدارة",
+    "Tax Total": "إجمالي الضريبة",
+    "Administration": "الإدارة",
+    "Estimated Administration": "إجمالي الإدارة التقديري",
+    "Estimated Tax": "إجمالي الضريبة التقديري",
+    "Net Margin": "الهامش الصافي",
+
     # ---- cash custody ----
     "Money": "المال", "Company": "الشركة",
     "Line Count": "عدد السطور", "Move Count": "عدد القيود",

@@ -8,17 +8,6 @@
         margin displays as 4152.05%. Dropping the widget shows the real number.
     -->
 
-    <record id="view_construction_tender_form_percentage_fix" model="ir.ui.view">
-        <field name="name">construction.tender.form.percentage.fix</field>
-        <field name="model">construction.tender</field>
-        <field name="inherit_id" ref="aos_construction_management.view_construction_tender_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='estimated_margin_percent']" position="attributes">
-                <attribute name="widget"/>
-            </xpath>
-        </field>
-    </record>
-
     <record id="view_construction_tender_list_percentage_fix" model="ir.ui.view">
         <field name="name">construction.tender.list.percentage.fix</field>
         <field name="model">construction.tender</field>

@@ -2,6 +2,14 @@
 <odoo>
     <data noupdate="1">
 
+        <!-- Margin is not for every pair of eyes on the file: the estimator
+             and the site see the rates, the margin is management's. Granted
+             per user, never implied by default. -->
+        <record id="group_construction_margin" model="res.groups">
+            <field name="name">Construction / Margin</field>
+            <field name="comment">Sees the margin on tender items and on the tender totals.</field>
+        </record>
+
         <!-- Quality control is a module option: a contractor who does not run
              site inspections switches it off and the screens go away. Held as
              a group because that is what hides a menu in Odoo. -->

@@ -158,6 +158,37 @@ class ConstructionTender(models.Model):
     labour_over_budget = fields.Boolean(
         string='Labour Over Budget', compute='_compute_labour_review')
 
+    # ------------------------------------------------------------------
+    # What the bid carries beyond the item cost
+    # ------------------------------------------------------------------
+    estimated_admin = fields.Monetary(
+        string='Estimated Administration', compute='_compute_net_estimates',
+        store=True, currency_field='currency_id',
+        help='The head-office administration share priced into the bid.')
+    estimated_tax = fields.Monetary(
+        string='Estimated Tax', compute='_compute_net_estimates', store=True,
+        currency_field='currency_id',
+        help='Tax priced into the rates. It is deducted from the payment, '
+             'so it is not margin.')
+    estimated_net_margin = fields.Monetary(
+        string='Estimated Margin', compute='_compute_net_estimates',
+        store=True, currency_field='currency_id')
+    estimated_net_margin_percent = fields.Float(
+        string='Estimated Margin (%)', compute='_compute_net_estimates',
+        store=True)
+
+    @api.depends('line_ids.net_margin', 'line_ids.admin_total',
+                 'line_ids.tax_total', 'line_ids.amount')
+    def _compute_net_estimates(self):
+        for tender in self:
+            value = sum(tender.line_ids.mapped('amount'))
+            tender.estimated_admin = sum(tender.line_ids.mapped('admin_total'))
+            tender.estimated_tax = sum(tender.line_ids.mapped('tax_total'))
+            tender.estimated_net_margin = sum(
+                tender.line_ids.mapped('net_margin'))
+            tender.estimated_net_margin_percent = (
+                100.0 * tender.estimated_net_margin / value) if value else 0.0
+
     def _compute_labour_review(self):
         for tender in self:
             priced = sum(line.qty * line.operating_cost

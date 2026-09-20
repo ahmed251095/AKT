@@ -67,6 +67,44 @@ class ConstructionTenderLine(models.Model):
     expense_amount = fields.Monetary(
         string='Expenses Value', compute='_compute_pricing', store=True)
 
+    # ------------------------------------------------------------------
+    # What of the rate is actually ours to keep
+    # ------------------------------------------------------------------
+    # The base margin is the whole gap between the bid and the item cost, so it
+    # counts two things the company never keeps: the tax, which is deducted
+    # from the certificate and paid on, and the head-office administration
+    # share, which is recovered overhead rather than profit.
+    admin_amount = fields.Monetary(
+        string='Administration Value', compute='_compute_net_margin',
+        store=True, help='The administration share carried by one unit.')
+    admin_total = fields.Monetary(
+        string='Administration Total', compute='_compute_net_margin',
+        store=True)
+    tax_total = fields.Monetary(
+        string='Tax Total', compute='_compute_net_margin', store=True)
+    net_margin = fields.Monetary(
+        string='Margin', compute='_compute_net_margin', store=True,
+        help='The bid less the item cost, the administration share and the '
+             'tax: what the item actually leaves behind.')
+    net_margin_percent = fields.Float(
+        string='Margin (%)', compute='_compute_net_margin', store=True)
+
+    @api.depends('amount', 'budget_cost', 'base_cost', 'admin_percent',
+                 'tax_amount', 'qty', 'is_section')
+    def _compute_net_margin(self):
+        for line in self:
+            if line.is_section:
+                line.admin_amount = line.admin_total = line.tax_total = 0.0
+                line.net_margin = line.net_margin_percent = 0.0
+                continue
+            line.admin_amount = line.base_cost * line.admin_percent / 100.0
+            line.admin_total = line.admin_amount * line.qty
+            line.tax_total = line.tax_amount * line.qty
+            line.net_margin = (line.amount - line.budget_cost
+                               - line.admin_total - line.tax_total)
+            line.net_margin_percent = (
+                100.0 * line.net_margin / line.amount) if line.amount else 0.0
+
     # Re-declared to become computed. The base module leaves both as plain
     # stored fields; keeping them writable lets an estimator override a single
     # line without switching the whole tender off the formula.
