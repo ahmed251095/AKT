@@ -20,6 +20,11 @@ class ResCompany(models.Model):
         string='General Expenses Ratio (%)', default=14.0,
         help='General expenses applied on the marked-up price, '
              'the last step of the build-up.')
+    construction_site_warehouse_id = fields.Many2one(
+        'stock.warehouse', string='Site Warehouse',
+        help='Warehouse the per-project site locations are created under. '
+             'Left empty, the company\'s first warehouse is used.')
+
     # ---- cash custody posting ----
     # Left empty on purpose: the chart of accounts is the accountant's, and a
     # guessed account posts real money to the wrong place.

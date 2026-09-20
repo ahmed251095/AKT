@@ -76,6 +76,8 @@ AR = {
     "Estimated Tax": "إجمالي الضريبة التقديري",
     "Net Margin": "الهامش الصافي",
 
+    "Site Warehouse": "مخزن المواقع", "Sites": "المواقع",
+
     # ---- cash custody ----
     "Money": "المال", "Company": "الشركة",
     "Line Count": "عدد السطور", "Move Count": "عدد القيود",

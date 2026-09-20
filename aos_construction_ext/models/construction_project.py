@@ -518,34 +518,37 @@ class ConstructionProject(models.Model):
         for project in projects:
             if not project.analytic_account_id:
                 project.analytic_account_id = project._create_analytic_account()
-            if not project.warehouse_id:
-                warehouse = project._create_site_warehouse()
-                project.warehouse_id = warehouse
-                project.stock_location_id = warehouse.lot_stock_id
+            if not project.stock_location_id:
+                location = project._create_site_location()
+                if location:
+                    project.stock_location_id = location
+                    project.warehouse_id = project._site_warehouse()
         return projects
 
-    def _create_site_warehouse(self):
-        """Open the site its own warehouse.
+    def _site_warehouse(self):
+        """The warehouse the site locations live under."""
+        company = self.env.company
+        return (company.construction_site_warehouse_id
+                or self.env['stock.warehouse'].search(
+                    [('company_id', '=', company.id)], order='id', limit=1))
 
-        A site holds its own steel, cement and formwork, and a requisition has
-        to draw from the store that actually has them. One shared warehouse
-        makes every project's stock read as one pile.
+    def _create_site_location(self):
+        """Open the site its own stock location.
+
+        A site holds its own steel, cement and formwork, and the balance has to
+        read per site rather than as one pile. A location gives that separation
+        without the operation types, routes and sequences a whole warehouse
+        drags behind it.
         """
         self.ensure_one()
-        Warehouse = self.env['stock.warehouse']
-        base = ''.join(ch for ch in (self.ref or '') if ch.isalnum())[-5:]
-        code = (base or 'WH').upper()
-        # The short name has to be unique, and five characters is all it holds.
-        suffix = 1
-        while Warehouse.search_count([('code', '=', code)]):
-            tail = str(suffix)
-            code = (code[:5 - len(tail)] + tail).upper()
-            suffix += 1
-        return Warehouse.create({
+        warehouse = self._site_warehouse()
+        if not warehouse or not warehouse.lot_stock_id:
+            return self.env['stock.location']
+        return self.env['stock.location'].create({
             'name': self.display_name,
-            'code': code,
+            'location_id': warehouse.lot_stock_id.id,
+            'usage': 'internal',
             'company_id': self.env.company.id,
-            'partner_id': self.client_id.id,
         })
 
     def _create_analytic_account(self):

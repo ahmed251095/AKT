@@ -31,6 +31,13 @@
                         </setting>
                     </block>
 
+                    <block title="Sites"
+                           help="Every project opens its own stock location, so each site's materials read on their own.">
+                        <setting string="Site Warehouse" help="The warehouse the project locations are created under. Left empty, the first warehouse is used.">
+                            <field name="construction_site_warehouse_id"/>
+                        </setting>
+                    </block>
+
                     <block title="Cash Custody"
                            help="Accounts the custody entries are posted to. Until they are set the custody works without accounting entries.">
                         <setting string="Custody Account" help="Asset account holding the cash while it is with the holder.">

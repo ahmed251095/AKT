@@ -2891,8 +2891,15 @@ msgstr "موقع المخزون"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__warehouse_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_site_warehouse_id
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Site Warehouse"
 msgstr "مخزن الموقع"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Sites"
+msgstr "المواقع"
 
 #. module: aos_construction_ext
 #. odoo-python
