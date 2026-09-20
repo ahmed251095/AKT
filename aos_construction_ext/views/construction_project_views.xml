@@ -67,14 +67,6 @@
                 <attribute name="groups">aos_construction_ext.group_construction_quality</attribute>
             </xpath>
 
-            <!-- Opened with the project, like its cost centre. -->
-            <xpath expr="//field[@name='warehouse_id']" position="attributes">
-                <attribute name="readonly">1</attribute>
-            </xpath>
-            <xpath expr="//field[@name='stock_location_id']" position="attributes">
-                <attribute name="readonly">1</attribute>
-            </xpath>
-
             <!-- Opened with the project, so there is nothing to pick here. -->
             <xpath expr="//field[@name='analytic_account_id']" position="attributes">
                 <attribute name="readonly">1</attribute>
@@ -155,8 +147,9 @@
                     <page string="Stores" name="stores">
                         <group>
                             <group>
-                                <field name="warehouse_id"/>
-                                <field name="stock_location_id"/>
+                                <!-- Opened with the project, like its cost centre. -->
+                                <field name="warehouse_id" readonly="1"/>
+                                <field name="stock_location_id" readonly="1"/>
                             </group>
                         </group>
                     </page>
