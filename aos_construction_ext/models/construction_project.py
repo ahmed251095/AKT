@@ -518,7 +518,35 @@ class ConstructionProject(models.Model):
         for project in projects:
             if not project.analytic_account_id:
                 project.analytic_account_id = project._create_analytic_account()
+            if not project.warehouse_id:
+                warehouse = project._create_site_warehouse()
+                project.warehouse_id = warehouse
+                project.stock_location_id = warehouse.lot_stock_id
         return projects
+
+    def _create_site_warehouse(self):
+        """Open the site its own warehouse.
+
+        A site holds its own steel, cement and formwork, and a requisition has
+        to draw from the store that actually has them. One shared warehouse
+        makes every project's stock read as one pile.
+        """
+        self.ensure_one()
+        Warehouse = self.env['stock.warehouse']
+        base = ''.join(ch for ch in (self.ref or '') if ch.isalnum())[-5:]
+        code = (base or 'WH').upper()
+        # The short name has to be unique, and five characters is all it holds.
+        suffix = 1
+        while Warehouse.search_count([('code', '=', code)]):
+            tail = str(suffix)
+            code = (code[:5 - len(tail)] + tail).upper()
+            suffix += 1
+        return Warehouse.create({
+            'name': self.display_name,
+            'code': code,
+            'company_id': self.env.company.id,
+            'partner_id': self.client_id.id,
+        })
 
     def _create_analytic_account(self):
         """Open the project's own cost centre.
