@@ -54,6 +54,12 @@
                         invisible="state != 'on_hold'"/>
             </xpath>
 
+            <!-- The project's money reads the same rule as the tender's: only
+                 the users trusted with margin see what the job made. -->
+            <xpath expr="//group[field[@name='gross_margin']]" position="attributes">
+                <attribute name="groups">aos_construction_ext.group_construction_margin</attribute>
+            </xpath>
+
             <!-- Quality is optional; its button follows its menu. -->
             <xpath expr="//button[@name='action_view_quality']" position="attributes">
                 <attribute name="groups">aos_construction_ext.group_construction_quality</attribute>
@@ -171,7 +177,8 @@
                         </group>
                     </page>
 
-                    <page string="Profit Statement" name="profit">
+                    <page string="Profit Statement" name="profit"
+                          groups="aos_construction_ext.group_construction_margin">
                         <div class="alert alert-warning" role="alert"
                              invisible="not subcontract_cost_overlap">This project carries both subcontractor certificates and expenses filed under the subcontractor category, so the same money is very likely counted twice. Record subcontractor cost one way only.</div>
                         <field name="subcontract_cost_overlap" invisible="1"/>
@@ -302,7 +309,8 @@
             <xpath expr="//field[@name='state']" position="before">
                 <field name="customer_certified_total" optional="hide"/>
                 <field name="project_total_cost" optional="hide"/>
-                <field name="project_net_profit" optional="show"/>
+                <field name="project_net_profit" optional="show"
+                       groups="aos_construction_ext.group_construction_margin"/>
                 <field name="performance_bond_state" optional="hide"/>
             </xpath>
         </field>
