@@ -110,8 +110,10 @@
                 <field name="subcontracted_qty" optional="show"/>
                 <field name="unassigned_qty" optional="show"/>
                 <field name="subcontract_cost" optional="show" sum="Assigned Cost"/>
-                <field name="subcontract_margin" optional="hide" sum="Margin after Subcontracting"/>
-                <field name="subcontract_margin_percent" optional="hide"/>
+                <field name="subcontract_margin" optional="hide" sum="Margin after Subcontracting"
+                       groups="aos_construction_ext.group_construction_margin"/>
+                <field name="subcontract_margin_percent" optional="hide"
+                       groups="aos_construction_ext.group_construction_margin"/>
                 <field name="is_over_assigned" column_invisible="1"/>
             </xpath>
         </field>

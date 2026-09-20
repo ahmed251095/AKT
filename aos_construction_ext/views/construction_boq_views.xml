@@ -86,6 +86,31 @@
             </xpath>
 
 
+            <!-- Same reading as the tender: the gross margin gives way to the
+                 one net of tax and administration, behind the same group. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='budget_margin']"
+                   position="attributes">
+                <attribute name="column_invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='budget_margin']"
+                   position="after">
+                <field name="admin_total" optional="hide" sum="Administration"/>
+                <field name="tax_total" optional="hide" sum="Tax"/>
+                <field name="net_margin" sum="Margin"
+                       groups="aos_construction_ext.group_construction_margin"/>
+                <field name="net_margin_percent" optional="hide"
+                       groups="aos_construction_ext.group_construction_margin"/>
+            </xpath>
+
+            <xpath expr="//field[@name='line_ids']/list/field[@name='expected_margin']"
+                   position="attributes">
+                <attribute name="groups">aos_construction_ext.group_construction_margin</attribute>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='expected_margin_percent']"
+                   position="attributes">
+                <attribute name="groups">aos_construction_ext.group_construction_margin</attribute>
+            </xpath>
+
             <!-- The columns in the order the estimator reads them: what the item
                  costs, what the budget carries, the markup, the sell rate, the
                  money and what is left of it. -->
