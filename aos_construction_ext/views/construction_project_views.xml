@@ -15,8 +15,10 @@
             </xpath>
 
             <xpath expr="//field[@name='gross_margin']" position="after">
-                <field name="project_net_profit" readonly="1"/>
-                <field name="project_net_margin" readonly="1"/>
+                <field name="project_net_profit" readonly="1"
+                       groups="aos_construction_ext.group_construction_margin"/>
+                <field name="project_net_margin" readonly="1"
+                       groups="aos_construction_ext.group_construction_margin"/>
             </xpath>
 
             <!-- Closure is reached from handover, which is exactly the
@@ -54,9 +56,9 @@
                         invisible="state != 'on_hold'"/>
             </xpath>
 
-            <!-- The project's money reads the same rule as the tender's: only
-                 the users trusted with margin see what the job made. -->
-            <xpath expr="//group[field[@name='gross_margin']]" position="attributes">
+            <!-- The costs, the revenue and the progress stay in the summary for
+                 everyone; only the three profit figures carry the margin group. -->
+            <xpath expr="//field[@name='gross_margin']" position="attributes">
                 <attribute name="groups">aos_construction_ext.group_construction_margin</attribute>
             </xpath>
 
