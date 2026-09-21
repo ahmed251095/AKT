@@ -119,6 +119,21 @@ class ConstructionWorkOrderLine(models.Model):
     cost_variance = fields.Monetary(
         string='Cost Variance', compute='_compute_actual_costs')
 
+    def _compute_quantities(self):
+        """Keep the base method from overwriting what was really spent.
+
+        The base computes the quantities and, in the same loop, sets
+        ``actual_cost = accepted_qty * unit_cost``. That figure is this
+        module's *earned* cost, not the spend, and because ``actual_cost``
+        now belongs to another compute, whichever method runs last wins:
+        reading the field alone gives the real spend, but anything that
+        recomputes the quantities - saving a line, an onchange in the form -
+        replaces it with quantity x rate. That is why a work order could show
+        5,000 in its header and 100 on the line right underneath.
+        """
+        super()._compute_quantities()
+        self._compute_actual_costs()
+
     # The purchase and expense side is found by search, not by a relation, so
     # it cannot be named here: confirming a purchase order does not refresh an
     # open form. The figures are not stored, so a reload always reads the
