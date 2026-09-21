@@ -28,6 +28,13 @@
             <xpath expr="//field[@name='forecast_margin']/ancestor::group[2]" position="attributes">
                 <attribute name="groups">aos_construction_ext.group_construction_margin</attribute>
             </xpath>
+            <!-- The phase tree is optional: off, a phase is just a phase. -->
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="groups">aos_construction_ext.group_construction_wbs_hierarchy</attribute>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']/ancestor::page[1]" position="attributes">
+                <attribute name="groups">aos_construction_ext.group_construction_wbs_hierarchy</attribute>
+            </xpath>
         </field>
     </record>
 
@@ -42,6 +49,9 @@
             <xpath expr="//field[@name='budget_cost']" position="replace"/>
             <xpath expr="//field[@name='planned_cost']" position="replace"/>
             <xpath expr="//field[@name='committed_cost']" position="replace"/>
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="groups">aos_construction_ext.group_construction_wbs_hierarchy</attribute>
+            </xpath>
         </field>
     </record>
 

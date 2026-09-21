@@ -15,6 +15,9 @@ class ResConfigSettings(models.TransientModel):
     group_construction_quality = fields.Boolean(
         string='Quality Control',
         implied_group='aos_construction_ext.group_construction_quality')
+    group_construction_wbs_hierarchy = fields.Boolean(
+        string='Sub-phases',
+        implied_group='aos_construction_ext.group_construction_wbs_hierarchy')
     construction_site_warehouse_id = fields.Many2one(
         related='company_id.construction_site_warehouse_id', readonly=False)
     construction_custody_account_id = fields.Many2one(

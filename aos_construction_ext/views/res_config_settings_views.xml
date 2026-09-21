@@ -29,6 +29,9 @@
                         <setting string="Quality Control" help="Site inspections and their checklists. Switched off, the Quality menu disappears.">
                             <field name="group_construction_quality"/>
                         </setting>
+                        <setting string="Sub-phases" help="Break a work phase into sub-phases under a parent phase. Switched off, the parent phase field and the sub-phase tab disappear.">
+                            <field name="group_construction_wbs_hierarchy"/>
+                        </setting>
                     </block>
 
                     <block title="Sites"

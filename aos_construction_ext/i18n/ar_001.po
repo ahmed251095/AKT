@@ -2948,6 +2948,12 @@ msgid "Stores"
 msgstr "المخازن"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_config_settings__group_construction_wbs_hierarchy
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Sub-phases"
+msgstr "المراحل الفرعية"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__subcontract_id
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody_line__category__subcontract
 msgid "Subcontract"

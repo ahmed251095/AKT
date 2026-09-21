@@ -10,6 +10,15 @@
             <field name="comment">Sees the margin on tender items and on the tender totals.</field>
         </record>
 
+        <!-- A phase tree is not how every contractor works: a small job is a
+             flat list of phases. Switched off, the parent phase and the
+             sub-phase tab go away and the records keep whatever links they
+             already have. -->
+        <record id="group_construction_wbs_hierarchy" model="res.groups">
+            <field name="name">Construction / Sub-phases</field>
+            <field name="comment">Breaks a work phase into sub-phases under a parent phase.</field>
+        </record>
+
         <!-- Quality control is a module option: a contractor who does not run
              site inspections switches it off and the screens go away. Held as
              a group because that is what hides a menu in Odoo. -->
@@ -63,6 +72,6 @@
     <!-- Outside the noupdate block on purpose: this updates base.group_user,
          which already exists, and a noupdate record would be skipped. -->
     <record id="base.group_user" model="res.groups">
-        <field name="implied_ids" eval="[(4, ref('group_construction_quality'))]"/>
+        <field name="implied_ids" eval="[(4, ref('group_construction_quality')), (4, ref('group_construction_wbs_hierarchy'))]"/>
     </record>
 </odoo>
