@@ -6,6 +6,10 @@
         <field name="model">construction.work.order</field>
         <field name="inherit_id" ref="aos_construction_management.view_construction_work_order_form"/>
         <field name="arch" type="xml">
+            <!-- Planned cost only restates quantity x rate, which the line already shows. -->
+            <xpath expr="//field[@name='planned_cost'][following-sibling::field[@name='currency_id']]" position="replace"/>
+            <xpath expr="//field[@name='line_ids']/list/field[@name='planned_cost']" position="replace"/>
+
             <!-- Planned dates nothing computes: the schedule lives on the project. -->
             <xpath expr="//field[@name='planned_start'][following-sibling::field[@name='actual_start']]" position="replace"/>
             <xpath expr="//field[@name='planned_end'][following-sibling::field[@name='actual_end']]" position="replace"/>

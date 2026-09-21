@@ -640,7 +640,7 @@ AR = {
     "In-house Work at Cost": "قيمة التنفيذ الذاتي بالتكلفة",
     "In-house Cost Variance": "فرق تكلفة التنفيذ الذاتي",
     "In-house Execution Control": "رقابة التنفيذ الذاتي",
-    "Earned Cost": "التكلفة المكتسبة",
+    "Earned Cost": "التكلفة المتوقعة للكمية المقبولة",
     "Cost Variance": "فرق التكلفة",
     "Actual Unit Cost": "تكلفة الوحدة الفعلية",
     "Purchases": "المشتريات",

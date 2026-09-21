@@ -1188,7 +1188,7 @@ msgstr "الموعد %s."
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order__earned_cost
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__earned_cost
 msgid "Earned Cost"
-msgstr "التكلفة المكتسبة"
+msgstr "التكلفة المتوقعة للكمية المقبولة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_work_order__cost_variance
