@@ -25,6 +25,10 @@
             <xpath expr="//field[@name='budget_revenue']/parent::group" position="replace">
                 <field name="currency_id" invisible="1"/>
             </xpath>
+            <!-- The margin is unreadable without the cost it is taken from. -->
+            <xpath expr="//field[@name='forecast_margin']" position="before">
+                <field name="forecast_cost" readonly="1"/>
+            </xpath>
             <xpath expr="//field[@name='forecast_margin']/ancestor::group[2]" position="attributes">
                 <attribute name="groups">aos_construction_ext.group_construction_margin</attribute>
             </xpath>

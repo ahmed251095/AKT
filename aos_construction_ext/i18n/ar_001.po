@@ -1432,6 +1432,7 @@ msgstr "عامل تشطيبات"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__forecast_cost
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_wbs__forecast_cost
 msgid "Forecast Cost at Completion"
 msgstr "التكلفة المتوقعة عند الإتمام"
 
@@ -3562,6 +3563,11 @@ msgstr "قيمة شراء كراسة الشروط من العميل."
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__priced_operating_cost
 msgid "What the item prices already carry for execution: the operating cost of every item times its quantity."
 msgstr "ما يحمله تسعير البنود بالفعل للتنفيذ: تكلفة تشغيل كل بند مضروبة في كميته."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_wbs__forecast_cost
+msgid "What the phase is heading to cost: the finished work at what it actually cost, plus the work still to do at the subcontractor and cost rates."
+msgstr "التكلفة اللي المرحلة رايحة عليها: الشغل اللي خلص بتكلفته الفعلية، زائد الشغل الباقي بأسعار الباطن وأسعار التكلفة."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__variance_cost

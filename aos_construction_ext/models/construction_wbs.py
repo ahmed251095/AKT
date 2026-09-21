@@ -35,6 +35,12 @@ class ConstructionWbs(models.Model):
     # Same compute as the base keeps it on, on purpose: that method assigns
     # this field among others, so moving it elsewhere would leave two writers
     # racing for it.
+    forecast_cost = fields.Monetary(
+        string='Forecast Cost at Completion', compute='_compute_cost_control',
+        currency_field='currency_id',
+        help='What the phase is heading to cost: the finished work at what it '
+             'actually cost, plus the work still to do at the subcontractor '
+             'and cost rates.')
     forecast_margin = fields.Monetary(
         help='Contract value for the phase less what it is now heading to '
              'cost: what the finished work actually cost, plus the work still '
@@ -56,7 +62,8 @@ class ConstructionWbs(models.Model):
                 item.expected_cost * max(0.0, 1.0 - item.progress_percent / 100.0)
                 for item in items)
             spent = phase.actual_cost + phase.certified_subcontract_cost
-            phase.forecast_margin = phase.budget_revenue - (spent + remaining)
+            phase.forecast_cost = spent + remaining
+            phase.forecast_margin = phase.budget_revenue - phase.forecast_cost
 
 
 def _weighted_progress(boq_lines):
