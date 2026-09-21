@@ -4,8 +4,14 @@
     <!--
         The planned start / planned end dates on a WBS phase are never read by
         any computation in the base module - they are plain informative dates
-        that duplicate the project schedule, so they are dropped from the form.
-        The actual start / end dates stay.
+        that duplicate the project schedule, so they are dropped.
+
+        The budget figures go the same way: budget revenue and budget cost only
+        restate the bill of quantities that is already listed on the phase,
+        planned cost is a hand-typed number nothing reads, and committed cost
+        belongs on the purchase side. What is left is what was really spent,
+        what was certified, and the margin - and that whole block is management's,
+        so it is held behind the margin group.
     -->
 
     <record id="view_construction_wbs_form_ext" model="ir.ui.view">
@@ -15,6 +21,13 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='planned_start'][following-sibling::field[@name='actual_start']]" position="replace"/>
             <xpath expr="//field[@name='planned_end'][following-sibling::field[@name='actual_end']]" position="replace"/>
+            <!-- The whole left column of the Cost block is budget figures. -->
+            <xpath expr="//field[@name='budget_revenue']/parent::group" position="replace">
+                <field name="currency_id" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='forecast_margin']/ancestor::group[2]" position="attributes">
+                <attribute name="groups">aos_construction_ext.group_construction_margin</attribute>
+            </xpath>
         </field>
     </record>
 
@@ -25,6 +38,10 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='planned_start']" position="replace"/>
             <xpath expr="//field[@name='planned_end']" position="replace"/>
+            <xpath expr="//field[@name='budget_revenue']" position="replace"/>
+            <xpath expr="//field[@name='budget_cost']" position="replace"/>
+            <xpath expr="//field[@name='planned_cost']" position="replace"/>
+            <xpath expr="//field[@name='committed_cost']" position="replace"/>
         </field>
     </record>
 
