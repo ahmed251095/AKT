@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        The planned start / planned end dates on a WBS phase are never read by
+        any computation in the base module - they are plain informative dates
+        that duplicate the project schedule, so they are dropped from the form.
+        The actual start / end dates stay.
+    -->
+
+    <record id="view_construction_wbs_form_ext" model="ir.ui.view">
+        <field name="name">construction.wbs.form.ext</field>
+        <field name="model">construction.wbs</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_wbs_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='planned_start'][following-sibling::field[@name='actual_start']]" position="replace"/>
+            <xpath expr="//field[@name='planned_end'][following-sibling::field[@name='actual_end']]" position="replace"/>
+        </field>
+    </record>
+
+</odoo>
