@@ -144,7 +144,11 @@ class ConstructionWorkOrderLine(models.Model):
         PurchaseLine = self.env['purchase.order.line']
         Expense = self.env['construction.expense']
         for line in self:
-            order, boq = line.work_order_id, line.boq_line_id
+            # ``_origin`` so this also works while the form is open: an
+            # onchange hands the compute in-memory copies whose ids match no
+            # purchase order, which would read as nothing spent.
+            order = line.work_order_id._origin
+            boq = line.boq_line_id._origin
             purchases = labour = other = 0.0
             if order and boq:
                 po_lines = PurchaseLine.search([
