@@ -26,6 +26,8 @@ class ConstructionWorkOrder(models.Model):
         help='Earned cost less what was actually spent. Negative means the '
              'work cost more than the rates allowed.')
 
+    @api.depends('line_ids.planned_cost', 'line_ids.actual_cost',
+                 'line_ids.earned_cost')
     def _compute_line_costs(self):
         for order in self:
             order.planned_cost = sum(order.line_ids.mapped('planned_cost'))
@@ -117,6 +119,12 @@ class ConstructionWorkOrderLine(models.Model):
     cost_variance = fields.Monetary(
         string='Cost Variance', compute='_compute_actual_costs')
 
+    # The purchase and expense side is found by search, not by a relation, so
+    # it cannot be named here: confirming a purchase order does not refresh an
+    # open form. The figures are not stored, so a reload always reads the
+    # truth; what this buys is the header following the lines as they are
+    # edited.
+    @api.depends('accepted_qty', 'unit_cost', 'work_order_id', 'boq_line_id')
     def _compute_actual_costs(self):
         PurchaseLine = self.env['purchase.order.line']
         Expense = self.env['construction.expense']

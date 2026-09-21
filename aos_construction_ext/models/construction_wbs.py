@@ -17,6 +17,21 @@ class ConstructionWbs(models.Model):
         for phase in self:
             phase.progress = _weighted_progress(phase.boq_line_ids)
 
+    # The base module stores this one and depends on the work order's actual
+    # cost -- which this module computes live from purchase orders and
+    # expenses. A stored field cannot be told that a purchase order was just
+    # confirmed, so the phase kept whatever was written the day it was
+    # created, usually zero. Read it live instead; the figure is a sum over a
+    # handful of work orders.
+    actual_cost = fields.Monetary(
+        compute='_compute_actual_cost', store=False,
+        currency_field='currency_id')
+
+    @api.depends('work_order_ids.actual_cost')
+    def _compute_actual_cost(self):
+        for phase in self:
+            phase.actual_cost = sum(phase.work_order_ids.mapped('actual_cost'))
+
 
 def _weighted_progress(boq_lines):
     """Physical progress by value: what a contractor means by 'percent done'.
