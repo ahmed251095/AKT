@@ -32,6 +32,32 @@ class ConstructionWbs(models.Model):
         for phase in self:
             phase.actual_cost = sum(phase.work_order_ids.mapped('actual_cost'))
 
+    # Same compute as the base keeps it on, on purpose: that method assigns
+    # this field among others, so moving it elsewhere would leave two writers
+    # racing for it.
+    forecast_margin = fields.Monetary(
+        help='Contract value for the phase less what it is now heading to '
+             'cost: what the finished work actually cost, plus the work still '
+             'to do at the subcontractor and cost rates. It moves with the '
+             'spending, unlike the budget margin it replaced.')
+
+    def _compute_cost_control(self):
+        """Forecast the margin from where the phase actually stands.
+
+        The base reads it as budget revenue less budget cost, which is the
+        margin the estimator priced and never moves again however the site
+        spends. A forecast has to carry what the work already cost and price
+        only the rest at the rates.
+        """
+        super()._compute_cost_control()
+        for phase in self:
+            items = phase.boq_line_ids.filtered(lambda line: not line.is_section)
+            remaining = sum(
+                item.expected_cost * max(0.0, 1.0 - item.progress_percent / 100.0)
+                for item in items)
+            spent = phase.actual_cost + phase.certified_subcontract_cost
+            phase.forecast_margin = phase.budget_revenue - (spent + remaining)
+
 
 def _weighted_progress(boq_lines):
     """Physical progress by value: what a contractor means by 'percent done'.

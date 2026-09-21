@@ -641,6 +641,13 @@ AR = {
     "In-house Cost Variance": "فرق تكلفة التنفيذ الذاتي",
     "In-house Execution Control": "رقابة التنفيذ الذاتي",
     "Earned Cost": "التكلفة المتوقعة للكمية المقبولة",
+    "Contract value for the phase less what it is now heading to cost: what "
+    "the finished work actually cost, plus the work still to do at the "
+    "subcontractor and cost rates. It moves with the spending, unlike the "
+    "budget margin it replaced.":
+        "قيمة المرحلة في العقد ناقص التكلفة اللي رايحة عليها: التكلفة الفعلية "
+        "للشغل اللي خلص، زائد الشغل الباقي بأسعار الباطن وأسعار التكلفة. "
+        "بيتحرك مع الصرف، على عكس ربح الموازنة اللي كان مكانه.",
     "Cost Variance": "فرق التكلفة",
     "Actual Unit Cost": "تكلفة الوحدة الفعلية",
     "Purchases": "المشتريات",

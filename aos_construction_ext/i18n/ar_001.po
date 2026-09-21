@@ -168,6 +168,7 @@ msgid "Active"
 msgstr "نشط"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__actual_cost
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order__actual_cost
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_work_order_line__actual_cost
 msgid "Actual Cost"
@@ -887,6 +888,11 @@ msgid "Contract value"
 msgstr "قيمة العقد"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_management.field_construction_wbs__forecast_margin
+msgid "Contract value for the phase less what it is now heading to cost: what the finished work actually cost, plus the work still to do at the subcontractor and cost rates. It moves with the spending, unlike the budget margin it replaced."
+msgstr "قيمة المرحلة في العقد ناقص التكلفة اللي رايحة عليها: التكلفة الفعلية للشغل اللي خلص، زائد الشغل الباقي بأسعار الباطن وأسعار التكلفة. بيتحرك مع الصرف، على عكس ربح الموازنة اللي كان مكانه."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_project__forecast_margin
 msgid "Contract value less the forecast cost: the profit the project is heading for, rather than the profit booked so far."
 msgstr "قيمة العقد ناقص التكلفة المتوقعة: الربح الذي يتجه إليه المشروع، لا الربح المحقق حتى الآن."
@@ -1431,6 +1437,7 @@ msgstr "التكلفة المتوقعة عند الإتمام"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__forecast_margin
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_wbs__forecast_margin
 msgid "Forecast Margin"
 msgstr "الربح المتوقع"
 
