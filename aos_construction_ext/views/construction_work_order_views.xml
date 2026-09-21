@@ -6,6 +6,10 @@
         <field name="model">construction.work.order</field>
         <field name="inherit_id" ref="aos_construction_management.view_construction_work_order_form"/>
         <field name="arch" type="xml">
+            <!-- Planned dates nothing computes: the schedule lives on the project. -->
+            <xpath expr="//field[@name='planned_start'][following-sibling::field[@name='actual_start']]" position="replace"/>
+            <xpath expr="//field[@name='planned_end'][following-sibling::field[@name='actual_end']]" position="replace"/>
+
             <!-- A requisition raised from here belongs to this order's project. -->
             <xpath expr="//field[@name='material_requisition_ids']" position="attributes">
                 <attribute name="context">{'default_project_id': project_id, 'default_wbs_id': wbs_id}</attribute>
@@ -41,6 +45,16 @@
                 <field name="earned_cost"/>
                 <field name="cost_variance"/>
             </xpath>
+        </field>
+    </record>
+
+    <record id="view_construction_work_order_list_ext" model="ir.ui.view">
+        <field name="name">construction.work.order.list.ext</field>
+        <field name="model">construction.work.order</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_work_order_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='planned_start']" position="replace"/>
+            <xpath expr="//field[@name='planned_end']" position="replace"/>
         </field>
     </record>
 
