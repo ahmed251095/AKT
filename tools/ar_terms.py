@@ -1013,4 +1013,15 @@ AR = {
     "Loading...": "جارٍ التحميل...",
     "Under Handover": "تحت التسليم",
     "Total Actual Cost": "إجمالي التكلفة الفعلية",
+
+    # مرحلة العمل: البنود اللي بتحملها من الجهتين
+    "In-house Items": "بنود التنفيذ الذاتي",
+    "Subcontracted Items": "البنود المسندة لمقاولي الباطن",
+    "Our Own Work": "تنفيذنا الذاتي",
+    "Handed to Subcontractors": "مسند لمقاولي الباطن",
+    "Planned Quantity": "الكمية المخططة",
+    "Accepted Quantity": "الكمية المقبولة",
+    "Weighted by item value, so a large item moves the phase more than a small one. What we build and what a subcontractor builds count the same way.":
+        "مرجَّحة بقيمة البند، فالبند الكبير يحرّك المرحلة أكثر من الصغير. وتنفيذنا الذاتي وتنفيذ الباطن يُحسبان بنفس الطريقة.",
+    "The phase the contract was signed for.": "المرحلة التي أُبرم العقد من أجلها.",
 }

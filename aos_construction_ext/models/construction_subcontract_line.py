@@ -20,6 +20,11 @@ class ConstructionSubcontractLine(models.Model):
         ondelete='cascade', index=True)
     project_id = fields.Many2one(
         related='subcontract_id.project_id', string='Project', store=True)
+    # The phase the contract was signed for. Stored so a phase can list the
+    # items assigned out of it without searching every contract.
+    wbs_id = fields.Many2one(
+        related='subcontract_id.wbs_id', string='WBS Phase', store=True,
+        index=True)
     sequence = fields.Integer(string='Sequence', default=10)
 
     boq_line_id = fields.Many2one(

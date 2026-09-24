@@ -1511,6 +1511,11 @@ msgid "Hand Over Cash"
 msgstr "صرف العهدة"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_wbs_form_ext
+msgid "Handed to Subcontractors"
+msgstr "مسند لمقاولي الباطن"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__state__handover
 msgid "Handover"
 msgstr "تحت التسليم"
@@ -1625,6 +1630,11 @@ msgstr "فرق تكلفة التنفيذ الذاتي"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "In-house Execution Control"
 msgstr "رقابة التنفيذ الذاتي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_wbs__work_order_line_ids
+msgid "In-house Items"
+msgstr "بنود التنفيذ الذاتي"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__inhouse_scope_qty
@@ -2185,6 +2195,11 @@ msgstr "تكاليف أخرى"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_other
 msgid "Other Expenses"
 msgstr "مصروفات أخرى"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_wbs_form_ext
+msgid "Our Own Work"
+msgstr "تنفيذنا الذاتي"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract_line__price_headroom
@@ -2978,6 +2993,11 @@ msgid "Subcontract Item"
 msgstr "بند إسناد"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_wbs__subcontract_line_ids
+msgid "Subcontracted Items"
+msgstr "البنود المسندة لمقاولي الباطن"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_subcontract.py:0
 msgid "Subcontractor Certificate"
@@ -3495,6 +3515,7 @@ msgstr "فواتير الموردين"
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_line__wbs_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__wbs_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__wbs_id
 msgid "WBS Phase"
 msgstr "مرحلة العمل"
 
@@ -3521,8 +3542,8 @@ msgstr "المخزن الذي يصرف منه الموقع مواده."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_management.field_construction_wbs__progress
-msgid "Weighted by item value, so a large item moves the phase more than a small one."
-msgstr "مرجَّحة بقيمة البند، فالبند الكبير يحرّك المرحلة أكثر من الصغير."
+msgid "Weighted by item value, so a large item moves the phase more than a small one. What we build and what a subcontractor builds count the same way."
+msgstr "مرجَّحة بقيمة البند، فالبند الكبير يحرّك المرحلة أكثر من الصغير. وتنفيذنا الذاتي وتنفيذ الباطن يُحسبان بنفس الطريقة."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext

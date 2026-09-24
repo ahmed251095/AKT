@@ -52,6 +52,40 @@
                 <attribute name="groups">aos_construction_ext.group_construction_wbs_hierarchy</attribute>
             </xpath>
             <xpath expr="//field[@name='child_ids']/list/field[@name='code']" position="replace"/>
+            <!-- The bill items the phase carries, by who is building them. -->
+            <xpath expr="//field[@name='boq_line_ids']" position="replace">
+                <separator string="Our Own Work"/>
+                <field name="work_order_line_ids" readonly="1"
+                       domain="[('work_order_id.state', '!=', 'cancelled')]">
+                    <list>
+                        <field name="work_order_id"/>
+                        <field name="boq_line_id"/>
+                        <field name="description"/>
+                        <field name="uom_id"/>
+                        <field name="planned_qty" sum="Planned Quantity"/>
+                        <field name="accepted_qty" sum="Accepted Quantity"/>
+                        <field name="completion_percent"/>
+                        <field name="unit_cost"/>
+                        <field name="actual_cost" sum="Actual Cost"/>
+                        <field name="currency_id" column_invisible="1"/>
+                    </list>
+                </field>
+                <separator string="Handed to Subcontractors"/>
+                <field name="subcontract_line_ids" readonly="1">
+                    <list>
+                        <field name="subcontract_id"/>
+                        <field name="boq_line_id"/>
+                        <field name="description"/>
+                        <field name="uom_id"/>
+                        <field name="qty" sum="Assigned Quantity"/>
+                        <field name="unit_price"/>
+                        <field name="amount" sum="Assigned Value"/>
+                        <field name="progress_percent"/>
+                        <field name="certified_qty" sum="Certified Quantity"/>
+                        <field name="currency_id" column_invisible="1"/>
+                    </list>
+                </field>
+            </xpath>
             <!-- Same dates again, this time the work orders' own. -->
             <xpath expr="//field[@name='work_order_ids']/list/field[@name='planned_start']" position="replace"/>
             <xpath expr="//field[@name='work_order_ids']/list/field[@name='planned_end']" position="replace"/>

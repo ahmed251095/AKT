@@ -133,7 +133,11 @@ class ConstructionSubcontract(models.Model):
                     'qty_current': line.qty_to_certify,
                     # Their agreed rate, not our own cost rate.
                     'unit_rate': line.unit_price,
-                    'wbs_id': line.boq_line_id.wbs_id.id,
+                    # The phase comes from the contract: a bill item is
+                    # not tied to one, and the contract was signed for a
+                    # phase. Without this the certified subcontract cost
+                    # never reaches a phase at all.
+                    'wbs_id': (self.wbs_id or line.boq_line_id.wbs_id).id,
                 }) for line in pending
             ],
         })
