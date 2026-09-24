@@ -13,6 +13,11 @@
         what was certified, and the margin - and that whole block is management's,
         so it is held behind the margin group.
 
+        Revenue and profit are read at the project, where the contract value
+        and the whole bill of quantities sit. A phase answers a narrower
+        question - what it cost and what it is heading to cost - so certified
+        revenue and the forecast margin come off it.
+
         The phase code is a free-text field nothing reads - no sequence feeds it,
         no report groups by it, nothing points at it - so the phase is identified
         by its name alone and the code is dropped everywhere it shows.
@@ -30,11 +35,13 @@
             <xpath expr="//field[@name='budget_revenue']/parent::group" position="replace">
                 <field name="currency_id" invisible="1"/>
             </xpath>
-            <!-- The margin is unreadable without the cost it is taken from. -->
+            <!-- The forecast cost takes the margin's place. -->
             <xpath expr="//field[@name='forecast_margin']" position="before">
                 <field name="forecast_cost" readonly="1"/>
             </xpath>
-            <xpath expr="//field[@name='forecast_margin']/ancestor::group[2]" position="attributes">
+            <xpath expr="//field[@name='certified_revenue']" position="replace"/>
+            <xpath expr="//field[@name='forecast_margin']" position="replace"/>
+            <xpath expr="//field[@name='forecast_cost']/ancestor::group[2]" position="attributes">
                 <attribute name="groups">aos_construction_ext.group_construction_margin</attribute>
             </xpath>
             <!-- The phase tree is optional: off, a phase is just a phase. -->
