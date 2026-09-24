@@ -12,6 +12,10 @@
         belongs on the purchase side. What is left is what was really spent,
         what was certified, and the margin - and that whole block is management's,
         so it is held behind the margin group.
+
+        The phase code is a free-text field nothing reads - no sequence feeds it,
+        no report groups by it, nothing points at it - so the phase is identified
+        by its name alone and the code is dropped everywhere it shows.
     -->
 
     <record id="view_construction_wbs_form_ext" model="ir.ui.view">
@@ -19,6 +23,7 @@
         <field name="model">construction.wbs</field>
         <field name="inherit_id" ref="aos_construction_management.view_construction_wbs_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='code'][following-sibling::field[@name='project_id']]" position="replace"/>
             <xpath expr="//field[@name='planned_start'][following-sibling::field[@name='actual_start']]" position="replace"/>
             <xpath expr="//field[@name='planned_end'][following-sibling::field[@name='actual_end']]" position="replace"/>
             <!-- The whole left column of the Cost block is budget figures. -->
@@ -39,6 +44,7 @@
             <xpath expr="//field[@name='child_ids']/ancestor::page[1]" position="attributes">
                 <attribute name="groups">aos_construction_ext.group_construction_wbs_hierarchy</attribute>
             </xpath>
+            <xpath expr="//field[@name='child_ids']/list/field[@name='code']" position="replace"/>
             <!-- Same dates again, this time the work orders' own. -->
             <xpath expr="//field[@name='work_order_ids']/list/field[@name='planned_start']" position="replace"/>
             <xpath expr="//field[@name='work_order_ids']/list/field[@name='planned_end']" position="replace"/>
@@ -50,6 +56,7 @@
         <field name="model">construction.wbs</field>
         <field name="inherit_id" ref="aos_construction_management.view_construction_wbs_list"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='code']" position="replace"/>
             <xpath expr="//field[@name='planned_start']" position="replace"/>
             <xpath expr="//field[@name='planned_end']" position="replace"/>
             <xpath expr="//field[@name='budget_revenue']" position="replace"/>
