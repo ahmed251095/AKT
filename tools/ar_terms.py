@@ -1030,4 +1030,11 @@ AR = {
         "الكمية اللي أوامر الشغل خدتها على عاتقها: الكمية المخططة، أو المقبولة لو طلعت أكبر.",
     "What is still free to hand to a subcontractor: the item quantity less what is already assigned and less what the work orders have taken on.":
         "الكمية اللي لسه متاحة لتسند لمقاول باطن: كمية البند ناقص المسند فعلاً وناقص اللي أوامر الشغل خدته.",
+    "The completed quantity against the quantity assigned.": "الكمية المنجزة بالنسبة للكمية المسندة.",
+    "How much of the assigned quantity the engineer accepts as complete. This is what the next certificate is measured from.":
+        "قد إيه من الكمية المسندة المهندس بيعتمدها كمنجزة. ده الأساس اللي بيتقاس عليه المستخلص الجاي.",
+    "Completed quantity on \"%(item)s\" cannot be negative.":
+        "الكمية المنجزة في \"%(item)s\" ما ينفعش تكون بالسالب.",
+    "Completed quantity on \"%(item)s\" is %(done)s, above the %(assigned)s assigned to the subcontractor.":
+        "الكمية المنجزة في \"%(item)s\" هي %(done)s، أعلى من %(assigned)s المسندة للمقاول.",
 }

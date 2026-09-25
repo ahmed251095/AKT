@@ -74,8 +74,9 @@
                             <field name="unit_price"/>
                             <field name="price_headroom" optional="hide"/>
                             <field name="amount" sum="Assigned Value"/>
-                            <field name="progress_percent"/>
-                            <field name="progress_qty" optional="show"/>
+                            <field name="progress_qty" sum="Completed Quantity"/>
+                            <field name="progress_percent" readonly="1"
+                                   optional="show"/>
                             <field name="certified_qty" optional="show"/>
                             <field name="qty_to_certify" optional="show"/>
                             <field name="amount_to_certify" optional="show"

@@ -799,6 +799,18 @@ msgid "Completed less already certified: what the next certificate covers."
 msgstr "المنفَّذ ناقص ما استُخلص سابقاً: ما يغطيه المستخلص القادم."
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_subcontract_line.py:0
+msgid "Completed quantity on \"%(item)s\" cannot be negative."
+msgstr "الكمية المنجزة في \"%(item)s\" ما ينفعش تكون بالسالب."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_subcontract_line.py:0
+msgid "Completed quantity on \"%(item)s\" is %(done)s, above the %(assigned)s assigned to the subcontractor."
+msgstr "الكمية المنجزة في \"%(item)s\" هي %(done)s، أعلى من %(assigned)s المسندة للمقاول."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract__progress_percent
 msgid "Completed value against assigned value, so a big item counts for more than a small one."
 msgstr "قيمة المنفَّذ مقابل قيمة المسند، فيكون للبند الكبير وزن أكبر من الصغير."
@@ -1602,9 +1614,9 @@ msgid "How many shifts this crew is needed for."
 msgstr "عدد الورديات المطلوبة لهذا الطاقم."
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract_line__progress_percent
-msgid "How much of this item the engineer accepts as complete. This is what the next certificate is measured from."
-msgstr "ما يعتمده المهندس من هذا البند كمنفَّذ. هذا هو الأساس الذي يُقاس عليه المستخلص القادم."
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract_line__progress_qty
+msgid "How much of the assigned quantity the engineer accepts as complete. This is what the next certificate is measured from."
+msgstr "قد إيه من الكمية المسندة المهندس بيعتمدها كمنجزة. ده الأساس اللي بيتقاس عليه المستخلص الجاي."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
@@ -2422,12 +2434,6 @@ msgstr "نسبة الإنجاز (%)"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__progress_percent
 msgid "Progress Percent"
 msgstr "نسبة الإنجاز"
-
-#. module: aos_construction_ext
-#. odoo-python
-#: code:addons/aos_construction_ext/models/construction_subcontract_line.py:0
-msgid "Progress on \"%(item)s\" is %(percent)s%%. It has to be between 0 and 100."
-msgstr "نسبة الإنجاز في \"%(item)s\" هي %(percent)s%%، ويجب أن تكون بين 0 و100."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__project_id
@@ -3250,6 +3256,11 @@ msgstr "التأمين الابتدائي بيتصدر بعد شراء كراس�
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "The booklet fee can only be spent after management has approved opening the tender."
 msgstr "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإدارة لفتح العملية."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract_line__progress_percent
+msgid "The completed quantity against the quantity assigned."
+msgstr "الكمية المنجزة بالنسبة للكمية المسندة."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_account_move__construction_custody_id

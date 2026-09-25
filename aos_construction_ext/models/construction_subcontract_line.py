@@ -62,13 +62,17 @@ class ConstructionSubcontractLine(models.Model):
     margin_percent = fields.Float(
         string='Item Margin (%)', compute='_compute_amounts', store=True)
 
-    progress_percent = fields.Float(
-        string='Progress (%)',
-        help='How much of this item the engineer accepts as complete. This is '
-             'what the next certificate is measured from.')
+    # The quantity is what the engineer measures on site, so it is what gets
+    # typed; the percentage follows from it. The other way round meant
+    # converting in your head before every certificate, and a percentage
+    # rounded to two places cannot express an odd quantity exactly.
     progress_qty = fields.Float(
-        string='Completed Quantity', compute='_compute_progress', store=True,
-        digits=(12, 3))
+        string='Completed Quantity', digits=(12, 3),
+        help='How much of the assigned quantity the engineer accepts as '
+             'complete. This is what the next certificate is measured from.')
+    progress_percent = fields.Float(
+        string='Progress (%)', compute='_compute_progress', store=True,
+        help='The completed quantity against the quantity assigned.')
 
     certified_qty = fields.Float(
         string='Certified Quantity', compute='_compute_certified',
@@ -111,15 +115,20 @@ class ConstructionSubcontractLine(models.Model):
                 100.0 * line.margin / revenue) if revenue else 0.0
             line.price_headroom = line.boq_cost_rate - line.unit_price
 
-    @api.constrains('progress_percent')
-    def _check_progress_percent(self):
+    @api.constrains('progress_qty', 'qty')
+    def _check_progress_qty(self):
         for line in self:
-            if not 0.0 <= line.progress_percent <= 100.0:
+            if line.progress_qty < 0.0:
                 raise ValidationError(self.env._(
-                    'Progress on "%(item)s" is %(percent)s%%. It has to be '
-                    'between 0 and 100.',
+                    'Completed quantity on "%(item)s" cannot be negative.',
+                    item=line.description or line.display_name))
+            if float_compare(line.progress_qty, line.qty,
+                             precision_digits=3) > 0:
+                raise ValidationError(self.env._(
+                    'Completed quantity on "%(item)s" is %(done)s, above the '
+                    '%(assigned)s assigned to the subcontractor.',
                     item=line.description or line.display_name,
-                    percent=line.progress_percent))
+                    done=line.progress_qty, assigned=line.qty))
 
     @api.constrains('unit_price', 'boq_line_id')
     def _check_price_within_item_cost(self):
@@ -144,9 +153,11 @@ class ConstructionSubcontractLine(models.Model):
                     rate=line.unit_price, budget=budget))
 
     @api.depends('qty', 'progress_percent')
+    @api.depends('progress_qty', 'qty')
     def _compute_progress(self):
         for line in self:
-            line.progress_qty = line.qty * line.progress_percent / 100.0
+            line.progress_percent = (
+                100.0 * line.progress_qty / line.qty) if line.qty else 0.0
 
     def _compute_certified(self):
         Billing = self.env['construction.ra.billing.line']
