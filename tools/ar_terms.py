@@ -1024,4 +1024,10 @@ AR = {
     "Weighted by item value, so a large item moves the phase more than a small one. What we build and what a subcontractor builds count the same way.":
         "مرجَّحة بقيمة البند، فالبند الكبير يحرّك المرحلة أكثر من الصغير. وتنفيذنا الذاتي وتنفيذ الباطن يُحسبان بنفس الطريقة.",
     "The phase the contract was signed for.": "المرحلة التي أُبرم العقد من أجلها.",
+    "Taken by Work Orders": "محجوزة لأوامر الشغل",
+    "Assignable Quantity": "الكمية القابلة للإسناد",
+    "What the work orders have taken on: the planned quantity, or the accepted one where it turned out larger.":
+        "الكمية اللي أوامر الشغل خدتها على عاتقها: الكمية المخططة، أو المقبولة لو طلعت أكبر.",
+    "What is still free to hand to a subcontractor: the item quantity less what is already assigned and less what the work orders have taken on.":
+        "الكمية اللي لسه متاحة لتسند لمقاول باطن: كمية البند ناقص المسند فعلاً وناقص اللي أوامر الشغل خدته.",
 }

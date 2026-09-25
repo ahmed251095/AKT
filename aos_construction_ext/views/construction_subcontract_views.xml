@@ -118,7 +118,9 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='line_ids']/list/field[@name='executed_qty']" position="before">
                 <field name="subcontracted_qty" optional="show"/>
-                <field name="unassigned_qty" optional="show"/>
+                <field name="inhouse_committed_qty" optional="show"/>
+                <field name="assignable_qty" optional="show"/>
+                <field name="unassigned_qty" optional="hide"/>
                 <field name="subcontract_cost" optional="show" sum="Assigned Cost"/>
                 <field name="subcontract_margin" optional="hide" sum="Margin after Subcontracting"
                        groups="aos_construction_ext.group_construction_margin"/>

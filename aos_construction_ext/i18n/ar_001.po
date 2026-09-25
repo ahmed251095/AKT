@@ -367,6 +367,11 @@ msgid "Asset account the cash sits in while it is with the holder. Debited when 
 msgstr "حساب الأصول اللي النقدية بتقعد فيه طول ما هي مع الحامل. بيتقفل مدين عند الصرف ودائن مع التسوية."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__assignable_qty
+msgid "Assignable Quantity"
+msgstr "الكمية القابلة للإسناد"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__subcontract_cost
 msgid "Assigned Cost"
 msgstr "تكلفة الإسناد"
@@ -2783,6 +2788,11 @@ msgid "Salary Distributions"
 msgstr "توزيعات الرواتب"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__scope_of_work
+msgid "Scope Of Work"
+msgstr "نطاق العمل"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__boq_unit_rate
 msgid "Selling Rate"
 msgstr "سعر البيع"
@@ -3038,6 +3048,11 @@ msgstr "موعد التسليم"
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract__assigned_total
 msgid "Sum of the items handed to this subcontractor."
 msgstr "مجموع البنود المسندة لمقاول الباطن هذا."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__inhouse_committed_qty
+msgid "Taken by Work Orders"
+msgstr "محجوزة لأوامر الشغل"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_salary_distribution_line__employee_cost
@@ -3551,6 +3566,11 @@ msgid "What is left, and what was agreed on handover..."
 msgstr "ما تبقى، وما تم الاتفاق عليه عند التسليم..."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__assignable_qty
+msgid "What is still free to hand to a subcontractor: the item quantity less what is already assigned and less what the work orders have taken on."
+msgstr "الكمية اللي لسه متاحة لتسند لمقاول باطن: كمية البند ناقص المسند فعلاً وناقص اللي أوامر الشغل خدته."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_labour_type__default_shift_rate
 msgid "What one person of this trade costs for one shift."
 msgstr "ما يكلفه فرد واحد من هذه المهنة في وردية واحدة."
@@ -3604,6 +3624,11 @@ msgstr "ما يأخذه مقاولو الباطن مقابل الكميات ال
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_project__forecast_cost
 msgid "What the whole bill of quantities will cost once finished: assigned work at the subcontractors rates, the rest at our own cost rates."
 msgstr "ما ستكلفه المقايسة كاملة عند انتهائها: الأعمال المسندة بأسعار مقاولي الباطن، والباقي بتكلفتنا."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__inhouse_committed_qty
+msgid "What the work orders have taken on: the planned quantity, or the accepted one where it turned out larger."
+msgstr "الكمية اللي أوامر الشغل خدتها على عاتقها: الكمية المخططة، أو المقبولة لو طلعت أكبر."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_hr_employee__construction_monthly_cost

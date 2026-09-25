@@ -168,7 +168,11 @@ class ConstructionSubcontract(models.Model):
         return super().unlink()
 
     def action_add_remaining_boq_items(self):
-        """Fill the contract with everything on the BOQ nobody has yet."""
+        """Fill the contract with what neither side has taken yet.
+
+        Free means free of both: not handed to another subcontractor, and not
+        taken on by one of our own work orders.
+        """
         Line = self.env['construction.subcontract.line']
         for contract in self:
             taken = contract.line_ids.boq_line_id
@@ -177,12 +181,12 @@ class ConstructionSubcontract(models.Model):
                 ('is_section', '=', False),
             ])
             for boq_line in candidates - taken:
-                if boq_line.unassigned_qty <= 0:
+                if boq_line.assignable_qty <= 0:
                     continue
                 Line.create({
                     'subcontract_id': contract.id,
                     'boq_line_id': boq_line.id,
-                    'qty': boq_line.unassigned_qty,
+                    'qty': boq_line.assignable_qty,
                     'unit_price': boq_line.cost_rate,
                 })
         return True

@@ -173,6 +173,17 @@ class ConstructionBoqLine(models.Model):
     unassigned_qty = fields.Float(
         string='Unassigned Quantity', compute='_compute_subcontracting',
         store=True, digits=(12, 3))
+    inhouse_committed_qty = fields.Float(
+        string='Taken by Work Orders', compute='_compute_assignable',
+        store=True, digits=(12, 3),
+        help='What the work orders have taken on: the planned quantity, or '
+             'the accepted one where it turned out larger.')
+    assignable_qty = fields.Float(
+        string='Assignable Quantity', compute='_compute_assignable',
+        store=True, digits=(12, 3),
+        help='What is still free to hand to a subcontractor: the item '
+             'quantity less what is already assigned and less what the work '
+             'orders have taken on.')
     is_over_assigned = fields.Boolean(
         string='Over-assigned', compute='_compute_subcontracting', store=True,
         help='More of this item has been handed to subcontractors than the '
@@ -200,6 +211,27 @@ class ConstructionBoqLine(models.Model):
             line.subcontract_margin = revenue - cost
             line.subcontract_margin_percent = (
                 100.0 * line.subcontract_margin / revenue) if revenue else 0.0
+
+    @api.depends('qty', 'subcontracted_qty',
+                 'work_order_line_ids.planned_qty',
+                 'work_order_line_ids.accepted_qty',
+                 'work_order_line_ids.work_order_id.state')
+    def _compute_assignable(self):
+        """What is left of the item once both sides have taken their share.
+
+        A quantity a work order has already taken on is spoken for, whether
+        or not it has been built yet. Offering it to a subcontractor as well
+        would hand out the same work twice -- and the item would end up
+        over-assigned with nothing in the totals to say so.
+        """
+        for line in self:
+            committed = sum(
+                max(execution.planned_qty, execution.accepted_qty)
+                for execution in line.work_order_line_ids
+                if execution.work_order_id.state != 'cancelled')
+            line.inhouse_committed_qty = committed
+            line.assignable_qty = max(
+                line.qty - line.subcontracted_qty - committed, 0.0)
 
     # ------------------------------------------------------------------
     # Forecast: what this item will really cost when it is finished
