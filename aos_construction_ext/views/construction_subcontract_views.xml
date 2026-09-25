@@ -7,7 +7,13 @@
         <field name="inherit_id" ref="aos_construction_management.view_construction_subcontract_form"/>
         <field name="arch" type="xml">
 
+            <!-- Two free-text boxes restating what the record already holds:
+                 the scope is the assigned items, and the payment terms are
+                 the vendor payment term, the retention and the advance up in
+                 the header, which are the ones anything acts on. -->
             <xpath expr="//field[@name='scope_of_work']/ancestor::page[1]"
+                   position="replace"/>
+            <xpath expr="//field[@name='payment_terms']/ancestor::page[1]"
                    position="replace"/>
 
             <xpath expr="//field[@name='advance_percent']" position="after">
