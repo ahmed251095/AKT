@@ -42,6 +42,14 @@ class ConstructionSubcontract(models.Model):
     contract_value = fields.Monetary(
         compute='_compute_contract_value', store=True, readonly=False)
 
+    # What the contract covers is the assigned items: the bill item, the
+    # quantity and the rate agreed for it. A paragraph of prose next to them
+    # was a second, required place to say the same thing, and nothing read it
+    # -- so it stops being required and comes off the form. The subcontract
+    # purchase order already falls back to the contract name for its line
+    # description.
+    scope_of_work = fields.Text(required=False)
+
     @api.depends('line_ids.amount', 'line_ids.margin')
     def _compute_line_totals(self):
         for contract in self:
