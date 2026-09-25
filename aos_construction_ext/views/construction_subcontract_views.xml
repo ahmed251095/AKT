@@ -15,6 +15,11 @@
                    position="replace"/>
             <xpath expr="//field[@name='payment_terms']/ancestor::page[1]"
                    position="replace"/>
+            <!-- The certificates already have a button above that counts them
+                 and opens the real screen, where they can be read, filtered
+                 and raised. The tab was a second, read-only copy of it. -->
+            <xpath expr="//field[@name='billing_ids']/ancestor::page[1]"
+                   position="replace"/>
 
             <xpath expr="//field[@name='advance_percent']" position="after">
                 <field name="advance_amount"/>
