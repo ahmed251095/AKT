@@ -152,7 +152,6 @@ class ConstructionSubcontractLine(models.Model):
                     item=line.boq_line_id.display_name,
                     rate=line.unit_price, budget=budget))
 
-    @api.depends('qty', 'progress_percent')
     @api.depends('progress_qty', 'qty')
     def _compute_progress(self):
         for line in self:
