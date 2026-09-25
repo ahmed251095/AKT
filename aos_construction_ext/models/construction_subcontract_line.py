@@ -97,6 +97,21 @@ class ConstructionSubcontractLine(models.Model):
         related='subcontract_id.currency_id', string='Currency')
     notes = fields.Char(string='Notes')
 
+    @api.depends('description', 'boq_line_id.description',
+                 'subcontract_id.ref')
+    def _compute_display_name(self):
+        """Name the item, not the row.
+
+        Without this the model falls back to ``model,id``, which is what an
+        error listing the offending items ends up printing at the user.
+        """
+        for line in self:
+            item = line.description or line.boq_line_id.description or ''
+            ref = line.subcontract_id.ref
+            line.display_name = ' - '.join(
+                part for part in (ref, item) if part
+            ) or line.subcontract_id.display_name
+
     @api.depends('boq_line_id')
     def _compute_from_boq(self):
         for line in self:
