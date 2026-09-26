@@ -209,6 +209,11 @@ class ConstructionCustody(models.Model):
                     'description': line.description,
                     'state': 'approved',
                     'approved_by': self.env.user.id,
+                    # Says the cost is already in the accounts through the
+                    # settlement entry below, so the expense never raises one
+                    # of its own.
+                    'custody_line_id': line.id,
+                    'account_id': line.account_id.id,
                 })
             custody._post_settlement_move(pending)
             custody.message_post(body=self.env._(

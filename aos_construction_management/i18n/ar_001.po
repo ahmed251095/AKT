@@ -522,7 +522,7 @@ msgstr "مستخلص أعمال"
 #. module: aos_construction_management
 #: model:ir.model,name:aos_construction_management.model_construction_expense
 msgid "Construction Expense"
-msgstr "مصروف مشروع"
+msgstr "مصروف مقاولات"
 
 #. module: aos_construction_management
 #. odoo-javascript

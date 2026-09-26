@@ -1,5 +1,7 @@
 from odoo import fields, models
 
+EXPENSE_ACCOUNT_DOMAIN = "[('account_type', 'in', ('expense', 'expense_direct_cost'))]"
+
 
 class ResCompany(models.Model):
     _inherit = 'res.company'
@@ -45,6 +47,40 @@ class ResCompany(models.Model):
         'account.account', string='Default Custody Expense Account',
         domain="[('account_type', 'in', ('expense', 'expense_direct_cost'))]",
         help='Used for a settlement line that carries no account of its own.')
+
+    # ---- expense posting, one account per category ----
+    # What an expense hits depends on what it was, so the category picks the
+    # account rather than the site being asked to know the chart of accounts.
+    construction_expense_journal_id = fields.Many2one(
+        'account.journal', string='Default Expense Journal',
+        domain="[('type', 'in', ('cash', 'bank'))]",
+        help='Suggested on a new expense as where the money comes out of. '
+             'Each expense can be paid from another cash box or bank.')
+    construction_expense_material_account_id = fields.Many2one(
+        'account.account', string='Materials Account',
+        domain=EXPENSE_ACCOUNT_DOMAIN)
+    construction_expense_labour_account_id = fields.Many2one(
+        'account.account', string='Labour Account',
+        domain=EXPENSE_ACCOUNT_DOMAIN)
+    construction_expense_equipment_account_id = fields.Many2one(
+        'account.account', string='Equipment Account',
+        domain=EXPENSE_ACCOUNT_DOMAIN)
+    construction_expense_subcontract_account_id = fields.Many2one(
+        'account.account', string='Subcontract Account',
+        domain=EXPENSE_ACCOUNT_DOMAIN)
+    construction_expense_overhead_account_id = fields.Many2one(
+        'account.account', string='Overhead Account',
+        domain=EXPENSE_ACCOUNT_DOMAIN)
+    construction_expense_other_account_id = fields.Many2one(
+        'account.account', string='Other Expenses Account',
+        domain=EXPENSE_ACCOUNT_DOMAIN)
+
+    def construction_expense_account(self, category):
+        """The account an expense of this category is booked to."""
+        self.ensure_one()
+        return self[
+            'construction_expense_%s_account_id' % category
+        ] if category else self.env['account.account']
 
     construction_reminder_days = fields.Integer(
         string='Tender Reminder (days)', default=2,

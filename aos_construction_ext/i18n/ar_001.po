@@ -748,6 +748,12 @@ msgstr "المصروفات المحمّلة"
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_expense.py:0
+msgid "Choose the cash box or bank \"%s\" is paid from before approving it."
+msgstr "اختار الخزنة أو البنك اللي هيتصرف منه \"%s\" قبل ما تعتمده."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_search
@@ -856,6 +862,11 @@ msgstr "نوع مستند المشاريع"
 #: model:construction.document.type,name:aos_construction_ext.document_type_drawings
 msgid "Construction Drawings"
 msgstr "الرسومات التنفيذية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_account_move__construction_expense_id
+msgid "Construction Expense"
+msgstr "مصروف مقاولات"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
@@ -1079,6 +1090,16 @@ msgid "Default Expense Account"
 msgstr "حساب المصروف الافتراضي"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_expense_journal_id
+msgid "Default Expense Journal"
+msgstr "اليومية الافتراضية للمصروفات"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Default Journal"
+msgstr "اليومية الافتراضية"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__default_shift_rate
 msgid "Default Shift Rate"
 msgstr "أجر الوردية الافتراضي"
@@ -1265,10 +1286,22 @@ msgid "Entries"
 msgstr "القيود"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_expense.py:0
+msgid "Entry %(entry)s reversed by %(reversal)s."
+msgstr "القيد %(entry)s اتعكس بالقيد %(reversal)s."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_equipment
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody_line__category__equipment
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Equipment"
 msgstr "المعدات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_expense_equipment_account_id
+msgid "Equipment Account"
+msgstr "حساب المعدات"
 
 #. module: aos_construction_ext
 #: model:construction.labour.type,name:aos_construction_ext.labour_type_operator
@@ -1344,8 +1377,14 @@ msgstr "المصروف"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_line__account_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__account_id
 msgid "Expense Account"
 msgstr "حساب المصروف"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Expense Posting"
+msgstr "قيد المصروفات"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -1753,10 +1792,24 @@ msgstr "اليومية \"%s\" مالهاش حساب تتصرف منه النقد
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_expense.py:0
+msgid "Journal \"%s\" has no account to take the money from."
+msgstr "اليومية \"%s\" مالهاش حساب تتصرف منه الفلوس."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
+#: code:addons/aos_construction_ext/models/construction_expense.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__move_ids
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__move_ids
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_expense_form_ext
 msgid "Journal Entries"
 msgstr "القيود المحاسبية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__move_id
+msgid "Journal Entry"
+msgstr "قيد اليومية"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_res_company__construction_custody_settlement_journal_id
@@ -1766,8 +1819,14 @@ msgstr "اليومية اللي قيد التسوية بيتسجّل فيها."
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_work_order_line__labour_cost
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody_line__category__labour
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Labour"
 msgstr "العمالة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_expense_labour_account_id
+msgid "Labour Account"
+msgstr "حساب العمالة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__labour_variance
@@ -1943,8 +2002,14 @@ msgstr "تكلفة خامات الوحدة الواحدة، بالسعر الذ�
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody_line__category__material
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Materials"
 msgstr "المواد"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_expense_material_account_id
+msgid "Materials Account"
+msgstr "حساب الخامات"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__mechanical_engineer_id
@@ -1999,6 +2064,7 @@ msgstr "المسند لمقاولي الباطن من هذا البند أكبر
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__move_count
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__move_count
 msgid "Move Count"
 msgstr "عدد القيود"
 
@@ -2200,6 +2266,7 @@ msgstr "مدة العملية (أيام)"
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody_line__category__other
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__file_type__other
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Other"
 msgstr "أخرى"
 
@@ -2212,6 +2279,11 @@ msgstr "تكاليف أخرى"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_other
 msgid "Other Expenses"
 msgstr "مصروفات أخرى"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_expense_other_account_id
+msgid "Other Expenses Account"
+msgstr "حساب المصروفات الأخرى"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_wbs_form_ext
@@ -2240,8 +2312,14 @@ msgstr "تجاوز الكمية"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody_line__category__overhead
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Overhead"
 msgstr "مصاريف عمومية"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_expense_overhead_account_id
+msgid "Overhead Account"
+msgstr "حساب المصاريف العمومية"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__expense_overhead
@@ -2257,6 +2335,11 @@ msgstr "سعر التكلفة عندنا"
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_project__logistics_manager_id
 msgid "Owns plant movement and transport between sites."
 msgstr "مسؤول عن حركة المعدات والنقل بين المواقع."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__journal_id
+msgid "Paid From"
+msgstr "مصروف من"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract__advance_amount
@@ -2766,6 +2849,12 @@ msgid "Revenue"
 msgstr "الإيرادات"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_expense.py:0
+msgid "Reversal of %s"
+msgstr "عكس %s"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
 msgid "Running"
 msgstr "جارٍ"
@@ -2889,6 +2978,11 @@ msgid "Settlement Journal"
 msgstr "يومية التسوية"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__custody_line_id
+msgid "Settlement Line"
+msgstr "سطر التسوية"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__percent
 msgid "Share (%)"
 msgstr "نسبة التحميل (%)"
@@ -2995,8 +3089,14 @@ msgstr "المراحل الفرعية"
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__subcontract_id
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody_line__category__subcontract
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Subcontract"
 msgstr "تعاقد باطن"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_expense_subcontract_account_id
+msgid "Subcontract Account"
+msgstr "حساب مقاولي الباطن"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__subcontract_line_ids
@@ -3051,6 +3151,11 @@ msgid "Submission Deadline"
 msgstr "موعد التسليم"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_res_company__construction_expense_journal_id
+msgid "Suggested on a new expense as where the money comes out of. Each expense can be paid from another cash box or bank."
+msgstr "بيتقترح على المصروف الجديد كمصدر للفلوس. وكل مصروف ينفع يتصرف من خزنة أو بنك تاني."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract__assigned_total
 msgid "Sum of the items handed to this subcontractor."
 msgstr "مجموع البنود المسندة لمقاول الباطن هذا."
@@ -3059,6 +3164,11 @@ msgstr "مجموع البنود المسندة لمقاول الباطن هذا.
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__inhouse_committed_qty
 msgid "Taken by Work Orders"
 msgstr "محجوزة لأوامر الشغل"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__account_id
+msgid "Taken from the category, using the accounts set in the construction settings. Type over it for a one-off."
+msgstr "بيتاخد من التصنيف، حسب الحسابات المظبوطة في إعدادات المقاولات. اكتب فوقه لو حالة خاصة."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_salary_distribution_line__employee_cost
@@ -3258,6 +3368,11 @@ msgid "The booklet fee can only be spent after management has approved opening t
 msgstr "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإدارة لفتح العملية."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__journal_id
+msgid "The cash box or bank the money leaves. Its own account is what the entry credits."
+msgstr "الخزنة أو البنك اللي الفلوس بتخرج منه. حسابه هو اللي بيتقفل دائن في القيد."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract_line__progress_percent
 msgid "The completed quantity against the quantity assigned."
 msgstr "الكمية المنجزة بالنسبة للكمية المسندة."
@@ -3266,6 +3381,16 @@ msgstr "الكمية المنجزة بالنسبة للكمية المسندة."
 #: model:ir.model.fields,help:aos_construction_ext.field_account_move__construction_custody_id
 msgid "The custody this entry was raised for."
 msgstr "العهدة اللي القيد ده اتعمل ليها."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__move_id
+msgid "The entry raised when the expense was approved. Emptied when it goes back to draft and the entry is reversed."
+msgstr "القيد اللي اتعمل وقت اعتماد المصروف. بيفضى لما المصروف يرجع لمسودة والقيد يتعكس."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_account_move__construction_expense_id
+msgid "The expense this entry was raised for."
+msgstr "المصروف اللي القيد ده اتعمل عشانه."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -3352,6 +3477,12 @@ msgstr "المناقصة التي تُسدَّد بهذه الدفعة قيمة 
 #: model:ir.model.fields,help:aos_construction_ext.field_purchase_order__construction_work_order_id
 msgid "The work order this purchase serves. Filled from the material requisition, and editable for a purchase raised directly."
 msgstr "أمر الشغل الذي يخدمه هذا الشراء. يُملأ من طلب التوريد، وقابل للتعديل في الشراء المباشر."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_expense.py:0
+msgid "There is no expense account for this category. Set one on the expense, or set the account for each category in the construction settings."
+msgstr "مفيش حساب مصروف للتصنيف ده. حطه على المصروف نفسه، أو ظبّط حساب كل تصنيف في إعدادات المقاولات."
 
 #. module: aos_construction_ext
 #. odoo-python

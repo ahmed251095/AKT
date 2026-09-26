@@ -65,3 +65,8 @@ class AccountMove(models.Model):
     construction_custody_id = fields.Many2one(
         'construction.custody', string='Cash Custody', index=True, copy=False,
         help='The custody this entry was raised for.')
+    # Copied on purpose, unlike the custody link: a reversal is made by
+    # copying the entry, and the reversal belongs on the expense too.
+    construction_expense_id = fields.Many2one(
+        'construction.expense', string='Construction Expense', index=True,
+        help='The expense this entry was raised for.')

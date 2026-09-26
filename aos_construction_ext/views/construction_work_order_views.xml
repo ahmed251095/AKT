@@ -101,6 +101,27 @@
                 <attribute name="readonly">state == 'approved'</attribute>
             </xpath>
 
+            <!-- Where the money comes out of, and what it is booked to. -->
+            <xpath expr="//field[@name='employee_id']" position="after">
+                <field name="journal_id" readonly="state == 'approved'"/>
+                <field name="account_id" readonly="state == 'approved'"
+                       invisible="not journal_id"/>
+                <field name="custody_line_id" readonly="1"
+                       invisible="not custody_line_id"/>
+            </xpath>
+
+            <!-- The entry the approval raised, where the custody has one. -->
+            <xpath expr="//sheet" position="before">
+                <div class="oe_button_box" name="expense_button_box">
+                    <button name="action_view_moves" type="object"
+                            class="oe_stat_button" icon="fa-book"
+                            invisible="move_count == 0">
+                        <field name="move_count" widget="statinfo"
+                               string="Journal Entries"/>
+                    </button>
+                </div>
+            </xpath>
+
             <!-- Otherwise an approved expense is a dead end: the reset button
                  only ever showed for a rejected one, so a mistake could
                  neither be edited nor undone. -->

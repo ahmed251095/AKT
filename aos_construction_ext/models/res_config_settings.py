@@ -27,6 +27,20 @@ class ResConfigSettings(models.TransientModel):
     construction_custody_settlement_journal_id = fields.Many2one(
         related='company_id.construction_custody_settlement_journal_id',
         readonly=False)
+    construction_expense_journal_id = fields.Many2one(
+        related='company_id.construction_expense_journal_id', readonly=False)
+    construction_expense_material_account_id = fields.Many2one(
+        related='company_id.construction_expense_material_account_id', readonly=False)
+    construction_expense_labour_account_id = fields.Many2one(
+        related='company_id.construction_expense_labour_account_id', readonly=False)
+    construction_expense_equipment_account_id = fields.Many2one(
+        related='company_id.construction_expense_equipment_account_id', readonly=False)
+    construction_expense_subcontract_account_id = fields.Many2one(
+        related='company_id.construction_expense_subcontract_account_id', readonly=False)
+    construction_expense_overhead_account_id = fields.Many2one(
+        related='company_id.construction_expense_overhead_account_id', readonly=False)
+    construction_expense_other_account_id = fields.Many2one(
+        related='company_id.construction_expense_other_account_id', readonly=False)
     construction_custody_expense_account_id = fields.Many2one(
         related='company_id.construction_custody_expense_account_id',
         readonly=False)

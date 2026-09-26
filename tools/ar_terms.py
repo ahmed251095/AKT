@@ -1045,8 +1045,39 @@ AR = {
         "المقايسة دي معتمدة، والموازنات وأوامر الشغل والمستخلصات كلها متسعّرة منها. اضغط \"تنقيح\" الأول عشان تفتحها تاني:",
     "The items of an approved bill of quantities cannot be changed. Press Revise on it first:":
         "بنود المقايسة المعتمدة ما ينفعش تتغيّر. اضغط \"تنقيح\" على المقايسة الأول:",
-    "The items of an approved bill of quantities cannot be changed. Press Revise on it first:":
-        "بنود المقايسة المعتمدة ما ينفعش تتغيّر. اضغط \"تنقيح\" على المقايسة الأول:",
     "This certificate is approved and counted against the contract, so it can no longer be edited. Cancel it and reset it to draft to change it:":
         "المستخلص ده معتمد ومحسوب على العقد، فما بقاش ينفع يتعدّل. الغيه ورجّعه لمسودة عشان تغيّر فيه:",
+
+    # ---- قيد المصروفات ----
+    "Paid From": "مصروف من",
+    "Expense Posting": "قيد المصروفات",
+    "Default Expense Journal": "اليومية الافتراضية للمصروفات",
+    "Default Journal": "اليومية الافتراضية",
+    "Materials Account": "حساب الخامات",
+    "Labour Account": "حساب العمالة",
+    "Equipment Account": "حساب المعدات",
+    "Subcontract Account": "حساب مقاولي الباطن",
+    "Overhead Account": "حساب المصاريف العمومية",
+    "Other Expenses Account": "حساب المصروفات الأخرى",
+    "Settlement Line": "سطر التسوية",
+    "The cash box or bank the money leaves. Its own account is what the entry credits.":
+        "الخزنة أو البنك اللي الفلوس بتخرج منه. حسابه هو اللي بيتقفل دائن في القيد.",
+    "Taken from the category, using the accounts set in the construction settings. Type over it for a one-off.":
+        "بيتاخد من التصنيف، حسب الحسابات المظبوطة في إعدادات المقاولات. اكتب فوقه لو حالة خاصة.",
+    "The entry raised when the expense was approved. Emptied when it goes back to draft and the entry is reversed.":
+        "القيد اللي اتعمل وقت اعتماد المصروف. بيفضى لما المصروف يرجع لمسودة والقيد يتعكس.",
+    "Choose the cash box or bank \"%s\" is paid from before approving it.":
+        "اختار الخزنة أو البنك اللي هيتصرف منه \"%s\" قبل ما تعتمده.",
+    "There is no expense account for this category. Set one on the expense, or set the account for each category in the construction settings.":
+        "مفيش حساب مصروف للتصنيف ده. حطه على المصروف نفسه، أو ظبّط حساب كل تصنيف في إعدادات المقاولات.",
+    "Entry %(entry)s reversed by %(reversal)s.":
+        "القيد %(entry)s اتعكس بالقيد %(reversal)s.",
+    "Reversal of %s": "عكس %s",
+    "Construction Expense": "مصروف مقاولات",
+    "The expense this entry was raised for.": "المصروف اللي القيد ده اتعمل عشانه.",
+    "Journal Entry": "قيد اليومية",
+    "Journal \"%s\" has no account to take the money from.":
+        "اليومية \"%s\" مالهاش حساب تتصرف منه الفلوس.",
+    "Suggested on a new expense as where the money comes out of. Each expense can be paid from another cash box or bank.":
+        "بيتقترح على المصروف الجديد كمصدر للفلوس. وكل مصروف ينفع يتصرف من خزنة أو بنك تاني.",
 }

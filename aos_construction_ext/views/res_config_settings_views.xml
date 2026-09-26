@@ -57,6 +57,31 @@
                         </setting>
                     </block>
 
+                    <block title="Expense Posting"
+                           help="An expense is booked to the account its category names when it is approved, against the cash box or bank it was paid from.">
+                        <setting string="Default Journal" help="Suggested on a new expense. Each expense can be paid from another cash box or bank.">
+                            <field name="construction_expense_journal_id"/>
+                        </setting>
+                        <setting string="Materials">
+                            <field name="construction_expense_material_account_id"/>
+                        </setting>
+                        <setting string="Labour">
+                            <field name="construction_expense_labour_account_id"/>
+                        </setting>
+                        <setting string="Equipment">
+                            <field name="construction_expense_equipment_account_id"/>
+                        </setting>
+                        <setting string="Subcontract">
+                            <field name="construction_expense_subcontract_account_id"/>
+                        </setting>
+                        <setting string="Overhead">
+                            <field name="construction_expense_overhead_account_id"/>
+                        </setting>
+                        <setting string="Other">
+                            <field name="construction_expense_other_account_id"/>
+                        </setting>
+                    </block>
+
                     <block title="Tenders">
                         <setting string="Reminder Lead Time" help="Days before a tender date the responsible users are reminded.">
                             <field name="construction_reminder_days"/>
