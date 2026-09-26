@@ -49,6 +49,7 @@ Adds the operating model actually used by the contractor on top of
         'wizard/construction_tender_reject_views.xml',
         'wizard/construction_project_hold_views.xml',
         'wizard/construction_custody_disburse_views.xml',
+        'wizard/construction_custody_return_views.xml',
         'views/construction_authority_type_views.xml',
         'views/construction_document_views.xml',
         'views/construction_tender_views.xml',

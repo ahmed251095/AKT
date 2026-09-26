@@ -13,6 +13,9 @@
                             class="btn-primary" invisible="state != 'draft'"/>
                     <button name="action_open" type="object" string="Hand Over More"
                             invisible="state != 'open'"/>
+                    <button name="action_return" type="object"
+                            string="Return Cash"
+                            invisible="state != 'open'"/>
                     <button name="action_post_settlement" type="object"
                             string="Charge Settlement" class="btn-primary"
                             invisible="state != 'open' or posted_count == line_count"/>
@@ -67,8 +70,9 @@
                             <field name="amount"
                                    readonly="state not in ('draft',) or payment_count &gt; 0"/>
                             <field name="payment_count" invisible="1"/>
+                            <!-- The sum of the returns once any exist. -->
                             <field name="returned_amount"
-                                   readonly="state == 'settled'"/>
+                                   readonly="state == 'settled' or payment_count &gt; 0"/>
                             <field name="currency_id" invisible="1"/>
                             <field name="line_count" invisible="1"/>
                             <field name="posted_count" invisible="1"/>

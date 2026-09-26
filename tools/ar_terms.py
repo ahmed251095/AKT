@@ -1077,6 +1077,19 @@ AR = {
     "The expense this entry was raised for.": "المصروف اللي القيد ده اتعمل عشانه.",
     "Journal Entry": "قيد اليومية",
     "Disburse Cash Custody": "صرف عهدة نقدية",
+    "Return Cash Custody": "رد نقدية العهدة",
+    "Return Custody Cash": "رد نقدية العهدة",
+    "Return Cash": "رد النقدية",
+    "Return To": "الرد إلى",
+    "Balance with Holder": "الرصيد لدى الحامل",
+    "The cash box or bank the money goes back into.": "الخزنة أو البنك اللي الفلوس هترجع فيه.",
+    "Cash can only be taken back from a custody the holder still has.":
+        "الرد بيتم من عهدة لسه مع حاملها بس.",
+    "Set the cash custody account in the construction settings before moving cash.":
+        "ظبّط حساب العهدة النقدية في إعدادات المقاولات قبل ما تحرّك فلوس.",
+    "%(amount)s returned to %(journal)s.": "اترد %(amount)s إلى %(journal)s.",
+    "Unspent cash handed back. The sum of the returns once any have been recorded.":
+        "النقدية اللي مااتصرفتش ورجعت. مجموع عمليات الرد أول ما تتسجّل.",
     "Payment Count": "عدد الدفعات",
     "Disburse Custody": "صرف العهدة",
     "Disburse": "صرف",

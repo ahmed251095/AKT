@@ -57,14 +57,20 @@ class ConstructionCustody(models.Model):
         readonly=True)
     payment_count = fields.Integer(compute='_compute_amount_issued')
 
-    @api.depends('payment_ids.amount', 'payment_ids.state')
+    @api.depends('payment_ids.amount', 'payment_ids.state',
+                 'payment_ids.payment_type')
     def _compute_amount_issued(self):
+        """Cash going out is what was issued, cash coming back is returned."""
         for custody in self:
             live = custody.payment_ids.filtered(
                 lambda payment: payment.state != 'canceled')
             custody.payment_count = len(custody.payment_ids)
-            if live:
-                custody.amount = sum(live.mapped('amount'))
+            issued = live.filtered(lambda p: p.payment_type == 'outbound')
+            returned = live.filtered(lambda p: p.payment_type == 'inbound')
+            if issued:
+                custody.amount = sum(issued.mapped('amount'))
+            if returned:
+                custody.returned_amount = sum(returned.mapped('amount'))
 
     line_ids = fields.One2many(
         'construction.custody.line', 'custody_id', string='Settlement',
@@ -74,7 +80,9 @@ class ConstructionCustody(models.Model):
         currency_field='currency_id')
     returned_amount = fields.Monetary(
         string='Cash Returned', currency_field='currency_id', tracking=True,
-        help='Unspent cash handed back.')
+        compute='_compute_amount_issued', store=True, readonly=False,
+        help='Unspent cash handed back. The sum of the returns once any have '
+             'been recorded.')
     balance = fields.Monetary(
         string='Balance with Holder', compute='_compute_amounts', store=True,
         currency_field='currency_id',
@@ -196,43 +204,87 @@ class ConstructionCustody(models.Model):
         company's money sitting with a person.
         """
         self.ensure_one()
-        setup = self._custody_setup()
-        if not setup['account']:
-            raise UserError(self.env._(
-                'Set the cash custody account in the construction settings '
-                'before handing cash over.'))
-        partner = self.employee_id.work_contact_id
-        if not partner:
-            raise UserError(self.env._(
-                'Employee "%s" has no contact to pay. Set the work contact on '
-                'the employee record.', self.employee_id.display_name))
-        payment = self.env['account.payment'].create({
-            'payment_type': 'outbound',
-            'partner_type': 'supplier',
-            'partner_id': partner.id,
-            'journal_id': journal.id,
-            'destination_account_id': setup['account'].id,
-            'amount': amount,
-            'date': date,
-            'memo': memo or self.env._(
+        payment = self._custody_payment(
+            payment_type='outbound', journal=journal, amount=amount,
+            date=date, memo=memo or self.env._(
                 'Custody %(ref)s - %(holder)s', ref=self.ref,
-                holder=self.employee_id.name or ''),
-            'construction_custody_id': self.id,
-        })
-        # Odoo 19 only books a payment that has somewhere to book it: with no
-        # outstanding account on the payment method, the payment sits as
-        # "in process" with no entry at all, which is how cash left this
-        # system unrecorded before. Fall back to the journal's own account,
-        # which posts the money straight out of the cash box or bank.
-        if not payment.outstanding_account_id:
-            payment.outstanding_account_id = journal.default_account_id
-        payment.action_post()
+                holder=self.employee_id.name or ''))
         if self.state == 'draft':
             self.state = 'open'
         if not self.payment_id:
             self.payment_id = payment
         self.message_post(body=self.env._(
             '%(amount)s handed over from %(journal)s.',
+            amount=amount, journal=journal.display_name))
+        return payment
+
+    def _custody_payment(self, payment_type, journal, amount, date, memo):
+        """One payment against the custody account, either direction.
+
+        Outbound debits the custody account and takes the money out of the
+        journal; inbound does the reverse. The holder is the counterparty on
+        both, so the payment reads as what it is on their record too.
+        """
+        self.ensure_one()
+        setup = self._custody_setup()
+        if not setup['account']:
+            raise UserError(self.env._(
+                'Set the cash custody account in the construction settings '
+                'before moving cash.'))
+        partner = self.employee_id.work_contact_id
+        if not partner:
+            raise UserError(self.env._(
+                'Employee "%s" has no contact to pay. Set the work contact on '
+                'the employee record.', self.employee_id.display_name))
+        payment = self.env['account.payment'].create({
+            'payment_type': payment_type,
+            'partner_type': 'supplier',
+            'partner_id': partner.id,
+            'journal_id': journal.id,
+            'destination_account_id': setup['account'].id,
+            'amount': amount,
+            'date': date,
+            'memo': memo,
+            'construction_custody_id': self.id,
+        })
+        # Odoo 19 only books a payment that has somewhere to book it: with no
+        # outstanding account on the payment method, the payment sits as "in
+        # process" with no entry at all, which is how cash left this system
+        # unrecorded before. Fall back to the journal's own account, which
+        # moves the money straight in or out of the cash box or bank.
+        if not payment.outstanding_account_id:
+            payment.outstanding_account_id = journal.default_account_id
+        payment.action_post()
+        return payment
+
+    def action_return(self):
+        """Ask how much is coming back, and which cash box or bank it goes to."""
+        self.ensure_one()
+        if self.state != 'open':
+            raise UserError(self.env._(
+                'Cash can only be taken back from a custody the holder still '
+                'has.'))
+        return {
+            'type': 'ir.actions.act_window',
+            'name': self.env._('Return Custody Cash'),
+            'res_model': 'construction.custody.return',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_custody_id': self.id},
+        }
+
+    def _return_cash(self, journal, amount, date, memo=None):
+        """Take the unspent cash back: the disbursement run backwards.
+
+        An inbound payment against the same custody account, so the cash box
+        or bank is debited and what the holder is carrying comes down.
+        """
+        self.ensure_one()
+        payment = self._custody_payment(
+            payment_type='inbound', journal=journal, amount=amount, date=date,
+            memo=memo or self.env._('Custody %s returned', self.ref))
+        self.message_post(body=self.env._(
+            '%(amount)s returned to %(journal)s.',
             amount=amount, journal=journal.display_name))
         return payment
 
@@ -371,6 +423,11 @@ class ConstructionCustody(models.Model):
         """Dr the cash it went back into, Cr the custody account."""
         self.ensure_one()
         setup = self._custody_setup()
+        if self.payment_ids.filtered(
+                lambda payment: payment.payment_type == 'inbound'):
+            # The cash went back through its own payment, which is already
+            # booked. Posting here as well would return it twice.
+            return False
         if not self.returned_amount or not (
                 setup['account'] and setup['cash_journal']):
             return False
