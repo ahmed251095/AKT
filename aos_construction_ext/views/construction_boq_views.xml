@@ -24,6 +24,13 @@
                 <attribute name="column_invisible">1</attribute>
             </xpath>
 
+            <!-- Purchases are counted in whatever unit the order was raised
+                 in, so the figure sat next to the executed quantity inviting
+                 a comparison it could not support. What was spent on an item
+                 is read in money, on the work order. -->
+            <xpath expr="//field[@name='line_ids']/list/field[@name='purchased_qty']"
+                   position="replace"/>
+
             <!-- An item is not owned by one phase: part of it can be executed in
                  one and part in another, so the phase is picked on the work
                  order instead. -->
