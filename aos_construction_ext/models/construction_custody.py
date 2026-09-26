@@ -35,8 +35,11 @@ class ConstructionCustody(models.Model):
                        required=True)
     purpose = fields.Text(string='Purpose')
 
+    # Grows with every disbursement. Kept writable so a custody run without
+    # accounting -- no journals configured -- can still be typed in.
     amount = fields.Monetary(
-        string='Amount Issued', currency_field='currency_id', tracking=True)
+        string='Amount Issued', currency_field='currency_id', tracking=True,
+        compute='_compute_amount_issued', store=True, readonly=False)
     company_id = fields.Many2one(
         'res.company', string='Company', required=True,
         default=lambda self: self.env.company)
@@ -47,6 +50,21 @@ class ConstructionCustody(models.Model):
         'account.payment', string='Disbursement Payment', copy=False,
         help='The payment that handed the cash over, if it was recorded in '
              'accounting.')
+    # A custody is topped up as the site spends, so the cash goes out in as
+    # many payments as it takes -- each with its own journal, date and entry.
+    payment_ids = fields.One2many(
+        'account.payment', 'construction_custody_id', string='Disbursements',
+        readonly=True)
+    payment_count = fields.Integer(compute='_compute_amount_issued')
+
+    @api.depends('payment_ids.amount', 'payment_ids.state')
+    def _compute_amount_issued(self):
+        for custody in self:
+            live = custody.payment_ids.filtered(
+                lambda payment: payment.state != 'canceled')
+            custody.payment_count = len(custody.payment_ids)
+            if live:
+                custody.amount = sum(live.mapped('amount'))
 
     line_ids = fields.One2many(
         'construction.custody.line', 'custody_id', string='Settlement',
@@ -151,17 +169,75 @@ class ConstructionCustody(models.Model):
     # Flow
     # ------------------------------------------------------------------
     def action_open(self):
-        """Hand the cash over."""
-        for custody in self:
-            if custody.state != 'draft':
-                raise UserError(self.env._(
-                    'Only a draft custody can be handed over.'))
-            if custody.amount <= 0:
-                raise UserError(self.env._(
-                    'Set the amount handed to the holder first.'))
-            custody.state = 'open'
-            custody._post_disbursement()
-        return True
+        """Ask how much is going out, and out of which cash box or bank."""
+        self.ensure_one()
+        if self.state not in ('draft', 'open'):
+            raise UserError(self.env._(
+                'Cash can only be handed to a custody that is open or still '
+                'a draft.'))
+        return {
+            'type': 'ir.actions.act_window',
+            'name': self.env._('Disburse Custody'),
+            'res_model': 'construction.custody.disburse',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_custody_id': self.id},
+        }
+
+    def _disburse(self, journal, amount, date, memo=None):
+        """Pay the holder, and put the cash on the custody account.
+
+        The payment is the disbursement -- not a plain journal entry -- so
+        the money shows up where the accountant looks for money: in Payments,
+        reconcilable against the bank statement like any other.
+
+        Its destination is forced to the custody account rather than the
+        holder's payable: the cash has not been spent yet, it is the
+        company's money sitting with a person.
+        """
+        self.ensure_one()
+        setup = self._custody_setup()
+        if not setup['account']:
+            raise UserError(self.env._(
+                'Set the cash custody account in the construction settings '
+                'before handing cash over.'))
+        partner = self.employee_id.work_contact_id
+        if not partner:
+            raise UserError(self.env._(
+                'Employee "%s" has no contact to pay. Set the work contact on '
+                'the employee record.', self.employee_id.display_name))
+        payment = self.env['account.payment'].create({
+            'payment_type': 'outbound',
+            'partner_type': 'supplier',
+            'partner_id': partner.id,
+            'journal_id': journal.id,
+            'destination_account_id': setup['account'].id,
+            'amount': amount,
+            'date': date,
+            'memo': memo or self.env._(
+                'Custody %(ref)s - %(holder)s', ref=self.ref,
+                holder=self.employee_id.name or ''),
+            'construction_custody_id': self.id,
+        })
+        payment.action_post()
+        if self.state == 'draft':
+            self.state = 'open'
+        if not self.payment_id:
+            self.payment_id = payment
+        self.message_post(body=self.env._(
+            '%(amount)s handed over from %(journal)s.',
+            amount=amount, journal=journal.display_name))
+        return payment
+
+    def action_view_payments(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': self.env._('Disbursements'),
+            'res_model': 'account.payment',
+            'view_mode': 'list,form',
+            'domain': [('construction_custody_id', '=', self.id)],
+        }
 
     def _post_disbursement(self):
         """Dr the custody account, Cr the cash it came out of.

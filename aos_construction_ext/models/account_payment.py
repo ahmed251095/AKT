@@ -7,6 +7,10 @@ SETTLED_STATES = ('in_process', 'paid')
 class AccountPayment(models.Model):
     _inherit = 'account.payment'
 
+    construction_custody_id = fields.Many2one(
+        'construction.custody', string='Cash Custody', index=True, copy=False,
+        help='The custody this payment handed cash to.')
+
     construction_tender_id = fields.Many2one(
         'construction.tender', string='Tender Document Fee For', index=True,
         copy=False,

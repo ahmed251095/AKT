@@ -31,6 +31,12 @@ msgstr "\"%s\" موجود بالفعل."
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
+msgid "%(amount)s handed over from %(journal)s."
+msgstr "اتصرف %(amount)s من %(journal)s."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
 msgid "%(count)s settlement lines charged to their projects."
 msgstr "%(count)s سطر تسوية اتحمّلوا على مشاريعهم."
 
@@ -290,6 +296,12 @@ msgid "Allowance for unforeseen site conditions and price variations."
 msgstr "مخصص للظروف غير المتوقعة في الموقع وتغيّر الأسعار."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_disburse__already_issued
+msgid "Already Issued"
+msgstr "المصروف حتى الآن"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_disburse__amount
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_line__amount
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
@@ -627,6 +639,7 @@ msgid "Build-up Pricing"
 msgstr "التسعير التراكمي"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_disburse_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_hold_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_reject_form
@@ -649,6 +662,7 @@ msgstr "نجار مسلح"
 #: model:ir.actions.act_window,name:aos_construction_ext.action_construction_custody
 #: model:ir.model,name:aos_construction_ext.model_construction_custody
 #: model:ir.model.fields,field_description:aos_construction_ext.field_account_move__construction_custody_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_account_payment__construction_custody_id
 #: model:ir.ui.menu,name:aos_construction_ext.menu_construction_custody
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Cash Custody"
@@ -674,6 +688,12 @@ msgstr "إيداع نقدي"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__returned_amount
 msgid "Cash Returned"
 msgstr "النقدية المرتجعة"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
+msgid "Cash can only be handed to a custody that is open or still a draft."
+msgstr "الصرف بيتم على عهدة مفتوحة أو لسه مسودة بس."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__requested_budget
@@ -984,6 +1004,7 @@ msgstr "العملة"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_disburse__custody_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_line__custody_id
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
 msgid "Custody"
@@ -992,6 +1013,7 @@ msgstr "عهدة"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
+#: code:addons/aos_construction_ext/wizard/construction_custody_disburse.py:0
 msgid "Custody %(ref)s - %(holder)s"
 msgstr "عهدة %(ref)s - %(holder)s"
 
@@ -1013,6 +1035,7 @@ msgstr "يومية صرف العهد"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__employee_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_disburse__employee_id
 msgid "Custody Holder"
 msgstr "حامل العهدة"
 
@@ -1040,6 +1063,7 @@ msgid "Customer Invoices"
 msgstr "فواتير العملاء"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_disburse__date
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_line__date
 msgid "Date"
 msgstr "التاريخ"
@@ -1129,6 +1153,23 @@ msgid "Direct Purchases"
 msgstr "المشتريات المباشرة"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_disburse_form
+msgid "Disburse"
+msgstr "صرف"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_custody_disburse
+msgid "Disburse Cash Custody"
+msgstr "صرف عهدة نقدية"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_disburse_form
+msgid "Disburse Custody"
+msgstr "صرف العهدة"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Disbursement Journal"
 msgstr "يومية الصرف"
@@ -1137,6 +1178,14 @@ msgstr "يومية الصرف"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__payment_id
 msgid "Disbursement Payment"
 msgstr "سند صرف العهدة"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__payment_ids
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
+msgid "Disbursements"
+msgstr "الدفعات"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__distribution_id
@@ -1260,6 +1309,12 @@ msgid "Employee"
 msgstr "الموظف"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
+msgid "Employee \"%s\" has no contact to pay. Set the work contact on the employee record."
+msgstr "الموظف \"%s\" مالوش جهة اتصال يتصرفله عليها. حط جهة الاتصال في كارت الموظف."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__employee_count
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__employee_count
 msgid "Employees"
@@ -1279,11 +1334,6 @@ msgstr "هيئة الأوقاف"
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__requested_engineer_ids
 msgid "Engineers the technical office asks to be freed for the study."
 msgstr "المهندسون الذين يطلب المكتب الفني تفريغهم للدراسة."
-
-#. module: aos_construction_ext
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
-msgid "Entries"
-msgstr "القيود"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -1380,6 +1430,11 @@ msgstr "المصروف"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__account_id
 msgid "Expense Account"
 msgstr "حساب المصروف"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
+msgid "Expense Entries"
+msgstr "قيود المصروفات"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
@@ -1565,6 +1620,11 @@ msgstr "مشرف الموارد البشرية"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
 msgid "Hand Over Cash"
 msgstr "صرف العهدة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
+msgid "Hand Over More"
+msgstr "صرف إضافي"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_wbs_form_ext
@@ -2017,6 +2077,16 @@ msgid "Mechanical Engineer"
 msgstr "مهندس ميكانيكا"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_disburse__memo
+msgid "Memo"
+msgstr "البيان"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_disburse_form
+msgid "Memo..."
+msgstr "البيان..."
+
+#. module: aos_construction_ext
 #: model:construction.authority.type,name:aos_construction_ext.authority_type_military
 msgid "Military Entity"
 msgstr "جهة عسكرية"
@@ -2173,12 +2243,6 @@ msgstr "الإقفال بيتعمل للعهد اللي لسه لدى الحام
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
 msgid "Only a custody with the holder can be settled."
 msgstr "التسوية بتتعمل للعهد اللي لسه لدى الحامل."
-
-#. module: aos_construction_ext
-#. odoo-python
-#: code:addons/aos_construction_ext/models/construction_custody.py:0
-msgid "Only a draft custody can be handed over."
-msgstr "العهدة لازم تكون مسودة عشان تتصرف."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2352,10 +2416,20 @@ msgid "Papers such as the tax card or the classification certificate carry an ex
 msgstr "مستندات مثل البطاقة الضريبية أو شهادة التصنيف لها تاريخ انتهاء يجب أن يكون سارياً يوم التقديم."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_disburse__journal_id
+msgid "Pay From"
+msgstr "الصرف من"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "Payment Certificates"
 msgstr "المستخلصات"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__payment_count
+msgid "Payment Count"
+msgstr "عدد الدفعات"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_labour_line__crew_size
@@ -2916,8 +2990,8 @@ msgstr "حدد حساب مصروف على \"%s\"، أو حساب افتراضي 
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
-msgid "Set the amount handed to the holder first."
-msgstr "حدد المبلغ المصروف للحامل الأول."
+msgid "Set the cash custody account in the construction settings before handing cash over."
+msgstr "ظبّط حساب العهدة النقدية في إعدادات المقاولات قبل ما تصرف."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -3339,6 +3413,12 @@ msgid "The accountant who owns this project file."
 msgstr "المحاسب المسؤول عن ملف هذا المشروع."
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_custody_disburse.py:0
+msgid "The amount has to be more than zero."
+msgstr "المبلغ لازم يكون أكبر من صفر."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__expected_cost
 msgid "The assigned quantity at what the subcontractors charge, plus the rest at our own cost rate. What the item will cost once it is done, rather than what it was budgeted at."
 msgstr "الكمية المسندة بأسعار مقاولي الباطن، والباقي بتكلفتنا. ما سيكلفه البند عند انتهائه، لا ما كان مقدَّراً له."
@@ -3368,6 +3448,11 @@ msgid "The booklet fee can only be spent after management has approved opening t
 msgstr "لا يُصرف ثمن الكراسة إلا بعد اعتماد الإدارة لفتح العملية."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_custody_disburse__journal_id
+msgid "The cash box or bank the money leaves."
+msgstr "الخزنة أو البنك اللي الفلوس بتخرج منه."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__journal_id
 msgid "The cash box or bank the money leaves. Its own account is what the entry credits."
 msgstr "الخزنة أو البنك اللي الفلوس بتخرج منه. حسابه هو اللي بيتقفل دائن في القيد."
@@ -3381,6 +3466,11 @@ msgstr "الكمية المنجزة بالنسبة للكمية المسندة."
 #: model:ir.model.fields,help:aos_construction_ext.field_account_move__construction_custody_id
 msgid "The custody this entry was raised for."
 msgstr "العهدة اللي القيد ده اتعمل ليها."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_account_payment__construction_custody_id
+msgid "The custody this payment handed cash to."
+msgstr "العهدة اللي الدفعة دي صرفت لها."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__move_id

@@ -1076,6 +1076,30 @@ AR = {
     "Construction Expense": "مصروف مقاولات",
     "The expense this entry was raised for.": "المصروف اللي القيد ده اتعمل عشانه.",
     "Journal Entry": "قيد اليومية",
+    "Disburse Cash Custody": "صرف عهدة نقدية",
+    "Payment Count": "عدد الدفعات",
+    "Disburse Custody": "صرف العهدة",
+    "Disburse": "صرف",
+    "Disbursements": "الدفعات",
+    "Expense Entries": "قيود المصروفات",
+    "Hand Over More": "صرف إضافي",
+    "Pay From": "الصرف من",
+    "Already Issued": "المصروف حتى الآن",
+    "Memo": "البيان",
+    "Memo...": "البيان...",
+    "The cash box or bank the money leaves.": "الخزنة أو البنك اللي الفلوس بتخرج منه.",
+    "The custody this payment handed cash to.": "العهدة اللي الدفعة دي صرفت لها.",
+    "The amount has to be more than zero.": "المبلغ لازم يكون أكبر من صفر.",
+    "Cash can only be handed to a custody that is open or still a draft.":
+        "الصرف بيتم على عهدة مفتوحة أو لسه مسودة بس.",
+    "Set the cash custody account in the construction settings before handing cash over.":
+        "ظبّط حساب العهدة النقدية في إعدادات المقاولات قبل ما تصرف.",
+    "Employee \"%s\" has no contact to pay. Set the work contact on the employee record.":
+        "الموظف \"%s\" مالوش جهة اتصال يتصرفله عليها. حط جهة الاتصال في كارت الموظف.",
+    "%(amount)s handed over from %(journal)s.":
+        "اتصرف %(amount)s من %(journal)s.",
+    "Grows with every disbursement. Kept writable so a custody run without accounting -- no journals configured -- can still be typed in.":
+        "بيزيد مع كل صرف. وسايبينه قابل للكتابة عشان العهدة اللي شغالة من غير محاسبة تتكتب بإيد.",
     "These settlement lines are already charged: each one is an approved expense on its project and sits in a posted entry. Delete the expense and reverse the entry before changing them:":
         "سطور التسوية دي محمّلة خلاص: كل واحد فيهم بقى مصروف معتمد على مشروعه وداخل في قيد مرحّل. امسح المصروف واعكس القيد قبل ما تغيّر فيهم:",
     "Journal \"%s\" has no account to take the money from.":
