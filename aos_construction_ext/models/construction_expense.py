@@ -59,20 +59,17 @@ class ConstructionExpense(models.Model):
         'construction.custody.line', string='Settlement Line', readonly=True,
         copy=False, ondelete='set null')
 
-    @api.depends('category', 'project_id')
+    @api.depends('category')
     def _compute_account_id(self):
+        company = self.env.company
         for expense in self:
-            expense.account_id = expense._posting_company(
-            ).construction_expense_account(expense.category)
+            expense.account_id = company.construction_expense_account(
+                expense.category)
 
     @api.depends('move_ids')
     def _compute_move_count(self):
         for expense in self:
             expense.move_count = len(expense.move_ids)
-
-    def _posting_company(self):
-        """The company whose accounts this expense is booked in."""
-        return self.project_id.company_id or self.env.company
 
     # ------------------------------------------------------------------
     # Posting
