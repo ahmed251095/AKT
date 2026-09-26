@@ -1037,4 +1037,7 @@ AR = {
         "الكمية المنجزة في \"%(item)s\" ما ينفعش تكون بالسالب.",
     "Completed quantity on \"%(item)s\" is %(done)s, above the %(assigned)s assigned to the subcontractor.":
         "الكمية المنجزة في \"%(item)s\" هي %(done)s، أعلى من %(assigned)s المسندة للمقاول.",
+
+    "These expenses are approved and already counted in the cost, so they can no longer be edited. Send one back to draft to change it:\n%s":
+        "المصروفات دي معتمدة وداخلة في التكلفة فعلاً، فما بقاش ينفع تتعدّل. رجّعها لمسودة الأول عشان تغيّر فيها:\n%s",
 }

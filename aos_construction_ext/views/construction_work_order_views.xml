@@ -68,8 +68,45 @@
         <field name="inherit_id" ref="aos_construction_management.view_construction_expense_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='wbs_id']" position="after">
-                <field name="work_order_id"/>
-                <field name="boq_line_id"/>
+                <field name="work_order_id" readonly="state == 'approved'"/>
+                <field name="boq_line_id" readonly="state == 'approved'"/>
+            </xpath>
+
+            <!-- An approved expense is a booked cost. The model refuses the
+                 write either way; this is so the form says so before someone
+                 types into it. -->
+            <xpath expr="//div[hasclass('oe_title')]/h1/field[@name='name']"
+                   position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='project_id']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='wbs_id']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='employee_id']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='description']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+
+            <!-- Otherwise an approved expense is a dead end: the reset button
+                 only ever showed for a rejected one, so a mistake could
+                 neither be edited nor undone. -->
+            <xpath expr="//header/button[@name='action_reset']"
+                   position="attributes">
+                <attribute name="invisible">state not in ('rejected', 'approved')</attribute>
             </xpath>
         </field>
     </record>

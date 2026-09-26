@@ -3355,6 +3355,12 @@ msgstr "المستندات الآتية منتهية الصلاحية:\n%s"
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_expense.py:0
+msgid "These expenses are approved and already counted in the cost, so they can no longer be edited. Send one back to draft to change it:\n%s"
+msgstr "المصروفات دي معتمدة وداخلة في التكلفة فعلاً، فما بقاش ينفع تتعدّل. رجّعها لمسودة الأول عشان تغيّر فيها:\n%s"
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "These required documents are still missing:\n%s"
 msgstr "المستندات المطلوبة الآتية ما زالت ناقصة:\n%s"
