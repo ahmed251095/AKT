@@ -1076,6 +1076,8 @@ AR = {
     "Construction Expense": "مصروف مقاولات",
     "The expense this entry was raised for.": "المصروف اللي القيد ده اتعمل عشانه.",
     "Journal Entry": "قيد اليومية",
+    "These settlement lines are already charged: each one is an approved expense on its project and sits in a posted entry. Delete the expense and reverse the entry before changing them:":
+        "سطور التسوية دي محمّلة خلاص: كل واحد فيهم بقى مصروف معتمد على مشروعه وداخل في قيد مرحّل. امسح المصروف واعكس القيد قبل ما تغيّر فيهم:",
     "Journal \"%s\" has no account to take the money from.":
         "اليومية \"%s\" مالهاش حساب تتصرف منه الفلوس.",
     "Suggested on a new expense as where the money comes out of. Each expense can be paid from another cash box or bank.":

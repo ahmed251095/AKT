@@ -1,6 +1,8 @@
 from odoo import api, fields, models
 from odoo.exceptions import UserError
 
+from .approval_lock import refuse, typed_fields
+
 
 class ConstructionCustody(models.Model):
     """Cash handed to an employee to spend on the company's behalf.
@@ -341,6 +343,9 @@ class ConstructionCustodyLine(models.Model):
     """One receipt out of a custody, charged to one project."""
     _name = 'construction.custody.line'
     _description = 'Cash Custody Settlement Line'
+    # Otherwise a line reads as "construction.custody.line,12" wherever one is
+    # named -- which is exactly where a message is trying to be helpful.
+    _rec_name = 'description'
     _order = 'date, id'
 
     custody_id = fields.Many2one(
@@ -384,6 +389,35 @@ class ConstructionCustodyLine(models.Model):
         copy=False, ondelete='set null')
     is_posted = fields.Boolean(
         string='Charged', compute='_compute_is_posted', store=True)
+
+    def _charged_line_message(self):
+        # Spelled out inside ``_()`` so the term is picked up for translation.
+        return self.env._(
+            'These settlement lines are already charged: each one is an '
+            'approved expense on its project and sits in a posted entry. '
+            'Delete the expense and reverse the entry before changing them:')
+
+    def write(self, vals):
+        """A charged line is spent money, so it stops being editable.
+
+        By the time it is charged it has become an approved expense on the
+        project and it sits inside the custody's settlement entry. Moving the
+        amount here would leave three figures disagreeing -- the receipt, the
+        project cost and the books -- with nothing to reconcile them.
+
+        The receipts stay attachable: evidence can always be added.
+        """
+        if typed_fields(self, vals, unlocked=('expense_id', 'attachment_ids')):
+            charged = self.filtered('expense_id')
+            if charged:
+                refuse(charged, self._charged_line_message())
+        return super().write(vals)
+
+    def unlink(self):
+        charged = self.filtered('expense_id')
+        if charged:
+            refuse(charged, self._charged_line_message())
+        return super().unlink()
 
     @api.depends('expense_id')
     def _compute_is_posted(self):

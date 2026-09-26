@@ -65,15 +65,19 @@
                     <notebook>
                         <page string="Settlement" name="settlement">
                             <field name="line_ids" readonly="state not in ('draft', 'open')">
+                                <!-- A charged line is spent money: it is an
+                                     approved expense and it sits in a posted
+                                     entry. The model refuses the write either
+                                     way; this is so the row says so. -->
                                 <list editable="bottom" decoration-muted="is_posted">
-                                    <field name="date"/>
-                                    <field name="description"/>
-                                    <field name="category"/>
-                                    <field name="project_id"/>
-                                    <field name="wbs_id" optional="hide"/>
-                                    <field name="boq_line_id" optional="show"/>
-                                    <field name="amount" sum="Settled"/>
-                                    <field name="account_id" optional="show"/>
+                                    <field name="date" readonly="is_posted"/>
+                                    <field name="description" readonly="is_posted"/>
+                                    <field name="category" readonly="is_posted"/>
+                                    <field name="project_id" readonly="is_posted"/>
+                                    <field name="wbs_id" optional="hide" readonly="is_posted"/>
+                                    <field name="boq_line_id" optional="show" readonly="is_posted"/>
+                                    <field name="amount" sum="Settled" readonly="is_posted"/>
+                                    <field name="account_id" optional="show" readonly="is_posted"/>
                                     <field name="attachment_ids"
                                            widget="many2many_binary" string="Receipt"/>
                                     <field name="is_posted" optional="show"

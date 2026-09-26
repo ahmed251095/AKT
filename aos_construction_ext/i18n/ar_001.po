@@ -3504,6 +3504,12 @@ msgstr "المستندات المطلوبة الآتية ما زالت ناقص�
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
+msgid "These settlement lines are already charged: each one is an approved expense on its project and sits in a posted entry. Delete the expense and reverse the entry before changing them:"
+msgstr "سطور التسوية دي محمّلة خلاص: كل واحد فيهم بقى مصروف معتمد على مشروعه وداخل في قيد مرحّل. امسح المصروف واعكس القيد قبل ما تغيّر فيهم:"
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_boq.py:0
 msgid "This bill of quantities is approved, and the budgets, work orders and certificates are all priced from it. Press Revise to open it up again:"
 msgstr "المقايسة دي معتمدة، والموازنات وأوامر الشغل والمستخلصات كلها متسعّرة منها. اضغط \"تنقيح\" الأول عشان تفتحها تاني:"
