@@ -55,9 +55,11 @@
                         <group string="Custody">
                             <field name="employee_id"
                                    readonly="state not in ('draft',)"/>
-                            <field name="project_id"/>
+                            <!-- The project belongs on the settlement line:
+                                 one custody is spent across sites, and each
+                                 receipt names the project it is charged to.
+                                 The purpose was a free-text box nothing read. -->
                             <field name="date"/>
-                            <field name="purpose"/>
                         </group>
                         <group string="Money">
                             <!-- The sum of the disbursements once any exist;
@@ -121,7 +123,6 @@
                   decoration-muted="state == 'cancelled'">
                 <field name="ref"/>
                 <field name="employee_id"/>
-                <field name="project_id" optional="show"/>
                 <field name="date"/>
                 <field name="amount" sum="Issued"/>
                 <field name="settled_amount" sum="Settled"/>
@@ -142,7 +143,6 @@
             <search>
                 <field name="ref"/>
                 <field name="employee_id"/>
-                <field name="project_id"/>
                 <filter name="filter_open" string="With Holder"
                         domain="[('state', '=', 'open')]"/>
                 <filter name="filter_outstanding" string="Not Fully Settled"
@@ -152,8 +152,6 @@
                 <separator/>
                 <filter name="group_employee" string="Holder"
                         context="{'group_by': 'employee_id'}"/>
-                <filter name="group_project" string="Project"
-                        context="{'group_by': 'project_id'}"/>
                 <filter name="group_state" string="Status"
                         context="{'group_by': 'state'}"/>
             </search>

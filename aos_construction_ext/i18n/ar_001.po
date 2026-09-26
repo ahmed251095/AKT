@@ -2601,7 +2601,6 @@ msgstr "نسبة الإنجاز"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution_line__project_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract_line__project_id
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__scope__project
-#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_search
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_search
 msgid "Project"
 msgstr "مشروع"

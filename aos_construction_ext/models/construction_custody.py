@@ -219,6 +219,13 @@ class ConstructionCustody(models.Model):
                 holder=self.employee_id.name or ''),
             'construction_custody_id': self.id,
         })
+        # Odoo 19 only books a payment that has somewhere to book it: with no
+        # outstanding account on the payment method, the payment sits as
+        # "in process" with no entry at all, which is how cash left this
+        # system unrecorded before. Fall back to the journal's own account,
+        # which posts the money straight out of the cash box or bank.
+        if not payment.outstanding_account_id:
+            payment.outstanding_account_id = journal.default_account_id
         payment.action_post()
         if self.state == 'draft':
             self.state = 'open'
