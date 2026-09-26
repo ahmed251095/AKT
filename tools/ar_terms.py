@@ -1040,4 +1040,13 @@ AR = {
 
     "These expenses are approved and already counted in the cost, so they can no longer be edited. Send one back to draft to change it:\n%s":
         "المصروفات دي معتمدة وداخلة في التكلفة فعلاً، فما بقاش ينفع تتعدّل. رجّعها لمسودة الأول عشان تغيّر فيها:\n%s",
+
+    "This bill of quantities is approved, and the budgets, work orders and certificates are all priced from it. Press Revise to open it up again:":
+        "المقايسة دي معتمدة، والموازنات وأوامر الشغل والمستخلصات كلها متسعّرة منها. اضغط \"تنقيح\" الأول عشان تفتحها تاني:",
+    "The items of an approved bill of quantities cannot be changed. Press Revise on it first:":
+        "بنود المقايسة المعتمدة ما ينفعش تتغيّر. اضغط \"تنقيح\" على المقايسة الأول:",
+    "The items of an approved bill of quantities cannot be changed. Press Revise on it first:":
+        "بنود المقايسة المعتمدة ما ينفعش تتغيّر. اضغط \"تنقيح\" على المقايسة الأول:",
+    "This certificate is approved and counted against the contract, so it can no longer be edited. Cancel it and reset it to draft to change it:":
+        "المستخلص ده معتمد ومحسوب على العقد، فما بقاش ينفع يتعدّل. الغيه ورجّعه لمسودة عشان تغيّر فيه:",
 }

@@ -1,6 +1,7 @@
 from odoo import api, fields, models
 
 from . import pricing
+from .approval_lock import refuse, typed_fields
 
 
 class ConstructionBoqLine(models.Model):
@@ -305,3 +306,36 @@ class ConstructionBoqLine(models.Model):
         for line in self:
             parts = [part for part in (line.item_no, line.description) if part]
             line.display_name = ' - '.join(parts) or self.env._('Item')
+
+    # ------------------------------------------------------------------
+    # An approved bill is frozen, items included
+    # ------------------------------------------------------------------
+    def _approved_boq_message(self):
+        # Spelled out inside ``_()`` so the term is picked up for translation;
+        # a constant handed to it would be invisible to the extractor.
+        return self.env._(
+            'The items of an approved bill of quantities cannot be changed. '
+            'Press Revise on it first:')
+
+    def write(self, vals):
+        if typed_fields(self, vals):
+            frozen = self.filtered(
+                lambda line: line.boq_id.state == 'approved')
+            if frozen:
+                refuse(frozen.boq_id, self._approved_boq_message())
+        return super().write(vals)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        boqs = self.env['construction.boq'].browse([
+            vals['boq_id'] for vals in vals_list if vals.get('boq_id')])
+        frozen = boqs.filtered(lambda boq: boq.state == 'approved')
+        if frozen:
+            refuse(frozen, self._approved_boq_message())
+        return super().create(vals_list)
+
+    def unlink(self):
+        frozen = self.boq_id.filtered(lambda boq: boq.state == 'approved')
+        if frozen:
+            refuse(frozen, self._approved_boq_message())
+        return super().unlink()

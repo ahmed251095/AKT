@@ -10,6 +10,7 @@ from . import construction_material_requisition
 from . import construction_tender_line
 from . import construction_tender
 from . import construction_billing
+from . import construction_boq
 from . import construction_boq_line
 from . import construction_subcontract_line
 from . import construction_subcontract

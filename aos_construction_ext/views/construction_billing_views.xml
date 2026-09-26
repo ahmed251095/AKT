@@ -15,6 +15,54 @@
         <field name="advance_outstanding" readonly="1"
                invisible="advance_outstanding == 0"/>
       </xpath>
+
+      <!-- From approval on the certificate is what is owed. The models refuse
+           the write either way; this is so the form says so first. -->
+      <xpath expr="//field[@name='name']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='billing_type']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='project_id']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='partner_id']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='subcontract_id']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='purchase_order_id']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='billing_date']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='billing_period_start']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='billing_period_end']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='retention_percent']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='advance_recovery']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='other_deductions']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='tax_ids']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='line_ids']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
+      <xpath expr="//field[@name='notes']" position="attributes">
+        <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
+      </xpath>
     </field>
   </record>
 

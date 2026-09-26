@@ -3,6 +3,8 @@ from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.tools import float_compare, float_round
 
+from .approval_lock import refuse, typed_fields
+
 CONFIRMED_STATES = ('approved', 'invoiced', 'paid')
 
 
@@ -109,3 +111,68 @@ class ConstructionRABilling(models.Model):
                     'advance still outstanding on this contract.',
                     recovery=record.advance_recovery,
                     outstanding=outstanding))
+
+
+class ConstructionRABillingFrozen(models.Model):
+    """An approved certificate is frozen, its lines included.
+
+    From approval on, the certificate is what the client or the
+    subcontractor is owed: it counts in the certified revenue and the
+    certified subcontract cost, it caps what the next certificate may
+    measure, and once invoiced it stands behind an accounting entry. The way
+    back is to cancel it and reset it to draft, both of which the chatter
+    records.
+    """
+    _inherit = 'construction.ra.billing'
+
+    def _approved_certificate_message(self):
+        # Spelled out inside ``_()`` so the term is picked up for translation.
+        return self.env._(
+            'This certificate is approved and counted against the contract, '
+            'so it can no longer be edited. Cancel it and reset it to draft '
+            'to change it:')
+
+    def write(self, vals):
+        # The state, the invoice the button stamps on the record and the
+        # number the sequence assigns are the workflow's own, not a person's.
+        if typed_fields(self, vals, unlocked=('state', 'move_id', 'ra_number')):
+            frozen = self.filtered(
+                lambda billing: billing.state in CONFIRMED_STATES)
+            if frozen:
+                refuse(frozen, self._approved_certificate_message())
+        return super().write(vals)
+
+
+class ConstructionRABillingLine(models.Model):
+    _inherit = 'construction.ra.billing.line'
+
+    def _approved_certificate_message(self):
+        return self.env._(
+            'This certificate is approved and counted against the contract, '
+            'so it can no longer be edited. Cancel it and reset it to draft '
+            'to change it:')
+
+    def write(self, vals):
+        if typed_fields(self, vals):
+            frozen = self.filtered(
+                lambda line: line.billing_id.state in CONFIRMED_STATES)
+            if frozen:
+                refuse(frozen.billing_id, self._approved_certificate_message())
+        return super().write(vals)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        billings = self.env['construction.ra.billing'].browse([
+            vals['billing_id'] for vals in vals_list if vals.get('billing_id')])
+        frozen = billings.filtered(
+            lambda billing: billing.state in CONFIRMED_STATES)
+        if frozen:
+            refuse(frozen, self._approved_certificate_message())
+        return super().create(vals_list)
+
+    def unlink(self):
+        frozen = self.billing_id.filtered(
+            lambda billing: billing.state in CONFIRMED_STATES)
+        if frozen:
+            refuse(frozen, self._approved_certificate_message())
+        return super().unlink()

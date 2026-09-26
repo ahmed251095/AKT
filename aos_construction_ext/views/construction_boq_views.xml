@@ -24,6 +24,26 @@
                 <attribute name="column_invisible">1</attribute>
             </xpath>
 
+            <!-- An approved bill is frozen. The models refuse the write
+                 either way; this is so the form says so before anyone types
+                 into it. -->
+            <xpath expr="//div[hasclass('oe_title')]/h1/field[@name='name']"
+                   position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='project_id']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+            <xpath expr="//field[@name='notes']" position="attributes">
+                <attribute name="readonly">state == 'approved'</attribute>
+            </xpath>
+
             <!-- Purchases are counted in whatever unit the order was raised
                  in, so the figure sat next to the executed quantity inviting
                  a comparison it could not support. What was spent on an item

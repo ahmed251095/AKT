@@ -3274,6 +3274,12 @@ msgid "The holder still carries %(balance)s. Record the cash returned or add the
 msgstr "الحامل لسه ماسك %(balance)s. سجّل النقدية المرتجعة أو ضيف الإيصالات الناقصة."
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_boq_line.py:0
+msgid "The items of an approved bill of quantities cannot be changed. Press Revise on it first:"
+msgstr "بنود المقايسة المعتمدة ما ينفعش تتغيّر. اضغط \"تنقيح\" على المقايسة الأول:"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_work_order_line__inhouse_scope_qty
 msgid "The part of the BOQ item that was not handed to a subcontractor, so it is ours to execute."
 msgstr "الجزء من بند المقايسة غير المسند لمقاول باطن، وهو نصيبنا في التنفيذ."
@@ -3364,6 +3370,18 @@ msgstr "المصروفات دي معتمدة وداخلة في التكلفة ف
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "These required documents are still missing:\n%s"
 msgstr "المستندات المطلوبة الآتية ما زالت ناقصة:\n%s"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_boq.py:0
+msgid "This bill of quantities is approved, and the budgets, work orders and certificates are all priced from it. Press Revise to open it up again:"
+msgstr "المقايسة دي معتمدة، والموازنات وأوامر الشغل والمستخلصات كلها متسعّرة منها. اضغط \"تنقيح\" الأول عشان تفتحها تاني:"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_billing.py:0
+msgid "This certificate is approved and counted against the contract, so it can no longer be edited. Cancel it and reset it to draft to change it:"
+msgstr "المستخلص ده معتمد ومحسوب على العقد، فما بقاش ينفع يتعدّل. الغيه ورجّعه لمسودة عشان تغيّر فيه:"
 
 #. module: aos_construction_ext
 #. odoo-python
