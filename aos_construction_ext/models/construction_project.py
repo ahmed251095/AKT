@@ -32,6 +32,10 @@ class ConstructionProject(models.Model):
     # ------------------------------------------------------------------
     # Team - the departments that sit on a running project
     # ------------------------------------------------------------------
+    civil_engineer_id = fields.Many2one(
+        'res.users', string='Civil Engineer')
+    architectural_engineer_id = fields.Many2one(
+        'res.users', string='Architectural Engineer')
     electrical_engineer_id = fields.Many2one(
         'res.users', string='Electrical Engineer')
     mechanical_engineer_id = fields.Many2one(

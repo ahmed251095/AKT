@@ -375,6 +375,11 @@ msgid "Approving %(approved)s of \"%(item)s\" is more than the %(requested)s the
 msgstr "اعتماد %(approved)s من \"%(item)s\" أكبر من %(requested)s التي طلبها الموقع."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__architectural_engineer_id
+msgid "Architectural Engineer"
+msgstr "مهندس معماري"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_type_form
 msgid "Archived"
@@ -786,6 +791,11 @@ msgstr "المصروفات المحمّلة"
 #: code:addons/aos_construction_ext/models/construction_expense.py:0
 msgid "Choose the cash box or bank \"%s\" is paid from before approving it."
 msgstr "اختار الخزنة أو البنك اللي هيتصرف منه \"%s\" قبل ما تعتمده."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__civil_engineer_id
+msgid "Civil Engineer"
+msgstr "مهندس مدني"
 
 #. module: aos_construction_ext
 #. odoo-python

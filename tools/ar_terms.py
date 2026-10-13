@@ -257,6 +257,7 @@ AR = {
     "Financial Summary": "الملخص المالي", "Financial Control": "الرقابة المالية",
     "Drive Folder": "مجلد Drive", "Site Warehouse": "مخزن الموقع",
     "Site Location": "موقع المخزون", "Drawings": "الرسومات",
+    "Civil Engineer": "مهندس مدني", "Architectural Engineer": "مهندس معماري",
     "Electrical Engineer": "مهندس كهرباء", "Mechanical Engineer": "مهندس ميكانيكا",
     "Logistics Manager": "مدير الحركة", "Finance Manager": "المدير المالي",
     "Finance Responsible": "المسؤول المالي", "Responsible Accountant": "المحاسب المسؤول",

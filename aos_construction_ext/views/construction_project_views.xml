@@ -93,6 +93,8 @@
                                 <field name="finance_manager_id"/>
                             </group>
                             <group string="Technical Office">
+                                <field name="civil_engineer_id"/>
+                                <field name="architectural_engineer_id"/>
                                 <field name="electrical_engineer_id"/>
                                 <field name="mechanical_engineer_id"/>
                             </group>
