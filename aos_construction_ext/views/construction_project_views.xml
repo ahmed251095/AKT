@@ -260,9 +260,27 @@
                     <page string="Handover &amp; Closure" name="closure">
                         <group>
                             <group>
-                                <field name="initial_handover_date"/>
-                                <field name="admin_handover_date"/>
-                                <field name="final_handover_date"/>
+                                <label for="initial_handover_date"/>
+                                <div class="o_row">
+                                    <field name="initial_handover_date"/>
+                                    <field name="initial_handover_file"
+                                           filename="initial_handover_filename"/>
+                                    <field name="initial_handover_filename" invisible="1"/>
+                                </div>
+                                <label for="admin_handover_date"/>
+                                <div class="o_row">
+                                    <field name="admin_handover_date"/>
+                                    <field name="admin_handover_file"
+                                           filename="admin_handover_filename"/>
+                                    <field name="admin_handover_filename" invisible="1"/>
+                                </div>
+                                <label for="final_handover_date"/>
+                                <div class="o_row">
+                                    <field name="final_handover_date"/>
+                                    <field name="final_handover_file"
+                                           filename="final_handover_filename"/>
+                                    <field name="final_handover_filename" invisible="1"/>
+                                </div>
                             </group>
                         </group>
                         <separator string="Closure Notes"/>

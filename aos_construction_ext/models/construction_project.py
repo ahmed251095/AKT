@@ -139,6 +139,16 @@ class ConstructionProject(models.Model):
         string='Final Handover', copy=False,
         help='Date the maintenance period ended and the works were finally '
              'accepted.')
+    #: The signed minutes of each handover, kept beside the date they carry.
+    initial_handover_file = fields.Binary(
+        string='Initial Handover Minutes', attachment=True, copy=False)
+    initial_handover_filename = fields.Char(string='Filename', copy=False)
+    admin_handover_file = fields.Binary(
+        string='Administrative Handover Minutes', attachment=True, copy=False)
+    admin_handover_filename = fields.Char(string='Filename', copy=False)
+    final_handover_file = fields.Binary(
+        string='Final Handover Minutes', attachment=True, copy=False)
+    final_handover_filename = fields.Char(string='Filename', copy=False)
     closure_note = fields.Text(string='Closure Notes')
 
     @api.constrains('initial_handover_date', 'admin_handover_date',

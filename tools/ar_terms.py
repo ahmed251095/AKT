@@ -221,6 +221,10 @@ AR = {
     "Bond Outstanding": "تأمين قائم", "Issuing Bank": "البنك المُصدِر",
     "Cash Deposit": "إيداع نقدي", "Certified Cheque": "شيك مقبول الدفع",
     "Letter of Guarantee": "خطاب ضمان",
+    "Initial Handover Minutes": "محضر التسليم الابتدائي",
+    "Administrative Handover Minutes": "محضر التسليم الإداري",
+    "Final Handover Minutes": "محضر التسليم النهائي",
+    "Filename": "اسم الملف",
     "Advance Payment Deduction": "خصم من الدفعة المقدمة",
     "Advance Payment Deduction is withheld by the client out of the advance payment, so no instrument is issued.":
         "الخصم من الدفعة المقدمة بيحتجزه العميل من الدفعة المقدمة نفسها، فمفيش ضمان بيتصدر.",

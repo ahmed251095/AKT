@@ -247,6 +247,11 @@ msgid "Administrative Handover"
 msgstr "التسليم الإداري"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_handover_file
+msgid "Administrative Handover Minutes"
+msgstr "محضر التسليم الإداري"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__advance_percent
 msgid "Advance (%)"
 msgstr "الدفعة المقدمة (%)"
@@ -1529,6 +1534,13 @@ msgid "File"
 msgstr "الملف"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_handover_filename
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__final_handover_filename
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__initial_handover_filename
+msgid "Filename"
+msgstr "اسم الملف"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__attachment_count
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__attachment_ids
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
@@ -1542,6 +1554,11 @@ msgstr "الملفات"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__final_handover_date
 msgid "Final Handover"
 msgstr "التسليم النهائي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__final_handover_file
+msgid "Final Handover Minutes"
+msgstr "محضر التسليم النهائي"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
@@ -1824,6 +1841,11 @@ msgstr "تكلفة منصرفة بلا أمر شغل ولا بند. كلما ز�
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__initial_handover_date
 msgid "Initial Handover"
 msgstr "التسليم الابتدائي"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__initial_handover_file
+msgid "Initial Handover Minutes"
+msgstr "محضر التسليم الابتدائي"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
