@@ -265,6 +265,16 @@ msgid "Advance Outstanding"
 msgstr "المتبقي من الدفعة المقدمة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_project__performance_bond_type__advance_deduction
+msgid "Advance Payment Deduction"
+msgstr "خصم من الدفعة المقدمة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_project__performance_bond_type
+msgid "Advance Payment Deduction is withheld by the client out of the advance payment, so no instrument is issued."
+msgstr "الخصم من الدفعة المقدمة بيحتجزه العميل من الدفعة المقدمة نفسها، فمفيش ضمان بيتصدر."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__advance_recovered
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_subcontract__advance_recovered
 msgid "Advance Recovered"

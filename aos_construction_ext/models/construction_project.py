@@ -97,8 +97,11 @@ class ConstructionProject(models.Model):
     performance_bond_type = fields.Selection(
         [('cash', 'Cash Deposit'),
          ('cheque', 'Certified Cheque'),
-         ('letter_guarantee', 'Letter of Guarantee')],
-        string='Bond Instrument', default='letter_guarantee')
+         ('letter_guarantee', 'Letter of Guarantee'),
+         ('advance_deduction', 'Advance Payment Deduction')],
+        string='Bond Instrument', default='letter_guarantee',
+        help='Advance Payment Deduction is withheld by the client out of the '
+             'advance payment, so no instrument is issued.')
     performance_bond_bank_id = fields.Many2one('res.bank', string='Issuing Bank')
     performance_bond_ref = fields.Char(string='Bond Reference')
     performance_bond_issue_date = fields.Date(string='Bond Issue Date')
