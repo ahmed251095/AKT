@@ -59,7 +59,10 @@ class ConstructionBoqLine(models.Model):
 
     base_cost = fields.Monetary(
         string='Base Cost', compute='_compute_pricing', store=True,
-        help='Dry cost plus operating cost, before any markup.')
+        readonly=False, inverse='_inverse_base_cost',
+        help='Dry cost plus operating cost, before any markup. Type a figure '
+             'straight into it and the item leaves the build-up: the number '
+             'stands as the cost of one unit.')
     markup_percent = fields.Float(
         string='Total Markup (%)', compute='_compute_markup', store=True,
         readonly=False,
@@ -76,9 +79,69 @@ class ConstructionBoqLine(models.Model):
     # stored fields; keeping them writable lets an estimator override a single
     # line without switching the whole tender off the formula.
     cost_rate = fields.Monetary(
-        compute='_compute_cost_rate', store=True, readonly=False)
+        compute='_compute_cost_rate', store=True, readonly=False,
+        inverse='_inverse_hand_priced')
     unit_rate = fields.Monetary(
-        compute='_compute_unit_rate', store=True, readonly=False)
+        compute='_compute_unit_rate', store=True, readonly=False,
+        inverse='_inverse_hand_priced')
+
+    # Re-declared to be typed into as well. A project that never went through
+    # a tender arrives here with nothing priced, and the cost breakdown it
+    # would be built from does not exist yet - so the three figures the
+    # estimator reads have to be reachable by hand.
+    budget_cost = fields.Monetary(
+        compute='_compute_budget_control', store=True, readonly=False,
+        inverse='_inverse_budget_cost',
+        help='What the whole item costs us: quantity at the cost rate. Type '
+             'a figure into it and the item leaves the build-up, the cost '
+             'rate following from the quantity.')
+
+    def _write_pricing(self, values):
+        """Write a pricing breakdown copied from another document.
+
+        The mode travels in ``values``; the inverses stay out of the way.
+        """
+        return self.with_context(
+            **{pricing.KEEP_PRICING_MODE: True}).write(values)
+
+    def _keeps_pricing_mode(self):
+        return self.env.context.get(pricing.KEEP_PRICING_MODE)
+
+    def _inverse_hand_priced(self):
+        """A rate someone typed is a rate the formula may not overwrite.
+
+        The build-up is what prices an item while it is on: the sell rate is
+        derived from the cost breakdown, so a figure typed over it would be
+        gone the moment any ratio moved. Switching the item to hand pricing -
+        the mode the module already carries for lump-sum work - is what makes
+        the typed figure stand.
+        """
+        if self._keeps_pricing_mode():
+            return
+        for line in self:
+            if not line.is_section:
+                line.use_pricing_formula = False
+
+    def _inverse_base_cost(self):
+        if self._keeps_pricing_mode():
+            return
+        for line in self:
+            if line.is_section:
+                continue
+            typed = line.base_cost
+            line.use_pricing_formula = False
+            line.cost_rate = typed
+
+    def _inverse_budget_cost(self):
+        if self._keeps_pricing_mode():
+            return
+        for line in self:
+            if line.is_section or not line.qty:
+                # Without a quantity there is no rate to read out of a total.
+                continue
+            typed = line.budget_cost
+            line.use_pricing_formula = False
+            line.cost_rate = typed / line.qty
 
     @api.depends(*pricing.MARKUP_DEPENDS)
     def _compute_markup(self):

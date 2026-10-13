@@ -7,6 +7,13 @@
         <field name="inherit_id" ref="aos_construction_management.view_construction_boq_form"/>
         <field name="arch" type="xml">
 
+            <xpath expr="//header/button[@name='action_print_boq']" position="before">
+                <field name="tender_id" invisible="1"/>
+                <button name="action_pull_tender_pricing" type="object"
+                        string="Pull Tender Pricing" class="btn-secondary"
+                        invisible="not tender_id or state == 'approved'"/>
+            </xpath>
+
             <!-- invisible="1" hides a cell's value, not its column. -->
             <xpath expr="//field[@name='line_ids']/list/field[@name='currency_id']"
                    position="attributes">
@@ -75,15 +82,16 @@
                 <field name="tax_amount" optional="hide"/>
             </xpath>
 
-            <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="attributes">
-                <attribute name="readonly">use_pricing_formula</attribute>
-            </xpath>
+            <!-- The rates stay typeable even while the build-up is on: a
+                 project that never went through a tender has no breakdown to
+                 price from, and typing one is how the office fills it in. The
+                 item drops out of the build-up as soon as a rate is typed, so
+                 the figure is not derived away again. -->
 
             <!-- The same figure as the base cost while the formula is on, so it
                  stays off the table; a lump-sum item is priced by typing it, so
                  it has to remain reachable from the column picker. -->
             <xpath expr="//field[@name='line_ids']/list/field[@name='cost_rate']" position="attributes">
-                <attribute name="readonly">use_pricing_formula</attribute>
                 <attribute name="optional">hide</attribute>
             </xpath>
 

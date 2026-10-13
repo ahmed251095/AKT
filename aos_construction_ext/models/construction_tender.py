@@ -548,10 +548,10 @@ class ConstructionTender(models.Model):
                 match = tender_lines.filtered(
                     lambda t: t.description == boq_line.description)[:1]
                 if match:
-                    boq_line.write(self._pricing_values(match))
+                    boq_line._write_pricing(self._pricing_values(match))
             return
         for tender_line, boq_line in zip(tender_lines, boq_lines):
-            boq_line.write(self._pricing_values(tender_line))
+            boq_line._write_pricing(self._pricing_values(tender_line))
 
     @staticmethod
     def _pricing_values(tender_line):

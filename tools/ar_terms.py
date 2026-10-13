@@ -232,6 +232,20 @@ AR = {
     # ---- pricing ----
     "Build-up Pricing": "التسعير التراكمي", "Dry Cost": "تكلفة الخامات",
     "Operating Cost": "تكلفة التشغيل", "Base Cost": "التكلفة الأساسية",
+    "Awarded From": "من المناقصة",
+    'This project did not come from a tender, so there is no pricing to pull. Type the rates on the items.':
+        'المشروع ده مجاش من مناقصة، فمفيش تسعير يتجاب. اكتب الأسعار على البنود.',
+    'None of the items match an item on %s by description, so there was nothing to pull.':
+        'مفيش بند من البنود طابق بند في %s بالوصف، فمفيش حاجة اتجابت.',
+    '%s items priced from the tender.':
+        '%s بند اتسعّروا من المناقصة.',
+    'The won tender this project came from, if it came from one.':
+        'المناقصة اللي المشروع اترسى منها، لو كان جاي من مناقصة.',
+    'Dry cost plus operating cost, before any markup. Type a figure straight into it and the item leaves the build-up: the number stands as the cost of one unit.':
+        'التكلفة الجافة زائد تكلفة التشغيل، قبل أي إضافة. لو كتبت رقم فيها بإيدك، البند بيخرج من التسعير التراكمي والرقم بيفضل هو تكلفة الوحدة.',
+    'What the whole item costs us: quantity at the cost rate. Type a figure into it and the item leaves the build-up, the cost rate following from the quantity.':
+        'تكلفة البند كله علينا: الكمية في سعر التكلفة. لو كتبت رقم فيها بإيدك، البند بيخرج من التسعير التراكمي وسعر التكلفة بيتحسب من الكمية.',
+    "Pull Tender Pricing": "جلب التسعير من المناقصة",
     "Profit": "الربح", "Profit (%)": "نسبة الربح (%)", "Profit Ratio (%)": "نسبة الربح (%)",
     "Contingency": "الطوارئ", "Contingency (%)": "نسبة الطوارئ (%)",
     "Contingency Ratio (%)": "نسبة الطوارئ (%)",

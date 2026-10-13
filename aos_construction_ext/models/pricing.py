@@ -93,6 +93,12 @@ def default_ratios(company):
     }
 
 
+#: Set on the recordset while pricing is copied from one document to another,
+#: so the inverses that switch a typed-over item to hand pricing stand down.
+#: A copy is not someone typing a rate: the pricing mode travels with it.
+KEEP_PRICING_MODE = 'construction_pricing_copy'
+
+
 #: Fields carried over when a tender item becomes a BOQ item.
 PRICING_COPY_FIELDS = (
     'use_pricing_formula', 'dry_cost', 'operating_cost', 'profit_percent',

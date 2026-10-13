@@ -77,6 +77,12 @@ msgid "%(percent)s%% of the monthly cost of %(employee)s."
 msgstr "%(percent)s%% من التكلفة الشهرية لـ %(employee)s."
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_boq.py:0
+msgid "%s items priced from the tender."
+msgstr "%s بند اتسعّروا من المناقصة."
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
 msgid "<span t-out=\"doc.operation_duration_days\"/>days</span>"
 msgstr "<span t-out=\"doc.operation_duration_days\"/>يوم</span>"
@@ -463,6 +469,11 @@ msgid "Award Letter"
 msgstr "خطاب الترسية"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq__tender_id
+msgid "Awarded From"
+msgstr "من المناقصة"
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 msgid "BOQ"
@@ -653,6 +664,11 @@ msgstr "تم شراء الكراسة"
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_document_type__scope__both
 msgid "Both"
 msgstr "الاثنان"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__budget_cost
+msgid "Budget Cost"
+msgstr "التكلفة المعتمدة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__use_pricing_formula
@@ -1309,10 +1325,14 @@ msgid "Dry Cost"
 msgstr "تكلفة الخامات"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__base_cost
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_tender_line__base_cost
 msgid "Dry cost plus operating cost, before any markup."
 msgstr "تكلفة الخامات زائد تكلفة التشغيل، قبل أي إضافة."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__base_cost
+msgid "Dry cost plus operating cost, before any markup. Type a figure straight into it and the item leaves the build-up: the number stands as the cost of one unit."
+msgstr "التكلفة الجافة زائد تكلفة التشغيل، قبل أي إضافة. لو كتبت رقم فيها بإيدك، البند بيخرج من التسعير التراكمي والرقم بيفضل هو تكلفة الوحدة."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2241,6 +2261,12 @@ msgid "No."
 msgstr "م"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_boq.py:0
+msgid "None of the items match an item on %s by description, so there was nothing to pull."
+msgstr "مفيش بند من البنود طابق بند في %s بالوصف، فمفيش حاجة اتجابت."
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_search
 msgid "Not Fully Settled"
 msgstr "غير مسوّاة بالكامل"
@@ -2716,6 +2742,11 @@ msgstr "مُقدَّم"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__submission_date
 msgid "Provided On"
 msgstr "تاريخ التقديم"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_form_ext
+msgid "Pull Tender Pricing"
+msgstr "جلب التسعير من المناقصة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__tender_doc_purchase_date
@@ -3654,6 +3685,11 @@ msgid "The tender whose conditions booklet this payment pays for. Settling the p
 msgstr "المناقصة التي تُسدَّد بهذه الدفعة قيمة كراسة شروطها. تسوية الدفعة تُعلّم الكراسة كمُشتراة."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq__tender_id
+msgid "The won tender this project came from, if it came from one."
+msgstr "المناقصة اللي المشروع اترسى منها، لو كان جاي من مناقصة."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_purchase_order__construction_work_order_id
 msgid "The work order this purchase serves. Filled from the material requisition, and editable for a purchase raised directly."
 msgstr "أمر الشغل الذي يخدمه هذا الشراء. يُملأ من طلب التوريد، وقابل للتعديل في الشراء المباشر."
@@ -3726,6 +3762,12 @@ msgstr "هذا المشروع يحمل مستخلصات لمقاولي البا�
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "This project carries both subcontractor certificates and expenses filed under the subcontractor category, so the same money is very likely counted twice. Record subcontractor cost one way only."
 msgstr "هذا المشروع يحمل مستخلصات لمقاولي الباطن ومصروفات مسجَّلة تحت فئة مقاولي الباطن في نفس الوقت، ومن المرجح جداً أن نفس المبلغ محسوب مرتين. سجّل تكلفة مقاولي الباطن بطريقة واحدة فقط."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_boq.py:0
+msgid "This project did not come from a tender, so there is no pricing to pull. Type the rates on the items."
+msgstr "المشروع ده مجاش من مناقصة، فمفيش تسعير يتجاب. اكتب الأسعار على البنود."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_salary_distribution__date_to
@@ -3976,6 +4018,11 @@ msgstr "ما يأخذه مقاولو الباطن مقابل الكميات ال
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_project__forecast_cost
 msgid "What the whole bill of quantities will cost once finished: assigned work at the subcontractors rates, the rest at our own cost rates."
 msgstr "ما ستكلفه المقايسة كاملة عند انتهائها: الأعمال المسندة بأسعار مقاولي الباطن، والباقي بتكلفتنا."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_management.field_construction_boq_line__budget_cost
+msgid "What the whole item costs us: quantity at the cost rate. Type a figure into it and the item leaves the build-up, the cost rate following from the quantity."
+msgstr "تكلفة البند كله علينا: الكمية في سعر التكلفة. لو كتبت رقم فيها بإيدك، البند بيخرج من التسعير التراكمي وسعر التكلفة بيتحسب من الكمية."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__inhouse_committed_qty
