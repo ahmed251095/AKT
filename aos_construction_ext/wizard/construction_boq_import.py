@@ -107,9 +107,12 @@ class ConstructionBoqImport(models.TransientModel):
         except Exception as error:
             _logger.info('construction.boq.import: unreadable workbook: %s',
                          error)
+            # The reason travels with the message: a file saved in the old
+            # .xls format and a server whose openpyxl cannot open any file
+            # both fail here, and they are fixed in different places.
             raise UserError(self.env._(
-                'This file could not be opened as an Excel workbook. Save it '
-                'as .xlsx and try again.'))
+                'This file could not be opened as an Excel workbook: %s. '
+                'Save it as .xlsx and try again.', error))
         wanted = boq_sheet.normalise(PRICED_SHEET)
         sheet = next(
             (candidate for candidate in workbook
