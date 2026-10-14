@@ -60,6 +60,12 @@ msgstr "%(employee)s محمّل بنسبة %(total)s%% على مشاريع هذ�
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "%(items)s items and %(sections)s section headings written."
+msgstr "اتكتب %(items)s بند و %(sections)s عنوان قسم."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "%(label)s for %(tender)s"
 msgstr "%(label)s لـ %(tender)s"
@@ -75,6 +81,12 @@ msgstr "%(later)s مؤرخ في %(later_date)s، أي قبل %(earlier)s في %(
 #: code:addons/aos_construction_ext/models/construction_salary.py:0
 msgid "%(percent)s%% of the monthly cost of %(employee)s."
 msgstr "%(percent)s%% من التكلفة الشهرية لـ %(employee)s."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "%s items came out at a rate the sheet does not carry. The ratios on those rows do not add up to the rate beside them; the rate the ratios give is what was written. Rows: %s"
+msgstr "%s بند طلعت بفئة مش اللي في الشيت. النسب في الصفوف دي مابتطلّعش الفئة اللي جنبها، واللي اتكتب هو فئة النسب. الصفوف: %s"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -156,6 +168,12 @@ msgstr "<strong>نوع المناقصة</strong>"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 msgid "<strong>Total cost</strong>"
 msgstr "<strong>إجمالي التكلفة</strong>"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "A priced sheet is read into a bill of quantities or a tender, not into %s."
+msgstr "الشيت المسعّر بيتقرا في مقايسة أو مناقصة، مش في %s."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -702,6 +720,12 @@ msgstr "الاثنان"
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_boq_line__budget_cost
 msgid "Budget Cost"
 msgstr "التكلفة المعتمدة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__pricing_method
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_tender_line__pricing_method
+msgid "Build-up on Cost marks the cost up by the ratios. Share of Selling Price treats every ratio as a slice of the rate and solves for it, which is how the estimation sheets are written. Typed by Hand leaves both rates alone."
+msgstr "«تراكمي على التكلفة» بيزوّد النسب على التكلفة. و«نسبة من سعر البيع» بيعتبر كل نسبة شريحة من الفئة ويحلّها، وده اللي شيتات التسعير مكتوبة بيه. و«تسعير يدوي» بيسيب الفئة والتكلفة زي ما هما."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_import_form
@@ -1488,9 +1512,20 @@ msgid "Estimated Margin"
 msgstr "الهامش التقديري"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__estimated_net_margin_percent
+msgid "Estimated Margin (%)"
+msgstr "الهامش المتوقع (%)"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__estimated_tax
 msgid "Estimated Tax"
 msgstr "إجمالي الضريبة التقديري"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "Every rate worked out from the ratios matches the rate in the sheet."
+msgstr "كل فئة اتحسبت من النسب طابقت الفئة اللي في الشيت."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -1673,6 +1708,12 @@ msgid "Finishing Worker"
 msgstr "عامل تشطيبات"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__tax_percent
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_tender_line__tax_percent
+msgid "Follows the taxes picked above. Type a figure straight into it where the sheet carries a rate rather than a tax record."
+msgstr "بيمشي ورا الضرايب المختارة فوق. اكتب فيه رقم على طول لما الشيت يبقى شايل نسبة مش ضريبة مسجّلة."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__forecast_cost
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_wbs__forecast_cost
 msgid "Forecast Cost at Completion"
@@ -1834,6 +1875,11 @@ msgid "Hours per Shift"
 msgstr "ساعات الوردية"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_res_company__construction_pricing_method
+msgid "How a new tender or BOQ item arrives priced. Each item can still be switched on its own."
+msgstr "البند الجديد في المناقصة أو المقايسة بييجي مسعّر إزاي. وكل بند يفضل ممكن يتغيّر لوحده."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_res_company__construction_reminder_days
 msgid "How many days before a tender date the responsible users are reminded."
 msgstr "عدد الأيام قبل موعد المناقصة التي يُنبَّه فيها المسؤولون."
@@ -1868,6 +1914,11 @@ msgstr "استيراد"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_import_form
 msgid "Import Priced Items"
 msgstr "استيراد بنود مسعّرة"
+
+#. module: aos_construction_ext
+#: model:ir.model,name:aos_construction_ext.model_construction_boq_import
+msgid "Import Priced Items from a Sheet"
+msgstr "استيراد بنود مسعّرة من شيت"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_form_ext
@@ -2325,6 +2376,18 @@ msgstr "صافي الربح المضاف على تكلفة البند."
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 msgid "Net profit compares what has been certified to the client against the cost incurred so far, so both sides cover the same work. Forecast margin looks ahead instead: the whole contract against what the remaining work is expected to cost, with assigned items at the subcontractors rates and the rest at our own."
 msgstr "صافي الربح يقارن ما استُخلص للعميل بالتكلفة المنصرفة حتى الآن، فيكون الطرفان عن نفس الأعمال. أما الهامش المتوقع فينظر للأمام: قيمة العقد كاملة مقابل التكلفة المتوقعة لما تبقى من أعمال، بأسعار مقاولي الباطن للبنود المسندة وبتكلفتنا لما عداها."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "No row in \"%s\" names the columns, so there is nothing to read it by. The sheet needs a header row carrying at least a description column and a quantity column."
+msgstr "مفيش صف في «%s» بيسمّي الأعمدة، فمفيش حاجة نقرا بيها. الشيت لازم يكون فيه صف عناوين فيه على الأقل عمود وصف وعمود كمية."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "No unit on the system answers to: %s. Those items were written without one."
+msgstr "مفيش وحدة قياس على السيستم بالاسم ده: %s. البنود دي اتكتبت من غير وحدة."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2904,6 +2967,11 @@ msgid "Quoted price less the item cost rate, per unit. A positive figure eats in
 msgstr "السعر المعروض ناقص فئة تكلفة البند، للوحدة. الرقم الموجب يأكل من الهامش الذي سُعّر البند به."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_import__rate_source
+msgid "Rate"
+msgstr "الفئة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__shift_rate
 msgid "Rate per Person / Shift"
 msgstr "أجر الفرد للوردية"
@@ -2917,6 +2985,18 @@ msgstr "المواد الخام"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Re-apply company ratios"
 msgstr "إعادة تطبيق نسب الشركة"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "Read from sheet \"%s\"."
+msgstr "اتقرا من تاب «%s»."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "Reading an Excel sheet needs the openpyxl library, which is not installed on this server. Install python3-openpyxl and restart Odoo."
+msgstr "قراءة ملف الإكسيل محتاجة مكتبة openpyxl، وهي مش متنصّبة على السيرفر ده. نصّب python3-openpyxl وأعد تشغيل أودو."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project_hold__reason
@@ -3272,6 +3352,23 @@ msgid "Share of the contract the client pays up front."
 msgstr "نسبة العقد التي يدفعها العميل مقدماً."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_res_company__construction_authority_percent
+msgid "Share of the selling price that goes to the tendering body. Read under Share of Selling Price pricing only."
+msgstr "نسبة من سعر البيع بتروح للجهة صاحبة المناقصة. بتتقرا في تسعير «نسبة من سعر البيع» بس."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "Sheet \"%s\" carries no items under its header row."
+msgstr "تاب «%s» مفيهوش بنود تحت صف العناوين."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "Sheet total %(sheet)s, written total %(written)s."
+msgstr "إجمالي الشيت %(sheet)s، وإجمالي اللي اتكتب %(written)s."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__shift_count
 msgid "Shifts"
 msgstr "عدد الورديات"
@@ -3485,6 +3582,11 @@ msgid "Tax Value"
 msgstr "قيمة الضريبة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__estimated_tax
+msgid "Tax priced into the rates. It is deducted from the payment, so it is not margin."
+msgstr "الضريبة المسعّرة في الفئات. بتتخصم من الدفعة فهي مش هامش."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__tax_ids
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__tax_ids
 msgid "Taxes"
@@ -3619,6 +3721,12 @@ msgid "The accountant who owns this project file."
 msgstr "المحاسب المسؤول عن ملف هذا المشروع."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__admin_amount
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_tender_line__admin_amount
+msgid "The administration share carried by one unit."
+msgstr "شريحة الإدارة اللي شايلاها الوحدة الواحدة."
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/wizard/construction_custody_disburse.py:0
 #: code:addons/aos_construction_ext/wizard/construction_custody_return.py:0
@@ -3629,6 +3737,12 @@ msgstr "المبلغ لازم يكون أكبر من صفر."
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__expected_cost
 msgid "The assigned quantity at what the subcontractors charge, plus the rest at our own cost rate. What the item will cost once it is done, rather than what it was budgeted at."
 msgstr "الكمية المسندة بأسعار مقاولي الباطن، والباقي بتكلفتنا. ما سيكلفه البند عند انتهائه، لا ما كان مقدَّراً له."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__authority_amount
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_tender_line__authority_amount
+msgid "The authority share carried by one unit."
+msgstr "شريحة الجهة اللي شايلاها الوحدة الواحدة."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -3647,6 +3761,16 @@ msgstr "يجب إصدار التأمين الابتدائي قبل تقديم ا
 #: code:addons/aos_construction_ext/models/construction_tender.py:0
 msgid "The bid bond is issued after the conditions booklet is bought."
 msgstr "التأمين الابتدائي بيتصدر بعد شراء كراسة الشروط."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_tender_line__net_margin
+msgid "The bid less the item cost, the administration share and the tax: what the item actually leaves behind."
+msgstr "العطاء ناقص تكلفة البند وشريحة الإدارة والضريبة: اللي البند بيسيبه فعلاً."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__net_margin
+msgid "The bill amount less the item cost, the administration share and the tax."
+msgstr "مبلغ البند ناقص تكلفته وشريحة الإدارة والضريبة."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -3685,6 +3809,12 @@ msgid "The custody this payment handed cash to."
 msgstr "العهدة اللي الدفعة دي صرفت لها."
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "The document is no longer there."
+msgstr "المستند مابقاش موجود."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__move_id
 msgid "The entry raised when the expense was approved. Emptied when it goes back to draft and the entry is reversed."
 msgstr "القيد اللي اتعمل وقت اعتماد المصروف. بيفضى لما المصروف يرجع لمسودة والقيد يتعكس."
@@ -3693,6 +3823,11 @@ msgstr "القيد اللي اتعمل وقت اعتماد المصروف. بي�
 #: model:ir.model.fields,help:aos_construction_ext.field_account_move__construction_expense_id
 msgid "The expense this entry was raised for."
 msgstr "المصروف اللي القيد ده اتعمل عشانه."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__estimated_admin
+msgid "The head-office administration share priced into the bid."
+msgstr "شريحة إدارة المركز الرئيسي المسعّرة في العطاء."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -3763,6 +3898,29 @@ msgstr "المشروع يحمل مستخلصات لمقاولي الباطن و�
 #: model:ir.model.fields,help:aos_construction_ext.field_purchase_order_line__boq_cost_rate
 msgid "The rate the bill of quantities item was priced on. What the job can afford to pay for one unit."
 msgstr "الفئة التي سُعّر بند المقايسة على أساسها. ما يستطيع المشروع تحمّله للوحدة الواحدة."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_import__rate_source
+msgid "The ratios keep the items live: change a cost or a ratio later and the rate follows. Taking the rate as it stands matches the sheet to the piastre but leaves the item priced by hand."
+msgstr "النسب بتخلّي البنود حيّة: تغيّر تكلفة أو نسبة بعدين فالفئة تمشي وراها. وخد الفئة زي ما هي بيطابق الشيت للقرش بس بيسيب البند مسعّر بالإيد."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_boq_line.py:0
+#: code:addons/aos_construction_ext/models/construction_tender_line.py:0
+msgid "The ratios on \"%(item)s\" add up to %(total)s%% of the selling price, so there is nothing left to cover the cost and no rate to solve for. They have to stay under 100%%."
+msgstr "النسب على «%(item)s» مجموعها %(total)s%% من سعر البيع، فمفيش حاجة فاضلة تغطي التكلفة ولا فئة تتحلّ. لازم تفضل أقل من 100%%."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__authority_percent
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_tender_line__authority_percent
+msgid "The share of the rate that goes to the tendering body. Priced under Share of Selling Price only; a build-up has no slice of the rate for it."
+msgstr "الشريحة من الفئة اللي بتروح للجهة صاحبة المناقصة. بتتحسب في «نسبة من سعر البيع» بس؛ التسعير التراكمي مفيهوش شريحة ليها."
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_import_form
+msgid "The sheet is read by its header row, so the notes above it can stay. A row carrying a quantity becomes an item; a row carrying only text becomes a section heading."
+msgstr "الشيت بيتقرا بصف العناوين بتاعه، فالملاحظات اللي فوقه ممكن تفضل. الصف اللي فيه كمية بيبقى بند، والصف اللي فيه نص بس بيبقى عنوان قسم."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -3838,6 +3996,12 @@ msgstr "العهدة دي اتحمّلت على مشروع ومينفعش تتل
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
 msgid "This custody has posted journal entries. Reverse them before cancelling it."
 msgstr "العهدة دي ليها قيود مرحّلة. اعكسها الأول قبل ما تلغيها."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "This file could not be opened as an Excel workbook: %s. Save it as .xlsx and try again."
+msgstr "الملف ده مافتحش كملف إكسيل: %s. احفظه بصيغة ‎.xlsx‎ وجرّب تاني."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter
@@ -3960,6 +4124,12 @@ msgid "Unit Rate"
 msgstr "سعر الوحدة"
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
+msgid "Units brought back out of the archive so the items could use them: %s."
+msgstr "وحدات اترجعت من الأرشيف عشان البنود تستخدمها: %s."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_custody__returned_amount
 msgid "Unspent cash handed back. The sum of the returns once any have been recorded."
 msgstr "النقدية اللي مااتصرفتش ورجعت. مجموع عمليات الرد أول ما تتسجّل."
@@ -4034,6 +4204,11 @@ msgstr "بانتظار الموافقة"
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_tender__state__pending_approval
 msgid "Waiting Management Approval"
 msgstr "بانتظار موافقة الإدارة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_res_company__construction_site_warehouse_id
+msgid "Warehouse the per-project site locations are created under. Left empty, the company's first warehouse is used."
+msgstr "المخزن اللي مواقع المشاريع بتتعمل تحته. لو سبته فاضي بيتاخد أول مخزن في الشركة."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_project__warehouse_id
