@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
 
 from . import pricing
 
@@ -6,10 +7,13 @@ from . import pricing
 class ConstructionTenderLine(models.Model):
     _inherit = 'construction.tender.line'
 
-    use_pricing_formula = fields.Boolean(
-        string='Build-up Pricing', default=True,
-        help='Build the rate from cost and ratios. Uncheck to type the cost '
-             'and selling rates by hand, for items quoted as a lump sum.')
+    pricing_method = fields.Selection(
+        pricing.PRICING_METHODS, string='Pricing Method', required=True,
+        default=lambda self: self.env.company.construction_pricing_method,
+        help='Build-up on Cost marks the cost up by the ratios. Share of '
+             'Selling Price treats every ratio as a slice of the rate and '
+             'solves for it, which is how the estimation sheets are written. '
+             'Typed by Hand leaves both rates alone.')
 
     dry_cost = fields.Monetary(
         string='Dry Cost',
@@ -32,6 +36,12 @@ class ConstructionTenderLine(models.Model):
     expense_percent = fields.Float(
         string='General Expenses (%)', default=lambda self:
         self.env.company.construction_expense_percent)
+    authority_percent = fields.Float(
+        string='Authority Share (%)', default=lambda self:
+        self.env.company.construction_authority_percent,
+        help='The share of the rate that goes to the tendering body. Priced '
+             'under Share of Selling Price only; a build-up has no slice of '
+             'the rate for it.')
 
     tax_ids = fields.Many2many(
         'account.tax', string='Taxes',
@@ -39,7 +49,10 @@ class ConstructionTenderLine(models.Model):
              'the system. Percentage taxes only; a fixed-amount tax cannot '
              'be built into a unit rate.')
     tax_percent = fields.Float(
-        string='Tax (%)', compute='_compute_tax_percent', store=True)
+        string='Tax (%)', compute='_compute_tax_percent', store=True,
+        readonly=False,
+        help='Follows the taxes picked above. Type a figure straight into it '
+             'where the sheet carries a rate rather than a tax record.')
     price_before_tax = fields.Monetary(
         string='Price before Tax', compute='_compute_pricing', store=True)
     tax_amount = fields.Monetary(
@@ -66,6 +79,9 @@ class ConstructionTenderLine(models.Model):
         string='Price before Expenses', compute='_compute_pricing', store=True)
     expense_amount = fields.Monetary(
         string='Expenses Value', compute='_compute_pricing', store=True)
+    authority_amount = fields.Monetary(
+        string='Authority Share Value', compute='_compute_pricing',
+        store=True, help='The authority share carried by one unit.')
 
     # ------------------------------------------------------------------
     # What of the rate is actually ours to keep
@@ -82,6 +98,9 @@ class ConstructionTenderLine(models.Model):
         store=True)
     tax_total = fields.Monetary(
         string='Tax Total', compute='_compute_net_margin', store=True)
+    authority_total = fields.Monetary(
+        string='Authority Share Total', compute='_compute_net_margin',
+        store=True)
     net_margin = fields.Monetary(
         string='Margin', compute='_compute_net_margin', store=True,
         help='The bid less the item cost, the administration share and the '
@@ -90,18 +109,27 @@ class ConstructionTenderLine(models.Model):
         string='Margin (%)', compute='_compute_net_margin', store=True)
 
     @api.depends('amount', 'budget_cost', 'base_cost', 'admin_percent',
-                 'tax_amount', 'qty', 'is_section')
+                 'tax_amount', 'qty', 'is_section', 'pricing_method',
+                 'unit_rate', 'authority_amount')
     def _compute_net_margin(self):
         for line in self:
             if line.is_section:
                 line.admin_amount = line.admin_total = line.tax_total = 0.0
+                line.authority_total = 0.0
                 line.net_margin = line.net_margin_percent = 0.0
                 continue
-            line.admin_amount = line.base_cost * line.admin_percent / 100.0
+            # Under the sheet convention the administration ratio is a
+            # slice of the rate, not a markup on the cost, so it is read off
+            # whichever figure it was priced against.
+            line.admin_amount = (
+                line.unit_rate if line.pricing_method == 'margin'
+                else line.base_cost) * line.admin_percent / 100.0
             line.admin_total = line.admin_amount * line.qty
             line.tax_total = line.tax_amount * line.qty
+            line.authority_total = line.authority_amount * line.qty
             line.net_margin = (line.amount - line.budget_cost
-                               - line.admin_total - line.tax_total)
+                               - line.admin_total - line.tax_total
+                               - line.authority_total)
             line.net_margin_percent = (
                 100.0 * line.net_margin / line.amount) if line.amount else 0.0
 
@@ -121,15 +149,27 @@ class ConstructionTenderLine(models.Model):
     def _compute_pricing(self):
         pricing.compute_pricing(self)
 
-    @api.depends('dry_cost', 'operating_cost', 'use_pricing_formula',
-                 'is_section')
+    @api.depends(*pricing.COST_RATE_DEPENDS)
     def _compute_cost_rate(self):
         pricing.compute_cost_rate(self)
 
-    @api.depends('price_before_tax', 'tax_percent',
-                 'use_pricing_formula', 'is_section')
+    @api.depends(*pricing.UNIT_RATE_DEPENDS)
     def _compute_unit_rate(self):
         pricing.compute_unit_rate(self)
+
+    @api.constrains('pricing_method', *pricing.MARGIN_RATIOS)
+    def _check_margin_shares(self):
+        for line in self:
+            if line.is_section or line.pricing_method != 'margin':
+                continue
+            if pricing.shares(line) >= 1.0:
+                raise ValidationError(self.env._(
+                    'The ratios on "%(item)s" add up to %(total)s%% of the '
+                    'selling price, so there is nothing left to cover the '
+                    'cost and no rate to solve for. They have to stay under '
+                    '100%%.',
+                    item=line.display_name,
+                    total=round(pricing.shares(line) * 100.0, 2)))
 
     def action_apply_company_ratios(self):
         """Pull the company ratios back onto these items."""

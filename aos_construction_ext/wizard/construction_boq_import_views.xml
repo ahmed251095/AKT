@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_construction_boq_import_form" model="ir.ui.view">
+        <field name="name">construction.boq.import.form</field>
+        <field name="model">construction.boq.import</field>
+        <field name="arch" type="xml">
+            <form string="Import Priced Items">
+                <field name="res_model" invisible="1"/>
+                <field name="res_id" invisible="1"/>
+                <field name="state" invisible="1"/>
+
+                <group invisible="state == 'done'">
+                    <group>
+                        <field name="file" filename="filename"
+                               widget="binary"/>
+                        <field name="filename" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="rate_source" widget="radio"/>
+                        <field name="mode" widget="radio"/>
+                    </group>
+                </group>
+                <div class="text-muted" invisible="state == 'done'">
+                    The sheet is read by its header row, so the notes above it
+                    can stay. A row carrying a quantity becomes an item; a row
+                    carrying only text becomes a section heading.
+                </div>
+
+                <group invisible="state != 'done'">
+                    <field name="log" nolabel="1" readonly="1"/>
+                </group>
+
+                <footer>
+                    <button name="action_import" type="object"
+                            string="Import" class="btn-primary"
+                            invisible="state == 'done'"/>
+                    <button string="Cancel" class="btn-secondary"
+                            special="cancel" invisible="state == 'done'"/>
+                    <button string="Close" class="btn-primary"
+                            special="cancel" invisible="state != 'done'"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_construction_boq_import" model="ir.actions.act_window">
+        <field name="name">Import Priced Items</field>
+        <field name="res_model">construction.boq.import</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="view_construction_boq_import_form"/>
+    </record>
+
+</odoo>

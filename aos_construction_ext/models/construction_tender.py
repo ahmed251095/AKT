@@ -554,6 +554,18 @@ class ConstructionTender(models.Model):
             boq_line._write_pricing(self._pricing_values(tender_line))
 
     @staticmethod
+
+    def action_import_sheet(self):
+        """Open the reader that fills the items from the office's workbook."""
+        self.ensure_one()
+        action = self.env['ir.actions.act_window']._for_xml_id(
+            'aos_construction_ext.action_construction_boq_import')
+        action['context'] = {
+            'active_model': self._name,
+            'active_id': self.id,
+        }
+        return action
+
     def _pricing_values(tender_line):
         values = {field: tender_line[field]
                   for field in pricing.PRICING_COPY_FIELDS}

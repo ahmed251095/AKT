@@ -18,7 +18,7 @@ def post_init_hook(env):
             continue
         for line in lines:
             line.write({
-                'use_pricing_formula': False,
+                'pricing_method': 'manual',
                 'dry_cost': line.cost_rate,
             })
         _logger.info(

@@ -12,6 +12,9 @@
                 <button name="action_pull_tender_pricing" type="object"
                         string="Pull Tender Pricing" class="btn-secondary"
                         invisible="not tender_id or state == 'approved'"/>
+                <button name="action_import_sheet" type="object"
+                        string="Import from Excel" class="btn-secondary"
+                        invisible="state == 'approved'"/>
             </xpath>
 
             <!-- invisible="1" hides a cell's value, not its column. -->
@@ -67,10 +70,11 @@
             </xpath>
 
             <xpath expr="//field[@name='line_ids']/list/field[@name='unit_rate']" position="before">
-                <field name="use_pricing_formula" optional="hide"/>
+                <field name="pricing_method" optional="hide"/>
                 <field name="dry_cost" optional="hide" sum="Dry Cost"/>
                 <field name="operating_cost" optional="hide" sum="Operating Cost"/>
                 <field name="base_cost" optional="show" sum="Base Cost"/>
+                <field name="authority_percent" optional="hide"/>
                 <field name="profit_percent" optional="hide"/>
                 <field name="contingency_percent" optional="hide"/>
                 <field name="admin_percent" optional="hide"/>
@@ -130,6 +134,7 @@
             <xpath expr="//field[@name='line_ids']/list/field[@name='budget_margin']"
                    position="after">
                 <field name="admin_total" optional="hide" sum="Administration"/>
+                <field name="authority_total" optional="hide" sum="Authority Share"/>
                 <field name="tax_total" optional="hide" sum="Tax"/>
                 <field name="net_margin" sum="Margin"
                        groups="aos_construction_ext.group_construction_margin"/>

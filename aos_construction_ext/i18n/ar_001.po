@@ -214,6 +214,11 @@ msgid "Add the allocations before posting."
 msgstr "أضف التحميلات قبل الترحيل."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_boq_import__mode__append
+msgid "Add to the items already there"
+msgstr "أضف للبنود الموجودة"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Administration"
 msgstr "الإدارة"
@@ -449,6 +454,34 @@ msgid "Assigned Value"
 msgstr "قيمة الإسناد"
 
 #. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Authority Share"
+msgstr "نسبة الجهة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__authority_percent
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__authority_percent
+msgid "Authority Share (%)"
+msgstr "نسبة جهة (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_authority_percent
+msgid "Authority Share Ratio (%)"
+msgstr "نسبة جهة (%)"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__authority_total
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__authority_total
+msgid "Authority Share Total"
+msgstr "إجمالي نسبة الجهة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__authority_amount
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__authority_amount
+msgid "Authority Share Value"
+msgstr "قيمة نسبة الجهة"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__authority_type_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__authority_type_id
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_authority_type_form
@@ -671,18 +704,7 @@ msgid "Budget Cost"
 msgstr "التكلفة المعتمدة"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__use_pricing_formula
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_tender_line__use_pricing_formula
-msgid "Build the rate from cost and ratios. Uncheck to type the cost and selling rates by hand, for items quoted as a lump sum."
-msgstr "بناء السعر من التكلفة والنسب. أزل التحديد لإدخال التكلفة وسعر البيع يدوياً، للبنود المسعّرة بالمقطوعية."
-
-#. module: aos_construction_ext
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__use_pricing_formula
-#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__use_pricing_formula
-msgid "Build-up Pricing"
-msgstr "التسعير التراكمي"
-
-#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_import_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_disburse_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_return_form
@@ -840,6 +862,11 @@ msgstr "العميل"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Client Advance"
 msgstr "الدفعة المقدمة من العميل"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_import_form
+msgid "Close"
+msgstr "إغلاق"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_custody_form
@@ -1183,6 +1210,12 @@ msgid "Default Journal"
 msgstr "اليومية الافتراضية"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_res_company__construction_pricing_method
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
+msgid "Default Pricing Method"
+msgstr "طريقة التسعير الافتراضية"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_type__default_shift_rate
 msgid "Default Shift Rate"
 msgstr "أجر الوردية الافتراضي"
@@ -1252,9 +1285,15 @@ msgid "Distribution"
 msgstr "التوزيع"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_import__res_id
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_document_form
 msgid "Document"
 msgstr "مستند"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_import__res_model
+msgid "Document Model"
+msgstr "موديل المستند"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_document__document_type_id
@@ -1286,6 +1325,11 @@ msgid "Documents Ready (%)"
 msgstr "اكتمال المستندات (%)"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_boq_import__state__done
+msgid "Done"
+msgstr "منتهٍ"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__own_progress_qty
 msgid "Done In-house"
 msgstr "منجز ذاتياً"
@@ -1296,6 +1340,7 @@ msgid "Done by Subcontractors"
 msgstr "منجز بالباطن"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_boq_import__state__draft
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_custody__state__draft
 #: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_salary_distribution__state__draft
 msgid "Draft"
@@ -1454,6 +1499,11 @@ msgid "Every settlement line has already been charged."
 msgstr "كل سطور التسوية اتحمّلت على مشاريعها بالفعل."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_import__file
+msgid "Excel Sheet"
+msgstr "ملف إكسيل"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_boq_line__qty_variance
 msgid "Executed quantity less the quantity in the bill of quantities. A positive figure is work done beyond what the client priced."
 msgstr "الكمية المنفَّذة ناقص كمية المقايسة. الرقم الموجب يعني أعمالاً نُفِّذت زيادة على ما سعّره العميل."
@@ -1467,6 +1517,11 @@ msgstr "مدة التنفيذ المتفق عليها في العقد."
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__operation_duration_days
 msgid "Execution period the tender conditions allow, counted from the site handover."
 msgstr "مدة التنفيذ التي تسمح بها شروط المناقصة، محسوبة من تسليم الموقع."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_import__mode
+msgid "Existing Items"
+msgstr "البنود الموجودة"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__expected_cost
@@ -1554,6 +1609,7 @@ msgid "File"
 msgstr "الملف"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_import__filename
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__admin_handover_filename
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__final_handover_filename
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__initial_handover_filename
@@ -1801,6 +1857,23 @@ msgstr "كيف تم تحديد النسب هذا الشهر..."
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Human Resources"
 msgstr "الموارد البشرية"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_import_form
+msgid "Import"
+msgstr "استيراد"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_boq_import
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_import_form
+msgid "Import Priced Items"
+msgstr "استيراد بنود مسعّرة"
+
+#. module: aos_construction_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_boq_form_ext
+#: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
+msgid "Import from Excel"
+msgstr "استيراد من إكسيل"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_search
@@ -2622,6 +2695,12 @@ msgid "Pricing Build-up"
 msgstr "بناء السعر"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__pricing_method
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender_line__pricing_method
+msgid "Pricing Method"
+msgstr "طريقة التسعير"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Pricing Sheet (Excel)"
 msgstr "جدول التسعير (إكسل)"
@@ -2951,6 +3030,11 @@ msgid "Reminder Submission Sent"
 msgstr "تم إرسال تذكير التسليم"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_boq_import__mode__replace
+msgid "Replace the items"
+msgstr "استبدل البنود"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_tender_form_ext
 msgid "Request Approval"
 msgstr "طلب موافقة الإدارة"
@@ -3004,6 +3088,7 @@ msgid "Responsible Accountant"
 msgstr "المحاسب المسؤول"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_import__log
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Result"
 msgstr "النتيجة"
@@ -3240,6 +3325,7 @@ msgid "Start Handover"
 msgstr "بدء التسليم"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_import__state
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__state
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_tender__state
 msgid "State"
@@ -3348,6 +3434,11 @@ msgstr "بيتقترح على المصروف الجديد كمصدر للفلو�
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract__assigned_total
 msgid "Sum of the items handed to this subcontractor."
 msgstr "مجموع البنود المسندة لمقاول الباطن هذا."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_boq_import__rate_source__sheet
+msgid "Take the rate as it stands in the sheet"
+msgstr "خد الفئة زي ما هي في الشيت"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_boq_line__inhouse_committed_qty
@@ -4120,6 +4211,11 @@ msgstr "الأعمال المنفَّذة من المقايسة والتي لم 
 #: code:addons/aos_construction_ext/models/construction_work_order_line.py:0
 msgid "Work orders accept %(accepted)s of \"%(item)s\", but only %(scope)s is ours to execute: %(assigned)s of the %(qty)s in the bill is assigned to subcontractors.\nReduce the assignment first if we are doing this work ourselves."
 msgstr "أوامر الشغل تقبل %(accepted)s من \"%(item)s\"، والمتاح لنا %(scope)s فقط: %(assigned)s من %(qty)s في المقايسة مسندة لمقاولي الباطن.\nقلّل الإسناد أولاً إذا كنا سننفذ هذا العمل بأنفسنا."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields.selection,name:aos_construction_ext.selection__construction_boq_import__rate_source__ratios
+msgid "Work the rate out from the ratios"
+msgstr "احسب الفئة من النسب"
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_tender_cover_letter

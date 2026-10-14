@@ -1,5 +1,7 @@
 from odoo import fields, models
 
+from . import pricing
+
 EXPENSE_ACCOUNT_DOMAIN = "[('account_type', 'in', ('expense', 'expense_direct_cost'))]"
 
 
@@ -22,6 +24,15 @@ class ResCompany(models.Model):
         string='General Expenses Ratio (%)', default=14.0,
         help='General expenses applied on the marked-up price, '
              'the last step of the build-up.')
+    construction_authority_percent = fields.Float(
+        string='Authority Share Ratio (%)', default=0.0,
+        help='Share of the selling price that goes to the tendering body. '
+             'Read under Share of Selling Price pricing only.')
+    construction_pricing_method = fields.Selection(
+        pricing.PRICING_METHODS, string='Default Pricing Method',
+        default='buildup', required=True,
+        help='How a new tender or BOQ item arrives priced. Each item can '
+             'still be switched on its own.')
     construction_site_warehouse_id = fields.Many2one(
         'stock.warehouse', string='Site Warehouse',
         help='Warehouse the per-project site locations are created under. '

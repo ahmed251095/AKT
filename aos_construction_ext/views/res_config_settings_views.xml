@@ -23,6 +23,12 @@
                         <setting string="General Expenses" help="Applied on the marked-up price, the last step of the build-up.">
                             <field name="construction_expense_percent"/>
                         </setting>
+                        <setting string="Authority Share" help="Share of the selling price that goes to the tendering body. Read under Share of Selling Price pricing only.">
+                            <field name="construction_authority_percent"/>
+                        </setting>
+                        <setting string="Default Pricing Method" help="How a new item arrives priced: the cost marked up, or every ratio taken as a slice of the selling rate.">
+                            <field name="construction_pricing_method"/>
+                        </setting>
                     </block>
                     <block title="Modules"
                            help="Parts of the module you can switch off when the company does not work that way.">

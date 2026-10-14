@@ -1,6 +1,6 @@
 {
     'name': 'Construction Management - Business Extension',
-    'version': '19.0.1.0.0',
+    'version': '19.0.1.1.0',
     'category': 'Services/Construction',
     'summary': 'Tender pricing formula, bid bonds, management approval cycle, '
                'document checklists, project team roles and closure workflow',
@@ -50,6 +50,7 @@ Adds the operating model actually used by the contractor on top of
         'wizard/construction_project_hold_views.xml',
         'wizard/construction_custody_disburse_views.xml',
         'wizard/construction_custody_return_views.xml',
+        'wizard/construction_boq_import_views.xml',
         'views/construction_authority_type_views.xml',
         'views/construction_document_views.xml',
         'views/construction_tender_views.xml',

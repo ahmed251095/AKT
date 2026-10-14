@@ -12,6 +12,10 @@ class ResConfigSettings(models.TransientModel):
         related='company_id.construction_admin_percent', readonly=False)
     construction_expense_percent = fields.Float(
         related='company_id.construction_expense_percent', readonly=False)
+    construction_authority_percent = fields.Float(
+        related='company_id.construction_authority_percent', readonly=False)
+    construction_pricing_method = fields.Selection(
+        related='company_id.construction_pricing_method', readonly=False)
     group_construction_quality = fields.Boolean(
         string='Quality Control',
         implied_group='aos_construction_ext.group_construction_quality')
