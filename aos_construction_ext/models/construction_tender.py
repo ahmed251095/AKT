@@ -553,8 +553,6 @@ class ConstructionTender(models.Model):
         for tender_line, boq_line in zip(tender_lines, boq_lines):
             boq_line._write_pricing(self._pricing_values(tender_line))
 
-    @staticmethod
-
     def action_import_sheet(self):
         """Open the reader that fills the items from the office's workbook."""
         self.ensure_one()
@@ -566,6 +564,7 @@ class ConstructionTender(models.Model):
         }
         return action
 
+    @staticmethod
     def _pricing_values(tender_line):
         values = {field: tender_line[field]
                   for field in pricing.PRICING_COPY_FIELDS}
