@@ -35,6 +35,9 @@ Adds the operating model actually used by the contractor on top of
         'aos_construction_management',
         'mail',
         'account',
+        # The Accounting app itself: the money-out menus hang off its
+        # root, not off Invoicing's.
+        'accountant',
         'purchase',
         'stock',
         'hr',

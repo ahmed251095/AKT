@@ -13,11 +13,14 @@
         ir.model.access.csv grants that group the three models and read on
         what their forms point at, and nothing else of the site's.
     -->
+    <!-- ``accountant.menu_accounting`` is the Accounting app, the one the
+         accountant actually works in. ``account.menu_finance`` is Invoicing:
+         a separate app, and the menu was invisible under it. -->
     <menuitem id="menu_account_project_expenses"
               name="Project Expenses"
-              parent="account.menu_finance"
+              parent="accountant.menu_accounting"
               groups="aos_construction_management.group_construction_user,account.group_account_user"
-              sequence="6"/>
+              sequence="5"/>
 
     <menuitem id="menu_account_construction_expense"
               name="Expenses"
