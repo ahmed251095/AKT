@@ -581,7 +581,11 @@ class ConstructionCustodyLine(models.Model):
 
         The receipts stay attachable: evidence can always be added.
         """
-        if typed_fields(self, vals, unlocked=('expense_id', 'attachment_ids')):
+        # ``settlement_move_id`` is the settlement writing down which entry
+        # it posted, the same bookkeeping as ``expense_id`` - not someone
+        # editing a charged receipt.
+        if typed_fields(self, vals, unlocked=('expense_id', 'attachment_ids',
+                                              'settlement_move_id')):
             charged = self.filtered('expense_id')
             if charged:
                 refuse(charged, self._charged_line_message())
