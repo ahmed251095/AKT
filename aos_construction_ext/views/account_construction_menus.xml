@@ -9,14 +9,14 @@
         how reviews get skipped, so the same three screens are reachable from
         both apps - one set of records, two ways in.
 
-        Gated on the construction users group because that is what the three
-        models grant access to: a menu an accountant can see but not open is
-        worse than no menu at all.
+        The bookkeeper reaches it without being made a construction user:
+        ir.model.access.csv grants that group the three models and read on
+        what their forms point at, and nothing else of the site's.
     -->
     <menuitem id="menu_account_project_expenses"
               name="Project Expenses"
               parent="account.menu_finance"
-              groups="aos_construction_management.group_construction_user"
+              groups="aos_construction_management.group_construction_user,account.group_account_user"
               sequence="6"/>
 
     <menuitem id="menu_account_construction_expense"
