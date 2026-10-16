@@ -177,10 +177,17 @@ KEEP_PRICING_MODE = 'construction_pricing_copy'
 
 
 #: Fields carried over when a tender item becomes a BOQ item.
+#:
+#: ``tax_percent`` and ``markup_percent`` travel even though both follow
+#: something else: the tax ratio is typed wherever the estimation sheet
+#: carries a rate instead of a tax record, and the markup is typed on the item
+#: an estimator priced differently. Left behind, the copy lands with a rate
+#: its own breakdown does not produce -- right until the next edit, when the
+#: rate silently moves to what the breakdown says.
 PRICING_COPY_FIELDS = (
     'pricing_method', 'dry_cost', 'operating_cost', 'profit_percent',
     'contingency_percent', 'admin_percent', 'expense_percent',
-    'authority_percent',
+    'authority_percent', 'tax_percent', 'markup_percent',
 )
 
 #: Copied separately: a many2many needs its own command.
