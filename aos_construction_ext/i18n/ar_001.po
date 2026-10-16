@@ -177,6 +177,12 @@ msgstr "الشيت المسعّر بيتقرا في مقايسة أو مناقص
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_custody.py:0
+msgid "A settled or cancelled custody carries nothing left to charge."
+msgstr "العهدة المقفولة أو الملغية مفيهاش حاجة فاضلة تتحمّل."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_salary.py:0
 msgid "A share cannot be negative."
 msgstr "نسبة التحميل لا تكون بالسالب."
@@ -2462,12 +2468,6 @@ msgstr "موقوفة"
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
 msgid "Only a custody with the holder can be closed."
 msgstr "الإقفال بيتعمل للعهد اللي لسه لدى الحامل."
-
-#. module: aos_construction_ext
-#. odoo-python
-#: code:addons/aos_construction_ext/models/construction_custody.py:0
-msgid "Only a custody with the holder can be settled."
-msgstr "التسوية بتتعمل للعهد اللي لسه لدى الحامل."
 
 #. module: aos_construction_ext
 #. odoo-python

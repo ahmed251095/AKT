@@ -221,6 +221,7 @@ AR = {
     "Bond Outstanding": "تأمين قائم", "Issuing Bank": "البنك المُصدِر",
     "Cash Deposit": "إيداع نقدي", "Certified Cheque": "شيك مقبول الدفع",
     "Letter of Guarantee": "خطاب ضمان",
+    "A settled or cancelled custody carries nothing left to charge.": "العهدة المقفولة أو الملغية مفيهاش حاجة فاضلة تتحمّل.",
     "Settlement Entry": "قيد التسوية",
     "The entry the settlement posted for the batch this line was charged in.": "القيد اللي التسوية عملته للدفعة اللي السطر ده اتحمّل فيها.",
     "Who spent the money. Filled in from the holder where the expense came off a custody settlement.": "مين صرف الفلوس. بيتملى من حامل العهدة لما المصروف يكون جاي من تسوية عهدة.",

@@ -336,12 +336,18 @@ class ConstructionCustody(models.Model):
 
         Only lines that have not been posted yet are taken, so the button can
         be pressed again as more receipts come in.
+
+        No cash has to have gone out first, and the receipts may come to more
+        than was handed over: a site engineer who pays for a load of sand out
+        of their own pocket is settling exactly the same way, and the custody
+        account simply ends up owing them instead of them owing it.
         """
         Expense = self.env['construction.expense']
         for custody in self:
-            if custody.state != 'open':
+            if custody.state not in ('draft', 'open'):
                 raise UserError(self.env._(
-                    'Only a custody with the holder can be settled.'))
+                    'A settled or cancelled custody carries nothing left to '
+                    'charge.'))
             pending = custody.line_ids.filtered(lambda l: not l.expense_id)
             if not pending:
                 raise UserError(self.env._(
@@ -382,6 +388,11 @@ class ConstructionCustody(models.Model):
                 # way round. One entry covers the whole batch, so the link
                 # lives on the lines it settled.
                 pending.settlement_move_id = move
+            if custody.state == 'draft':
+                # Charged receipts make it live whether or not cash ever went
+                # out: there is a balance against the holder either way, and
+                # a draft custody is in none of the lists that watch for one.
+                custody.state = 'open'
             custody.message_post(body=self.env._(
                 '%(count)s settlement lines charged to their projects.',
                 count=len(pending)))

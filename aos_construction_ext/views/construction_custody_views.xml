@@ -16,9 +16,13 @@
                     <button name="action_return" type="object"
                             string="Return Cash"
                             invisible="state != 'open'"/>
+                    <!-- Follows the receipts, not the cash: money spent out
+                         of the holder's own pocket is charged the same way,
+                         and there may have been no custody cash at all. -->
                     <button name="action_post_settlement" type="object"
                             string="Charge Settlement" class="btn-primary"
-                            invisible="state != 'open' or posted_count == line_count"/>
+                            invisible="state not in ('draft', 'open')
+                                       or posted_count == line_count"/>
                     <button name="action_settle" type="object" string="Close Custody"
                             invisible="state != 'open'"/>
                     <button name="action_cancel" type="object" string="Cancel"
