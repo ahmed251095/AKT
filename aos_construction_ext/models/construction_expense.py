@@ -13,7 +13,8 @@ class ConstructionExpense(models.Model):
     # which reverses the entry and which the chatter records.
     _LOCKED_ON_APPROVAL = (
         'name', 'project_id', 'wbs_id', 'work_order_id', 'boq_line_id',
-        'date', 'category', 'amount', 'employee_id', 'description',
+        'date', 'category', 'amount', 'employee_id', 'incurred_by_id',
+        'description',
         'journal_id', 'account_id', 'payment_account_id',
     )
 
@@ -61,6 +62,23 @@ class ConstructionExpense(models.Model):
         'account.move', 'construction_expense_id', string='Journal Entries',
         readonly=True)
     move_count = fields.Integer(compute='_compute_move_count')
+    #: The batch entry a custody settlement posted for this expense. It
+    #: belongs to the custody -- one entry covers every receipt settled
+    #: together -- so it cannot hang off ``move_ids``, but it is the entry
+    #: this expense is in the books through, and the only way to it was
+    #: through the custody.
+    settlement_move_id = fields.Many2one(
+        related='custody_line_id.settlement_move_id', string='Settlement Entry',
+        readonly=True)
+
+    #: ``employee_id`` of the base module is a system user, and the people who
+    #: hand over receipts on site do not have logins. The person is named
+    #: here instead, off the HR file, which is also where the custody holder
+    #: comes from.
+    incurred_by_id = fields.Many2one(
+        'hr.employee', string='Incurred By',
+        help='Who spent the money. Filled in from the holder where the '
+             'expense came off a custody settlement.')
 
     # Set by the custody settlement. An expense that came off a custody is
     # already in the accounts -- the custody posts the settlement entry for
@@ -84,10 +102,15 @@ class ConstructionExpense(models.Model):
             expense.account_id = company.construction_expense_account(
                 expense.category)
 
-    @api.depends('move_ids')
+    def _entries(self):
+        """Every entry this expense is in the books through."""
+        self.ensure_one()
+        return self.move_ids | self.settlement_move_id
+
+    @api.depends('move_ids', 'settlement_move_id')
     def _compute_move_count(self):
         for expense in self:
-            expense.move_count = len(expense.move_ids)
+            expense.move_count = len(expense._entries())
 
     # ------------------------------------------------------------------
     # Posting
@@ -196,7 +219,7 @@ class ConstructionExpense(models.Model):
             'name': self.env._('Journal Entries'),
             'res_model': 'account.move',
             'view_mode': 'list,form',
-            'domain': [('construction_expense_id', '=', self.id)],
+            'domain': [('id', 'in', self._entries().ids)],
         }
 
     def write(self, vals):

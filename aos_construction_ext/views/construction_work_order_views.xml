@@ -94,8 +94,14 @@
             <xpath expr="//field[@name='amount']" position="attributes">
                 <attribute name="readonly">state == 'approved'</attribute>
             </xpath>
+            <!-- The base field is a system user, and nobody who hands in a
+                 receipt on site has a login - so it was always empty. The
+                 person is named off the HR file instead. -->
             <xpath expr="//field[@name='employee_id']" position="attributes">
-                <attribute name="readonly">state == 'approved'</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='employee_id']" position="after">
+                <field name="incurred_by_id" readonly="state == 'approved'"/>
             </xpath>
             <xpath expr="//field[@name='description']" position="attributes">
                 <attribute name="readonly">state == 'approved'</attribute>
@@ -110,6 +116,8 @@
                        invisible="not journal_id"/>
                 <field name="custody_line_id" readonly="1"
                        invisible="not custody_line_id"/>
+                <field name="settlement_move_id" readonly="1"
+                       invisible="not settlement_move_id"/>
             </xpath>
 
             <!-- The entry the approval raised, where the custody has one. -->

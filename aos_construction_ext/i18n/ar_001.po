@@ -1979,6 +1979,11 @@ msgid "Incomplete Bid File"
 msgstr "ملف عطاء غير مكتمل"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__incurred_by_id
+msgid "Incurred By"
+msgstr "تحمَّلها"
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_project__cost_untraced
 msgid "Incurred cost with no work order or item on it. The higher this is, the less the item-level costing can be trusted."
 msgstr "تكلفة منصرفة بلا أمر شغل ولا بند. كلما زادت، قلّت الثقة في تكلفة البنود."
@@ -3334,6 +3339,12 @@ msgid "Settlement"
 msgstr "التسوية"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody_line__settlement_move_id
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__settlement_move_id
+msgid "Settlement Entry"
+msgstr "قيد التسوية"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Settlement Journal"
 msgstr "يومية التسوية"
@@ -3820,6 +3831,11 @@ msgstr "المستند مابقاش موجود."
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__move_id
 msgid "The entry raised when the expense was approved. Emptied when it goes back to draft and the entry is reversed."
 msgstr "القيد اللي اتعمل وقت اعتماد المصروف. بيفضى لما المصروف يرجع لمسودة والقيد يتعكس."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_custody_line__settlement_move_id
+msgid "The entry the settlement posted for the batch this line was charged in."
+msgstr "القيد اللي التسوية عملته للدفعة اللي السطر ده اتحمّل فيها."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_account_move__construction_expense_id
@@ -4347,6 +4363,11 @@ msgstr "هل يوصي المكتب الفني بالتقدم للمناقصة، 
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__financial_responsible_id
 msgid "Who owns the financial envelope and the bond for this tender."
 msgstr "المسؤول عن المظروف المالي والتأمين في هذه المناقصة."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__incurred_by_id
+msgid "Who spent the money. Filled in from the holder where the expense came off a custody settlement."
+msgstr "مين صرف الفلوس. بيتملى من حامل العهدة لما المصروف يكون جاي من تسوية عهدة."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_hold_form

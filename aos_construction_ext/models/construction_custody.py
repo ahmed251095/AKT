@@ -374,8 +374,14 @@ class ConstructionCustody(models.Model):
                     # to the default and the account behind it was empty.
                     'journal_id': settlement_journal.id,
                     'payment_account_id': custody_account.id,
+                    'incurred_by_id': custody.employee_id.id,
                 })
-            custody._post_settlement_move(pending)
+            move = custody._post_settlement_move(pending)
+            if move:
+                # So the expense can be opened from its entry and the other
+                # way round. One entry covers the whole batch, so the link
+                # lives on the lines it settled.
+                pending.settlement_move_id = move
             custody.message_post(body=self.env._(
                 '%(count)s settlement lines charged to their projects.',
                 count=len(pending)))
@@ -550,6 +556,11 @@ class ConstructionCustodyLine(models.Model):
     expense_id = fields.Many2one(
         'construction.expense', string='Charged Expense', readonly=True,
         copy=False, ondelete='set null')
+    settlement_move_id = fields.Many2one(
+        'account.move', string='Settlement Entry', readonly=True, copy=False,
+        ondelete='set null',
+        help='The entry the settlement posted for the batch this line was '
+             'charged in.')
     is_posted = fields.Boolean(
         string='Charged', compute='_compute_is_posted', store=True)
 
