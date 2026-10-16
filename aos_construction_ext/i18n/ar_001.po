@@ -867,8 +867,8 @@ msgstr "المصروفات المحمّلة"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_expense.py:0
-msgid "Choose the cash box or bank \"%s\" is paid from before approving it."
-msgstr "اختار الخزنة أو البنك اللي هيتصرف منه \"%s\" قبل ما تعتمده."
+msgid "Choose the journal \"%s\" is paid from before approving it."
+msgstr "اختار اليومية اللي «%s» بيتصرف منها قبل ما تعتمده."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__civil_engineer_id
@@ -2058,12 +2058,6 @@ msgstr "اليومية \"%s\" مالهاش حساب تتصرف منه النقد
 
 #. module: aos_construction_ext
 #. odoo-python
-#: code:addons/aos_construction_ext/models/construction_expense.py:0
-msgid "Journal \"%s\" has no account to take the money from."
-msgstr "اليومية \"%s\" مالهاش حساب تتصرف منه الفلوس."
-
-#. module: aos_construction_ext
-#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
 #: code:addons/aos_construction_ext/models/construction_expense.py:0
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__move_ids
@@ -2630,6 +2624,11 @@ msgstr "مسؤول عن حركة المعدات والنقل بين المواق
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__journal_id
 msgid "Paid From"
 msgstr "مصروف من"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__payment_account_id
+msgid "Paid From Account"
+msgstr "حساب الصرف"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract__advance_amount
@@ -3797,11 +3796,6 @@ msgid "The cash box or bank the money leaves."
 msgstr "الخزنة أو البنك اللي الفلوس بتخرج منه."
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__journal_id
-msgid "The cash box or bank the money leaves. Its own account is what the entry credits."
-msgstr "الخزنة أو البنك اللي الفلوس بتخرج منه. حسابه هو اللي بيتقفل دائن في القيد."
-
-#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract_line__progress_percent
 msgid "The completed quantity against the quantity assigned."
 msgstr "الكمية المنجزة بالنسبة للكمية المسندة."
@@ -3848,6 +3842,11 @@ msgstr "الحامل لسه ماسك %(balance)s. سجّل النقدية الم
 #: code:addons/aos_construction_ext/models/construction_boq_line.py:0
 msgid "The items of an approved bill of quantities cannot be changed. Press Revise on it first:"
 msgstr "بنود المقايسة المعتمدة ما ينفعش تتغيّر. اضغط \"تنقيح\" على المقايسة الأول:"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__journal_id
+msgid "The journal the entry is raised in. Cash box or bank where the money actually leaves one; a miscellaneous journal where a partner or anyone else settled it on the company behalf."
+msgstr "اليومية اللي القيد بيتعمل فيها. خزنة أو بنك لما الفلوس تخرج منهم فعلاً، أو يومية عمليات متنوعة لما شريك أو غيره يكون دفعها بالنيابة عن الشركة."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_work_order_line__inhouse_scope_qty
@@ -3950,6 +3949,12 @@ msgstr "المناقصة اللي المشروع اترسى منها، لو كا
 #: model:ir.model.fields,help:aos_construction_ext.field_purchase_order__construction_work_order_id
 msgid "The work order this purchase serves. Filled from the material requisition, and editable for a purchase raised directly."
 msgstr "أمر الشغل الذي يخدمه هذا الشراء. يُملأ من طلب التوريد، وقابل للتعديل في الشراء المباشر."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_expense.py:0
+msgid "There is no account for the money to come out of. Journal \"%s\" names none of its own, so set the account it was paid from on the expense."
+msgstr "مفيش حساب الفلوس تخرج منه. يومية «%s» مالهاش حساب خاص بيها، فاظبط حساب الصرف على المصروف نفسه."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -4267,6 +4272,11 @@ msgstr "ما يدفعه لنا العميل مقابل هذه الكمية، ن�
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__tender_doc_price
 msgid "What the conditions booklet costs to buy from the client."
 msgstr "قيمة شراء كراسة الشروط من العميل."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__payment_account_id
+msgid "What the entry credits: the account the money came out of. Follows the journal, and is typed over where the expense was settled from somewhere the journal does not name - a partner current account, for one."
+msgstr "اللي القيد بيدائنه: الحساب اللي الفلوس خرجت منه. بيمشي ورا اليومية، وبيتكتب فيه حساب تاني لما المصروف يكون اتصرف من حاجة اليومية مش بتسمّيها — زي حساب جاري الشركاء."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__priced_operating_cost

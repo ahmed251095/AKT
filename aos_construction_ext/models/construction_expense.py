@@ -14,7 +14,7 @@ class ConstructionExpense(models.Model):
     _LOCKED_ON_APPROVAL = (
         'name', 'project_id', 'wbs_id', 'work_order_id', 'boq_line_id',
         'date', 'category', 'amount', 'employee_id', 'description',
-        'journal_id', 'account_id',
+        'journal_id', 'account_id', 'payment_account_id',
     )
 
     # Without these an expense only knows its project, so wages and materials
@@ -32,10 +32,21 @@ class ConstructionExpense(models.Model):
     # ------------------------------------------------------------------
     journal_id = fields.Many2one(
         'account.journal', string='Paid From',
-        domain="[('type', 'in', ('cash', 'bank'))]",
+        domain="[('type', 'in', ('cash', 'bank', 'general'))]",
         default=lambda self: self.env.company.construction_expense_journal_id,
-        help='The cash box or bank the money leaves. Its own account is what '
-             'the entry credits.')
+        help='The journal the entry is raised in. Cash box or bank where the '
+             'money actually leaves one; a miscellaneous journal where a '
+             'partner or anyone else settled it on the company behalf.')
+    payment_account_id = fields.Many2one(
+        'account.account', string='Paid From Account',
+        compute='_compute_payment_account_id', store=True, readonly=False,
+        domain="[('account_type', 'not in', ('income', 'income_other', "
+               "'expense', 'expense_direct_cost', 'expense_depreciation', "
+               "'off_balance'))]",
+        help='What the entry credits: the account the money came out of. '
+             'Follows the journal, and is typed over where the expense was '
+             'settled from somewhere the journal does not name - a partner '
+             'current account, for one.')
     account_id = fields.Many2one(
         'account.account', string='Expense Account',
         compute='_compute_account_id', store=True, readonly=False,
@@ -58,6 +69,13 @@ class ConstructionExpense(models.Model):
     custody_line_id = fields.Many2one(
         'construction.custody.line', string='Settlement Line', readonly=True,
         copy=False, ondelete='set null')
+
+    @api.depends('journal_id')
+    def _compute_payment_account_id(self):
+        """The journal's own account, until someone names another one."""
+        for expense in self:
+            expense.payment_account_id = \
+                expense.journal_id.default_account_id
 
     @api.depends('category')
     def _compute_account_id(self):
@@ -114,7 +132,7 @@ class ConstructionExpense(models.Model):
                             project._get_analytic_distribution(),
                     }),
                     (0, 0, {
-                        'account_id': journal.default_account_id.id,
+                        'account_id': expense.payment_account_id.id,
                         'name': label,
                         'debit': 0.0,
                         'credit': expense.amount,
@@ -136,12 +154,13 @@ class ConstructionExpense(models.Model):
         self.ensure_one()
         if not self.journal_id:
             raise UserError(self.env._(
-                'Choose the cash box or bank "%s" is paid from before '
-                'approving it.', self.display_name))
-        if not self.journal_id.default_account_id:
+                'Choose the journal "%s" is paid from before approving it.',
+                self.display_name))
+        if not self.payment_account_id:
             raise UserError(self.env._(
-                'Journal "%s" has no account to take the money from.',
-                self.journal_id.display_name))
+                'There is no account for the money to come out of. Journal '
+                '"%s" names none of its own, so set the account it was paid '
+                'from on the expense.', self.journal_id.display_name))
         if not self.account_id:
             raise UserError(self.env._(
                 'There is no expense account for this category. Set one on '

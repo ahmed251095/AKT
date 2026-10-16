@@ -104,6 +104,8 @@
             <!-- Where the money comes out of, and what it is booked to. -->
             <xpath expr="//field[@name='employee_id']" position="after">
                 <field name="journal_id" readonly="state == 'approved'"/>
+                <field name="payment_account_id" readonly="state == 'approved'"
+                       invisible="not journal_id"/>
                 <field name="account_id" readonly="state == 'approved'"
                        invisible="not journal_id"/>
                 <field name="custody_line_id" readonly="1"
