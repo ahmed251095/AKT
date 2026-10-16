@@ -150,16 +150,29 @@ class ConstructionCustody(models.Model):
                 company.construction_custody_expense_account_id,
         }
 
+    def _holder_partner(self):
+        """The contact the custody is in the name of.
+
+        The payments already name the holder; the entries did not, so the
+        custody account read as one undifferentiated balance however many
+        people were holding cash against it.
+        """
+        self.ensure_one()
+        return self.employee_id.work_contact_id
+
     def _post_custody_move(self, journal, lines, ref):
         """Create and post one entry against this custody."""
         self.ensure_one()
+        partner = self._holder_partner()
         move = self.env['account.move'].create({
             'move_type': 'entry',
             'journal_id': journal.id,
+            'partner_id': partner.id,
             'date': self.date,
             'ref': ref,
             'construction_custody_id': self.id,
-            'line_ids': [(0, 0, vals) for vals in lines],
+            'line_ids': [(0, 0, dict(vals, partner_id=partner.id))
+                         for vals in lines],
         })
         move.action_post()
         return move
@@ -333,6 +346,11 @@ class ConstructionCustody(models.Model):
             if not pending:
                 raise UserError(self.env._(
                     'Every settlement line has already been charged.'))
+            setup = custody._custody_setup()
+            # Left as they come where the custody runs without accounting.
+            custody_account = setup['account']
+            settlement_journal = setup['settlement_journal'] \
+                or custody.env.company.construction_expense_journal_id
             for line in pending:
                 line.expense_id = Expense.create({
                     'name': line.description,
@@ -351,6 +369,11 @@ class ConstructionCustody(models.Model):
                     # of its own.
                     'custody_line_id': line.id,
                     'account_id': line.account_id.id,
+                    # Where the money actually came from. Without these the
+                    # expense read as paid from nowhere: its journal fell back
+                    # to the default and the account behind it was empty.
+                    'journal_id': settlement_journal.id,
+                    'payment_account_id': custody_account.id,
                 })
             custody._post_settlement_move(pending)
             custody.message_post(body=self.env._(
