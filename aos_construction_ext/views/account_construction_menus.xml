@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        The money-out screens belong to two desks at once. The site files an
+        expense, draws a custody and spreads the month's staff cost over the
+        projects; the accountant is the one who reviews and posts all three.
+        Asking the accountant to leave Accounting for another app to do it is
+        how reviews get skipped, so the same three screens are reachable from
+        both apps - one set of records, two ways in.
+
+        Gated on the construction users group because that is what the three
+        models grant access to: a menu an accountant can see but not open is
+        worse than no menu at all.
+    -->
+    <menuitem id="menu_account_project_expenses"
+              name="Project Expenses"
+              parent="account.menu_finance"
+              groups="aos_construction_management.group_construction_user"
+              sequence="6"/>
+
+    <menuitem id="menu_account_construction_expense"
+              name="Expenses"
+              parent="menu_account_project_expenses"
+              action="aos_construction_management.action_construction_expense"
+              sequence="10"/>
+
+    <menuitem id="menu_account_construction_custody"
+              name="Cash Custody"
+              parent="menu_account_project_expenses"
+              action="action_construction_custody"
+              sequence="20"/>
+
+    <menuitem id="menu_account_construction_salary"
+              name="Salary Distribution"
+              parent="menu_account_project_expenses"
+              action="action_construction_salary_distribution"
+              sequence="30"/>
+
+</odoo>

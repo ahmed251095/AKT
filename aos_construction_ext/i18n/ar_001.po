@@ -754,6 +754,7 @@ msgstr "نجار مسلح"
 #: model:ir.model,name:aos_construction_ext.model_construction_custody
 #: model:ir.model.fields,field_description:aos_construction_ext.field_account_move__construction_custody_id
 #: model:ir.model.fields,field_description:aos_construction_ext.field_account_payment__construction_custody_id
+#: model:ir.ui.menu,name:aos_construction_ext.menu_account_construction_custody
 #: model:ir.ui.menu,name:aos_construction_ext.menu_construction_custody
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Cash Custody"
@@ -1598,6 +1599,7 @@ msgstr "قيد المصروفات"
 #. odoo-python
 #: code:addons/aos_construction_ext/models/construction_project.py:0
 #: code:addons/aos_construction_ext/models/construction_salary.py:0
+#: model:ir.ui.menu,name:aos_construction_ext.menu_account_construction_expense
 #: model:ir.ui.menu,name:aos_construction_ext.menu_construction_expense_list
 msgid "Expenses"
 msgstr "المصروفات"
@@ -2843,6 +2845,11 @@ msgid "Project Documents"
 msgstr "مستندات المشروع"
 
 #. module: aos_construction_ext
+#: model:ir.ui.menu,name:aos_construction_ext.menu_account_project_expenses
+msgid "Project Expenses"
+msgstr "مصروفات المشاريع"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_project_form_ext
 msgid "Project File"
 msgstr "ملف المشروع"
@@ -3226,6 +3233,7 @@ msgstr "تحميل راتب"
 #. module: aos_construction_ext
 #: model:ir.actions.act_window,name:aos_construction_ext.action_construction_salary_distribution
 #: model:ir.model,name:aos_construction_ext.model_construction_salary_distribution
+#: model:ir.ui.menu,name:aos_construction_ext.menu_account_construction_salary
 #: model:ir.ui.menu,name:aos_construction_ext.menu_construction_salary_distribution
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
 msgid "Salary Distribution"

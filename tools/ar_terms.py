@@ -221,6 +221,7 @@ AR = {
     "Bond Outstanding": "تأمين قائم", "Issuing Bank": "البنك المُصدِر",
     "Cash Deposit": "إيداع نقدي", "Certified Cheque": "شيك مقبول الدفع",
     "Letter of Guarantee": "خطاب ضمان",
+    "Project Expenses": "مصروفات المشاريع",
     "Estimated Margin (%)": "الهامش المتوقع (%)",
     "Warehouse the per-project site locations are created under. Left empty, the company's first warehouse is used.": "المخزن اللي مواقع المشاريع بتتعمل تحته. لو سبته فاضي بيتاخد أول مخزن في الشركة.",
     "Import Priced Items from a Sheet": "استيراد بنود مسعّرة من شيت",
