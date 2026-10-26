@@ -41,6 +41,12 @@ Adds the operating model actually used by the contractor on top of
         'purchase',
         'stock',
         'hr',
+        # Only for their root menus: the technical office must not see them,
+        # and a menu cannot be gated on a module that is not a dependency.
+        'calendar',
+        'appointment',
+        'contacts',
+        'spreadsheet_dashboard',
     ],
     'data': [
         'security/construction_ext_security.xml',
@@ -73,6 +79,7 @@ Adds the operating model actually used by the contractor on top of
         'views/res_config_settings_views.xml',
         'views/construction_ext_menus.xml',
         'views/construction_technical_office_views.xml',
+        'views/construction_other_apps_menus.xml',
         'views/account_construction_menus.xml',
         'report/construction_reports.xml',
         'report/tender_cover_letter_template.xml',
