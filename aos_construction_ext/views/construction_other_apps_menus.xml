@@ -53,6 +53,16 @@
     </record>
 
     <!--
+        Link Tracker is gated on base.group_no_one, "Technical Features" - which
+        base.group_user implies on this database, so it reached every employee.
+        Gated like the rest here rather than by touching that implication,
+        which carries far more than this one menu.
+    -->
+    <record id="utm.menu_link_tracker_root" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
+    </record>
+
+    <!--
         Apps and Technical Tests were open to every employee on this database -
         not the technical office's doing, and not Odoo's default either, which
         puts both behind Settings access. Anyone could reach the module list.

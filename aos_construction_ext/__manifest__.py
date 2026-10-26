@@ -47,6 +47,7 @@ Adds the operating model actually used by the contractor on top of
         'appointment',
         'contacts',
         'spreadsheet_dashboard',
+        'utm',
     ],
     'data': [
         'security/construction_ext_security.xml',
