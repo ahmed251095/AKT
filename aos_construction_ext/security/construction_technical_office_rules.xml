@@ -27,7 +27,7 @@
     <record id="rule_construction_expense_tech_office" model="ir.rule">
         <field name="name">Construction expenses: not the technical office</field>
         <field name="model_id" ref="aos_construction_management.model_construction_expense"/>
-        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
         <field name="domain_force">[(0, '=', 1)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
@@ -38,7 +38,7 @@
     <record id="rule_construction_material_req_tech_office" model="ir.rule">
         <field name="name">Material requisitions: not the technical office</field>
         <field name="model_id" ref="aos_construction_management.model_construction_material_requisition"/>
-        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
         <field name="domain_force">[(0, '=', 1)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
@@ -49,7 +49,7 @@
     <record id="rule_construction_quality_check_tech_office" model="ir.rule">
         <field name="name">Quality checks: not the technical office</field>
         <field name="model_id" ref="aos_construction_management.model_construction_quality_check"/>
-        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
         <field name="domain_force">[(0, '=', 1)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
@@ -60,7 +60,7 @@
     <record id="rule_purchase_order_tech_office" model="ir.rule">
         <field name="name">Purchase orders: not the technical office</field>
         <field name="model_id" ref="purchase.model_purchase_order"/>
-        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
         <field name="domain_force">[(0, '=', 1)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
@@ -71,7 +71,7 @@
     <record id="rule_purchase_order_line_tech_office" model="ir.rule">
         <field name="name">Purchase order lines: not the technical office</field>
         <field name="model_id" ref="purchase.model_purchase_order_line"/>
-        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
         <field name="domain_force">[(0, '=', 1)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
@@ -82,7 +82,7 @@
     <record id="rule_account_move_tech_office" model="ir.rule">
         <field name="name">Journal entries: not the technical office</field>
         <field name="model_id" ref="account.model_account_move"/>
-        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
         <field name="domain_force">[(0, '=', 1)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
