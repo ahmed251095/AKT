@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Hiding a menu is not the same as closing a door: the record is still one
+        URL or one RPC call away. These rules are what actually keep the
+        technical office out of the money.
+
+        They exist because of a quirk of the project screen. Reading ANY project
+        runs ``_compute_counts``, which search_counts expenses, requisitions and
+        quality checks, and ``_compute_accounting_counts``, which searches
+        purchase orders and journal entries. With no access rights at all those
+        computes raise and the Projects screen dies on open. So the group is
+        granted read on those five models, and then handed a domain that matches
+        nothing: the counts come back as zero instead of an error, and not one
+        record is readable.
+
+        The figures those zeros feed into are hidden from this profile in
+        construction_technical_office_views.xml - a zero that looks like a fact
+        is worse than a missing field.
+
+        The rules name the technical office group only, so every other desk is
+        untouched: Odoo ORs the rules of the groups a user is in, and no other
+        group carries a rule on these models.
+    -->
+
+    <record id="rule_construction_expense_tech_office" model="ir.rule">
+        <field name="name">Construction expenses: not the technical office</field>
+        <field name="model_id" ref="aos_construction_management.model_construction_expense"/>
+        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_construction_material_req_tech_office" model="ir.rule">
+        <field name="name">Material requisitions: not the technical office</field>
+        <field name="model_id" ref="aos_construction_management.model_construction_material_requisition"/>
+        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_construction_quality_check_tech_office" model="ir.rule">
+        <field name="name">Quality checks: not the technical office</field>
+        <field name="model_id" ref="aos_construction_management.model_construction_quality_check"/>
+        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_purchase_order_tech_office" model="ir.rule">
+        <field name="name">Purchase orders: not the technical office</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_purchase_order_line_tech_office" model="ir.rule">
+        <field name="name">Purchase order lines: not the technical office</field>
+        <field name="model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_account_move_tech_office" model="ir.rule">
+        <field name="name">Journal entries: not the technical office</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="group_ids" eval="[(6, 0, [ref('group_construction_dept_technical')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+</odoo>

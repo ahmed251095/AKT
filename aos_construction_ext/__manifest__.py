@@ -45,6 +45,7 @@ Adds the operating model actually used by the contractor on top of
     'data': [
         'security/construction_ext_security.xml',
         'security/ir.model.access.csv',
+        'security/construction_technical_office_rules.xml',
         'data/construction_authority_type_data.xml',
         'data/construction_document_type_data.xml',
         'data/construction_labour_type_data.xml',
@@ -71,6 +72,7 @@ Adds the operating model actually used by the contractor on top of
         'views/construction_salary_views.xml',
         'views/res_config_settings_views.xml',
         'views/construction_ext_menus.xml',
+        'views/construction_technical_office_views.xml',
         'views/account_construction_menus.xml',
         'report/construction_reports.xml',
         'report/tender_cover_letter_template.xml',

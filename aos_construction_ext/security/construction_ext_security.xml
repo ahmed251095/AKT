@@ -37,12 +37,6 @@
             <field name="implied_ids" eval="[(4, ref('aos_construction_management.group_construction_manager'))]"/>
         </record>
 
-        <record id="group_construction_dept_technical" model="res.groups">
-            <field name="name">Construction / Technical Office</field>
-            <field name="comment">Studies the tender documents, prices the items and issues the bill of quantities.</field>
-            <field name="implied_ids" eval="[(4, ref('aos_construction_management.group_construction_user'))]"/>
-        </record>
-
         <record id="group_construction_dept_execution" model="res.groups">
             <field name="name">Construction / Site Execution</field>
             <field name="comment">Runs the work orders on site and reports executed quantities.</field>
@@ -68,6 +62,29 @@
         </record>
 
     </data>
+
+    <!--
+        The technical office is the one department that is NOT a construction
+        user with extra hats: it is a narrower profile that sees six screens
+        and nothing else. That is why it implies ``base.group_user`` only and
+        never ``group_construction_user``.
+
+        ``group_construction_user`` is what every other desk carries, so it
+        doubles as the marker for "sees the whole app": the menus and the money
+        fields the technical office must not reach are gated on it, and the
+        technical office is the only profile without it. Each model it does
+        need is granted to this group by name in ir.model.access.csv.
+
+        Kept outside the noupdate block above on purpose. The record already
+        exists on the database from an earlier version, and a noupdate record
+        is skipped in silence on upgrade - the build goes green and the group
+        keeps its old implied_ids.
+    -->
+    <record id="group_construction_dept_technical" model="res.groups">
+        <field name="name">Construction / Technical Office</field>
+        <field name="comment">Studies the tender documents, prices the items and issues the bill of quantities. Sees tenders, projects, the bill of quantities, planning, documents and payment certificates - nothing else, in this app or any other.</field>
+        <field name="implied_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
 
     <!-- Outside the noupdate block on purpose: this updates base.group_user,
          which already exists, and a noupdate record would be skipped. -->

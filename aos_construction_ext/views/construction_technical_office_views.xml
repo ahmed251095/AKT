@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        The technical office profile.
+
+        It carries ``group_construction_dept_technical`` and, unlike every
+        other desk, NOT ``group_construction_user``. Six screens stay: tenders,
+        projects, the bill of quantities, planning, documents and payment
+        certificates. Procurement, expenses, the dashboard and configuration go
+        away, and so does every other app.
+
+        Two different mechanisms are used here, for two different reasons.
+
+        * MENUS are hidden by requiring ``group_construction_user``. A menu's
+          groups live in a relational field, so there is no way to say "anyone
+          except"; the group every other desk already carries is the marker.
+          Nothing changes for them - they all have it.
+
+        * FIELDS AND BUTTONS are hidden with the negated spec
+          ``!...dept_technical``. On a view node ``groups`` is parsed as a
+          string, so negation is available, and naming the excluded profile
+          directly means no other user is touched at all.
+
+        ``groups`` written on the <xpath> element itself is consumed while the
+        views are merged and dropped before access rights are applied - it is
+        ignored in silence. It has to sit on the node, as an <attribute>.
+    -->
+
+    <!-- ============ Menus ============ -->
+
+    <!-- The dashboard is an ir.actions.client with no model behind it, so no
+         amount of access rights will hide it. It also leads with approved
+         expenses and actual cost. -->
+    <record id="aos_construction_management.menu_construction_dashboard" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
+    </record>
+
+    <record id="aos_construction_management.menu_construction_procurement" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
+    </record>
+
+    <record id="aos_construction_management.menu_construction_expenses" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
+    </record>
+
+    <!-- Quality keeps its feature-toggle group on the parent menu; the child is
+         what actually opens a screen, so gating it hides the section without
+         touching the toggle. -->
+    <record id="aos_construction_management.menu_construction_quality_check" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
+    </record>
+
+    <!-- ============ Project form ============ -->
+
+    <record id="view_construction_project_form_tech_office" model="ir.ui.view">
+        <field name="name">construction.project.form.tech.office</field>
+        <field name="model">construction.project</field>
+        <field name="inherit_id" ref="aos_construction_management.view_construction_project_form"/>
+        <field name="arch" type="xml">
+
+            <!--
+                The money on this form is read from purchase orders, journal
+                entries and expenses. The technical office is walled off from
+                all three by record rules, so these figures would not be
+                hidden - they would be WRONG: a zero that reads like a fact.
+                Actual cost, for instance, would drop its purchase and expense
+                components and keep only the subcontracts.
+            -->
+            <xpath expr="//field[@name='invoiced_revenue']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <xpath expr="//field[@name='committed_cost']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <xpath expr="//field[@name='actual_cost']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <xpath expr="//field[@name='total_expenses']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <!-- gross_margin already carries the margin group, which the
+                 technical office is not in. Left alone. -->
+
+            <!-- Smart buttons onto the screens this profile does not have. -->
+            <xpath expr="//button[@name='action_view_requisitions']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_subcontracts']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_expenses']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_purchase_orders']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_vendor_bills']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_customer_invoices']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_quality']" position="attributes">
+                <attribute name="groups">aos_construction_ext.group_construction_quality,!aos_construction_ext.group_construction_dept_technical</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
