@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        The purchasing desk, same quirk as the technical office: reading ANY
+        project runs ``_compute_counts`` and ``_compute_accounting_counts``,
+        which search expenses, requisitions, quality checks, purchase orders
+        and journal entries. A model with no access rights at all makes those
+        computes raise and the Projects screen dies on open.
+
+        So every model they touch is granted read in ir.model.access.csv, and
+        the two this desk has no business in are handed a domain that matches
+        nothing: the count comes back as zero instead of an error, and not one
+        record is readable. The figures fed by those zeros are hidden from the
+        profile in construction_purchasing_views.xml.
+
+        Note which models are NOT here:
+
+        * purchase.order and construction.material.requisition are the job.
+        * account.move is left alone on purpose. ``purchase.group_purchase_user``
+          already carries a core rule granting in_invoice / in_refund /
+          in_receipt moves, and rules from different groups are OR'd, so a
+          restrictive rule here would be dead weight. Vendor bills stay
+          reachable for this desk; their entry points are hidden instead.
+        * construction.boq, .wbs, .work.order, .ra.billing, .subcontract and
+          .tender are granted plain read with no rule. The computes aggregate
+          them - blocking them would turn committed cost and progress into
+          zeros that read like facts. The menus and the smart buttons onto
+          those screens are what is taken away.
+    -->
+
+    <record id="rule_construction_expense_purchasing" model="ir.rule">
+        <field name="name">Construction expenses: not the purchasing desk</field>
+        <field name="model_id" ref="aos_construction_management.model_construction_expense"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_purchasing')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_construction_quality_check_purchasing" model="ir.rule">
+        <field name="name">Quality checks: not the purchasing desk</field>
+        <field name="model_id" ref="aos_construction_management.model_construction_quality_check"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_purchasing')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+</odoo>

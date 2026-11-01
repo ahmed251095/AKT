@@ -86,6 +86,30 @@
         <field name="implied_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
     </record>
 
+    <!--
+        The purchasing desk, the second narrow profile.
+
+        Like the technical office it implies ``base.group_user`` and NOT
+        ``group_construction_user`` - that group is the marker every full desk
+        carries, and it is what the money fields and the screens outside this
+        desk are gated on.
+
+        It also implies ``purchase.group_purchase_user``, because the Purchase
+        app is the job. That is a standard Odoo purchase user, so it brings
+        vendor bills with it: core ships an ``ir.rule`` giving purchase users
+        in_invoice / in_refund / in_receipt moves. A restrictive rule of ours
+        would be OR'd with that one and change nothing, so vendor bills are
+        deliberately left reachable and only their entry points are hidden.
+
+        Kept outside the noupdate block so a later change to implied_ids is
+        actually applied on upgrade instead of being skipped in silence.
+    -->
+    <record id="group_construction_dept_purchasing" model="res.groups">
+        <field name="name">Construction / Purchasing</field>
+        <field name="comment">Buys what the requisitions ask for. Sees the projects read-only, the material requisitions and the Purchase app - nothing else, in this app or any other.</field>
+        <field name="implied_ids" eval="[(6, 0, [ref('base.group_user'), ref('purchase.group_purchase_user')])]"/>
+    </record>
+
     <!-- Outside the noupdate block on purpose: this updates base.group_user,
          which already exists, and a noupdate record would be skipped. -->
     <record id="base.group_user" model="res.groups">

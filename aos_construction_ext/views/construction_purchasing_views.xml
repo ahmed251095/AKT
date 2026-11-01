@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        The purchasing profile.
+
+        It carries ``group_construction_dept_purchasing`` and, like the
+        technical office, NOT ``group_construction_user``. What stays is the
+        project (read-only), the material requisitions and the Purchase app.
+
+        The technical office was the first desk without the marker group, so
+        the menus it must not reach were already gated on it and are gated for
+        this desk too - the dashboard, expenses, quality and configuration need
+        nothing here. What this file adds are the menus the TECHNICAL OFFICE
+        keeps and purchasing must not have. Those carry both marker groups, so
+        a menu is shown to any full desk OR to the technical office, and to
+        neither of the two narrow profiles by accident.
+
+        Access rights make the project read-only; this file takes away the
+        buttons that would only raise against it, and the smart buttons onto
+        screens that are no longer in the menu. A node touched here is touched
+        nowhere else - see the note in construction_technical_office_views.xml.
+    -->
+
+    <!-- ============ Menus the technical office keeps ============ -->
+
+    <record id="aos_construction_management.menu_construction_tenders" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [
+            ref('aos_construction_management.group_construction_user'),
+            ref('group_construction_dept_technical')])]"/>
+    </record>
+
+    <record id="aos_construction_management.menu_construction_boq" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [
+            ref('aos_construction_management.group_construction_user'),
+            ref('group_construction_dept_technical')])]"/>
+    </record>
+
+    <!-- Gating the section hides the phases and the work orders under it. -->
+    <record id="aos_construction_management.menu_construction_planning" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [
+            ref('aos_construction_management.group_construction_user'),
+            ref('group_construction_dept_technical')])]"/>
+    </record>
+
+    <record id="aos_construction_management.menu_construction_billing" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [
+            ref('aos_construction_management.group_construction_user'),
+            ref('group_construction_dept_technical')])]"/>
+    </record>
+
+    <record id="menu_construction_documents" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [
+            ref('aos_construction_management.group_construction_user'),
+            ref('group_construction_dept_technical')])]"/>
+    </record>
+
+    <!-- ============ Procurement: requisitions only ============ -->
+
+    <!-- The section itself is opened to this desk in
+         construction_technical_office_views.xml, where its groups are set.
+         Material Requisitions carries no group and is the one child that
+         stays; the subcontracting pair is somebody else's job. -->
+
+    <record id="aos_construction_management.menu_construction_subcontract" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
+    </record>
+
+    <record id="menu_construction_subcontract_line" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
+    </record>
+
+    <!-- ============ Project form ============ -->
+
+    <record id="view_construction_project_form_purchasing" model="ir.ui.view">
+        <field name="name">construction.project.form.purchasing</field>
+        <field name="model">construction.project</field>
+        <!-- Inherits this module's own extension, not the base form: the
+             handover button, the bond buttons, the documents button and the
+             bond and closure pages are all added there. An inherited view is
+             merged into the arch its parent has already produced, so naming
+             the extension is what makes those nodes exist for the xpaths
+             below - while the base nodes are still in the same arch. -->
+        <field name="inherit_id" ref="view_construction_project_form_ext"/>
+        <field name="arch" type="xml">
+
+            <!--
+                The project is read-only for this desk through
+                ir.model.access.csv. Odoo renders the form read-only from
+                that, but it still draws the header buttons, and every one of
+                them writes - they would offer a state change and then raise.
+            -->
+            <xpath expr="//header/button[@name='action_activate']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_hold']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_complete']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_cancel']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_reset']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_start_handover']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_performance_bond_issued']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_performance_bond_released']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+
+            <!--
+                Smart buttons onto screens this desk no longer has a menu for.
+                The requisition and purchase order buttons are the two it
+                keeps; they are set in the technical office view, which is
+                where those nodes are owned.
+            -->
+            <xpath expr="//button[@name='action_view_tender']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_boq']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_wbs']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_work_orders']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_billing']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_view_documents']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+
+            <!-- What the client has certified is revenue. Neither narrow
+                 profile has any business reading it, so it takes the same
+                 marker group as the rest of the summary. It sits here rather
+                 than with them because this module adds it, and this is the
+                 view that is sure the node exists. -->
+            <xpath expr="//field[@name='customer_certified_total']" position="attributes">
+                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
+            </xpath>
+
+            <!-- The bond and the closure file are the finance desk's and
+                 management's paperwork, and carry held money. -->
+            <xpath expr="//page[@name='performance_bond']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+            <xpath expr="//page[@name='closure']" position="attributes">
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

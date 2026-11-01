@@ -10,17 +10,22 @@
         certificates. Procurement, expenses, the dashboard and configuration go
         away, and so does every other app.
 
-        Two different mechanisms are used here, for two different reasons.
+        Everything here is hidden by REQUIRING ``group_construction_user``.
+        That group is what every full desk already carries, so it reads as the
+        marker for "sees the whole app" and nothing changes for them. A menu's
+        groups live in a relational field, so there is no way to say "anyone
+        except" - the marker is the only mechanism available there, and using
+        the same one on the fields keeps the two halves of a profile written
+        the same way.
 
-        * MENUS are hidden by requiring ``group_construction_user``. A menu's
-          groups live in a relational field, so there is no way to say "anyone
-          except"; the group every other desk already carries is the marker.
-          Nothing changes for them - they all have it.
-
-        * FIELDS AND BUTTONS are hidden with the negated spec
-          ``!...dept_technical``. On a view node ``groups`` is parsed as a
-          string, so negation is available, and naming the excluded profile
-          directly means no other user is touched at all.
+        The money nodes below are now shared with the purchasing desk, which is
+        the second profile without the marker. Both are hidden by the same
+        attribute, so the nodes a profile wants back name it explicitly as a
+        second positive group (committed cost, the requisition and purchase
+        order buttons). A node must be touched from ONE view only: two
+        inherited views doing position="attributes" on the same node fight over
+        the attribute and the winner depends on view order. Purchasing-only
+        nodes live in construction_purchasing_views.xml and do not repeat here.
 
         ``groups`` written on the <xpath> element itself is consumed while the
         views are merged and dropped before access rights are applied - it is
@@ -36,8 +41,12 @@
         <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
     </record>
 
+    <!-- Procurement is the purchasing desk's section, so it names that group
+         as well: a menu is shown when the user is in ANY of its groups. -->
     <record id="aos_construction_management.menu_construction_procurement" model="ir.ui.menu">
-        <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
+        <field name="group_ids" eval="[(6, 0, [
+            ref('aos_construction_management.group_construction_user'),
+            ref('group_construction_dept_purchasing')])]"/>
     </record>
 
     <record id="aos_construction_management.menu_construction_expenses" model="ir.ui.menu">
@@ -68,41 +77,47 @@
                 components and keep only the subcontracts.
             -->
             <xpath expr="//field[@name='invoiced_revenue']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
             </xpath>
             <xpath expr="//field[@name='committed_cost']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_purchasing</attribute>
             </xpath>
             <xpath expr="//field[@name='actual_cost']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
             </xpath>
             <xpath expr="//field[@name='total_expenses']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
             </xpath>
+            <!-- customer_certified_total belongs next to these, but it is
+                 added by this module's own extension of the form, not by the
+                 base. This view inherits the base, so the node is only there
+                 if the extension happened to be merged first. It is gated
+                 from construction_purchasing_views.xml instead, which names
+                 the extension as its parent and is therefore sure of it. -->
             <!-- gross_margin already carries the margin group, which the
                  technical office is not in. Left alone. -->
 
             <!-- Smart buttons onto the screens this profile does not have. -->
             <xpath expr="//button[@name='action_view_requisitions']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_purchasing</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_subcontracts']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_expenses']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_purchase_orders']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_purchasing</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_vendor_bills']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_customer_invoices']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_quality']" position="attributes">
-                <attribute name="groups">aos_construction_ext.group_construction_quality,!aos_construction_ext.group_construction_dept_technical</attribute>
+                <attribute name="groups">aos_construction_ext.group_construction_quality,!aos_construction_ext.group_construction_dept_technical,!aos_construction_ext.group_construction_dept_purchasing</attribute>
             </xpath>
 
         </field>
