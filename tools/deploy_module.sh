@@ -59,8 +59,20 @@ for m in $MODULES; do
 done
 ls -1 "/root/akt-backup-$STAMP"
 
+# The account Odoo actually runs under, which is NOT the owner of the module
+# directory - that is often root, because somebody copied the module in as
+# root. PostgreSQL here authenticates by peer, mapping the system user onto
+# the database user, so running the upgrade as the wrong account fails with
+# "Peer authentication failed" before it reads a single line of the module.
+say "Finding the account Odoo runs as"
+RUN_AS="$(systemctl show -p User --value odoo 2>/dev/null || true)"
+[ -n "$RUN_AS" ] || RUN_AS="$(stat -c '%U' "$ODOO_CONF")"
+[ -n "$RUN_AS" ] && [ "$RUN_AS" != "root" ] || RUN_AS="odoo"
+id "$RUN_AS" >/dev/null 2>&1 || die "no such user: $RUN_AS"
+echo "   $RUN_AS"
+
 say "Copying the new source in"
-OWNER="$(stat -c '%U:%G' "$MODULE_DIR")"
+OWNER="$RUN_AS:$(id -gn "$RUN_AS")"
 for m in $MODULES; do
     [ -d "$WORK/$m" ] || continue
     rm -rf "${PARENT:?}/$m"
@@ -81,7 +93,6 @@ systemctl stop odoo 2>/dev/null || service odoo stop || die "could not stop odoo
 
 say "Upgrading $UPGRADE on $DB"
 ODOO_BIN="$(command -v odoo || command -v odoo-bin || echo /usr/bin/odoo)"
-RUN_AS="$(stat -c '%U' "$MODULE_DIR")"
 set +e
 su - "$RUN_AS" -s /bin/bash -c "$ODOO_BIN -c $ODOO_CONF -d $DB -u $UPGRADE --stop-after-init --log-level=warn" 2>&1 | tail -40
 RC=${PIPESTATUS[0]}
