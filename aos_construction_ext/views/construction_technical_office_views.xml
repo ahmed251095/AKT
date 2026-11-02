@@ -49,8 +49,12 @@
             ref('group_construction_dept_purchasing')])]"/>
     </record>
 
+    <!-- Expenses, the custodies and the salary distribution are the
+         accountant's work, so that group is named here as well. -->
     <record id="aos_construction_management.menu_construction_expenses" model="ir.ui.menu">
-        <field name="group_ids" eval="[(6, 0, [ref('aos_construction_management.group_construction_user')])]"/>
+        <field name="group_ids" eval="[(6, 0, [
+            ref('aos_construction_management.group_construction_user'),
+            ref('group_construction_dept_accounting')])]"/>
     </record>
 
     <!-- Quality keeps its feature-toggle group on the parent menu; the child is

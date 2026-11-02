@@ -140,9 +140,23 @@ class ConstructionSalaryDistributionLine(models.Model):
 
     @api.depends('employee_id')
     def _compute_employee_cost(self):
+        """Read the cost as the system, not as whoever triggered the compute.
+
+        ``construction_monthly_cost`` lives on the HR file, and Odoo refuses
+        it to anyone outside the HR groups - a read falls back to the public
+        employee profile, which this field is not on, and raises. That turned
+        a stored compute into a trap: it fires for whoever happens to flush
+        the record, so the error surfaced on screens that have nothing to do
+        with payroll.
+
+        Reading it with sudo gives nothing away. The figure is already on this
+        line, in a column called Monthly Cost, for anyone allowed to open a
+        salary distribution at all - showing it is what the screen is for.
+        """
         for line in self:
             if line.employee_id:
-                line.employee_cost = line.employee_id.construction_monthly_cost
+                line.employee_cost = \
+                    line.employee_id.sudo().construction_monthly_cost
 
     @api.depends('employee_cost', 'percent')
     def _compute_amount(self):

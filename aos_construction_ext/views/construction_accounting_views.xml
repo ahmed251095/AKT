@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        The construction accountant, the third profile without the marker
+        group ``group_construction_user``. It keeps the payment certificates
+        and the expenses and loses the rest of the app.
+
+        Two menus are added rather than filtered by hand. A certificate to the
+        client and a certificate from a subcontractor are the same model with
+        ``billing_type`` set either way, and reading one list of both is how
+        the two get confused. The generic Payment Certificates menu stays: it
+        is the only place the two are seen side by side.
+
+        The context default makes the type stick on a record created from the
+        menu, so a new certificate is already the kind the menu says it is.
+
+        As in the other two profiles, menus elsewhere in the app are gated on
+        groups this one does not carry - see the note in
+        construction_technical_office_views.xml. A node or a record is owned by
+        one file; what this profile needs from a record defined elsewhere is
+        added there, not repeated here.
+    -->
+
+    <!-- ============ The two sides of a certificate ============ -->
+
+    <record id="action_construction_customer_certificates" model="ir.actions.act_window">
+        <field name="name">Customer Certificates</field>
+        <field name="res_model">construction.ra.billing</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('billing_type', '=', 'customer')]</field>
+        <field name="context">{'default_billing_type': 'customer'}</field>
+    </record>
+
+    <record id="action_construction_subcontractor_certificates" model="ir.actions.act_window">
+        <field name="name">Subcontractor Certificates</field>
+        <field name="res_model">construction.ra.billing</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('billing_type', '=', 'subcontractor')]</field>
+        <field name="context">{'default_billing_type': 'subcontractor'}</field>
+    </record>
+
+    <menuitem id="menu_construction_customer_certificates"
+              name="Customer Certificates"
+              parent="aos_construction_management.menu_construction_billing"
+              action="action_construction_customer_certificates"
+              sequence="30"/>
+
+    <menuitem id="menu_construction_subcontractor_certificates"
+              name="Subcontractor Certificates"
+              parent="aos_construction_management.menu_construction_billing"
+              action="action_construction_subcontractor_certificates"
+              sequence="40"/>
+
+    <!-- ============ Menus this profile must not reach ============ -->
+
+    <!--
+        Projects carried no group at all, so it was the one section every
+        narrow profile could still open. The technical office and the
+        purchasing desk both need it; the accountant does not, and reaches a
+        project through the certificate or the expense on it instead.
+    -->
+    <record id="aos_construction_management.menu_construction_projects" model="ir.ui.menu">
+        <field name="group_ids" eval="[(6, 0, [
+            ref('aos_construction_management.group_construction_user'),
+            ref('group_construction_dept_technical'),
+            ref('group_construction_dept_purchasing')])]"/>
+    </record>
+
+</odoo>

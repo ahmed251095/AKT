@@ -110,6 +110,31 @@
         <field name="implied_ids" eval="[(6, 0, [ref('base.group_user'), ref('purchase.group_purchase_user')])]"/>
     </record>
 
+    <!--
+        The construction accountant, the third narrow profile.
+
+        Same shape as the other two: ``base.group_user`` and NOT
+        ``group_construction_user``. What stays in this app is the money -
+        the payment certificates on both sides and the expenses - and the
+        Accounting and Purchase apps come with the job.
+
+        ``account.group_account_user`` is Odoo 19's Bookkeeper: entries,
+        invoices, banks and reports, without the accounting settings or the
+        chart of accounts. Granting it is also what makes the Accounting menu
+        appear, since that menu is gated on the accounting privileges.
+
+        Kept outside the noupdate block so a later change to implied_ids is
+        actually applied on upgrade instead of being skipped in silence.
+    -->
+    <record id="group_construction_dept_accounting" model="res.groups">
+        <field name="name">Construction / Accounting</field>
+        <field name="comment">Books the payment certificates and the site expenses. Sees the certificates, the expenses and the custodies in this app, plus Accounting and Purchase - nothing else.</field>
+        <field name="implied_ids" eval="[(6, 0, [
+            ref('base.group_user'),
+            ref('account.group_account_user'),
+            ref('purchase.group_purchase_user')])]"/>
+    </record>
+
     <!-- Outside the noupdate block on purpose: this updates base.group_user,
          which already exists, and a noupdate record would be skipped. -->
     <record id="base.group_user" model="res.groups">

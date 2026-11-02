@@ -43,10 +43,13 @@
             ref('group_construction_dept_technical')])]"/>
     </record>
 
+    <!-- The certificates are the accountant's section too, so that group is
+         named here as well. -->
     <record id="aos_construction_management.menu_construction_billing" model="ir.ui.menu">
         <field name="group_ids" eval="[(6, 0, [
             ref('aos_construction_management.group_construction_user'),
-            ref('group_construction_dept_technical')])]"/>
+            ref('group_construction_dept_technical'),
+            ref('group_construction_dept_accounting')])]"/>
     </record>
 
     <record id="menu_construction_documents" model="ir.ui.menu">
