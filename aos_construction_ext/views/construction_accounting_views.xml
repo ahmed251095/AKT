@@ -71,7 +71,8 @@
             ref('aos_construction_management.group_construction_user'),
             ref('group_construction_dept_technical'),
             ref('group_construction_dept_purchasing'),
-            ref('group_construction_dept_accounting')])]"/>
+            ref('group_construction_dept_accounting'),
+            ref('group_construction_dept_warehouse')])]"/>
     </record>
 
 </odoo>

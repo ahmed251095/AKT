@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Same quirk as the other narrow profiles: reading any project runs
+        ``_compute_counts`` and ``_compute_accounting_counts``, which search
+        expenses, requisitions, quality checks, purchase orders and journal
+        entries. A model with no access rights at all makes those computes
+        raise and the Projects screen dies on open.
+
+        Each is granted read in ir.model.access.csv and then handed a domain
+        that matches nothing, so the count comes back as zero instead of an
+        error and not one record is readable. The figures those zeros feed
+        are hidden from this profile in construction_warehouse_views.xml.
+
+        Unlike the purchasing desk, this one CAN be walled off from the
+        purchase orders and the journal entries: it carries no purchase
+        group, so no other rule of Odoo's is OR'd against these. The stock
+        groups it does carry ship no rule on either model - checked on this
+        database, not assumed.
+
+        Material requisitions are the job and are not here.
+    -->
+
+    <record id="rule_construction_expense_warehouse" model="ir.rule">
+        <field name="name">Construction expenses: not the site stores</field>
+        <field name="model_id" ref="aos_construction_management.model_construction_expense"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_warehouse')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_construction_quality_check_warehouse" model="ir.rule">
+        <field name="name">Quality checks: not the site stores</field>
+        <field name="model_id" ref="aos_construction_management.model_construction_quality_check"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_warehouse')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_purchase_order_warehouse" model="ir.rule">
+        <field name="name">Purchase orders: not the site stores</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_warehouse')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_purchase_order_line_warehouse" model="ir.rule">
+        <field name="name">Purchase order lines: not the site stores</field>
+        <field name="model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_warehouse')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <record id="rule_account_move_warehouse" model="ir.rule">
+        <field name="name">Journal entries: not the site stores</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="groups" eval="[(6, 0, [ref('group_construction_dept_warehouse')])]"/>
+        <field name="domain_force">[(0, '=', 1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+</odoo>

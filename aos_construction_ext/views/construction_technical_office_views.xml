@@ -46,7 +46,8 @@
     <record id="aos_construction_management.menu_construction_procurement" model="ir.ui.menu">
         <field name="group_ids" eval="[(6, 0, [
             ref('aos_construction_management.group_construction_user'),
-            ref('group_construction_dept_purchasing')])]"/>
+            ref('group_construction_dept_purchasing'),
+            ref('group_construction_dept_warehouse')])]"/>
     </record>
 
     <!-- Expenses, the custodies and the salary distribution are the
@@ -103,7 +104,7 @@
 
             <!-- Smart buttons onto the screens this profile does not have. -->
             <xpath expr="//button[@name='action_view_requisitions']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_purchasing,aos_construction_ext.group_construction_dept_warehouse</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_subcontracts']" position="attributes">
                 <attribute name="groups">aos_construction_management.group_construction_user</attribute>
