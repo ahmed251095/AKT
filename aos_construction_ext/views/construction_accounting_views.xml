@@ -56,15 +56,22 @@
 
     <!--
         Projects carried no group at all, so it was the one section every
-        narrow profile could still open. The technical office and the
-        purchasing desk both need it; the accountant does not, and reaches a
-        project through the certificate or the expense on it instead.
+        narrow profile could still open. Naming the three that need it keeps
+        it out of any profile added later unless that profile asks for it.
+
+        The accountant reads the project and changes nothing: the only access
+        right granted on construction.project is read, which is what makes
+        Odoo render the form read-only. The buttons that would write against
+        it are taken away in construction_purchasing_views.xml, where those
+        nodes are owned - a header button offering a state change and then
+        raising is worse than no button.
     -->
     <record id="aos_construction_management.menu_construction_projects" model="ir.ui.menu">
         <field name="group_ids" eval="[(6, 0, [
             ref('aos_construction_management.group_construction_user'),
             ref('group_construction_dept_technical'),
-            ref('group_construction_dept_purchasing')])]"/>
+            ref('group_construction_dept_purchasing'),
+            ref('group_construction_dept_accounting')])]"/>
     </record>
 
 </odoo>

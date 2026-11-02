@@ -81,16 +81,16 @@
                 components and keep only the subcontracts.
             -->
             <xpath expr="//field[@name='invoiced_revenue']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//field[@name='committed_cost']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_purchasing,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//field[@name='actual_cost']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//field[@name='total_expenses']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <!-- customer_certified_total belongs next to these, but it is
                  added by this module's own extension of the form, not by the
@@ -109,16 +109,16 @@
                 <attribute name="groups">aos_construction_management.group_construction_user</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_expenses']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_purchase_orders']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_purchasing,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_vendor_bills']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_customer_invoices']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_quality']" position="attributes">
                 <attribute name="groups">aos_construction_ext.group_construction_quality,!aos_construction_ext.group_construction_dept_technical,!aos_construction_ext.group_construction_dept_purchasing</attribute>

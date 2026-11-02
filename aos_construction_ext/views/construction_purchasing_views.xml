@@ -94,28 +94,28 @@
                 them writes - they would offer a state change and then raise.
             -->
             <xpath expr="//header/button[@name='action_activate']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//header/button[@name='action_hold']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//header/button[@name='action_complete']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//header/button[@name='action_cancel']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//header/button[@name='action_reset']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//header/button[@name='action_start_handover']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//header/button[@name='action_performance_bond_issued']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//header/button[@name='action_performance_bond_released']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
 
             <!--
@@ -125,22 +125,22 @@
                 where those nodes are owned.
             -->
             <xpath expr="//button[@name='action_view_tender']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_boq']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_wbs']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_work_orders']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_billing']" position="attributes">
                 <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_documents']" position="attributes">
-                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">!aos_construction_ext.group_construction_dept_purchasing,!aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
 
             <!-- What the client has certified is revenue. Neither narrow
@@ -149,7 +149,7 @@
                  than with them because this module adds it, and this is the
                  view that is sure the node exists. -->
             <xpath expr="//field[@name='customer_certified_total']" position="attributes">
-                <attribute name="groups">aos_construction_management.group_construction_user</attribute>
+                <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
 
             <!-- The bond and the closure file are the finance desk's and
