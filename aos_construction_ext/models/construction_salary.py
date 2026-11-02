@@ -6,13 +6,29 @@ from odoo.tools import float_compare, float_is_zero
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
+    #: Both carry a group, and that is load-bearing rather than cosmetic.
+    #:
+    #: Odoo hands a non-HR user the public employee profile, which is a fixed
+    #: list of fields. Adding a field to ``hr.employee`` without a group puts
+    #: it outside that list while leaving it in every read of the record - and
+    #: a read of an employee is not something anyone asks for directly. It
+    #: happens whenever a relation to one is followed: the Assigned Employees
+    #: on a project, a custody holder, who incurred an expense. Each of those
+    #: started raising "not available for employee public profiles" and naming
+    #: this field, on screens that have nothing to do with payroll.
+    #:
+    #: With a group on the field Odoo drops it from the read instead of
+    #: raising, and only the managers who are meant to see a salary figure
+    #: ever get it. The same group already gates it on the employee form.
     construction_monthly_cost = fields.Monetary(
         string='Monthly Cost to Projects', currency_field='currency_id',
+        groups='aos_construction_management.group_construction_manager',
         help='What this person costs the company in a month -- salary plus '
              'insurance and allowances. This is the figure spread over the '
              'projects they work on.')
     currency_id = fields.Many2one(
         'res.currency', string='Currency',
+        groups='aos_construction_management.group_construction_manager',
         default=lambda self: self.env.company.currency_id)
 
 

@@ -364,8 +364,12 @@ class ConstructionProject(models.Model):
 
     @api.depends('employee_ids')
     def _compute_employee_count(self):
+        # sudo: counting who is assigned is not reading anybody's HR file.
+        # Following the relation as the user drags the whole employee record
+        # through Odoo's access check with it, and a non-HR user is handed the
+        # public profile - which any field this module adds is not on.
         for project in self:
-            project.employee_count = len(project.employee_ids)
+            project.employee_count = len(project.sudo().employee_ids)
 
     @api.depends('contract_value', 'performance_bond_percent',
                  'performance_bond_required')
