@@ -10,26 +10,30 @@
         certificates. Procurement, expenses, the dashboard and configuration go
         away, and so does every other app.
 
-        Everything here is hidden by REQUIRING ``group_construction_user``.
-        That group is what every full desk already carries, so it reads as the
-        marker for "sees the whole app" and nothing changes for them. A menu's
-        groups live in a relational field, so there is no way to say "anyone
-        except" - the marker is the only mechanism available there, and using
-        the same one on the fields keeps the two halves of a profile written
-        the same way.
+        Everything here is hidden by REQUIRING a group, never by excluding
+        one. ``groups="!something"`` on a view node is NOT honoured in Odoo 19:
+        the node stays in the arch and the user sees it, with no error and no
+        warning. Verified on this database against get_views for a user in the
+        excluded group - a positive spec on the same node stripped it, the
+        negated one did not. Every profile here was written with negation
+        first, and none of it was doing anything.
 
-        The money nodes below are now shared with the purchasing desk, which is
-        the second profile without the marker. Both are hidden by the same
-        attribute, so the nodes a profile wants back name it explicitly as a
-        second positive group (committed cost, the requisition and purchase
-        order buttons). A node must be touched from ONE view only: two
-        inherited views doing position="attributes" on the same node fight over
-        the attribute and the winner depends on view order. Purchasing-only
-        nodes live in construction_purchasing_views.xml and do not repeat here.
+        So ``group_construction_user`` carries the weight: every full desk has
+        it and none of the four narrow profiles do, which makes it the marker
+        for "sees the whole app". A node a narrow profile is meant to keep
+        names that profile as a second positive group. A node it writes to -
+        the technical office writes projects, the others only read them -
+        names the technical office too.
+
+        A node must be touched from ONE view only: two inherited views doing
+        position="attributes" on the same node fight over the attribute and
+        the winner depends on view order. The project form is split between
+        this file and construction_purchasing_views.xml and nothing repeats.
 
         ``groups`` written on the <xpath> element itself is consumed while the
         views are merged and dropped before access rights are applied - it is
-        ignored in silence. It has to sit on the node, as an <attribute>.
+        ignored in silence too. It has to sit on the node, as an
+        <attribute>.
     -->
 
     <!-- ============ Menus ============ -->
@@ -122,7 +126,7 @@
                 <attribute name="groups">aos_construction_management.group_construction_user,aos_construction_ext.group_construction_dept_accounting</attribute>
             </xpath>
             <xpath expr="//button[@name='action_view_quality']" position="attributes">
-                <attribute name="groups">aos_construction_ext.group_construction_quality,!aos_construction_ext.group_construction_dept_technical,!aos_construction_ext.group_construction_dept_purchasing</attribute>
+                <attribute name="groups">aos_construction_ext.group_construction_quality</attribute>
             </xpath>
 
         </field>
