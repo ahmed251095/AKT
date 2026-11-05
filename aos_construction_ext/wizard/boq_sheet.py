@@ -21,9 +21,10 @@ Three things make a sheet readable:
 #: name this module knows the column by. Matched after normalisation, so the
 #: alef/ya/ta-marbuta variants and stray spaces do not need listing.
 COLUMN_LABELS = {
-    'item_no': ('م', 'م.', 'بند', 'رقم البند', 'كود'),
+    'item_no': ('م', 'م.', 'بند', 'البند', 'رقم البند', 'مسلسل', 'كود'),
     'description': ('وصف الاعمال', 'الوصف', 'بيان الاعمال', 'البيان',
-                    'وصف البند', 'الاعمال'),
+                    'وصف البند', 'توصيف البند', 'توصيف الاعمال', 'توصيف',
+                    'وصف', 'الاعمال'),
     'uom': ('الوحده', 'وحده', 'وحده القياس'),
     'qty': ('الكميه', 'كميه', 'الكميات'),
     'cost': ('سعر تكلفه', 'سعر التكلفه', 'التكلفه', 'تكلفه', 'سعر التكلفه للوحده'),
@@ -98,6 +99,23 @@ def number(value):
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return 0.0
     return float(value)
+
+
+def headings(sheet):
+    """The non-empty text of the likeliest header row, for an error message.
+
+    A sheet is rejected when no row names the columns, and the one thing the
+    person reading that message needs is what their own headings actually
+    say - the spelling that was not recognised is the whole answer.
+    """
+    best = []
+    for row in sheet.iter_rows(min_row=1, max_row=HEADER_SEARCH_ROWS,
+                               values_only=True):
+        texts = [str(cell).strip() for cell in row
+                 if isinstance(cell, str) and cell.strip()]
+        if len(texts) > len(best):
+            best = texts
+    return best
 
 
 def find_header(sheet):

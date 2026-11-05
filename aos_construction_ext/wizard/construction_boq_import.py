@@ -122,9 +122,12 @@ class ConstructionBoqImport(models.TransientModel):
             return sheet.title, boq_sheet.read(sheet)
         except LookupError:
             raise UserError(self.env._(
-                'No row in "%s" names the columns, so there is nothing to '
-                'read it by. The sheet needs a header row carrying at least '
-                'a description column and a quantity column.', sheet.title))
+                'No row in "%(sheet)s" names the columns, so there is '
+                'nothing to read it by. The sheet needs a header row '
+                'carrying at least a description column and a quantity '
+                'column.\n\nThe headings found were: %(found)s',
+                sheet=sheet.title,
+                found=' | '.join(boq_sheet.headings(sheet)) or '-'))
 
     # ------------------------------------------------------------------
     # Writing
