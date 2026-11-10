@@ -80,6 +80,15 @@
                 <field name="contract_duration_days"/>
             </xpath>
 
+            <!-- Contract value is the total of the approved BOQs; the
+                 manual figure only shows when it is asked for. -->
+            <xpath expr="//field[@name='contract_value']" position="after">
+                <field name="boq_approved_total" readonly="1"/>
+                <field name="contract_value_is_manual"/>
+                <field name="contract_value_manual"
+                       invisible="not contract_value_is_manual"/>
+            </xpath>
+
 
             <!-- Applied before the Hold group below, so group[3] is still
                  the Description group at this point. -->

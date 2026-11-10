@@ -30,6 +30,50 @@ class ConstructionProject(models.Model):
         help='Execution period agreed in the contract.')
 
     # ------------------------------------------------------------------
+    # Contract value - the approved BOQs are the contract
+    # ------------------------------------------------------------------
+    boq_ids = fields.One2many(
+        'construction.boq', 'project_id', string='Bills of Quantities')
+    boq_approved_total = fields.Monetary(
+        string='Approved BOQ Total', currency_field='currency_id',
+        compute='_compute_boq_approved_total', store=True,
+        help='Total of the project BOQs that reached the approved state. '
+             'Draft and revised BOQs are left out.')
+    contract_value_is_manual = fields.Boolean(
+        string='Enter Contract Value Manually',
+        help='Tick only when the signed contract carries a figure the '
+             'approved BOQs do not add up to.')
+    contract_value_manual = fields.Monetary(
+        string='Contract Value (Manual)', currency_field='currency_id')
+    contract_value = fields.Monetary(
+        compute='_compute_contract_value', store=True, readonly=True)
+
+    @api.depends('boq_ids.state', 'boq_ids.total_amount')
+    def _compute_boq_approved_total(self):
+        for project in self:
+            project.boq_approved_total = sum(
+                project.boq_ids
+                .filtered(lambda boq: boq.state == 'approved')
+                .mapped('total_amount'))
+
+    @api.depends('boq_approved_total', 'contract_value_is_manual',
+                 'contract_value_manual')
+    def _compute_contract_value(self):
+        """The contract is what the client approved, not a typed-in figure.
+
+        Every BOQ on a project is a client BOQ, so an approved one is either
+        the original contract or a variation order added to it. Revised and
+        draft BOQs are not committed yet and stay out. The manual override is
+        there for the case where the signed contract carries a figure the
+        BOQs do not add up to.
+        """
+        for project in self:
+            project.contract_value = (
+                project.contract_value_manual
+                if project.contract_value_is_manual
+                else project.boq_approved_total)
+
+    # ------------------------------------------------------------------
     # Team - the departments that sit on a running project
     # ------------------------------------------------------------------
     civil_engineer_id = fields.Many2one(
@@ -535,6 +579,8 @@ class ConstructionProject(models.Model):
     # ------------------------------------------------------------------
     @api.model_create_multi
     def create(self, vals_list):
+        for vals in vals_list:
+            self._route_contract_value_to_override(vals)
         projects = super().create(vals_list)
         for project in projects:
             if not project.analytic_account_id:
@@ -545,6 +591,27 @@ class ConstructionProject(models.Model):
                     project.stock_location_id = location
                     project.warehouse_id = project._site_warehouse()
         return projects
+
+    def write(self, vals):
+        self._route_contract_value_to_override(vals)
+        return super().write(vals)
+
+    @api.model
+    def _route_contract_value_to_override(self, vals):
+        """Send writes aimed at the old free-text contract value to the override.
+
+        ``contract_value`` is computed from the approved BOQs now, so the
+        tender conversion - and any data file that still sets it directly -
+        would be writing to a read-only field. A project born out of a tender
+        has no approved BOQ yet, so the tender estimate is the figure to carry
+        until the first BOQ is approved.
+        """
+        if 'contract_value' not in vals:
+            return
+        value = vals.pop('contract_value')
+        if value and 'contract_value_manual' not in vals:
+            vals['contract_value_manual'] = value
+            vals.setdefault('contract_value_is_manual', True)
 
     def _site_warehouse(self):
         """The warehouse the site locations live under."""
