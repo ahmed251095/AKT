@@ -205,24 +205,32 @@ class ConstructionRABillingFromBoq(models.Model):
 
     @api.onchange('boq_ids')
     def _onchange_boq_ids(self):
+        # Everything is read through ``_origin``. While a form is open the
+        # certificate is a record that does not exist yet, and Odoo hands an
+        # unsaved record its x2many values as new records too - so the bill
+        # picked here arrives as a copy of bill 35, not as bill 35, and it
+        # matches nothing the lines point at. The origins are the real rows.
+        bills = self.boq_ids._origin
+        on_certificate = self.line_ids.boq_line_id._origin
+
         # Taking a bill off the certificate takes its items off with it -
         # but never an item someone has already measured. That one keeps its
         # figure and keeps its bill on the certificate; emptying the quantity
         # is what releases it.
-        taken_off = self.line_ids.boq_line_id.boq_id - self.boq_ids
+        taken_off = on_certificate.boq_id - bills
         measured = taken_off.filtered(lambda bill: any(
             line.qty_current for line in self.line_ids
-            if line.boq_line_id.boq_id == bill))
+            if line.boq_line_id._origin.boq_id == bill))
         dropped = taken_off - measured
         if dropped:
             self.line_ids -= self.line_ids.filtered(
-                lambda line: line.boq_line_id.boq_id in dropped)
+                lambda line: line.boq_line_id._origin.boq_id in dropped)
         if measured:
             self.boq_ids |= measured
+            bills |= measured
 
-        items = self.boq_ids.line_ids.filtered(
-            lambda item: not item.is_section)
-        items -= self.line_ids.boq_line_id
+        items = bills.line_ids.filtered(lambda item: not item.is_section)
+        items -= on_certificate
         if items:
             # Assigning a recordset rather than a list of commands: on a
             # certificate that has not been saved yet, commands are applied
