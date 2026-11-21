@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- The base module defines no standalone view for a bill item, and the
+         model carries no ``name`` field - so every "Search More..." dialog on
+         a BOQ Item field fell back to Odoo's generated one-column list and
+         showed nothing but the database id. These are the views those
+         dialogs pick up. -->
+
+    <record id="view_construction_boq_line_list" model="ir.ui.view">
+        <field name="name">construction.boq.line.list</field>
+        <field name="model">construction.boq.line</field>
+        <field name="arch" type="xml">
+            <list create="false" editable="0">
+                <field name="currency_id" column_invisible="1"/>
+                <field name="item_no"/>
+                <field name="description"/>
+                <field name="boq_id"/>
+                <field name="work_type" optional="hide"/>
+                <field name="uom_id"/>
+                <field name="qty" sum="1"/>
+                <field name="unit_rate"/>
+                <field name="amount" sum="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_boq_line_search" model="ir.ui.view">
+        <field name="name">construction.boq.line.search</field>
+        <field name="model">construction.boq.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- Typing in the dialog's box has to reach both the item
+                     number and the description: the office knows an item by
+                     either. -->
+                <field name="description"
+                       filter_domain="['|', ('item_no', 'ilike', self), ('description', 'ilike', self)]"/>
+                <field name="item_no"/>
+                <field name="boq_id"/>
+                <field name="uom_id"/>
+                <field name="work_type"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

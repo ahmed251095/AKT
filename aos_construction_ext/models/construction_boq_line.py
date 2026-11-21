@@ -7,6 +7,11 @@ from .approval_lock import refuse, typed_fields
 
 class ConstructionBoqLine(models.Model):
     _inherit = 'construction.boq.line'
+    # The base module gives the model no ``name`` field, so Odoo had
+    # nothing to label a record with and nothing to match a typed term
+    # against: the box in a "Search More..." dialog filtered nothing.
+    _rec_name = 'description'
+    _rec_names_search = ['item_no', 'description']
 
     tender_line_id = fields.Many2one(
         'construction.tender.line', string='Tender Item', copy=False,
