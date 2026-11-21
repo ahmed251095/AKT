@@ -11,16 +11,16 @@
         <field name="name">construction.boq.line.list</field>
         <field name="model">construction.boq.line</field>
         <field name="arch" type="xml">
-            <list create="false" editable="0">
+            <list create="false">
                 <field name="currency_id" column_invisible="1"/>
                 <field name="item_no"/>
                 <field name="description"/>
                 <field name="boq_id"/>
                 <field name="work_type" optional="hide"/>
                 <field name="uom_id"/>
-                <field name="qty" sum="1"/>
+                <field name="qty"/>
                 <field name="unit_rate"/>
-                <field name="amount" sum="1"/>
+                <field name="amount"/>
             </list>
         </field>
     </record>
