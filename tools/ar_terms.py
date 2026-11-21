@@ -247,7 +247,7 @@ AR = {
     "A priced sheet is read into a bill of quantities or a tender, not into %s.": "الشيت المسعّر بيتقرا في مقايسة أو مناقصة، مش في %s.",
     "The document is no longer there.": "المستند مابقاش موجود.",
     "Sheet \"%s\" carries no items under its header row.": "تاب «%s» مفيهوش بنود تحت صف العناوين.",
-    "No row in \"%s\" names the columns, so there is nothing to read it by. The sheet needs a header row carrying at least a description column and a quantity column.": "مفيش صف في «%s» بيسمّي الأعمدة، فمفيش حاجة نقرا بيها. الشيت لازم يكون فيه صف عناوين فيه على الأقل عمود وصف وعمود كمية.",
+    "No row in \"%(sheet)s\" names the columns, so there is nothing to read it by. The sheet needs a header row carrying at least a description column and a quantity column.\n\nThe headings found were: %(found)s": "مفيش صف في «%(sheet)s» بيسمّي الأعمدة، فمفيش حاجة نقرا بيها. الشيت لازم يكون فيه صف عناوين فيه على الأقل عمود وصف وعمود كمية.\n\nالعناوين اللي اتلقت: %(found)s",
     "This file could not be opened as an Excel workbook: %s. Save it as .xlsx and try again.": "الملف ده مافتحش كملف إكسيل: %s. احفظه بصيغة ‎.xlsx‎ وجرّب تاني.",
     "Reading an Excel sheet needs the openpyxl library, which is not installed on this server. Install python3-openpyxl and restart Odoo.": "قراءة ملف الإكسيل محتاجة مكتبة openpyxl، وهي مش متنصّبة على السيرفر ده. نصّب python3-openpyxl وأعد تشغيل أودو.",
     "The ratios keep the items live: change a cost or a ratio later and the rate follows. Taking the rate as it stands matches the sheet to the piastre but leaves the item priced by hand.": "النسب بتخلّي البنود حيّة: تغيّر تكلفة أو نسبة بعدين فالفئة تمشي وراها. وخد الفئة زي ما هي بيطابق الشيت للقرش بس بيسيب البند مسعّر بالإيد.",
@@ -1134,6 +1134,14 @@ AR = {
         "بنود المقايسة المعتمدة ما ينفعش تتغيّر. اضغط \"تنقيح\" على المقايسة الأول:",
     "This certificate is approved and counted against the contract, so it can no longer be edited. Cancel it and reset it to draft to change it:":
         "المستخلص ده معتمد ومحسوب على العقد، فما بقاش ينفع يتعدّل. الغيه ورجّعه لمسودة عشان تغيّر فيه:",
+
+    # ---- المقايسات على المستخلص ----
+    "Bills of Quantities": "المقايسات",
+    "Every item of the bills picked here is listed below, ready for this period's quantity. Pick several and their items are listed together, in the order each bill carries them.":
+        "كل بنود المقايسات المختارة هنا بتتعرض تحت جاهزة لكمية الفترة. اختار أكتر من مقايسة وبنودها كلها هتتعرض مع بعض، كل واحدة بترتيب بنودها.",
+    "Quantities already measured": "كميات مرصودة بالفعل",
+    "Items of %(bills)s already carry a quantity on this certificate, so the bill stays on it. Empty those quantities first to take it off.":
+        "في بنود من %(bills)s عليها كميات في المستخلص ده، فالمقايسة هتفضل عليه. فضّي الكميات دي الأول عشان تشيلها.",
 
     # ---- قيد المصروفات ----
     "Paid From": "مصروف من",

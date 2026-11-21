@@ -70,9 +70,9 @@ def index_field_origins():
                            glob.glob(f'{BASE}/{module}/wizard/*.py')):
             text = open(path).read()
             for body in re.split(r'\nclass\s+\w+\([^)]*\):', text)[1:]:
-                name = re.search(r"_name\s*=\s*'([\w.]+)'", body)
-                inherit = (re.search(r"_inherit\s*=\s*'([\w.]+)'", body)
-                           or re.search(r"_inherit\s*=\s*\[\s*'([\w.]+)'", body))
+                name = re.search(r"(?<![\w])_name\s*=\s*'([\w.]+)'", body)
+                inherit = (re.search(r"(?<![\w])_inherit\s*=\s*'([\w.]+)'", body)
+                           or re.search(r"(?<![\w])_inherit\s*=\s*\[\s*'([\w.]+)'", body))
                 model = (name.group(1) if name
                          else (inherit.group(1) if inherit else None))
                 if not model:
@@ -92,9 +92,9 @@ def parse_python(module):
         text = open(path).read()
         classes = re.split(r'\nclass\s+\w+\([^)]*\):', text)[1:]
         for body in classes:
-            name = re.search(r"_name\s*=\s*'([\w.]+)'", body)
-            inherit = (re.search(r"_inherit\s*=\s*'([\w.]+)'", body)
-                       or re.search(r"_inherit\s*=\s*\[\s*'([\w.]+)'", body))
+            name = re.search(r"(?<![\w])_name\s*=\s*'([\w.]+)'", body)
+            inherit = (re.search(r"(?<![\w])_inherit\s*=\s*'([\w.]+)'", body)
+                       or re.search(r"(?<![\w])_inherit\s*=\s*\[\s*'([\w.]+)'", body))
             model = name.group(1) if name else (inherit.group(1) if inherit else None)
             if not model:
                 continue

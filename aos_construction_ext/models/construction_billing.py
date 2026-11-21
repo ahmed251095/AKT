@@ -143,8 +143,117 @@ class ConstructionRABillingFrozen(models.Model):
         return super().write(vals)
 
 
+class ConstructionRABillingFromBoq(models.Model):
+    """Measuring a certificate against whole bills of quantities.
+
+    A certificate is written against the bill: the surveyor goes down the
+    items in order and writes this period's quantity next to each one.
+    Picking those items back one at a time out of a dialog is not how the
+    sheet is read - so the bills themselves are picked here, and every item
+    on them is laid out below ready to be measured.
+    """
+    _inherit = 'construction.ra.billing'
+
+    boq_ids = fields.Many2many(
+        'construction.boq', string='Bills of Quantities',
+        domain="[('project_id', '=', project_id)]",
+        help='Every item of the bills picked here is listed below, ready '
+             'for this period\'s quantity. Pick several and their items are '
+             'listed together, in the order each bill carries them.')
+
+    def _certified_before(self, boq_lines):
+        """What the earlier certificates of this series measured, per item.
+
+        Read in one go rather than item by item: a bill runs to hundreds of
+        items and this is answered while someone waits on the form.
+        """
+        self.ensure_one()
+        domain = [
+            ('boq_line_id', 'in', boq_lines.ids),
+            ('billing_id.state', 'in', CONFIRMED_STATES),
+            ('billing_id.billing_type', '=', self.billing_type),
+        ]
+        if self._origin:
+            domain.append(('billing_id', '!=', self._origin.id))
+        if self.billing_type == 'subcontractor' and self.subcontract_id:
+            domain.append(
+                ('billing_id.subcontract_id', '=', self.subcontract_id.id))
+        groups = self.env['construction.ra.billing.line']._read_group(
+            domain, ['boq_line_id'], ['qty_current:sum'])
+        return {item.id: measured for item, measured in groups}
+
+    def _boq_line_values(self, boq_line, certified_before):
+        """A certificate line as the bill item defines it.
+
+        The same reading the by-hand onchange does, so an item picked one at
+        a time and an item that arrived with its bill land identically.
+        """
+        self.ensure_one()
+        rate = boq_line.unit_rate if self.billing_type == 'customer' \
+            else (boq_line.cost_rate or boq_line.unit_rate)
+        return {
+            'boq_line_id': boq_line.id,
+            'product_id': boq_line.product_id.id,
+            'boq_line_description': boq_line.description,
+            'work_type': boq_line.work_type,
+            'uom_id': boq_line.uom_id.id,
+            'wbs_id': boq_line.wbs_id.id,
+            'boq_qty': boq_line.qty,
+            'unit_rate': rate,
+            'qty_previous': certified_before.get(boq_line.id, 0.0),
+        }
+
+    @api.onchange('boq_ids')
+    def _onchange_boq_ids(self):
+        # Taking a bill off the certificate takes its items off with it -
+        # but never an item someone has already measured. That one keeps its
+        # figure and keeps its bill on the certificate; emptying the quantity
+        # is what releases it.
+        taken_off = self.line_ids.boq_line_id.boq_id - self.boq_ids
+        measured = taken_off.filtered(lambda bill: any(
+            line.qty_current for line in self.line_ids
+            if line.boq_line_id.boq_id == bill))
+        dropped = taken_off - measured
+        if dropped:
+            self.line_ids -= self.line_ids.filtered(
+                lambda line: line.boq_line_id.boq_id in dropped)
+        if measured:
+            self.boq_ids |= measured
+
+        items = self.boq_ids.line_ids.filtered(
+            lambda item: not item.is_section)
+        items -= self.line_ids.boq_line_id
+        if items:
+            # Assigning a recordset rather than a list of commands: on a
+            # certificate that has not been saved yet, commands are applied
+            # to an empty value and the lines already on the form would go.
+            certified_before = self._certified_before(items)
+            lines = self.line_ids
+            for item in items:
+                lines |= self.env['construction.ra.billing.line'].new(
+                    self._boq_line_values(item, certified_before))
+            self.line_ids = lines
+
+        if measured:
+            return {'warning': {
+                'title': self.env._('Quantities already measured'),
+                'message': self.env._(
+                    'Items of %(bills)s already carry a quantity on this '
+                    'certificate, so the bill stays on it. Empty those '
+                    'quantities first to take it off.',
+                    bills=', '.join(measured.mapped('display_name'))),
+            }}
+
+
 class ConstructionRABillingLine(models.Model):
     _inherit = 'construction.ra.billing.line'
+
+    # What a certificate line is measured against is the bill item and its
+    # description; a product record behind it is a convenience for the
+    # invoice, and a surveyed sheet does not carry one for every item. The
+    # base module makes it required, which stops a whole bill from being
+    # laid out at once.
+    product_id = fields.Many2one(string='Product / Service', required=False)
 
     def _approved_certificate_message(self):
         return self.env._(

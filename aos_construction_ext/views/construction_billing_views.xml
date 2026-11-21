@@ -11,6 +11,14 @@
           <field name="ra_number" readonly="1" class="oe_inline"/>
         </div>
       </xpath>
+      <!-- The bills this certificate is measured against. Picking one
+           lays all of its items out below. -->
+      <xpath expr="//field[@name='project_id']" position="after">
+        <field name="boq_ids" widget="many2many_tags"
+               options="{'no_create': True, 'no_quick_create': True}"
+               readonly="state in ('approved', 'invoiced', 'paid')"/>
+      </xpath>
+
       <xpath expr="//field[@name='advance_recovery']" position="before">
         <field name="advance_outstanding" readonly="1"
                invisible="advance_outstanding == 0"/>

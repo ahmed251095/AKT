@@ -628,6 +628,12 @@ msgid "Bill of Quantities"
 msgstr "مقايسة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__boq_ids
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_ra_billing__boq_ids
+msgid "Bills of Quantities"
+msgstr "المقايسات"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_subcontract_form_ext
 msgid "Blank Certificate"
 msgstr "مستخلص فارغ"
@@ -1040,6 +1046,7 @@ msgid "Contract Duration (days)"
 msgstr "مدة العقد (أيام)"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_project__contract_value
 #: model:ir.model.fields,field_description:aos_construction_management.field_construction_subcontract__contract_value
 msgid "Contract Value"
 msgstr "قيمة العقد"
@@ -1527,6 +1534,11 @@ msgstr "الهامش المتوقع (%)"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_tender__estimated_tax
 msgid "Estimated Tax"
 msgstr "إجمالي الضريبة التقديري"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_ra_billing__boq_ids
+msgid "Every item of the bills picked here is listed below, ready for this period's quantity. Pick several and their items are listed together, in the order each bill carries them."
+msgstr "كل بنود المقايسات المختارة هنا بتتعرض تحت جاهزة لكمية الفترة. اختار أكتر من مقايسة وبنودها كلها هتتعرض مع بعض، كل واحدة بترتيب بنودها."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2063,6 +2075,12 @@ msgstr "رقم البند"
 
 #. module: aos_construction_ext
 #. odoo-python
+#: code:addons/aos_construction_ext/models/construction_billing.py:0
+msgid "Items of %(bills)s already carry a quantity on this certificate, so the bill stays on it. Empty those quantities first to take it off."
+msgstr "في بنود من %(bills)s عليها كميات في المستخلص ده، فالمقايسة هتفضل عليه. فضّي الكميات دي الأول عشان تشيلها."
+
+#. module: aos_construction_ext
+#. odoo-python
 #: code:addons/aos_construction_ext/models/construction_custody.py:0
 msgid "Journal \"%s\" has no account to take the cash from."
 msgstr "اليومية \"%s\" مالهاش حساب تتصرف منه النقدية."
@@ -2387,8 +2405,8 @@ msgstr "صافي الربح يقارن ما استُخلص للعميل بالت
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
-msgid "No row in \"%s\" names the columns, so there is nothing to read it by. The sheet needs a header row carrying at least a description column and a quantity column."
-msgstr "مفيش صف في «%s» بيسمّي الأعمدة، فمفيش حاجة نقرا بيها. الشيت لازم يكون فيه صف عناوين فيه على الأقل عمود وصف وعمود كمية."
+msgid "No row in \"%(sheet)s\" names the columns, so there is nothing to read it by. The sheet needs a header row carrying at least a description column and a quantity column.\n\nThe headings found were: %(found)s"
+msgstr "مفيش صف في «%(sheet)s» بيسمّي الأعمدة، فمفيش حاجة نقرا بيها. الشيت لازم يكون فيه صف عناوين فيه على الأقل عمود وصف وعمود كمية.\n\nالعناوين اللي اتلقت: %(found)s"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2780,6 +2798,11 @@ msgid "Private Owner"
 msgstr "مالك خاص"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_management.field_construction_ra_billing_line__product_id
+msgid "Product / Service"
+msgstr "المنتج / الخدمة"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Profit"
 msgstr "الربح"
@@ -2950,6 +2973,12 @@ msgstr "فحوصات الجودة"
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Quality Control"
 msgstr "فحص الجودة"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_billing.py:0
+msgid "Quantities already measured"
+msgstr "كميات مرصودة بالفعل"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -3508,6 +3537,12 @@ msgstr "البنود المسندة لمقاولي الباطن"
 #: code:addons/aos_construction_ext/models/construction_subcontract.py:0
 msgid "Subcontractor Certificate"
 msgstr "مستخلص مقاول باطن"
+
+#. module: aos_construction_ext
+#: model:ir.actions.act_window,name:aos_construction_ext.action_construction_subcontractor_certificates
+#: model:ir.ui.menu,name:aos_construction_ext.menu_construction_subcontractor_certificates
+msgid "Subcontractor Certificates"
+msgstr "مستخلصات مقاولي الباطن"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__subcontract_cost_overlap
