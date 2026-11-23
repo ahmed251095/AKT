@@ -76,6 +76,18 @@
         <field name="item_no"/>
       </xpath>
 
+      <!-- A certificate is measured item by item, not phase by phase, so
+           neither the phase nor the work order is on the sheet until
+           someone turns it on from the column picker. -->
+      <xpath expr="//field[@name='line_ids']/list/field[@name='wbs_id']"
+             position="attributes">
+        <attribute name="optional">hide</attribute>
+      </xpath>
+      <xpath expr="//field[@name='line_ids']/list/field[@name='work_order_id']"
+             position="attributes">
+        <attribute name="optional">hide</attribute>
+      </xpath>
+
       <!-- What is actually paid out on the item, read after what it is
            worth: the share is typed, the figure follows it. -->
       <xpath expr="//field[@name='line_ids']/list/field[@name='amount']"
