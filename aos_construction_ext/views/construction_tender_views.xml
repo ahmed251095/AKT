@@ -138,11 +138,11 @@
                 <attribute name="invisible"/>
             </xpath>
 
-            <!-- The number comes off the authority's own sheet; the office reads
-                 the description. The section flag still drives what the other
-                 columns show, so it stays in the view without a column. -->
-            <xpath expr="//field[@name='line_ids']/list/field[@name='item_no']"
-                   position="replace"/>
+            <!-- The number off the authority's own sheet. It is typed here
+                 and carried through to the bill of quantities and onto the
+                 certificate, which is what the site reads items by. The
+                 section flag still drives what the other columns show, so it
+                 stays in the view without a column. -->
             <xpath expr="//field[@name='line_ids']/list/field[@name='is_section']"
                    position="attributes">
                 <attribute name="column_invisible">1</attribute>
