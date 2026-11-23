@@ -75,6 +75,18 @@
              position="before">
         <field name="item_no"/>
       </xpath>
+
+      <!-- What is actually paid out on the item, read after what it is
+           worth: the share is typed, the figure follows it. -->
+      <xpath expr="//field[@name='line_ids']/list/field[@name='amount']"
+             position="after">
+        <field name="disbursement_percent"/>
+        <field name="disbursement_amount" readonly="1"/>
+      </xpath>
+      <xpath expr="//group[@string='Summary']/field[@name='net_payable']"
+             position="after">
+        <field name="disbursement_total" readonly="1"/>
+      </xpath>
       <xpath expr="//field[@name='notes']" position="attributes">
         <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
       </xpath>

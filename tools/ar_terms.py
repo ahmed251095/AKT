@@ -1222,4 +1222,13 @@ AR = {
         "مفيش بند رقمه \"%(number)s\" في %(where)s. راجع الرقم، أو اختار البند من القايمة.",
     "More than one item on %(where)s is numbered \"%(number)s\", so pick the one meant from the list.":
         "أكتر من بند في %(where)s رقمه \"%(number)s\"، فاختار البند المقصود من القايمة.",
+    "Disbursement %": "نسبة الصرف",
+    "Disbursement Amount": "مبلغ الصرف",
+    "Total Disbursement": "إجمالي الصرف",
+    "How much of this item's amount is paid out. 100 is all of it; 80 on an amount of 100 disburses 80.":
+        "قد إيه من مبلغ البند بيتصرف فعلاً. 100 يعني المبلغ كله؛ و80 على مبلغ 100 بيصرف 80.",
+    "The amount at the disbursement percentage.":
+        "المبلغ مضروب في نسبة الصرف.",
+    "The sum of every item's disbursement: its amount taken at the disbursement percentage set on the line.":
+        "مجموع الصرف لكل البنود: مبلغ كل بند مضروب في نسبة الصرف المكتوبة على سطره.",
 }

@@ -41,6 +41,27 @@ class ConstructionRABilling(models.Model):
         return records
 
     # ------------------------------------------------------------------
+    # Disbursement
+    # ------------------------------------------------------------------
+    #: What the certificate actually pays out. A certified item is not always
+    #: disbursed in full -- the contract, the authority or the cash position
+    #: releases a share of it -- and that share is set per item, because it
+    #: differs item by item. This is the sum of those shares, read alongside
+    #: the amount certified rather than in place of it: the deductions and
+    #: the net payable below still answer what the certificate is worth.
+    disbursement_total = fields.Monetary(
+        string='Total Disbursement', compute='_compute_disbursement_total',
+        store=True, currency_field='currency_id',
+        help='The sum of every item\'s disbursement: its amount taken at '
+             'the disbursement percentage set on the line.')
+
+    @api.depends('line_ids.disbursement_amount')
+    def _compute_disbursement_total(self):
+        for billing in self:
+            billing.disbursement_total = sum(
+                billing.line_ids.mapped('disbursement_amount'))
+
+    # ------------------------------------------------------------------
     # Advance recovery
     # ------------------------------------------------------------------
     advance_outstanding = fields.Monetary(
@@ -273,6 +294,25 @@ class ConstructionRABillingLine(models.Model):
         string='Item No.', index=True,
         help='The number of the item on the bill of quantities. Type a '
              'number here and the item it belongs to is filled in below.')
+
+    #: The share of this item's amount that is actually paid out. A hundred
+    #: is the whole of it, which is what a line is worth until someone says
+    #: otherwise -- so a certificate nobody touches disburses exactly what it
+    #: certifies.
+    disbursement_percent = fields.Float(
+        string='Disbursement %', default=100.0,
+        help='How much of this item\'s amount is paid out. 100 is all of '
+             'it; 80 on an amount of 100 disburses 80.')
+    disbursement_amount = fields.Monetary(
+        string='Disbursement Amount', compute='_compute_disbursement_amount',
+        store=True, currency_field='currency_id',
+        help='The amount at the disbursement percentage.')
+
+    @api.depends('amount', 'disbursement_percent')
+    def _compute_disbursement_amount(self):
+        for line in self:
+            line.disbursement_amount = \
+                line.amount * line.disbursement_percent / 100.0
 
     @api.onchange('boq_line_id')
     def _onchange_boq_line_item_no(self):

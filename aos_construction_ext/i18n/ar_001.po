@@ -1300,6 +1300,16 @@ msgid "Disburse Custody"
 msgstr "صرف العهدة"
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_ra_billing_line__disbursement_percent
+msgid "Disbursement %"
+msgstr "نسبة الصرف"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_ra_billing_line__disbursement_amount
+msgid "Disbursement Amount"
+msgstr "مبلغ الصرف"
+
+#. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_config_settings
 msgid "Disbursement Journal"
 msgstr "يومية الصرف"
@@ -1913,6 +1923,11 @@ msgstr "عدد الورديات المطلوبة لهذا الطاقم."
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_subcontract_line__progress_qty
 msgid "How much of the assigned quantity the engineer accepts as complete. This is what the next certificate is measured from."
 msgstr "قد إيه من الكمية المسندة المهندس بيعتمدها كمنجزة. ده الأساس اللي بيتقاس عليه المستخلص الجاي."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_ra_billing_line__disbursement_percent
+msgid "How much of this item's amount is paid out. 100 is all of it; 80 on an amount of 100 disburses 80."
+msgstr "قد إيه من مبلغ البند بيتصرف فعلاً. 100 يعني المبلغ كله؛ و80 على مبلغ 100 بيصرف 80."
 
 #. module: aos_construction_ext
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.view_construction_salary_distribution_form
@@ -3799,6 +3814,11 @@ msgid "The administration share carried by one unit."
 msgstr "شريحة الإدارة اللي شايلاها الوحدة الواحدة."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_ra_billing_line__disbursement_amount
+msgid "The amount at the disbursement percentage."
+msgstr "المبلغ مضروب في نسبة الصرف."
+
+#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/wizard/construction_custody_disburse.py:0
 #: code:addons/aos_construction_ext/wizard/construction_custody_return.py:0
@@ -4011,6 +4031,11 @@ msgid "The subcontractor rate for \"%(item)s\" is %(rate)s, above the %(budget)s
 msgstr "سعر المقاول لـ \"%(item)s\" هو %(rate)s، وهو أعلى من %(budget)s التي سُعّر البند على أساسها.\nإما أن تفاوض على خفض السعر، أو تصحح تكلفة البند في المقايسة إذا كان التقدير خاطئاً."
 
 #. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_ra_billing__disbursement_total
+msgid "The sum of every item's disbursement: its amount taken at the disbursement percentage set on the line."
+msgstr "مجموع الصرف لكل البنود: مبلغ كل بند مضروب في نسبة الصرف المكتوبة على سطره."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_account_payment__construction_tender_id
 msgid "The tender whose conditions booklet this payment pays for. Settling the payment marks the booklet as purchased."
 msgstr "المناقصة التي تُسدَّد بهذه الدفعة قيمة كراسة شروطها. تسوية الدفعة تُعلّم الكراسة كمُشتراة."
@@ -4149,6 +4174,11 @@ msgstr "إجمالي المستخلصات"
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_project__project_total_cost
 msgid "Total Cost"
 msgstr "إجمالي التكلفة"
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_ra_billing__disbursement_total
+msgid "Total Disbursement"
+msgstr "إجمالي الصرف"
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_labour_line__total_hours
