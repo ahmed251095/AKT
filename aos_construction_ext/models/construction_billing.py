@@ -193,6 +193,7 @@ class ConstructionRABillingFromBoq(models.Model):
             else (boq_line.cost_rate or boq_line.unit_rate)
         return {
             'boq_line_id': boq_line.id,
+            'item_no': boq_line.item_no,
             'product_id': boq_line.product_id.id,
             'boq_line_description': boq_line.description,
             'work_type': boq_line.work_type,
@@ -262,6 +263,69 @@ class ConstructionRABillingLine(models.Model):
     # base module makes it required, which stops a whole bill from being
     # laid out at once.
     product_id = fields.Many2one(string='Product / Service', required=False)
+
+    #: The number the item carries on the bill of quantities. The site, the
+    #: surveyor and the authority all call the item by this number rather
+    #: than by its description, so the certificate has to read the same way
+    #: the sheet does. It is filled from the item it measures, and typing it
+    #: is the other way round: the item is looked up and pulled in.
+    item_no = fields.Char(
+        string='Item No.', index=True,
+        help='The number of the item on the bill of quantities. Type a '
+             'number here and the item it belongs to is filled in below.')
+
+    @api.onchange('boq_line_id')
+    def _onchange_boq_line_item_no(self):
+        """Keep the number in step with the item picked from the list."""
+        if self.boq_line_id:
+            self.item_no = self.boq_line_id.item_no
+
+    @api.onchange('item_no')
+    def _onchange_item_no(self):
+        """Typing the number off the sheet pulls its item in.
+
+        The surveyor works down a paper sheet that names items by number,
+        not by description, so the number is the quickest way in. It is
+        looked up among the bills the certificate is measured against -- or
+        across the project's bills where none have been picked -- and only a
+        single match fills the line: two items sharing a number is the sheet
+        being ambiguous, and guessing between them would measure the wrong
+        one.
+        """
+        number = (self.item_no or '').strip()
+        if not number or self.boq_line_id.item_no == number:
+            return
+        billing = self.billing_id
+        domain = [('item_no', '=', number), ('is_section', '=', False)]
+        # On a form the certificate is a record that does not exist yet and
+        # its x2many values arrive as copies, so the bills are read through
+        # their origins -- the same reading ``_onchange_boq_ids`` does.
+        bills = billing.boq_ids._origin
+        if bills:
+            domain.append(('boq_id', 'in', bills.ids))
+        elif billing.project_id:
+            domain.append(('boq_id.project_id', '=', billing.project_id.id))
+        matches = self.env['construction.boq.line'].search(domain, limit=2)
+        if len(matches) == 1:
+            self.boq_line_id = matches
+            # The same filling as picking it from the list: description,
+            # unit, contract quantity, rate and what came before.
+            self._onchange_boq_line_id()
+            return
+        where = ', '.join(bills.mapped('display_name')) or (
+            billing.project_id.display_name or '')
+        if not matches:
+            message = self.env._(
+                'No item numbered "%(number)s" on %(where)s. Check the '
+                'number, or pick the item from the list.',
+                number=number, where=where)
+        else:
+            message = self.env._(
+                'More than one item on %(where)s is numbered "%(number)s", '
+                'so pick the one meant from the list.',
+                number=number, where=where)
+        return {'warning': {
+            'title': self.env._('Item not found'), 'message': message}}
 
     def _approved_certificate_message(self):
         return self.env._(

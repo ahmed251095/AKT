@@ -68,6 +68,13 @@
       <xpath expr="//field[@name='line_ids']" position="attributes">
         <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
       </xpath>
+
+      <!-- The sheet the surveyor works down names items by number. Typing
+           one here pulls its item in; picking an item fills the number. -->
+      <xpath expr="//field[@name='line_ids']/list/field[@name='boq_line_id']"
+             position="before">
+        <field name="item_no"/>
+      </xpath>
       <xpath expr="//field[@name='notes']" position="attributes">
         <attribute name="readonly">state in ('approved', 'invoiced', 'paid')</attribute>
       </xpath>

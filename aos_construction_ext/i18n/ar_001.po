@@ -2070,8 +2070,15 @@ msgstr "هامش البند (%)"
 #. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/controllers/main.py:0
+#: model:ir.model.fields,field_description:aos_construction_ext.field_construction_ra_billing_line__item_no
 msgid "Item No."
 msgstr "رقم البند"
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_billing.py:0
+msgid "Item not found"
+msgstr "البند مش موجود"
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -2364,6 +2371,12 @@ msgid "More of this item has been handed to subcontractors than the bill of quan
 msgstr "المسند لمقاولي الباطن من هذا البند أكبر من الكمية الموجودة في المقايسة."
 
 #. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_billing.py:0
+msgid "More than one item on %(where)s is numbered \"%(number)s\", so pick the one meant from the list."
+msgstr "أكتر من بند في %(where)s رقمه \"%(number)s\"، فاختار البند المقصود من القايمة."
+
+#. module: aos_construction_ext
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_custody__move_count
 #: model:ir.model.fields,field_description:aos_construction_ext.field_construction_expense__move_count
 msgid "Move Count"
@@ -2401,6 +2414,12 @@ msgstr "صافي الربح المضاف على تكلفة البند."
 #: model_terms:ir.ui.view,arch_db:aos_construction_ext.report_project_profit_statement
 msgid "Net profit compares what has been certified to the client against the cost incurred so far, so both sides cover the same work. Forecast margin looks ahead instead: the whole contract against what the remaining work is expected to cost, with assigned items at the subcontractors rates and the rest at our own."
 msgstr "صافي الربح يقارن ما استُخلص للعميل بالتكلفة المنصرفة حتى الآن، فيكون الطرفان عن نفس الأعمال. أما الهامش المتوقع فينظر للأمام: قيمة العقد كاملة مقابل التكلفة المتوقعة لما تبقى من أعمال، بأسعار مقاولي الباطن للبنود المسندة وبتكلفتنا لما عداها."
+
+#. module: aos_construction_ext
+#. odoo-python
+#: code:addons/aos_construction_ext/models/construction_billing.py:0
+msgid "No item numbered \"%(number)s\" on %(where)s. Check the number, or pick the item from the list."
+msgstr "مفيش بند رقمه \"%(number)s\" في %(where)s. راجع الرقم، أو اختار البند من القايمة."
 
 #. module: aos_construction_ext
 #. odoo-python
@@ -3898,6 +3917,11 @@ msgstr "بنود المقايسة المعتمدة ما ينفعش تتغيّر.
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__journal_id
 msgid "The journal the entry is raised in. Cash box or bank where the money actually leaves one; a miscellaneous journal where a partner or anyone else settled it on the company behalf."
 msgstr "اليومية اللي القيد بيتعمل فيها. خزنة أو بنك لما الفلوس تخرج منهم فعلاً، أو يومية عمليات متنوعة لما شريك أو غيره يكون دفعها بالنيابة عن الشركة."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_ra_billing_line__item_no
+msgid "The number of the item on the bill of quantities. Type a number here and the item it belongs to is filled in below."
+msgstr "رقم البند في المقايسة. اكتب الرقم هنا والبند بتاعه هيتملّي تحت."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_work_order_line__inhouse_scope_qty

@@ -24,11 +24,11 @@
                 <attribute name="invisible"/>
             </xpath>
 
-            <!-- The office reads the description, not a number off a sheet. The
-                 section flag still drives what the other columns show, so it
-                 stays in the view without a column. -->
-            <xpath expr="//field[@name='line_ids']/list/field[@name='item_no']"
-                   position="replace"/>
+            <!-- The item number is what the site, the surveyor and the
+                 certificate all call the item by, so it is typed here or
+                 imported with the sheet and carried onto the certificate.
+                 The section flag still drives what the other columns show,
+                 so it stays in the view without a column. -->
             <xpath expr="//field[@name='line_ids']/list/field[@name='is_section']"
                    position="attributes">
                 <attribute name="column_invisible">1</attribute>

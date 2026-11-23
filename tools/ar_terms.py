@@ -1214,4 +1214,12 @@ AR = {
         "اليومية \"%s\" مالهاش حساب تتصرف منه الفلوس.",
     "Suggested on a new expense as where the money comes out of. Each expense can be paid from another cash box or bank.":
         "بيتقترح على المصروف الجديد كمصدر للفلوس. وكل مصروف ينفع يتصرف من خزنة أو بنك تاني.",
+    "The number of the item on the bill of quantities. Type a number here and the item it belongs to is filled in below.":
+        "رقم البند في المقايسة. اكتب الرقم هنا والبند بتاعه هيتملّي تحت.",
+    "Item not found":
+        "البند مش موجود",
+    "No item numbered \"%(number)s\" on %(where)s. Check the number, or pick the item from the list.":
+        "مفيش بند رقمه \"%(number)s\" في %(where)s. راجع الرقم، أو اختار البند من القايمة.",
+    "More than one item on %(where)s is numbered \"%(number)s\", so pick the one meant from the list.":
+        "أكتر من بند في %(where)s رقمه \"%(number)s\"، فاختار البند المقصود من القايمة.",
 }
