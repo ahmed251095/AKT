@@ -83,8 +83,9 @@
         <field name="disbursement_percent"/>
         <field name="disbursement_amount" readonly="1"/>
       </xpath>
-      <xpath expr="//group[@string='Summary']/field[@name='net_payable']"
-             position="after">
+      <!-- Odoo 19 refuses @string as an xpath selector, and the field is
+           unique on the form, so it is the anchor. -->
+      <xpath expr="//field[@name='net_payable']" position="after">
         <field name="disbursement_total" readonly="1"/>
       </xpath>
       <xpath expr="//field[@name='notes']" position="attributes">
