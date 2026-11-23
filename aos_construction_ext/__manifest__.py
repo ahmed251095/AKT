@@ -1,6 +1,6 @@
 {
     'name': 'Construction Management - Business Extension',
-    'version': '19.0.1.4.0',
+    'version': '19.0.1.5.0',
     'category': 'Services/Construction',
     'summary': 'Tender pricing formula, bid bonds, management approval cycle, '
                'document checklists, project team roles and closure workflow',

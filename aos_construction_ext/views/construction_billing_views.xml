@@ -81,6 +81,8 @@
       <xpath expr="//field[@name='line_ids']/list/field[@name='amount']"
              position="after">
         <field name="disbursement_percent"/>
+        <field name="disbursement_percent_remaining" readonly="1"
+               optional="hide"/>
         <field name="disbursement_amount" readonly="1"/>
       </xpath>
       <!-- Odoo 19 refuses @string as an xpath selector, and the field is

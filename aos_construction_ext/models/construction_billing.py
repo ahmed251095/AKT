@@ -314,6 +314,63 @@ class ConstructionRABillingLine(models.Model):
             line.disbursement_amount = \
                 line.amount * line.disbursement_percent / 100.0
 
+    #: How much of the item's disbursement the earlier certificates of this
+    #: series have not taken yet -- a hundred less what they released. It is
+    #: the ceiling this certificate is writing against, so the percentage
+    #: being typed on this line is deliberately not counted: a fresh line
+    #: carries the default hundred, and counting it would show nothing left
+    #: on every line before anyone had decided anything.
+    disbursement_percent_remaining = fields.Float(
+        string='Remaining Disbursement %',
+        compute='_compute_disbursement_percent_remaining',
+        help='A hundred less the disbursement percentages the earlier '
+             'approved certificates already released on this item. What '
+             'this certificate releases is not taken off it.')
+
+    def _disbursement_released_before(self):
+        """What earlier certificates released on each item, per certificate.
+
+        Read in one query per certificate rather than item by item: a
+        certificate runs to hundreds of items and this is answered while
+        someone waits on the form.
+        """
+        released = {}
+        for billing in self.billing_id:
+            items = self.filtered(
+                lambda line: line.billing_id == billing).boq_line_id._origin
+            if not items:
+                continue
+            domain = [
+                ('boq_line_id', 'in', items.ids),
+                ('billing_id.state', 'in', CONFIRMED_STATES),
+                ('billing_id.billing_type', '=', billing.billing_type),
+            ]
+            # An unsaved certificate is not one of the earlier ones, and has
+            # no id to exclude itself by.
+            if billing._origin:
+                domain.append(('billing_id', '!=', billing._origin.id))
+            if billing.billing_type == 'subcontractor' \
+                    and billing.subcontract_id:
+                domain.append(('billing_id.subcontract_id', '=',
+                               billing.subcontract_id._origin.id))
+            groups = self.env['construction.ra.billing.line']._read_group(
+                domain, ['boq_line_id'], ['disbursement_percent:sum'])
+            for item, used in groups:
+                released[(billing, item.id)] = used
+        return released
+
+    @api.depends('boq_line_id', 'billing_id.state', 'billing_id.billing_type',
+                 'billing_id.subcontract_id')
+    def _compute_disbursement_percent_remaining(self):
+        released = self._disbursement_released_before()
+        for line in self:
+            item = line.boq_line_id._origin
+            # Left unclamped on purpose: an item the earlier certificates
+            # already released more than all of reads negative, and that is
+            # the figure someone needs to see.
+            line.disbursement_percent_remaining = 100.0 - released.get(
+                (line.billing_id, item.id), 0.0)
+
     @api.onchange('boq_line_id')
     def _onchange_boq_line_item_no(self):
         """Keep the number in step with the item picked from the list."""
