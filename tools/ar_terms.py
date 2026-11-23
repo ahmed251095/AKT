@@ -1232,6 +1232,6 @@ AR = {
     "The sum of every item's disbursement: its amount taken at the disbursement percentage set on the line.":
         "مجموع الصرف لكل البنود: مبلغ كل بند مضروب في نسبة الصرف المكتوبة على سطره.",
     "Remaining Disbursement %": "المتبقي من نسبة الصرف",
-    "A hundred less the disbursement percentages the earlier approved certificates already released on this item. What this certificate releases is not taken off it.":
-        "100 ناقص نسب الصرف اللي المستخلصات المعتمدة السابقة صرفتها على البند ده. اللي المستخلص ده بيصرفه مش متخصوم منها.",
+    "What the earlier approved certificates held back on this item: each one's unreleased share added together. Zero where no earlier certificate carried the item.":
+        "اللي المستخلصات المعتمدة السابقة حجزته على البند ده: الباقي من نسبة الصرف في كل واحد منهم مجموعًا. صفر لو مفيش مستخلص سابق فيه البند.",
 }

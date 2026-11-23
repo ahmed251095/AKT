@@ -314,27 +314,30 @@ class ConstructionRABillingLine(models.Model):
             line.disbursement_amount = \
                 line.amount * line.disbursement_percent / 100.0
 
-    #: How much of the item's disbursement the earlier certificates of this
-    #: series have not taken yet -- a hundred less what they released. It is
-    #: the ceiling this certificate is writing against, so the percentage
-    #: being typed on this line is deliberately not counted: a fresh line
-    #: carries the default hundred, and counting it would show nothing left
-    #: on every line before anyone had decided anything.
+    #: What the earlier certificates of this series held back on this item:
+    #: each of them released a share and left the rest, and those leftovers
+    #: add up until a later certificate releases them. An item on its first
+    #: certificate has nothing held back behind it, so it reads zero -- and
+    #: the share being typed on this line is not counted, because what this
+    #: certificate holds back is not yet owed from anywhere.
     disbursement_percent_remaining = fields.Float(
         string='Remaining Disbursement %',
         compute='_compute_disbursement_percent_remaining',
-        help='A hundred less the disbursement percentages the earlier '
-             'approved certificates already released on this item. What '
-             'this certificate releases is not taken off it.')
+        help='What the earlier approved certificates held back on this '
+             'item: each one\'s unreleased share added together. Zero where '
+             'no earlier certificate carried the item.')
 
-    def _disbursement_released_before(self):
-        """What earlier certificates released on each item, per certificate.
+    def _disbursement_held_back_before(self):
+        """What earlier certificates held back on each item, per certificate.
+
+        A certificate line that released 60 held 40 back, so the figure is
+        a hundred per earlier line less what those lines released.
 
         Read in one query per certificate rather than item by item: a
         certificate runs to hundreds of items and this is answered while
         someone waits on the form.
         """
-        released = {}
+        held_back = {}
         for billing in self.billing_id:
             items = self.filtered(
                 lambda line: line.billing_id == billing).boq_line_id._origin
@@ -354,21 +357,22 @@ class ConstructionRABillingLine(models.Model):
                 domain.append(('billing_id.subcontract_id', '=',
                                billing.subcontract_id._origin.id))
             groups = self.env['construction.ra.billing.line']._read_group(
-                domain, ['boq_line_id'], ['disbursement_percent:sum'])
-            for item, used in groups:
-                released[(billing, item.id)] = used
-        return released
+                domain, ['boq_line_id'],
+                ['disbursement_percent:sum', '__count'])
+            for item, released, lines in groups:
+                held_back[(billing, item.id)] = 100.0 * lines - released
+        return held_back
 
     @api.depends('boq_line_id', 'billing_id.state', 'billing_id.billing_type',
                  'billing_id.subcontract_id')
     def _compute_disbursement_percent_remaining(self):
-        released = self._disbursement_released_before()
+        held_back = self._disbursement_held_back_before()
         for line in self:
             item = line.boq_line_id._origin
-            # Left unclamped on purpose: an item the earlier certificates
-            # already released more than all of reads negative, and that is
-            # the figure someone needs to see.
-            line.disbursement_percent_remaining = 100.0 - released.get(
+            # Left unclamped on purpose: an earlier certificate that released
+            # more than all of an item reads negative, and that is the figure
+            # someone needs to see.
+            line.disbursement_percent_remaining = held_back.get(
                 (line.billing_id, item.id), 0.0)
 
     @api.onchange('boq_line_id')

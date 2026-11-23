@@ -170,11 +170,6 @@ msgid "<strong>Total cost</strong>"
 msgstr "<strong>إجمالي التكلفة</strong>"
 
 #. module: aos_construction_ext
-#: model:ir.model.fields,help:aos_construction_ext.field_construction_ra_billing_line__disbursement_percent_remaining
-msgid "A hundred less the disbursement percentages the earlier approved certificates already released on this item. What this certificate releases is not taken off it."
-msgstr "100 ناقص نسب الصرف اللي المستخلصات المعتمدة السابقة صرفتها على البند ده. اللي المستخلص ده بيصرفه مش متخصوم منها."
-
-#. module: aos_construction_ext
 #. odoo-python
 #: code:addons/aos_construction_ext/wizard/construction_boq_import.py:0
 msgid "A priced sheet is read into a bill of quantities or a tender, not into %s."
@@ -4387,6 +4382,11 @@ msgstr "ما يدفعه لنا العميل مقابل هذه الكمية، ن�
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_tender__tender_doc_price
 msgid "What the conditions booklet costs to buy from the client."
 msgstr "قيمة شراء كراسة الشروط من العميل."
+
+#. module: aos_construction_ext
+#: model:ir.model.fields,help:aos_construction_ext.field_construction_ra_billing_line__disbursement_percent_remaining
+msgid "What the earlier approved certificates held back on this item: each one's unreleased share added together. Zero where no earlier certificate carried the item."
+msgstr "اللي المستخلصات المعتمدة السابقة حجزته على البند ده: الباقي من نسبة الصرف في كل واحد منهم مجموعًا. صفر لو مفيش مستخلص سابق فيه البند."
 
 #. module: aos_construction_ext
 #: model:ir.model.fields,help:aos_construction_ext.field_construction_expense__payment_account_id
