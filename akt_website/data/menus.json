@@ -1,0 +1,103 @@
+[
+  {
+    "url": "/pages/about",
+    "en": "About",
+    "ar": "من نحن",
+    "children": []
+  },
+  {
+    "url": "/services",
+    "en": "Services",
+    "ar": "الخدمات",
+    "children": []
+  },
+  {
+    "url": "/sectors",
+    "en": "Sectors",
+    "ar": "القطاعات",
+    "children": []
+  },
+  {
+    "url": "/projects",
+    "en": "Projects",
+    "ar": "المشروعات",
+    "children": []
+  },
+  {
+    "url": "/pages/technical-office",
+    "en": "Technical office",
+    "ar": "المكتب الفني",
+    "children": []
+  },
+  {
+    "url": "/company/news",
+    "en": "News",
+    "ar": "الأخبار",
+    "children": []
+  },
+  {
+    "url": "/careers",
+    "en": "Careers",
+    "ar": "الوظائف",
+    "children": []
+  },
+  {
+    "url": "/quotation",
+    "en": "Get a quote",
+    "ar": "عرض سعر",
+    "children": []
+  },
+  {
+    "url": "/contact",
+    "en": "Contact",
+    "ar": "تواصل",
+    "children": []
+  },
+  {
+    "url": "#",
+    "en": "More about AKT",
+    "ar": "المزيد عن أكت",
+    "children": [
+      {
+        "url": "/company/team",
+        "en": "Team and leadership",
+        "ar": "الفريق والقيادات"
+      },
+      {
+        "url": "/company/testimonials",
+        "en": "What they said about AKT",
+        "ar": "ماذا قالوا عن أكت"
+      },
+      {
+        "url": "/company/credentials",
+        "en": "Credentials and accreditations",
+        "ar": "الشهادات والاعتمادات"
+      },
+      {
+        "url": "/company/news",
+        "en": "News and events",
+        "ar": "الأخبار والفعاليات"
+      },
+      {
+        "url": "/company/partners",
+        "en": "Clients and partners",
+        "ar": "العملاء والشركاء"
+      },
+      {
+        "url": "/company/sustainability",
+        "en": "Sustainability and community",
+        "ar": "الاستدامة والمجتمع"
+      },
+      {
+        "url": "/company/tenders",
+        "en": "Tenders and cooperation",
+        "ar": "المناقصات والتعاون"
+      },
+      {
+        "url": "/company/faq",
+        "en": "Frequently asked questions",
+        "ar": "الأسئلة الشائعة"
+      }
+    ]
+  }
+]

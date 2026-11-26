@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!--
+    One template and one website.page per page of the preview site. The body
+    is the markup the site serves, with the language prefix taken off the
+    links because Odoo puts it back, and the title and description kept as
+    the page's SEO fields so the <title> reads the same.
+  -->
+  <template id="homepage" name="AKT Group">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="hero"><video class="hero-video" autoplay="autoplay" muted="muted" playsinline="playsinline" loop="loop" preload="metadata" poster="/akt_website/static/src/img/hero-poster.webp" aria-hidden="true"><source src="/akt_website/static/src/video/hero.mp4" type="video/mp4"/></video><div class="hero-grid" aria-hidden="true"></div><div class="container hero-inner"><div class="eyebrow reveal">GENERAL CONTRACTING &amp; DEVELOPMENT</div><h1 class="reveal">Built on trust. Delivered with care.</h1><p class="reveal">General contracting, real estate development and engineering projects.</p><div class="hero-actions reveal"><a class="akt-btn" href="/projects">Explore our projects<span aria-hidden="true">↗</span></a><a class="akt-btn akt-btn-outline" href="/contact">Talk to us</a></div><button id="hero-play" class="media-control" type="button" data-state="paused" data-pause="Pause video" data-play="Play video" aria-label="Play video"><svg class="media-icon media-icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.5v13l10-6.5z"/></svg><svg class="media-icon media-icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button><p class="stock-label">Illustrative architectural footage, not AKT Group projects.</p></div><div class="hero-edge"><span>AKT GROUP</span><span>ENGINEERING · CONSTRUCTION · DEVELOPMENT</span></div></section>
+<section class="section quick-actions-section" aria-labelledby="quick-actions-heading"><div class="container"><div class="section-heading"><div><div class="eyebrow">DIRECT ACCESS</div><h2 id="quick-actions-heading">Start here</h2></div></div><div class="quick-actions-grid"><a class="quick-action reveal" href="/services/general-contracting"><span class="qa-arrow" aria-hidden="true">↗</span><span class="quick-action-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V9l6-4 6 4v11M10 20v-5h4v5M9 11h.01M15 11h.01"/></svg></span><h3>General contracting &amp; project execution</h3><p>Explore the contracting and execution scope at AKT Group.</p></a><a class="quick-action reveal" href="/pages/technical-office"><span class="qa-arrow" aria-hidden="true">↗</span><span class="quick-action-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h6l6 6v12M13 3v6h6M9 13h6M9 17h6"/></svg></span><h3>Technical-office services</h3><p>BOQ, shop drawings and technical coordination that support execution decisions.</p></a><a class="quick-action reveal" href="/quotation"><span class="qa-arrow" aria-hidden="true">↗</span><span class="quick-action-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7zM14 3v5h5M10 13h5M10 17h5M10 9h1"/></svg></span><h3>Request a quotation</h3><p>Send the project type, required service and a brief description, and the team will contact you.</p></a><a class="quick-action reveal" href="/partners/register"><span class="qa-arrow" aria-hidden="true">↗</span><span class="quick-action-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21v-1a6 6 0 0 1 12 0v1M17 8a3 3 0 1 1 0 6M22 21v-1a5 5 0 0 0-4-4.9"/></svg></span><h3>Suppliers &amp; subcontractors</h3><p>Tell us your specialty and work areas for review.</p></a></div></div></section>
+<section class="section"><div class="container editorial"><div class="editorial-media reveal"><img src="/akt_website/static/src/img/architecture-3.webp" alt="Illustrative modern residential architecture" loading="lazy" width="800" height="900"/><span class="image-label">Illustrative image</span><div class="media-frame" aria-hidden="true"></div></div><div class="editorial-copy reveal"><div class="eyebrow">AKT GROUP</div><h2>From engineering intent to built reality.</h2><p>AKT Group For General Contracting and Development is based on Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt. Its activities include general contracting, construction, real estate development and engineering projects.</p><p>Our work covers general contracting, real estate development, residential, administrative and government projects, alongside technical-office and engineering consultancy services.</p><a class="text-link" href="/pages/about">About the company ↗</a></div></div></section>
+<section class="section surface-soft" id="services"><div class="container"><div class="section-heading"><div><div class="eyebrow">WHAT WE DO</div><h2>Engineering services</h2></div><a class="text-link" href="/services">All services ↗</a></div><div class="services-grid"><article class="service-card reveal"><a href="/services/general-contracting"><div class="service-image"><img src="/akt_website/static/src/img/assets/4917a785-2ac6-4420-b90c-cf69f432f6a7.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="640" height="420"/><span class="service-number">01</span></div><div class="service-copy"><h3>General contracting</h3><p>Construction execution and coordination to the agreed project scope.</p><span class="text-link">Explore service ↗</span></div></a></article><article class="service-card reveal"><a href="/services/construction-development"><div class="service-image"><img src="/akt_website/static/src/img/assets/15f66867-daf9-49a8-8ae7-13cd8ffa9c8a.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="640" height="420"/><span class="service-number">02</span></div><div class="service-copy"><h3>Construction &amp; real estate development</h3><p>Construction and development services for real estate projects.</p><span class="text-link">Explore service ↗</span></div></a></article><article class="service-card reveal"><a href="/services/industrial-projects"><div class="service-image"><img src="/akt_website/static/src/img/assets/d14900dd-743f-44b1-8af0-4ac1b41b0434.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="640" height="420"/><span class="service-number">03</span></div><div class="service-copy"><h3>Industrial projects</h3><p>Construction works for industrial facilities and buildings.</p><span class="text-link">Explore service ↗</span></div></a></article><article class="service-card reveal"><a href="/services/residential-projects"><div class="service-image"><img src="/akt_website/static/src/img/assets/d2a873a3-f848-4315-a9ce-e57a1a09d65b.webp" alt="Illustrative architecture, not an AKT project" loading="lazy" width="640" height="420"/><span class="service-number">04</span></div><div class="service-copy"><h3>Residential projects</h3><p>Construction services for residential buildings and developments.</p><span class="text-link">Explore service ↗</span></div></a></article><article class="service-card reveal"><a href="/services/administrative-projects"><div class="service-image"><img src="/akt_website/static/src/img/assets/83c3079c-dbca-496c-aaf9-1be8af4533bc.webp" alt="Illustrative architecture, not an AKT project" loading="lazy" width="640" height="420"/><span class="service-number">05</span></div><div class="service-copy"><h3>Administrative projects</h3><p>Engineering and construction work for administrative buildings.</p><span class="text-link">Explore service ↗</span></div></a></article><article class="service-card reveal"><a href="/services/government-projects"><div class="service-image"><img src="/akt_website/static/src/img/assets/558f11e5-6d80-4b71-a264-3e711628bb37.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="640" height="420"/><span class="service-number">06</span></div><div class="service-copy"><h3>Government projects</h3><p>Contracting and construction work for government projects.</p><span class="text-link">Explore service ↗</span></div></a></article><article class="service-card reveal"><a href="/services/engineering-consultancy"><div class="service-image"><img src="/akt_website/static/src/img/assets/0c2ec50b-df6a-4d9e-ac8e-ea9ec469955e.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="640" height="420"/><span class="service-number">07</span></div><div class="service-copy"><h3>Engineering consultancy</h3><p>Review of technical requirements and project engineering needs.</p><span class="text-link">Explore service ↗</span></div></a></article><article class="service-card reveal"><a href="/services/technical-office"><div class="service-image"><img src="/akt_website/static/src/img/assets/75f0c936-0263-4e09-b88b-a4c352b3f1eb.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="640" height="420"/><span class="service-number">08</span></div><div class="service-copy"><h3>Technical-office services</h3><p>Quantity takeoffs, payment certificates, shop drawings and design reviews.</p><span class="text-link">Explore service ↗</span></div></a></article></div></div></section>
+
+
+<section class="section partner-section" aria-labelledby="partners-heading" data-partner-slider="data-partner-slider">
+ <div class="container">
+  <div class="section-heading partner-heading"><div><div class="eyebrow">CONNECTIONS WE VALUE</div><h2 id="partners-heading">Our clients and partners</h2></div></div>
+  <p class="partner-demo-label">Design preview only: sample marks, not real clients or partners. Replace with approved logos.</p>
+  <div class="partner-rail swiper" aria-label="Client and partner logos"><div class="swiper-wrapper">
+  
+   <div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>01</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>02</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>03</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>04</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>05</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>06</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>07</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>08</bdi></span></div></div>
+  
+  </div></div>
+  <div class="partner-controls" hidden="hidden">
+   <button class="partner-prev" type="button" aria-label="Previous logos"><span aria-hidden="true">←</span></button>
+   <button class="partner-motion" type="button" data-state="paused" data-pause="Pause motion" data-play="Play motion" aria-label="Play motion"><svg class="partner-icon partner-icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.5v13l10-6.5z"/></svg><svg class="partner-icon partner-icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button>
+   <button class="partner-next" type="button" aria-label="Next logos"><span aria-hidden="true">→</span></button>
+  </div>
+ </div>
+</section>
+
+
+<section class="section partner-section testimonial-section" aria-labelledby="testimonials-heading">
+ <div class="container">
+  <div class="section-heading partner-heading"><div><div class="eyebrow">REVIEWS WE VALUE</div><h2 id="testimonials-heading">What they said about AKT</h2></div></div>
+  
+  <div class="empty-state-pro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><h3>Ready for approved client reviews</h3><p>Genuine reviews from clients and organizations the company has worked with appear here once management approves them, with no sample cards or placeholder names.</p></div>
+  
+ </div>
+</section>
+<section class="section sectors-section"><div class="container"><div class="section-heading"><div><div class="eyebrow">OUR SECTORS</div><h2>Different sectors. One engineering focus.</h2></div></div><div class="sector-grid"><a class="sector-card tilt-card reveal" href="/sectors/industrial"><span class="sector-orbit" aria-hidden="true"></span><span class="sector-index">01</span><h3>Industrial</h3><p>Industrial buildings and facilities.</p><span aria-hidden="true">↗</span></a><a class="sector-card tilt-card reveal" href="/sectors/residential"><span class="sector-orbit" aria-hidden="true"></span><span class="sector-index">02</span><h3>Residential</h3><p>Residential projects and real estate development.</p><span aria-hidden="true">↗</span></a><a class="sector-card tilt-card reveal" href="/sectors/administrative"><span class="sector-orbit" aria-hidden="true"></span><span class="sector-index">03</span><h3>Administrative</h3><p>Administrative buildings and projects.</p><span aria-hidden="true">↗</span></a><a class="sector-card tilt-card reveal" href="/sectors/government"><span class="sector-orbit" aria-hidden="true"></span><span class="sector-index">04</span><h3>Government</h3><p>Government buildings and projects.</p><span aria-hidden="true">↗</span></a></div></div></section>
+<section class="section"><div class="container"><div class="section-heading"><div><div class="eyebrow">OUR WORK</div><h2>AKT Group projects</h2></div><a class="text-link" href="/projects">Browse projects ↗</a></div><div class="empty-state-pro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><h2>Portfolio in preparation</h2><p>We verify the details and photography of every project before publishing. Only approved projects appear here, with no stock imagery or undocumented work.</p><a class="akt-btn" href="/contact">Ask about our track record ↗</a></div></div></section>
+<section class="section image-band"><div class="container editorial"><div class="reveal"><div class="eyebrow">TECHNICAL OFFICE</div><h2>The details shape the result.</h2><p>Quantity takeoffs, payment certificates, shop drawings, bills of quantities, design reviews and technical coordination.</p><a class="akt-btn" href="/pages/technical-office">Technical-office services ↗</a></div><div class="reveal"><div class="technical-lines" aria-hidden="true"><span>BOQ</span><span>SHOP DRAWINGS</span><span>COORDINATION</span></div><p class="muted">Technical services that support execution decisions.</p></div></div></section>
+
+<section class="section why-slider-section" aria-labelledby="why-heading" data-partner-slider="data-partner-slider"><div class="container"><div class="section-heading partner-heading"><div><div class="eyebrow">OUR APPROACH</div><h2 id="why-heading">Why AKT Group?</h2></div></div><div class="partner-rail swiper why-rail" aria-label="Why AKT Group"><div class="swiper-wrapper"><div class="swiper-slide"><article><span>01</span><h3>Engineering planning</h3><p>Connecting design, execution needs and discipline coordination.</p></article></div><div class="swiper-slide"><article><span>02</span><h3>Quality and commitment</h3><p>Attention to detail, work reviews and technical follow-up.</p></article></div><div class="swiper-slide"><article><span>03</span><h3>Safety and execution</h3><p>A focus on safety needs and organised execution stages.</p></article></div><div class="swiper-slide"><article><span>04</span><h3>Project management</h3><p>Planning execution stages and tracking schedules and handover.</p></article></div><div class="swiper-slide"><article><span>05</span><h3>Discipline coordination</h3><p>Coordinating architectural, structural and electromechanical works before and during execution.</p></article></div><div class="swiper-slide"><article><span>06</span><h3>Engineering &amp; technical office</h3><p>Integrated technical support, from quantity takeoff to shop drawings and payment certificates.</p></article></div></div></div><div class="partner-controls" hidden="hidden"><button class="partner-prev" type="button" aria-label="Previous"><span aria-hidden="true">←</span></button><button class="partner-motion" type="button" data-state="paused" data-pause="Pause motion" data-play="Play motion" aria-label="Play motion"><svg class="partner-icon partner-icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.5v13l10-6.5z"/></svg><svg class="partner-icon partner-icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button><button class="partner-next" type="button" aria-label="Next"><span aria-hidden="true">→</span></button></div></div></section>
+<section class="section surface-soft"><div class="container"><div class="section-heading"><div><div class="eyebrow">ARCHITECTURAL PERSPECTIVES</div><h2>Architecture in detail</h2></div><span class="muted small">Illustrative images, not company projects</span></div><div class="swiper architecture-slider"><div class="swiper-wrapper"><div class="swiper-slide"><img src="/akt_website/static/src/img/architecture-3.webp" alt="Illustrative architectural scene" loading="lazy" width="1200" height="700"/></div><div class="swiper-slide"><img src="/akt_website/static/src/img/architecture-1.webp" alt="Illustrative architectural scene" loading="lazy" width="1200" height="700"/></div><div class="swiper-slide"><img src="/akt_website/static/src/img/architecture-2.webp" alt="Illustrative architectural scene" loading="lazy" width="1200" height="700"/></div></div><div class="swiper-pagination"></div></div><div class="slider-controls"><button class="slide-prev" type="button" aria-label="Previous image">←</button><button id="slide-pause" class="media-control" type="button" data-state="playing" data-pause="Pause slides" data-play="Play slides" aria-label="Pause slides"><svg class="media-icon media-icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.5v13l10-6.5z"/></svg><svg class="media-icon media-icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button><button class="slide-next" type="button" aria-label="Next image">→</button></div></div></section>
+<section class="section surface-soft"><div class="container"><div class="section-heading"><h2>Frequently asked questions</h2></div><div class="faq-list"><details><summary>What services does AKT Group provide?</summary><p>General contracting, construction and real estate development, industrial, residential, administrative and government projects, plus engineering consultancy and technical-office services.</p></details><details><summary>Does the company execute government projects?</summary><p>The company offers its services to the government-projects sector, among the sectors listed on the site&#x27;s Sectors page.</p></details><details><summary>How can I request a quotation?</summary><p>Through the site&#x27;s quotation form: enter your details, project type and description, and the company team will contact you.</p></details><details><summary>Does the company offer technical-office services?</summary><p>Yes. The technical office covers quantity surveying and BOQ schedules, progress-payment certificates, shop drawings, drawing review, cross-discipline coordination, and technical follow-up including specifications review and technical documentation and reports.</p></details><details><summary>How can suppliers and subcontractors register?</summary><p>Through the site&#x27;s Supplier &amp; subcontractor registration page; the company team reviews each application.</p></details><details><summary>How can I contact the company?</summary><p>By phone on 01200006655 or WhatsApp on the same number, by email at elfakharany@akt-group.com, through the contact form, or by requesting a visit or call from the site.</p></details></div></div></section><section class="cta-section"><div class="container"><div><div class="eyebrow">START A CONVERSATION</div><h2>Planning your next project?</h2></div><a class="akt-btn" href="/contact">Contact AKT Group ↗</a></div></section>
+<section class="section surface-soft"><div class="container"><div class="section-heading"><div><div class="eyebrow">NEXT STEPS</div><h2>Start a working conversation</h2></div></div><div class="participation-grid"><article><h3>A site visit or engineering call</h3><p>Suggest a time and share your needs. The time is not confirmed until the team contacts you.</p><a class="text-link" href="/appointments">Send a request ↗</a></article><article><h3>Suppliers &amp; subcontractors</h3><p>Tell us your specialty and work areas. Registration is for review, not partner approval.</p><a class="text-link" href="/partners/register">Register your details ↗</a></article></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="website.homepage_page" model="website.page">
+    <field name="url">/</field>
+    <field name="view_id" ref="homepage"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">AKT Group | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_appointments" name="Request a visit or call">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>A first step to discussing your project</h1><p>Suggest a preferred time. Confirmation requires contact from the team.</p></div></section>
+<section class="section"><div class="container quotation-layout"><aside class="quotation-intro"><h2>A clear request comes first</h2>
+
+<div class="quote-notice"><h3>Before submitting</h3><p>All windows use Cairo time (Africa/Cairo). This is an unconfirmed request, not an automatic booking or a promise of a free visit. The time and any fees or conditions must be agreed before direct confirmation.</p></div><p class="muted">Details are saved for company review. The form does not send an automatic email.</p></aside>
+<div class="contact-form-panel"><h2>Request details</h2><p class="muted">Fields marked with an asterisk are required.</p><form method="post" action="/akt/form/appointment" enctype="multipart/form-data" novalidate="novalidate"><t t-if="request.params.get('akt_sent')">
+  <div class="form-field akt-form-result akt-form-ok" role="status">
+    <strong>Your request has been received.</strong>
+    <span>Our team will get back to you shortly.</span>
+  </div>
+</t>
+<t t-if="request.params.get('akt_error')">
+  <div class="form-field akt-form-result akt-form-error" role="alert">
+    <strong>The request was not sent.</strong>
+    <span t-out="request.params.get('akt_error')"/>
+  </div>
+</t>
+<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/><input type="hidden" name="website" class="form-control" id="id_website"/><div class="form-field "><label for="id_name">Name <span aria-hidden="true">*</span></label><input type="text" name="name" maxlength="150" class="form-control" required="required" id="id_name"/></div><div class="form-field "><label for="id_email">Email <span aria-hidden="true">*</span></label><input type="email" name="email" maxlength="254" class="form-control" required="required" id="id_email"/></div><div class="form-field "><label for="id_phone">Phone <span aria-hidden="true">*</span></label><input type="text" name="phone" maxlength="40" class="form-control" required="required" id="id_phone"/></div><div class="form-field "><label for="id_request_type">Request type <span aria-hidden="true">*</span></label><select name="request_type" class="form-control" id="id_request_type">
+  <option value="call">Engineering call</option>
+
+  <option value="visit">Site visit</option>
+
+</select></div><div class="form-field "><label for="id_project_location">Project location (required for site visits)</label><input type="text" name="project_location" maxlength="250" class="form-control" id="id_project_location"/></div><div class="form-field "><label for="id_preferred_date">Preferred date <span aria-hidden="true">*</span></label><input type="date" name="preferred_date" class="form-control" required="required" id="id_preferred_date"/></div><div class="form-field "><label for="id_preferred_window">Preferred window, Cairo time <span aria-hidden="true">*</span></label><select name="preferred_window" class="form-control" id="id_preferred_window">
+  <option value="09-12">09:00 - 12:00</option>
+
+  <option value="12-15">12:00 - 15:00</option>
+
+  <option value="15-18">15:00 - 18:00</option>
+
+</select></div><div class="form-field "><label for="id_alternative_date">Alternative date (optional)</label><input type="date" name="alternative_date" class="form-control" id="id_alternative_date"/></div><div class="form-field "><label for="id_alternative_window">Alternative window, Cairo time (optional)</label><select name="alternative_window" class="form-control" id="id_alternative_window">
+  <option value="" selected="selected">---------</option>
+
+  <option value="09-12">09:00 - 12:00</option>
+
+  <option value="12-15">12:00 - 15:00</option>
+
+  <option value="15-18">15:00 - 18:00</option>
+
+</select></div><div class="form-field "><label for="id_message">Discussion topic and requirements <span aria-hidden="true">*</span></label><textarea name="message" cols="40" rows="5" maxlength="5000" class="form-control" required="required" id="id_message">
+</textarea></div><div class="form-field consent-field"><input type="checkbox" name="consent" class="form-check-input" required="required" id="id_consent"/><label for="id_consent">I agree to storage of these details to answer my enquiry.</label></div><div class="form-field "><label for="id_documents">Attachments (optional)</label><input type="file" name="documents" multiple="multiple" class="form-control" aria-describedby="id_documents_helptext" id="id_documents"/><small class="quote-help">Up to three files, 10 MB each: flattened PDF or PNG/JPEG/WebP. No ID or payment details. Staff-only access.</small></div><button type="submit" class="akt-btn">Submit request ↗</button></form></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_appointments_page" model="website.page">
+    <field name="url">/appointments</field>
+    <field name="view_id" ref="page_appointments"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Request a visit or call | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_careers" name="Careers">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Careers</h1><p>Only genuine content approved by company management is shown.</p></div></section><section class="section"><div class="container"><div class="empty-state-pro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM10 5h4v2h-4V5z"/></svg><h2>No current vacancies</h2><p>CV intake will be announced when applications open.</p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_careers_page" model="website.page">
+    <field name="url">/careers</field>
+    <field name="view_id" ref="page_careers"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Careers | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_credentials" name="Credentials and accreditations">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Credentials and accreditations</h1><div class="blueprint-scene" data-blueprint="data-blueprint" aria-hidden="true"><svg viewBox="0 0 320 110"><path class="blueprint-grid" d="M0 100H320M30 0V110M90 0V110M150 0V110M210 0V110M270 0V110"/><path class="blueprint-building" d="M65 100V45L145 10L225 45V100M65 45L145 80L225 45M145 10V100M95 58V100M195 58V100"/></svg></div></div></section>
+
+<section class="section"><div class="container">
+<div class="feature-grid">
+<div class="demo-banner" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><div><strong>No documents published at present</strong><p>This section shows only the official documents company management approves for publishing, with preview or download according to publishing permissions, and without sensitive document numbers. The cards below show the document types this section supports - they are not issued certificates or accreditations.</p></div></div>
+<div class="doc-grid">
+<article class="doc-card"><span class="demo-badge">Pending approval</span><div class="doc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM14 2v6h6M9 13h6M9 17h6"/></svg></div><h3>Commercial registration</h3><p>Published after management approval with secure preview.</p><span class="doc-status">Not published yet</span></article>
+<article class="doc-card"><span class="demo-badge">Pending approval</span><div class="doc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM14 2v6h6M9 13h6M9 17h6"/></svg></div><h3>Tax card</h3><p>Published after management approval with secure preview.</p><span class="doc-status">Not published yet</span></article>
+<article class="doc-card"><span class="demo-badge">Pending approval</span><div class="doc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 0v7m-3-2 3 2 3-2"/></svg></div><h3>Classification certificates</h3><p>Published after management approval with issuer and date.</p><span class="doc-status">Not published yet</span></article>
+<article class="doc-card"><span class="demo-badge">Pending approval</span><div class="doc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 0v7m-3-2 3 2 3-2"/></svg></div><h3>Quality certificates</h3><p>Published after management approval with issuer and date.</p><span class="doc-status">Not published yet</span></article>
+<article class="doc-card"><span class="demo-badge">Pending approval</span><div class="doc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM14 2v6h6M9 13h6M9 17h6"/></svg></div><h3>Licenses and accreditations</h3><p>Published after management approval per publishing permissions.</p><span class="doc-status">Not published yet</span></article>
+<article class="doc-card"><span class="demo-badge">Pending approval</span><div class="doc-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 0v7m-3-2 3 2 3-2"/></svg></div><h3>Experience certificates</h3><p>Published after management approval with issuer and date.</p><span class="doc-status">Not published yet</span></article>
+</div>
+<div class="profile-card"><span class="demo-badge">Not added yet</span><div class="profile-thumb" aria-hidden="true">PDF</div><div><h3>Company Profile (PDF)</h3><p>The premium download button for the official company profile appears here. Download activates once the approved version is uploaded from the admin panel.</p><span class="akt-btn profile-btn" aria-disabled="true">Download company profile (PDF)</span></div></div>
+</div>
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_credentials_page" model="website.page">
+    <field name="url">/company/credentials</field>
+    <field name="view_id" ref="page_company_credentials"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Credentials and accreditations | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_faq" name="Frequently asked questions">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Frequently asked questions</h1><div class="blueprint-scene" data-blueprint="data-blueprint" aria-hidden="true"><svg viewBox="0 0 320 110"><path class="blueprint-grid" d="M0 100H320M30 0V110M90 0V110M150 0V110M210 0V110M270 0V110"/><path class="blueprint-building" d="M65 100V45L145 10L225 45V100M65 45L145 80L225 45M145 10V100M95 58V100M195 58V100"/></svg></div></div></section>
+
+<section class="section"><div class="container"><form method="get" class="project-filters feature-search"><div><label for="faq-q">Search questions</label><input class="form-control" id="faq-q" name="q" value="" maxlength="150"/></div><div><label for="feature-category">Category</label><select class="form-select" id="feature-category" name="category"><option value="">All categories</option><option value="general">General questions</option></select></div><button class="akt-btn" type="submit">Search</button><a href="/company/faq">Clear search</a></form>
+<div class="feature-grid"><article class="feature-card reveal tilt-card">
+<span class="glossy-icon" aria-hidden="true">؟</span>
+<details class="faq-answer"><summary>What services does AKT Group provide?</summary><div class="prose"><p>General contracting, construction and real estate development, industrial, residential, administrative and government projects, plus engineering consultancy and technical-office services.</p></div><a href="/company/faq/faq-1">Question link</a></details></article><article class="feature-card reveal tilt-card">
+<span class="glossy-icon" aria-hidden="true">؟</span>
+<details class="faq-answer"><summary>Does the company execute government projects?</summary><div class="prose"><p>The company offers its services to the government-projects sector, among the sectors listed on the site&#x27;s Sectors page.</p></div><a href="/company/faq/faq-2">Question link</a></details></article><article class="feature-card reveal tilt-card">
+<span class="glossy-icon" aria-hidden="true">؟</span>
+<details class="faq-answer"><summary>How can I request a quotation?</summary><div class="prose"><p>Through the site&#x27;s quotation form: enter your details, project type and description, and the company team will contact you.</p></div><a href="/company/faq/faq-3">Question link</a></details></article><article class="feature-card reveal tilt-card">
+<span class="glossy-icon" aria-hidden="true">؟</span>
+<details class="faq-answer"><summary>Does the company offer technical-office services?</summary><div class="prose"><p>Yes. The technical office covers quantity surveying and BOQ schedules, progress-payment certificates, shop drawings, drawing review, cross-discipline coordination, and technical follow-up including specifications review and technical documentation and reports.</p></div><a href="/company/faq/faq-4">Question link</a></details></article><article class="feature-card reveal tilt-card">
+<span class="glossy-icon" aria-hidden="true">؟</span>
+<details class="faq-answer"><summary>How can suppliers and subcontractors register?</summary><div class="prose"><p>Through the site&#x27;s Supplier &amp; subcontractor registration page; the company team reviews each application.</p></div><a href="/company/faq/faq-5">Question link</a></details></article><article class="feature-card reveal tilt-card">
+<span class="glossy-icon" aria-hidden="true">؟</span>
+<details class="faq-answer"><summary>How can I contact the company?</summary><div class="prose"><p>By phone on 01200006655 or WhatsApp on the same number, by email at elfakharany@akt-group.com, through the contact form, or by requesting a visit or call from the site.</p></div><a href="/company/faq/faq-6">Question link</a></details></article></div>
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_faq_page" model="website.page">
+    <field name="url">/company/faq</field>
+    <field name="view_id" ref="page_company_faq"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Frequently asked questions | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_faq_faq_1" name="What services does AKT Group provide?">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>What services does AKT Group provide?</h1><a href="/company/faq">All entries ↗</a></div></section><div class="container share-row" aria-label="Share"><a href="https://wa.me/?text=What%20services%20does%20AKT%20Group%20provide%3F%20https://akt-preview-production.up.railway.app/en/company/faq/faq-1/" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://akt-preview-production.up.railway.app/en/company/faq/faq-1/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://akt-preview-production.up.railway.app/en/company/faq/faq-1/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div><section class="section"><div class="container feature-detail">
+
+
+<div class="prose"><p>General contracting, construction and real estate development, industrial, residential, administrative and government projects, plus engineering consultancy and technical-office services.</p></div>
+
+
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_faq_faq_1_page" model="website.page">
+    <field name="url">/company/faq/faq-1</field>
+    <field name="view_id" ref="page_company_faq_faq_1"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">What services does AKT Group provide? | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_faq_faq_2" name="Does the company execute government projects?">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Does the company execute government projects?</h1><a href="/company/faq">All entries ↗</a></div></section><div class="container share-row" aria-label="Share"><a href="https://wa.me/?text=Does%20the%20company%20execute%20government%20projects%3F%20https://akt-preview-production.up.railway.app/en/company/faq/faq-2/" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://akt-preview-production.up.railway.app/en/company/faq/faq-2/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://akt-preview-production.up.railway.app/en/company/faq/faq-2/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div><section class="section"><div class="container feature-detail">
+
+
+<div class="prose"><p>The company offers its services to the government-projects sector, among the sectors listed on the site&#x27;s Sectors page.</p></div>
+
+
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_faq_faq_2_page" model="website.page">
+    <field name="url">/company/faq/faq-2</field>
+    <field name="view_id" ref="page_company_faq_faq_2"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Does the company execute government projects? | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_faq_faq_3" name="How can I request a quotation?">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>How can I request a quotation?</h1><a href="/company/faq">All entries ↗</a></div></section><div class="container share-row" aria-label="Share"><a href="https://wa.me/?text=How%20can%20I%20request%20a%20quotation%3F%20https://akt-preview-production.up.railway.app/en/company/faq/faq-3/" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://akt-preview-production.up.railway.app/en/company/faq/faq-3/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://akt-preview-production.up.railway.app/en/company/faq/faq-3/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div><section class="section"><div class="container feature-detail">
+
+
+<div class="prose"><p>Through the site&#x27;s quotation form: enter your details, project type and description, and the company team will contact you.</p></div>
+
+
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_faq_faq_3_page" model="website.page">
+    <field name="url">/company/faq/faq-3</field>
+    <field name="view_id" ref="page_company_faq_faq_3"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">How can I request a quotation? | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_faq_faq_4" name="Does the company offer technical-office services?">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Does the company offer technical-office services?</h1><a href="/company/faq">All entries ↗</a></div></section><div class="container share-row" aria-label="Share"><a href="https://wa.me/?text=Does%20the%20company%20offer%20technical-office%20services%3F%20https://akt-preview-production.up.railway.app/en/company/faq/faq-4/" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://akt-preview-production.up.railway.app/en/company/faq/faq-4/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://akt-preview-production.up.railway.app/en/company/faq/faq-4/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div><section class="section"><div class="container feature-detail">
+
+
+<div class="prose"><p>Yes. The technical office covers quantity surveying and BOQ schedules, progress-payment certificates, shop drawings, drawing review, cross-discipline coordination, and technical follow-up including specifications review and technical documentation and reports.</p></div>
+
+
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_faq_faq_4_page" model="website.page">
+    <field name="url">/company/faq/faq-4</field>
+    <field name="view_id" ref="page_company_faq_faq_4"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Does the company offer technical-office services? | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_faq_faq_5" name="How can suppliers and subcontractors register?">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>How can suppliers and subcontractors register?</h1><a href="/company/faq">All entries ↗</a></div></section><div class="container share-row" aria-label="Share"><a href="https://wa.me/?text=How%20can%20suppliers%20and%20subcontractors%20register%3F%20https://akt-preview-production.up.railway.app/en/company/faq/faq-5/" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://akt-preview-production.up.railway.app/en/company/faq/faq-5/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://akt-preview-production.up.railway.app/en/company/faq/faq-5/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div><section class="section"><div class="container feature-detail">
+
+
+<div class="prose"><p>Through the site&#x27;s Supplier &amp; subcontractor registration page; the company team reviews each application.</p></div>
+
+
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_faq_faq_5_page" model="website.page">
+    <field name="url">/company/faq/faq-5</field>
+    <field name="view_id" ref="page_company_faq_faq_5"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">How can suppliers and subcontractors register? | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_faq_faq_6" name="How can I contact the company?">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>How can I contact the company?</h1><a href="/company/faq">All entries ↗</a></div></section><div class="container share-row" aria-label="Share"><a href="https://wa.me/?text=How%20can%20I%20contact%20the%20company%3F%20https://akt-preview-production.up.railway.app/en/company/faq/faq-6/" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://akt-preview-production.up.railway.app/en/company/faq/faq-6/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://akt-preview-production.up.railway.app/en/company/faq/faq-6/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div><section class="section"><div class="container feature-detail">
+
+
+<div class="prose"><p>By phone on 01200006655 or WhatsApp on the same number, by email at elfakharany@akt-group.com, through the contact form, or by requesting a visit or call from the site.</p></div>
+
+
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_faq_faq_6_page" model="website.page">
+    <field name="url">/company/faq/faq-6</field>
+    <field name="view_id" ref="page_company_faq_faq_6"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">How can I contact the company? | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_news" name="News and events">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>News and events</h1><div class="blueprint-scene" data-blueprint="data-blueprint" aria-hidden="true"><svg viewBox="0 0 320 110"><path class="blueprint-grid" d="M0 100H320M30 0V110M90 0V110M150 0V110M210 0V110M270 0V110"/><path class="blueprint-building" d="M65 100V45L145 10L225 45V100M65 45L145 80L225 45M145 10V100M95 58V100M195 58V100"/></svg></div></div></section>
+
+<section class="section"><div class="container">
+<div class="feature-grid"><div class="empty-state"><h2>There is no published news at the moment</h2><p><a class="text-link" href="/contact">For general and press enquiries ↗</a></p></div></div>
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_news_page" model="website.page">
+    <field name="url">/company/news</field>
+    <field name="view_id" ref="page_company_news"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">News and events | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_partners" name="Clients and partners">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Clients and partners</h1><div class="blueprint-scene" data-blueprint="data-blueprint" aria-hidden="true"><svg viewBox="0 0 320 110"><path class="blueprint-grid" d="M0 100H320M30 0V110M90 0V110M150 0V110M210 0V110M270 0V110"/><path class="blueprint-building" d="M65 100V45L145 10L225 45V100M65 45L145 80L225 45M145 10V100M95 58V100M195 58V100"/></svg></div></div></section>
+
+
+<section class="section partner-section" aria-labelledby="partners-heading" data-partner-slider="data-partner-slider">
+ <div class="container">
+  <div class="section-heading partner-heading"><div><div class="eyebrow">CONNECTIONS WE VALUE</div><h2 id="partners-heading">Our clients and partners</h2></div></div>
+  <p class="partner-demo-label">Design preview only: sample marks, not real clients or partners. Replace with approved logos.</p>
+  <div class="partner-rail swiper" aria-label="Client and partner logos"><div class="swiper-wrapper">
+  
+   <div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>01</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>02</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>03</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>04</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>05</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>06</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>07</bdi></span></div></div><div class="swiper-slide"><div class="partner-logo-card partner-demo-card"><svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M12 57V25l28-14 28 14v32L40 71z"/><path d="M26 49V33l14-7 14 7v16l-14 7z"/><path d="M12 25l28 15 28-15M40 40v31"/></svg><span>SAMPLE LOGO <bdi>08</bdi></span></div></div>
+  
+  </div></div>
+  <div class="partner-controls" hidden="hidden">
+   <button class="partner-prev" type="button" aria-label="Previous logos"><span aria-hidden="true">←</span></button>
+   <button class="partner-motion" type="button" data-state="paused" data-pause="Pause motion" data-play="Play motion" aria-label="Play motion"><svg class="partner-icon partner-icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5.5v13l10-6.5z"/></svg><svg class="partner-icon partner-icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button>
+   <button class="partner-next" type="button" aria-label="Next logos"><span aria-hidden="true">→</span></button>
+  </div>
+ </div>
+</section>
+
+
+<section class="section"><div class="container">
+<div class="feature-grid"><div class="empty-state"><h2>Approved content appears here</h2><p>No matching published items. We do not present placeholder data or images as company activity.</p></div></div>
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_partners_page" model="website.page">
+    <field name="url">/company/partners</field>
+    <field name="view_id" ref="page_company_partners"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Clients and partners | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_sustainability" name="Sustainability and community">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Sustainability and community</h1><div class="blueprint-scene" data-blueprint="data-blueprint" aria-hidden="true"><svg viewBox="0 0 320 110"><path class="blueprint-grid" d="M0 100H320M30 0V110M90 0V110M150 0V110M210 0V110M270 0V110"/><path class="blueprint-building" d="M65 100V45L145 10L225 45V100M65 45L145 80L225 45M145 10V100M95 58V100M195 58V100"/></svg></div></div></section>
+
+<section class="section"><div class="container">
+<div class="feature-grid"><div class="empty-state"><h2>Approved content appears here</h2><p>No matching published items. We do not present placeholder data or images as company activity.</p></div></div>
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_sustainability_page" model="website.page">
+    <field name="url">/company/sustainability</field>
+    <field name="view_id" ref="page_company_sustainability"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Sustainability and community | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_team" name="Team and leadership">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Team and leadership</h1><div class="blueprint-scene" data-blueprint="data-blueprint" aria-hidden="true"><svg viewBox="0 0 320 110"><path class="blueprint-grid" d="M0 100H320M30 0V110M90 0V110M150 0V110M210 0V110M270 0V110"/><path class="blueprint-building" d="M65 100V45L145 10L225 45V100M65 45L145 80L225 45M145 10V100M95 58V100M195 58V100"/></svg></div></div></section>
+
+<section class="section"><div class="container">
+<div class="feature-grid"><div class="empty-state"><h2>Approved content appears here</h2><p>No matching published items. We do not present placeholder data or images as company activity.</p></div></div>
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_team_page" model="website.page">
+    <field name="url">/company/team</field>
+    <field name="view_id" ref="page_company_team"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Team and leadership | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_tenders" name="Tenders and cooperation">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Tenders and cooperation</h1><div class="blueprint-scene" data-blueprint="data-blueprint" aria-hidden="true"><svg viewBox="0 0 320 110"><path class="blueprint-grid" d="M0 100H320M30 0V110M90 0V110M150 0V110M210 0V110M270 0V110"/><path class="blueprint-building" d="M65 100V45L145 10L225 45V100M65 45L145 80L225 45M145 10V100M95 58V100M195 58V100"/></svg></div></div></section>
+
+<section class="section"><div class="container">
+<div class="feature-grid"><div class="empty-state"><h2>Approved content appears here</h2><p>No matching published items. We do not present placeholder data or images as company activity.</p><p><a class="akt-btn" href="/partners/register">Register as a supplier or subcontractor ↗</a></p><p><a class="text-link" href="/contact">Ask about tenders and cooperation</a></p></div></div>
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_tenders_page" model="website.page">
+    <field name="url">/company/tenders</field>
+    <field name="view_id" ref="page_company_tenders"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Tenders and cooperation | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_company_testimonials" name="What they said about AKT">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head feature-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>What they said about AKT</h1><div class="blueprint-scene" data-blueprint="data-blueprint" aria-hidden="true"><svg viewBox="0 0 320 110"><path class="blueprint-grid" d="M0 100H320M30 0V110M90 0V110M150 0V110M210 0V110M270 0V110"/><path class="blueprint-building" d="M65 100V45L145 10L225 45V100M65 45L145 80L225 45M145 10V100M95 58V100M195 58V100"/></svg></div></div></section>
+
+<section class="section"><div class="container">
+<div class="feature-grid"><div class="empty-state"><h2>Approved content appears here</h2><p>No matching published items. We do not present placeholder data or images as company activity.</p></div></div>
+</div></section></div>
+    </t>
+  </template>
+
+  <record id="page_company_testimonials_page" model="website.page">
+    <field name="url">/company/testimonials</field>
+    <field name="view_id" ref="page_company_testimonials"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">What they said about AKT | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_contact" name="Get in touch">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Start a conversation</h1><p>Tell us what your project needs and submit an enquiry to the company.</p></div></section><section class="section"><div class="container contact-layout"><div><div class="contact-facts"><h2>Contact details</h2><p>Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt</p><a href="tel:+201200006655"><bdi>01200006655</bdi></a><a href="https://wa.me/201200006655" target="_blank" rel="noopener">WhatsApp ↗</a><a href="mailto:elfakharany@akt-group.com"><bdi>elfakharany@akt-group.com</bdi></a></div></div><div class="contact-form-panel"><div class="eyebrow">NEW ENQUIRY</div><h2>Send an enquiry</h2><p class="muted">Your enquiry is saved in the company system. This form does not automatically send an email.</p><form method="post" action="/akt/form/contact" enctype="multipart/form-data" novalidate="novalidate"><t t-if="request.params.get('akt_sent')">
+  <div class="form-field akt-form-result akt-form-ok" role="status">
+    <strong>Your request has been received.</strong>
+    <span>Our team will get back to you shortly.</span>
+  </div>
+</t>
+<t t-if="request.params.get('akt_error')">
+  <div class="form-field akt-form-result akt-form-error" role="alert">
+    <strong>The request was not sent.</strong>
+    <span t-out="request.params.get('akt_error')"/>
+  </div>
+</t>
+<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/><input type="hidden" name="website" class="form-control" id="id_website"/><div class="form-field "><label for="id_name">Name <span aria-hidden="true">*</span></label><input type="text" name="name" maxlength="150" class="form-control" required="required" id="id_name"/></div><div class="form-field "><label for="id_email">Email <span aria-hidden="true">*</span></label><input type="email" name="email" maxlength="254" class="form-control" required="required" id="id_email"/></div><div class="form-field "><label for="id_phone">Phone</label><input type="text" name="phone" maxlength="40" class="form-control" id="id_phone"/></div><div class="form-field "><label for="id_subject">Subject <span aria-hidden="true">*</span></label><input type="text" name="subject" maxlength="200" class="form-control" required="required" id="id_subject"/></div><div class="form-field "><label for="id_message">Your request <span aria-hidden="true">*</span></label><textarea name="message" cols="40" rows="5" maxlength="5000" class="form-control" required="required" id="id_message">
+</textarea></div><div class="form-field "><label for="id_documents">Attachments (optional)</label><input type="file" name="documents" multiple="multiple" class="form-control" aria-describedby="id_documents_helptext" id="id_documents"/></div><div class="form-field consent-field"><input type="checkbox" name="consent" class="form-check-input" required="required" id="id_consent"/><label for="id_consent">I agree to storage of these details to answer my enquiry.</label></div><button class="akt-btn" type="submit">Submit enquiry ↗</button></form></div></div></section><section class="section"><div class="container"><h2>Find us on the map</h2><p class="muted">An area-level indicative map: the marker sits at Damanhour city centre, not at an exact office location; the approved location is added once confirmed.</p><script id="office-area-point" type="application/json">[{"title": "Company office area - Damanhour city centre (indicative)", "lat": 31.0341, "lng": 30.4682, "url": "/en/contact/", "location": "Damanhour, Beheira"}]</script><div class="project-map" data-project-map="data-project-map" data-tile-url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" data-points-id="office-area-point"><button type="button" class="akt-btn" data-map-load="data-map-load">Load interactive map</button><p class="muted">Loading the map background sends requests to OpenStreetMap. We do not use your device location.</p><div class="map-canvas" aria-label="Indicative map of the company office area" hidden="hidden"></div><p class="map-status" role="status"></p></div><p><a class="map-directions" href="https://www.google.com/maps/dir/?api=1&amp;destination=Abdel%20Salam%20El%20Shazly%20Street%2C%20Damanhour%2C%20Beheira%2C%20Egypt" target="_blank" rel="noopener">Open directions to the office area ↗</a></p></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_contact_page" model="website.page">
+    <field name="url">/contact</field>
+    <field name="view_id" ref="page_contact"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Get in touch | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_pages_about" name="About AKT Group">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>About AKT Group</h1><p>AKT Group For General Contracting and Development is based on Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt. Its activities include general contracting, construction, real estate development and engineering projects.</p></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/bc79c250-2079-4009-b13b-355a9831784d.webp" alt="Illustrative architecture, not an AKT project" loading="lazy" width="1000" height="900"/><figcaption class="image-label">Illustrative image</figcaption></figure><div class="prose"><p>AKT Group For General Contracting and Development is based on Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt. Its activities include general contracting, construction, real estate development and engineering projects.</p><a class="akt-btn" href="/contact">Contact us</a></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_pages_about_page" model="website.page">
+    <field name="url">/pages/about</field>
+    <field name="view_id" ref="page_pages_about"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">About AKT Group | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_pages_consultancy" name="Engineering consultancy">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Engineering consultancy</h1><p>Consultancy to review technical requirements and discuss project scope.</p></div></section><section class="section"><div class="container contact-layout"><div><figure><img class="contact-image" src="/akt_website/static/src/img/assets/0c2ec50b-df6a-4d9e-ac8e-ea9ec469955e.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="1000" height="700"/><figcaption class="muted small">Illustrative image</figcaption></figure><div class="prose"><p>Send the project description, location and required consultation scope. The team reviews the information and discusses technical requirements and next steps with you.</p></div><div class="contact-facts"><h2>Contact details</h2><p>Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt</p><a href="tel:+201200006655"><bdi>01200006655</bdi></a><a href="https://wa.me/201200006655" target="_blank" rel="noopener">WhatsApp ↗</a><a href="mailto:elfakharany@akt-group.com"><bdi>elfakharany@akt-group.com</bdi></a></div></div><div class="contact-form-panel"><div class="eyebrow">NEW ENQUIRY</div><h2>Engineering consultation</h2><p class="muted">Your enquiry is saved in the company system. This form does not automatically send an email.</p><form method="post" action="/akt/form/contact" enctype="multipart/form-data" novalidate="novalidate"><t t-if="request.params.get('akt_sent')">
+  <div class="form-field akt-form-result akt-form-ok" role="status">
+    <strong>Your request has been received.</strong>
+    <span>Our team will get back to you shortly.</span>
+  </div>
+</t>
+<t t-if="request.params.get('akt_error')">
+  <div class="form-field akt-form-result akt-form-error" role="alert">
+    <strong>The request was not sent.</strong>
+    <span t-out="request.params.get('akt_error')"/>
+  </div>
+</t>
+<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/><input type="hidden" name="website" class="form-control" id="id_website"/><div class="form-field "><label for="id_name">Name <span aria-hidden="true">*</span></label><input type="text" name="name" maxlength="150" class="form-control" required="required" id="id_name"/></div><div class="form-field "><label for="id_email">Email <span aria-hidden="true">*</span></label><input type="email" name="email" maxlength="254" class="form-control" required="required" id="id_email"/></div><div class="form-field "><label for="id_phone">Phone</label><input type="text" name="phone" maxlength="40" class="form-control" id="id_phone"/></div><div class="form-field "><label for="id_subject">Subject <span aria-hidden="true">*</span></label><input type="text" name="subject" maxlength="200" class="form-control" required="required" id="id_subject"/></div><div class="form-field "><label for="id_message">Your request <span aria-hidden="true">*</span></label><textarea name="message" cols="40" rows="5" maxlength="5000" class="form-control" required="required" id="id_message">
+</textarea></div><div class="form-field "><label for="id_documents">Attachments (optional)</label><input type="file" name="documents" multiple="multiple" class="form-control" aria-describedby="id_documents_helptext" id="id_documents"/></div><div class="form-field consent-field"><input type="checkbox" name="consent" class="form-check-input" required="required" id="id_consent"/><label for="id_consent">I agree to storage of these details to answer my enquiry.</label></div><button class="akt-btn" type="submit">Submit enquiry ↗</button></form></div></div></section><section class="section"><div class="container"><h2>Find us on the map</h2><p class="muted">An area-level indicative map: the marker sits at Damanhour city centre, not at an exact office location; the approved location is added once confirmed.</p><script id="office-area-point" type="application/json">[{"title": "Company office area - Damanhour city centre (indicative)", "lat": 31.0341, "lng": 30.4682, "url": "/en/contact/", "location": "Damanhour, Beheira"}]</script><div class="project-map" data-project-map="data-project-map" data-tile-url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" data-points-id="office-area-point"><button type="button" class="akt-btn" data-map-load="data-map-load">Load interactive map</button><p class="muted">Loading the map background sends requests to OpenStreetMap. We do not use your device location.</p><div class="map-canvas" aria-label="Indicative map of the company office area" hidden="hidden"></div><p class="map-status" role="status"></p></div><p><a class="map-directions" href="https://www.google.com/maps/dir/?api=1&amp;destination=Abdel%20Salam%20El%20Shazly%20Street%2C%20Damanhour%2C%20Beheira%2C%20Egypt" target="_blank" rel="noopener">Open directions to the office area ↗</a></p></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_pages_consultancy_page" model="website.page">
+    <field name="url">/pages/consultancy</field>
+    <field name="view_id" ref="page_pages_consultancy"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Engineering consultancy | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_pages_technical_office" name="Technical office">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Technical office</h1><p>Technical support for drawings, quantities, documentation and execution.</p></div></section><section class="section"><div class="container contact-layout"><div><figure><img class="contact-image" src="/akt_website/static/src/img/assets/75f0c936-0263-4e09-b88b-a4c352b3f1eb.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="1000" height="700"/><figcaption class="muted small">Illustrative image</figcaption></figure><div class="prose"><p>Quantity takeoffs<br/>Payment certificates<br/>Shop drawings<br/>Engineering drawings and design reviews<br/>Discipline coordination<br/>Bills of quantities (BOQ)<br/>Technical follow-up and specification reviews<br/>Technical document management and reporting<br/>Execution progress follow-up</p></div><div class="contact-facts"><h2>Contact details</h2><p>Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt</p><a href="tel:+201151113761"><bdi>01151113761</bdi></a><a href="https://wa.me/201151113761" target="_blank" rel="noopener">WhatsApp ↗</a><a href="mailto:engmostafa@akt-grp.com"><bdi>engmostafa@akt-grp.com</bdi></a></div></div><div class="contact-form-panel"><div class="eyebrow">NEW ENQUIRY</div><h2>Technical-office enquiry</h2><p class="muted">Your enquiry is saved in the company system. This form does not automatically send an email.</p><form method="post" action="/akt/form/contact" enctype="multipart/form-data" novalidate="novalidate"><t t-if="request.params.get('akt_sent')">
+  <div class="form-field akt-form-result akt-form-ok" role="status">
+    <strong>Your request has been received.</strong>
+    <span>Our team will get back to you shortly.</span>
+  </div>
+</t>
+<t t-if="request.params.get('akt_error')">
+  <div class="form-field akt-form-result akt-form-error" role="alert">
+    <strong>The request was not sent.</strong>
+    <span t-out="request.params.get('akt_error')"/>
+  </div>
+</t>
+<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/><input type="hidden" name="website" class="form-control" id="id_website"/><div class="form-field "><label for="id_name">Name <span aria-hidden="true">*</span></label><input type="text" name="name" maxlength="150" class="form-control" required="required" id="id_name"/></div><div class="form-field "><label for="id_email">Email <span aria-hidden="true">*</span></label><input type="email" name="email" maxlength="254" class="form-control" required="required" id="id_email"/></div><div class="form-field "><label for="id_phone">Phone</label><input type="text" name="phone" maxlength="40" class="form-control" id="id_phone"/></div><div class="form-field "><label for="id_subject">Subject <span aria-hidden="true">*</span></label><input type="text" name="subject" maxlength="200" class="form-control" required="required" id="id_subject"/></div><div class="form-field "><label for="id_message">Your request <span aria-hidden="true">*</span></label><textarea name="message" cols="40" rows="5" maxlength="5000" class="form-control" required="required" id="id_message">
+</textarea></div><div class="form-field "><label for="id_documents">Attachments (optional)</label><input type="file" name="documents" multiple="multiple" class="form-control" aria-describedby="id_documents_helptext" id="id_documents"/></div><div class="form-field consent-field"><input type="checkbox" name="consent" class="form-check-input" required="required" id="id_consent"/><label for="id_consent">I agree to storage of these details to answer my enquiry.</label></div><button class="akt-btn" type="submit">Submit enquiry ↗</button></form></div></div></section><section class="section"><div class="container"><h2>Find us on the map</h2><p class="muted">An area-level indicative map: the marker sits at Damanhour city centre, not at an exact office location; the approved location is added once confirmed.</p><script id="office-area-point" type="application/json">[{"title": "Company office area - Damanhour city centre (indicative)", "lat": 31.0341, "lng": 30.4682, "url": "/en/contact/", "location": "Damanhour, Beheira"}]</script><div class="project-map" data-project-map="data-project-map" data-tile-url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" data-points-id="office-area-point"><button type="button" class="akt-btn" data-map-load="data-map-load">Load interactive map</button><p class="muted">Loading the map background sends requests to OpenStreetMap. We do not use your device location.</p><div class="map-canvas" aria-label="Indicative map of the company office area" hidden="hidden"></div><p class="map-status" role="status"></p></div><p><a class="map-directions" href="https://www.google.com/maps/dir/?api=1&amp;destination=Abdel%20Salam%20El%20Shazly%20Street%2C%20Damanhour%2C%20Beheira%2C%20Egypt" target="_blank" rel="noopener">Open directions to the office area ↗</a></p></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_pages_technical_office_page" model="website.page">
+    <field name="url">/pages/technical-office</field>
+    <field name="view_id" ref="page_pages_technical_office"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Technical office | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_partners_register" name="Supplier &amp; subcontractor registration">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure">
+<section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Tell us about your business</h1><p>Details for internal review, not approval as an AKT partner.</p></div></section>
+<section class="section"><div class="container quotation-layout"><aside class="quotation-intro"><h2>Your specialty and work areas</h2>
+
+<div class="quote-notice"><h3>Before submitting</h3><p>Registration or qualification does not guarantee a contract or partner approval. Optional qualification attachments are staff-only. Do not upload IDs, bank details or documents you have no right to share.</p></div><p class="muted">Details are saved for company review. The form does not send an automatic email.</p></aside>
+<div class="contact-form-panel"><h2>Request details</h2><p class="muted">Fields marked with an asterisk are required.</p><form method="post" action="/akt/form/partner" enctype="multipart/form-data" novalidate="novalidate"><t t-if="request.params.get('akt_sent')">
+  <div class="form-field akt-form-result akt-form-ok" role="status">
+    <strong>Your request has been received.</strong>
+    <span>Our team will get back to you shortly.</span>
+  </div>
+</t>
+<t t-if="request.params.get('akt_error')">
+  <div class="form-field akt-form-result akt-form-error" role="alert">
+    <strong>The request was not sent.</strong>
+    <span t-out="request.params.get('akt_error')"/>
+  </div>
+</t>
+<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/><input type="hidden" name="website" class="form-control" id="id_website"/><div class="form-field "><label for="id_company_name">Company / business name <span aria-hidden="true">*</span></label><input type="text" name="company_name" maxlength="200" class="form-control" required="required" id="id_company_name"/></div><div class="form-field "><label for="id_partner_type">Registration type <span aria-hidden="true">*</span></label><select name="partner_type" class="form-control" id="id_partner_type">
+  <option value="supplier">Supplier</option>
+
+  <option value="subcontractor">Subcontractor</option>
+
+  <option value="both">Supplier and subcontractor</option>
+
+</select></div><div class="form-field "><label for="id_specialty">Trade, materials or services <span aria-hidden="true">*</span></label><input type="text" name="specialty" maxlength="250" class="form-control" required="required" id="id_specialty"/></div><div class="form-field "><label for="id_work_areas">Work areas <span aria-hidden="true">*</span></label><input type="text" name="work_areas" maxlength="300" class="form-control" required="required" id="id_work_areas"/></div><div class="form-field "><label for="id_name">Contact person <span aria-hidden="true">*</span></label><input type="text" name="name" maxlength="150" class="form-control" required="required" id="id_name"/></div><div class="form-field "><label for="id_email">Email <span aria-hidden="true">*</span></label><input type="email" name="email" maxlength="254" class="form-control" required="required" id="id_email"/></div><div class="form-field "><label for="id_phone">Phone <span aria-hidden="true">*</span></label><input type="text" name="phone" maxlength="40" class="form-control" required="required" id="id_phone"/></div><div class="form-field "><label for="id_tender">Related opportunity (optional)</label><select name="tender" class="form-control" id="id_tender">
+  <option value="" selected="selected">---------</option>
+
+</select></div><div class="form-field "><label for="id_qualification_requested">Request a qualification review</label><input type="checkbox" name="qualification_requested" class="form-check-input" id="id_qualification_requested"/></div><div class="form-field "><label for="id_message">Capabilities and services <span aria-hidden="true">*</span></label><textarea name="message" cols="40" rows="5" maxlength="5000" class="form-control" required="required" id="id_message">
+</textarea></div><div class="form-field "><label for="id_documents">Private qualification documents (optional)</label><input type="file" name="documents" multiple="multiple" class="form-control" aria-describedby="id_documents_helptext" id="id_documents"/><small class="quote-help">Maximum three files, 10 MB each. Flattened PDF or PNG/JPEG/WebP. No ID or bank details.</small></div><div class="form-field consent-field"><input type="checkbox" name="consent" class="form-check-input" required="required" id="id_consent"/><label for="id_consent">I agree to storage of these details to answer my enquiry.</label></div><button type="submit" class="akt-btn">Submit request ↗</button></form></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_partners_register_page" model="website.page">
+    <field name="url">/partners/register</field>
+    <field name="view_id" ref="page_partners_register"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Supplier &amp; subcontractor registration | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_portfolio" name="Portfolio">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Our portfolio</h1><p>Approved work across our areas of construction and development.</p></div></section><section class="section"><div class="container"><div class="project-grid">
+<div class="demo-banner" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><div><strong>Design preview with illustrative content</strong><p>The cards below sample how approved projects will be presented: they are not executed projects or company work photos. They are replaced automatically once approved projects are published from the admin panel.</p></div></div>
+<article class="project-card demo-card"><span class="demo-badge">Illustrative sample</span><div class="project-cover"><div class="project-placeholder"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M15 80V24L60 7l45 17v56M40 80V53h40v27M35 30h10m14 0h10m15 0h10M35 42h10m14 0h10m15 0h10"/></svg><span>Illustrative image - not company work</span></div><span class="project-category">Government projects</span></div><div class="project-body"><h3>Project name appears here</h3><ul class="demo-fields"><li><b>Governorate:</b> —</li><li><b>Scope of work:</b> —</li><li><b>Execution status:</b> —</li></ul><span class="demo-disabled-link">Project page and gallery activate with approved content</span></div></article>
+<article class="project-card demo-card"><span class="demo-badge">Illustrative sample</span><div class="project-cover"><div class="project-placeholder"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M15 80V24L60 7l45 17v56M40 80V53h40v27M35 30h10m14 0h10m15 0h10M35 42h10m14 0h10m15 0h10"/></svg><span>Illustrative image - not company work</span></div><span class="project-category">Residential projects</span></div><div class="project-body"><h3>Project name appears here</h3><ul class="demo-fields"><li><b>Governorate:</b> —</li><li><b>Scope of work:</b> —</li><li><b>Execution status:</b> —</li></ul><span class="demo-disabled-link">Project page and gallery activate with approved content</span></div></article>
+<article class="project-card demo-card"><span class="demo-badge">Illustrative sample</span><div class="project-cover"><div class="project-placeholder"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M15 80V24L60 7l45 17v56M40 80V53h40v27M35 30h10m14 0h10m15 0h10M35 42h10m14 0h10m15 0h10"/></svg><span>Illustrative image - not company work</span></div><span class="project-category">Infrastructure</span></div><div class="project-body"><h3>Project name appears here</h3><ul class="demo-fields"><li><b>Governorate:</b> —</li><li><b>Scope of work:</b> —</li><li><b>Execution status:</b> —</li></ul><span class="demo-disabled-link">Project page and gallery activate with approved content</span></div></article>
+</div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_portfolio_page" model="website.page">
+    <field name="url">/portfolio</field>
+    <field name="view_id" ref="page_portfolio"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Portfolio | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_privacy" name="Privacy policy">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Privacy policy</h1><p>How we handle the data you submit through the website forms.</p></div></section><section class="section"><div class="container editorial"><div class="prose">
+
+<h2>Scope of this policy</h2>
+<p>This page explains how the AKT Group website collects, uses and protects the data you submit through its forms: the contact form, quotation requests, site-visit and call requests, supplier and subcontractor registration, and job application and CV forms.</p>
+<h2>Data we collect</h2>
+<p>The contact details you enter (name, phone number, email address); the details of your request or project; your company details when registering as a supplier or subcontractor; and your CV and any files you choose to attach to your request.</p>
+<h2>How we use your data</h2>
+<p>We use the data to respond to your enquiry, review your quotation or visit request, evaluate supplier and subcontractor registrations, and review job applications and CVs. We do not use your data for any other purpose without notifying you.</p>
+<h2>Attached files</h2>
+<p>Files you upload (such as your CV or qualification documents) are stored in a protected internal system, and access is limited to the team responsible for reviewing your request.</p>
+<h2>Data sharing</h2>
+<p>We do not sell your data and we do not share it with external parties for marketing purposes. Hosting and operations providers may process data only to the extent needed to run the website.</p>
+<h2>Data retention</h2>
+<p>We keep your data for as long as needed to handle your request, or as required by applicable legal and regulatory obligations.</p>
+<h2>Cookies</h2>
+<p>The website uses only the essential cookies required to operate sessions and security features. It does not use advertising trackers.</p>
+<h2>Security</h2>
+<p>We apply technical and organisational measures to protect submitted data, and access to the admin panel is restricted to authorised staff.</p>
+<h2>Your rights</h2>
+<p>You can ask to view, correct or delete your data by contacting us through the contact details shown on the website.</p>
+<h2>Updates to this policy</h2>
+<p>We may update this page when needed. Last updated: November 2026.</p>
+<h2>Contact</h2>
+<p>For privacy questions, reach us by phone or email using the details at the bottom of this page.</p>
+
+</div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_privacy_page" model="website.page">
+    <field name="url">/privacy</field>
+    <field name="view_id" ref="page_privacy"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Privacy policy | Contracting &amp; Development</field>
+    <field name="website_meta_description">How the AKT Group website collects, uses and protects data submitted through its forms.</field>
+  </record>
+
+  <template id="page_projects" name="Projects">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Our projects</h1><p>Browse by sector or search by project name. Stock imagery is never presented as company project photography.</p></div></section><section class="section"><div class="container"><form class="filter-form" method="get"><div><label for="q">Search</label><input id="q" name="q" type="search" class="form-control" value="" maxlength="150" placeholder="Project or location"/></div><div><label for="category">Category</label><select class="form-select" id="category" name="category"><option value="">All projects</option><option value="agricultural-banks">Agricultural banks</option><option value="residential">Residential projects</option><option value="administrative">Administrative projects</option><option value="government">Government projects</option><option value="other">Other projects</option></select></div><div><label for="governorate">Governorate</label><select class="form-select" id="governorate" name="governorate"><option value="">All governorates</option></select></div><button class="akt-btn" type="submit">Apply</button><a class="text-link" href="/projects">Reset filters</a></form><p class="result-count">0 project(s)</p><div class="project-grid"><div class="empty-state-pro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><h2>Portfolio in preparation</h2><p>We verify the details and photography of every project before publishing. Only approved projects appear here, with no stock imagery or undocumented work.</p><a class="akt-btn" href="/contact">Ask about our track record ↗</a></div>
+<div class="demo-banner" role="note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><div><strong>Design preview with illustrative content</strong><p>The cards below sample how approved projects will be presented: they are not executed projects or company work photos. They are replaced automatically once approved projects are published from the admin panel.</p></div></div>
+<article class="project-card demo-card"><span class="demo-badge">Illustrative sample</span><div class="project-cover"><div class="project-placeholder"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M15 80V24L60 7l45 17v56M40 80V53h40v27M35 30h10m14 0h10m15 0h10M35 42h10m14 0h10m15 0h10"/></svg><span>Illustrative image - not company work</span></div><span class="project-category">Government projects</span></div><div class="project-body"><h3>Project name appears here</h3><ul class="demo-fields"><li><b>Governorate:</b> —</li><li><b>Scope of work:</b> —</li><li><b>Execution status:</b> —</li></ul><span class="demo-disabled-link">Project page and gallery activate with approved content</span></div></article>
+<article class="project-card demo-card"><span class="demo-badge">Illustrative sample</span><div class="project-cover"><div class="project-placeholder"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M15 80V24L60 7l45 17v56M40 80V53h40v27M35 30h10m14 0h10m15 0h10M35 42h10m14 0h10m15 0h10"/></svg><span>Illustrative image - not company work</span></div><span class="project-category">Residential projects</span></div><div class="project-body"><h3>Project name appears here</h3><ul class="demo-fields"><li><b>Governorate:</b> —</li><li><b>Scope of work:</b> —</li><li><b>Execution status:</b> —</li></ul><span class="demo-disabled-link">Project page and gallery activate with approved content</span></div></article>
+<article class="project-card demo-card"><span class="demo-badge">Illustrative sample</span><div class="project-cover"><div class="project-placeholder"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M15 80V24L60 7l45 17v56M40 80V53h40v27M35 30h10m14 0h10m15 0h10M35 42h10m14 0h10m15 0h10"/></svg><span>Illustrative image - not company work</span></div><span class="project-category">Infrastructure</span></div><div class="project-body"><h3>Project name appears here</h3><ul class="demo-fields"><li><b>Governorate:</b> —</li><li><b>Scope of work:</b> —</li><li><b>Execution status:</b> —</li></ul><span class="demo-disabled-link">Project page and gallery activate with approved content</span></div></article>
+</div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_projects_page" model="website.page">
+    <field name="url">/projects</field>
+    <field name="view_id" ref="page_projects"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Projects | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_quotation" name="Request a quotation">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Start with your project</h1><p>Share the scope and location so the team can review your request.</p></div></section>
+<section class="section"><div class="container quotation-layout"><aside class="quotation-intro"><span class="eyebrow">REQUEST A QUOTATION</span><h2>A clearer brief. A better start.</h2><p>Choose a service and tell us what you know about the project. Area and start date are optional.</p><ol class="quote-steps"><li>Describe the service, location and scope.</li><li>The company team reviews the information.</li><li>Discuss requirements and the next step.</li></ol><div class="quote-notice"><h3>Not a price offer or booking</h3><p>Submitting does not generate an automatic price or commit you to a contract or payment. Do not include payment details or confidential documents.</p></div><a href="/contact">Have a general enquiry instead? ↗</a></aside>
+<div class="contact-form-panel"><h2>Your project brief</h2><p class="muted">Fields marked with an asterisk are required. The request is saved in management; no automatic email is sent.</p>
+
+<form method="post" action="/akt/form/quotation" enctype="multipart/form-data" novalidate="novalidate" id="quote-form" data-lang="en"><t t-if="request.params.get('akt_sent')">
+  <div class="form-field akt-form-result akt-form-ok" role="status">
+    <strong>Your request has been received.</strong>
+    <span>Our team will get back to you shortly.</span>
+  </div>
+</t>
+<t t-if="request.params.get('akt_error')">
+  <div class="form-field akt-form-result akt-form-error" role="alert">
+    <strong>The request was not sent.</strong>
+    <span t-out="request.params.get('akt_error')"/>
+  </div>
+</t>
+<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/><input type="hidden" name="website" class="form-control" id="id_website"/>
+<ol class="wizard-progress"><li data-step="1" class="current"><span>1</span>Contact</li><li data-step="2"><span>2</span>Project</li><li data-step="3"><span>3</span>Details</li><li data-step="4"><span>4</span>Review</li></ol>
+<fieldset class="wizard-step" data-step="1"><legend>Contact details</legend><div class="form-field"><label for="id_name">Name <span aria-hidden="true">*</span></label><input type="text" name="name" maxlength="150" class="form-control" required="required" id="id_name"/></div><div class="form-field"><label for="id_company_name">Company / organisation (optional for individuals)</label><input type="text" name="company_name" maxlength="200" class="form-control" id="id_company_name"/></div><div class="form-field"><label for="id_email">Email <span aria-hidden="true">*</span></label><input type="email" name="email" maxlength="254" class="form-control" required="required" id="id_email"/></div><div class="form-field"><label for="id_phone">Phone</label><input type="text" name="phone" maxlength="40" class="form-control" aria-describedby="id_phone_helptext" id="id_phone"/><small class="quote-help">Required if you choose phone or WhatsApp.</small></div><div class="form-field"><label for="id_preferred_contact">Preferred contact method <span aria-hidden="true">*</span></label><select name="preferred_contact" class="form-control" id="id_preferred_contact">
+  <option value="email">Email</option>
+
+  <option value="phone">Phone call</option>
+
+  <option value="whatsapp">WhatsApp</option>
+
+</select></div><div class="wizard-nav"><button type="button" class="akt-btn wiz-next">Next ←</button></div></fieldset>
+<fieldset class="wizard-step" data-step="2"><legend>Project details</legend><div class="form-field"><label for="id_service">Required service <span aria-hidden="true">*</span></label><select name="service" class="form-control" required="required" id="id_service">
+  <option value="" selected="selected">---------</option>
+
+  <option value="general-contracting">General contracting</option>
+
+  <option value="construction-development">Construction &amp; real estate development</option>
+
+  <option value="industrial-projects">Industrial projects</option>
+
+  <option value="residential-projects">Residential projects</option>
+
+  <option value="administrative-projects">Administrative projects</option>
+
+  <option value="government-projects">Government projects</option>
+
+  <option value="engineering-consultancy">Engineering consultancy</option>
+
+  <option value="technical-office">Technical-office services</option>
+
+</select></div><div class="form-field"><label for="id_project_type">Project type</label><input type="text" name="project_type" maxlength="200" class="form-control" id="id_project_type"/></div><div class="form-field"><label for="id_sector">Sector (if known)</label><select name="sector" class="form-control" id="id_sector">
+  <option value="" selected="selected">---------</option>
+
+  <option value="industrial">Industrial</option>
+
+  <option value="residential">Residential</option>
+
+  <option value="administrative">Administrative</option>
+
+  <option value="government">Government</option>
+
+</select></div><div class="form-field"><label for="id_governorate">Governorate</label><select name="governorate" class="form-control" id="id_governorate">
+  <option value="" selected="selected">Choose governorate (optional)</option>
+
+  <option value="القاهرة">Cairo</option>
+
+  <option value="الجيزة">Giza</option>
+
+  <option value="الإسكندرية">Alexandria</option>
+
+  <option value="الدقهلية">Dakahlia</option>
+
+  <option value="البحر الأحمر">Red Sea</option>
+
+  <option value="البحيرة">Beheira</option>
+
+  <option value="الفيوم">Fayoum</option>
+
+  <option value="الغربية">Gharbia</option>
+
+  <option value="الإسماعيلية">Ismailia</option>
+
+  <option value="المنوفية">Monufia</option>
+
+  <option value="المنيا">Minya</option>
+
+  <option value="القليوبية">Qalyubia</option>
+
+  <option value="الوادي الجديد">New Valley</option>
+
+  <option value="السويس">Suez</option>
+
+  <option value="أسوان">Aswan</option>
+
+  <option value="أسيوط">Assiut</option>
+
+  <option value="بني سويف">Beni Suef</option>
+
+  <option value="بورسعيد">Port Said</option>
+
+  <option value="دمياط">Damietta</option>
+
+  <option value="الشرقية">Sharqia</option>
+
+  <option value="جنوب سيناء">South Sinai</option>
+
+  <option value="كفر الشيخ">Kafr El Sheikh</option>
+
+  <option value="مطروح">Matrouh</option>
+
+  <option value="الأقصر">Luxor</option>
+
+  <option value="قنا">Qena</option>
+
+  <option value="شمال سيناء">North Sinai</option>
+
+  <option value="سوهاج">Sohag</option>
+
+</select></div><div class="form-field"><label for="id_project_location">Project location (city / area) <span aria-hidden="true">*</span></label><input type="text" name="project_location" maxlength="250" class="form-control" required="required" id="id_project_location"/></div><div class="form-field"><label for="id_approximate_area">Approximate area in square metres (optional)</label><input type="number" name="approximate_area" step="0.01" min="0.01" class="form-control" aria-describedby="id_approximate_area_helptext" id="id_approximate_area"/><small class="quote-help">Leave blank if not yet known.</small></div><div class="form-field"><label for="id_desired_start">Desired start date (optional)</label><input type="date" name="desired_start" class="form-control" aria-describedby="id_desired_start_helptext" id="id_desired_start"/><small class="quote-help">A preference, not a booking or a delivery commitment.</small></div><div class="wizard-nav"><button type="button" class="wiz-btn-outline wiz-back">Back</button><button type="button" class="akt-btn wiz-next">Next ←</button></div></fieldset>
+<fieldset class="wizard-step" data-step="3"><legend>Budget and attachments</legend><div class="form-field"><label for="id_budget_amount">Estimated budget (optional)</label><input type="number" name="budget_amount" step="0.01" min="0.01" class="form-control" id="id_budget_amount"/></div><div class="form-field"><label for="id_budget_currency">Budget currency</label><select name="budget_currency" class="form-control" id="id_budget_currency">
+  <option value="EGP" selected="selected">EGP</option>
+
+  <option value="USD">USD</option>
+
+  <option value="EUR">EUR</option>
+
+  <option value="SAR">SAR</option>
+
+  <option value="AED">AED</option>
+
+</select></div><div class="form-field"><label for="id_message">Project description and scope <span aria-hidden="true">*</span></label><textarea name="message" cols="40" rows="5" maxlength="5000" class="form-control" required="required" id="id_message">
+</textarea></div><div class="form-field"><label for="id_documents">Private drawings and documents (optional)</label><input type="file" name="documents" multiple="multiple" class="form-control" aria-describedby="id_documents_helptext" id="id_documents"/><small class="quote-help">Up to three files, 10 MB each: flattened PDF or PNG/JPEG/WebP. No ID or payment details. Staff-only access.</small></div><div class="wizard-nav"><button type="button" class="wiz-btn-outline wiz-back">Back</button><button type="button" class="akt-btn wiz-next">Review request ←</button></div></fieldset>
+<fieldset class="wizard-step" data-step="4"><legend>Review and submit</legend><div class="wiz-review" id="wiz-review" aria-live="polite"></div><div class="form-field consent-field"><input type="checkbox" name="consent" class="form-check-input" required="required" id="id_consent"/><label for="id_consent">I agree to storage of these details to answer my enquiry.</label></div><div class="wizard-nav"><button type="button" class="wiz-btn-outline wiz-back">Back</button><button class="akt-btn" type="submit">Submit quotation request ↗</button></div></fieldset>
+</form></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_quotation_page" model="website.page">
+    <field name="url">/quotation</field>
+    <field name="view_id" ref="page_quotation"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Request a quotation | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_sectors" name="Sectors">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Our sectors</h1></div></section><section class="section"><div class="container"><div class="services-grid"><article class="service-card reveal"><a href="/sectors/industrial"><div class="service-image"><img src="/akt_website/static/src/img/assets/15f66867-daf9-49a8-8ae7-13cd8ffa9c8a.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">01</span><h2>Industrial</h2><p>Industrial buildings and facilities.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/sectors/residential"><div class="service-image"><img src="/akt_website/static/src/img/assets/d2a873a3-f848-4315-a9ce-e57a1a09d65b.webp" alt="Illustrative architecture, not an AKT project" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">02</span><h2>Residential</h2><p>Residential projects and real estate development.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/sectors/administrative"><div class="service-image"><img src="/akt_website/static/src/img/assets/83c3079c-dbca-496c-aaf9-1be8af4533bc.webp" alt="Illustrative architecture, not an AKT project" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">03</span><h2>Administrative</h2><p>Administrative buildings and projects.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/sectors/government"><div class="service-image"><img src="/akt_website/static/src/img/assets/4917a785-2ac6-4420-b90c-cf69f432f6a7.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">04</span><h2>Government</h2><p>Government buildings and projects.</p><span class="text-link">Explore details ↗</span></div></a></article></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_sectors_page" model="website.page">
+    <field name="url">/sectors</field>
+    <field name="view_id" ref="page_sectors"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Sectors | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_sectors_administrative" name="Administrative">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Administrative</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/83c3079c-dbca-496c-aaf9-1be8af4533bc.webp" alt="Illustrative architecture, not an AKT project" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Administrative buildings and projects.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_sectors_administrative_page" model="website.page">
+    <field name="url">/sectors/administrative</field>
+    <field name="view_id" ref="page_sectors_administrative"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Administrative | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_sectors_government" name="Government">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Government</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/4917a785-2ac6-4420-b90c-cf69f432f6a7.webp" alt="Illustrative engineering stock, not AKT staff or projects" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Government buildings and projects.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_sectors_government_page" model="website.page">
+    <field name="url">/sectors/government</field>
+    <field name="view_id" ref="page_sectors_government"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Government | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_sectors_industrial" name="Industrial">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Industrial</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/15f66867-daf9-49a8-8ae7-13cd8ffa9c8a.webp" alt="Illustrative engineering stock, not AKT staff or projects" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Industrial buildings and facilities.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_sectors_industrial_page" model="website.page">
+    <field name="url">/sectors/industrial</field>
+    <field name="view_id" ref="page_sectors_industrial"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Industrial | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_sectors_residential" name="Residential">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Residential</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/d2a873a3-f848-4315-a9ce-e57a1a09d65b.webp" alt="Illustrative architecture, not an AKT project" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Residential projects and real estate development.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_sectors_residential_page" model="website.page">
+    <field name="url">/sectors/residential</field>
+    <field name="view_id" ref="page_sectors_residential"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Residential | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_services" name="Services">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Our services</h1></div></section><section class="section"><div class="container"><div class="services-grid"><article class="service-card reveal"><a href="/services/general-contracting"><div class="service-image"><img src="/akt_website/static/src/img/assets/4917a785-2ac6-4420-b90c-cf69f432f6a7.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">01</span><h2>General contracting</h2><p>Construction execution and coordination to the agreed project scope.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/services/construction-development"><div class="service-image"><img src="/akt_website/static/src/img/assets/15f66867-daf9-49a8-8ae7-13cd8ffa9c8a.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">02</span><h2>Construction &amp; real estate development</h2><p>Construction and development services for real estate projects.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/services/industrial-projects"><div class="service-image"><img src="/akt_website/static/src/img/assets/d14900dd-743f-44b1-8af0-4ac1b41b0434.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">03</span><h2>Industrial projects</h2><p>Construction works for industrial facilities and buildings.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/services/residential-projects"><div class="service-image"><img src="/akt_website/static/src/img/assets/d2a873a3-f848-4315-a9ce-e57a1a09d65b.webp" alt="Illustrative architecture, not an AKT project" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">04</span><h2>Residential projects</h2><p>Construction services for residential buildings and developments.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/services/administrative-projects"><div class="service-image"><img src="/akt_website/static/src/img/assets/83c3079c-dbca-496c-aaf9-1be8af4533bc.webp" alt="Illustrative architecture, not an AKT project" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">05</span><h2>Administrative projects</h2><p>Engineering and construction work for administrative buildings.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/services/government-projects"><div class="service-image"><img src="/akt_website/static/src/img/assets/558f11e5-6d80-4b71-a264-3e711628bb37.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">06</span><h2>Government projects</h2><p>Contracting and construction work for government projects.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/services/engineering-consultancy"><div class="service-image"><img src="/akt_website/static/src/img/assets/0c2ec50b-df6a-4d9e-ac8e-ea9ec469955e.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">07</span><h2>Engineering consultancy</h2><p>Review of technical requirements and project engineering needs.</p><span class="text-link">Explore details ↗</span></div></a></article><article class="service-card reveal"><a href="/services/technical-office"><div class="service-image"><img src="/akt_website/static/src/img/assets/75f0c936-0263-4e09-b88b-a4c352b3f1eb.webp" alt="Illustrative engineering stock, not AKT staff or projects" loading="lazy" width="800" height="520"/></div><div class="service-copy"><span class="eyebrow">08</span><h2>Technical-office services</h2><p>Quantity takeoffs, payment certificates, shop drawings and design reviews.</p><span class="text-link">Explore details ↗</span></div></a></article></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_services_page" model="website.page">
+    <field name="url">/services</field>
+    <field name="view_id" ref="page_services"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Services | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_services_administrative_projects" name="Administrative projects">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Administrative projects</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/83c3079c-dbca-496c-aaf9-1be8af4533bc.webp" alt="Illustrative architecture, not an AKT project" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Engineering and construction work for administrative buildings.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a><p class="mt-3"><a class="text-link" href="/quotation?service=administrative-projects">Request a quotation for this service ↗</a></p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_services_administrative_projects_page" model="website.page">
+    <field name="url">/services/administrative-projects</field>
+    <field name="view_id" ref="page_services_administrative_projects"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Administrative projects | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_services_construction_development" name="Construction &amp; real estate development">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Construction &amp; real estate development</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/15f66867-daf9-49a8-8ae7-13cd8ffa9c8a.webp" alt="Illustrative engineering stock, not AKT staff or projects" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Construction and development services for real estate projects.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a><p class="mt-3"><a class="text-link" href="/quotation?service=construction-development">Request a quotation for this service ↗</a></p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_services_construction_development_page" model="website.page">
+    <field name="url">/services/construction-development</field>
+    <field name="view_id" ref="page_services_construction_development"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Construction &amp; real estate development | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_services_engineering_consultancy" name="Engineering consultancy">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Engineering consultancy</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/0c2ec50b-df6a-4d9e-ac8e-ea9ec469955e.webp" alt="Illustrative engineering stock, not AKT staff or projects" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Review of technical requirements and project engineering needs.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a><p class="mt-3"><a class="text-link" href="/quotation?service=engineering-consultancy">Request a quotation for this service ↗</a></p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_services_engineering_consultancy_page" model="website.page">
+    <field name="url">/services/engineering-consultancy</field>
+    <field name="view_id" ref="page_services_engineering_consultancy"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Engineering consultancy | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_services_general_contracting" name="General contracting">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>General contracting</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/4917a785-2ac6-4420-b90c-cf69f432f6a7.webp" alt="Illustrative engineering stock, not AKT staff or projects" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Construction execution and coordination to the agreed project scope.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a><p class="mt-3"><a class="text-link" href="/quotation?service=general-contracting">Request a quotation for this service ↗</a></p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_services_general_contracting_page" model="website.page">
+    <field name="url">/services/general-contracting</field>
+    <field name="view_id" ref="page_services_general_contracting"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">General contracting | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_services_government_projects" name="Government projects">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Government projects</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/558f11e5-6d80-4b71-a264-3e711628bb37.webp" alt="Illustrative engineering stock, not AKT staff or projects" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Contracting and construction work for government projects.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a><p class="mt-3"><a class="text-link" href="/quotation?service=government-projects">Request a quotation for this service ↗</a></p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_services_government_projects_page" model="website.page">
+    <field name="url">/services/government-projects</field>
+    <field name="view_id" ref="page_services_government_projects"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Government projects | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_services_industrial_projects" name="Industrial projects">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Industrial projects</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/d14900dd-743f-44b1-8af0-4ac1b41b0434.webp" alt="Illustrative engineering stock, not AKT staff or projects" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Construction works for industrial facilities and buildings.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a><p class="mt-3"><a class="text-link" href="/quotation?service=industrial-projects">Request a quotation for this service ↗</a></p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_services_industrial_projects_page" model="website.page">
+    <field name="url">/services/industrial-projects</field>
+    <field name="view_id" ref="page_services_industrial_projects"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Industrial projects | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_services_residential_projects" name="Residential projects">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Residential projects</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/d2a873a3-f848-4315-a9ce-e57a1a09d65b.webp" alt="Illustrative architecture, not an AKT project" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Construction services for residential buildings and developments.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a><p class="mt-3"><a class="text-link" href="/quotation?service=residential-projects">Request a quotation for this service ↗</a></p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_services_residential_projects_page" model="website.page">
+    <field name="url">/services/residential-projects</field>
+    <field name="view_id" ref="page_services_residential_projects"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Residential projects | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_services_technical_office" name="Technical-office services">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Technical-office services</h1></div></section><section class="section"><div class="container editorial"><figure class="editorial-media"><img src="/akt_website/static/src/img/assets/75f0c936-0263-4e09-b88b-a4c352b3f1eb.webp" alt="Illustrative engineering stock, not AKT staff or projects" width="1000" height="900" loading="lazy"/><figcaption class="image-label">Illustrative architectural image</figcaption></figure><div class="prose"><p class="lead">Quantity takeoffs, payment certificates, shop drawings and design reviews.</p><h2>Discuss your project requirements</h2><p>Contact us to establish the scope, location and technical requirements before preparing a proposal.</p><a class="akt-btn" href="/contact">Send an enquiry</a><p class="mt-3"><a class="text-link" href="/quotation?service=technical-office">Request a quotation for this service ↗</a></p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_services_technical_office_page" model="website.page">
+    <field name="url">/services/technical-office</field>
+    <field name="view_id" ref="page_services_technical_office"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Technical-office services | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+  <template id="page_terms" name="Terms of use">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Terms of use</h1><p>The terms governing the use of this website and its forms.</p></div></section><section class="section"><div class="container editorial"><div class="prose">
+
+<h2>Nature of this website</h2>
+<p>This website introduces AKT Group's services in general contracting, real estate development and engineering projects. Published content is for informational purposes and is not a binding offer or a final quotation.</p>
+<h2>Requests submitted through forms</h2>
+<p>Submitting any form on this website (contact, quotation request, site-visit request, supplier or subcontractor registration, or a job application) does not create a contract, booking, approval or obligation on the company. Scope, pricing and schedules are agreed separately with the company.</p>
+<h2>Content accuracy</h2>
+<p>We work to keep content accurate and up to date, and data may change without prior notice. Illustrative architectural images used on the website do not represent company projects.</p>
+<h2>Intellectual property</h2>
+<p>The website content, design and visual identity are the property of AKT Group and may not be reused without prior written permission.</p>
+<h2>Acceptable use</h2>
+<p>Misusing the website forms, uploading harmful files, or submitting data you have no right to share is prohibited.</p>
+<h2>External links</h2>
+<p>External contact links (such as WhatsApp) are governed by the terms and policies of their providers.</p>
+<h2>Applicable law</h2>
+<p>These terms are governed by the laws applicable in the Arab Republic of Egypt.</p>
+<h2>Updates to these terms</h2>
+<p>We may update this page when needed. Last updated: November 2026.</p>
+
+</div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_terms_page" model="website.page">
+    <field name="url">/terms</field>
+    <field name="view_id" ref="page_terms"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Terms of use | Contracting &amp; Development</field>
+    <field name="website_meta_description">Terms governing the use of the AKT Group website and its forms.</field>
+  </record>
+
+  <template id="page_updates" name="Project updates">
+    <t t-call="website.layout">
+      <t t-set="akt_ld_json"><![CDATA[{"@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], "name": "AKT Group For General Contracting and Development", "url": "https://akt-preview-production.up.railway.app", "telephone": "01200006655", "email": "elfakharany@akt-group.com", "address": {"@type": "PostalAddress", "streetAddress": "Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt"}}]]></t>
+      <div id="wrap" class="oe_structure"><section class="page-head"><div class="container"><div class="eyebrow">AKT GROUP</div><h1>Project updates</h1><p>Only genuine content approved by company management is shown.</p></div></section><section class="section"><div class="container"><div class="opportunities-grid"><p class="empty-state">There are no approved project updates at present.</p></div></div></section></div>
+    </t>
+  </template>
+
+  <record id="page_updates_page" model="website.page">
+    <field name="url">/updates</field>
+    <field name="view_id" ref="page_updates"/>
+    <field name="website_id" ref="website.default_website"/>
+    <field name="is_published" eval="True"/>
+    <field name="website_meta_title">Project updates | Contracting &amp; Development</field>
+    <field name="website_meta_description">AKT Group for general contracting, real estate development and engineering projects. Damanhour, Beheira, Egypt.</field>
+  </record>
+
+</odoo>

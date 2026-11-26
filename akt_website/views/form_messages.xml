@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!--
+    What the forms asked for, shown on the lead. The page is only there when
+    the lead came from the site, so a lead typed in by a salesperson does not
+    grow an empty tab.
+  -->
+  <record id="crm_lead_view_form_akt" model="ir.ui.view">
+    <field name="name">crm.lead.form.akt.website</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//notebook" position="inside">
+        <page string="Website request" name="akt_website"
+              invisible="not akt_request_type">
+          <group>
+            <group string="Request">
+              <field name="akt_request_type" readonly="1"/>
+              <field name="akt_service" invisible="not akt_service"/>
+              <field name="akt_sector" invisible="not akt_sector"/>
+              <field name="akt_project_type" invisible="not akt_project_type"/>
+              <field name="akt_preferred_contact" invisible="not akt_preferred_contact"/>
+              <field name="akt_consent"/>
+            </group>
+            <group string="Project" invisible="akt_request_type not in ['quotation', 'appointment']">
+              <field name="akt_project_location" invisible="not akt_project_location"/>
+              <field name="akt_governorate" invisible="not akt_governorate"/>
+              <field name="akt_area" invisible="not akt_area"/>
+              <field name="akt_budget_amount" invisible="not akt_budget_amount"/>
+              <field name="akt_budget_currency" invisible="not akt_budget_currency"/>
+              <field name="akt_desired_start" invisible="not akt_desired_start"/>
+            </group>
+            <group string="Appointment" invisible="akt_request_type != 'appointment'">
+              <field name="akt_visit_type"/>
+              <field name="akt_preferred_date"/>
+              <field name="akt_preferred_window"/>
+              <field name="akt_alternative_date" invisible="not akt_alternative_date"/>
+              <field name="akt_alternative_window" invisible="not akt_alternative_window"/>
+            </group>
+            <group string="Supplier" invisible="akt_request_type != 'partner'">
+              <field name="akt_partner_type"/>
+              <field name="akt_specialty"/>
+              <field name="akt_work_areas"/>
+              <field name="akt_qualification_requested"/>
+            </group>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="crm_lead_view_search_akt" model="ir.ui.view">
+    <field name="name">crm.lead.search.akt.website</field>
+    <field name="model">crm.lead</field>
+    <field name="inherit_id" ref="crm.view_crm_case_leads_filter"/>
+    <field name="arch" type="xml">
+      <xpath expr="//search" position="inside">
+        <filter name="akt_website" string="From the website"
+                domain="[('akt_request_type', '!=', False)]"/>
+        <!-- Odoo 19 takes no attributes on a search view <group>. -->
+        <group>
+          <filter name="akt_group_request_type" string="Website form"
+                  context="{'group_by': 'akt_request_type'}"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+</odoo>

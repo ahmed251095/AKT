@@ -1,0 +1,35 @@
+/* Approved logos stay readable in their original colors. No external assets. */
+.partner-section{position:relative;overflow:hidden;background:linear-gradient(135deg,#f7f9fc,#edf2f8);border-block:1px solid var(--rule)}
+.partner-heading{margin-bottom:30px}.partner-heading h2{font-size:clamp(28px,3.5vw,44px)}
+.partner-demo-label{max-width:760px;font-size:13px;line-height:1.9;color:var(--muted);border-inline-start:3px solid var(--orange);padding-inline-start:14px;margin-bottom:28px}
+.partner-rail{padding:12px 4px 22px;isolation:isolate}.partner-rail:before,.partner-rail:after{content:'';position:absolute;top:0;bottom:0;width:14px;z-index:2;pointer-events:none}.partner-rail:before{inset-inline-start:0;background:linear-gradient(90deg,#f3f6fb,transparent)}.partner-rail:after{inset-inline-end:0;background:linear-gradient(270deg,#f3f6fb,transparent)}
+.partner-rail:not(.swiper-initialized){overflow-x:auto;scroll-snap-type:x proximity}.partner-rail:not(.swiper-initialized) .swiper-slide{width:210px;margin-inline-end:20px;scroll-snap-align:start}
+.partner-rail .swiper-wrapper{align-items:stretch}.partner-rail.partner-continuous .swiper-wrapper{transition-timing-function:linear!important}.partner-rail .swiper-slide{height:auto}
+.partner-logo-card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:190px;height:100%;padding:28px 22px;background:#fff;border:1px solid #dbe3ee;border-radius:18px;box-shadow:0 9px 24px #0a1d3706;position:relative;transition:border-color .2s,box-shadow .2s}
+.partner-logo-card:after{content:'';position:absolute;bottom:0;width:42px;height:3px;border-radius:3px;background:var(--orange);opacity:.65}.partner-logo-card:hover{border-color:#ff9b5080;box-shadow:0 14px 28px #0a1d3710}.partner-logo-card img{width:100%;height:76px;object-fit:contain}.partner-logo-card>span{font-size:12px;line-height:1.8;font-weight:600;text-align:center;color:var(--navy);overflow-wrap:anywhere}
+.partner-demo-card svg{width:68px;height:68px;fill:none;stroke:var(--navy-light);stroke-width:2}.partner-demo-card svg path:nth-child(2){stroke:var(--orange);stroke-width:3}.partner-demo-card>span{font-size:11px;letter-spacing:.6px;color:var(--muted)}.partner-rail .swiper-slide:nth-child(even) .partner-demo-card svg{transform:rotate(30deg)}
+.partner-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px}.partner-controls[hidden]{display:none}.partner-controls button{min-width:46px;min-height:46px;display:grid;place-items:center;border:1px solid #cbd7e6;border-radius:50%;background:#fff;color:var(--navy);cursor:pointer;padding:8px 14px}.partner-controls .partner-motion{border-radius:50%;width:46px;height:46px;min-width:46px;padding:0;background:var(--navy);color:#fff;border-color:#ff9b5080}.partner-icon{width:22px;height:22px;fill:currentColor;grid-area:1/1;pointer-events:none}.partner-icon-pause{display:none}.partner-motion[data-state="playing"] .partner-icon-play{display:none}.partner-motion[data-state="playing"] .partner-icon-pause{display:block}.partner-controls .partner-motion:hover{background:var(--navy-light);color:#fff;border-color:var(--orange)}.partner-controls button:hover{border-color:var(--orange);background:#fff9f3}.partner-controls button:disabled{opacity:.4;cursor:default}
+@media(max-width:575px){.partner-logo-card{min-height:166px;padding:22px 14px}.partner-heading{align-items:start}.partner-heading h2{font-size:29px}.partner-demo-label{font-size:12px}.partner-section{padding-block:64px}}
+@media(prefers-reduced-motion:reduce){.partner-logo-card{transition:none}}
+
+/* Testimonial demo cards — reuse partner rail motion */
+.testimonial-card{display:flex;flex-direction:column;gap:12px;min-height:230px;height:100%;padding:26px 22px;background:#fff;border:1px solid #dbe3ee;border-radius:18px;box-shadow:0 9px 24px #0a1d3706;position:relative}
+.testimonial-card:after{content:'';position:absolute;bottom:0;width:42px;height:3px;border-radius:3px;background:var(--orange);opacity:.65}
+.testimonial-badge{align-self:flex-start;font-size:10px;font-weight:700;color:var(--muted);border:1px dashed var(--rule);border-radius:20px;padding:3px 12px;background:var(--soft)}
+.testimonial-stars{display:flex;gap:4px}
+.testimonial-stars svg{width:16px;height:16px;fill:var(--orange);opacity:.85}
+.testimonial-text{margin:0;font-size:13px;line-height:2;color:var(--muted)}
+.testimonial-person{margin-top:auto;display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--rule);padding-top:12px}
+.testimonial-name{font-size:13px;font-weight:800;color:var(--navy)}
+.testimonial-org{font-size:11px;color:var(--muted)}
+
+/* Why-AKT rail */
+.why-rail:before{background:linear-gradient(90deg,#fff,transparent)}
+.why-rail:after{background:linear-gradient(270deg,#fff,transparent)}
+.why-rail .swiper-slide{height:auto}
+.why-rail article{border-top:1px solid var(--rule);padding-top:28px;height:100%;padding-inline-end:14px;padding-inline-start:14px}
+.why-rail article span{color:var(--orange);font-size:12px;font-weight:800}
+.why-rail article h3{margin-top:15px;font-size:18px}
+.why-rail article p{color:var(--muted);font-size:13px;line-height:1.9}
+.testimonial-photo{width:56px;height:56px;border-radius:50%;object-fit:cover;margin-bottom:.75rem}
+.testimonial-quote-line{font-style:italic}

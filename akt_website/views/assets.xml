@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!--
+    The site's scripts, at the end of Odoo's frontend bundle and in the order
+    the site loads them: the libraries first, then the site's own. The
+    stylesheets are not here - see CSS in tools/build_module.py for why they
+    are linked from the page instead.
+  -->
+  <record id="asset_vendor_gsap_min_js" model="ir.asset">
+    <field name="name">AKT vendor/gsap.min.js</field>
+    <field name="bundle">web.assets_frontend</field>
+    <field name="path">akt_website/static/src/vendor/gsap.min.js</field>
+    <field name="sequence">20</field>
+  </record>
+  <record id="asset_vendor_swiper_bundle_min_js" model="ir.asset">
+    <field name="name">AKT vendor/swiper-bundle.min.js</field>
+    <field name="bundle">web.assets_frontend</field>
+    <field name="path">akt_website/static/src/vendor/swiper-bundle.min.js</field>
+    <field name="sequence">21</field>
+  </record>
+  <record id="asset_vendor_leaflet_leaflet_js" model="ir.asset">
+    <field name="name">AKT vendor/leaflet/leaflet.js</field>
+    <field name="bundle">web.assets_frontend</field>
+    <field name="path">akt_website/static/src/vendor/leaflet/leaflet.js</field>
+    <field name="sequence">22</field>
+  </record>
+  <record id="asset_js_site_js" model="ir.asset">
+    <field name="name">AKT js/site.js</field>
+    <field name="bundle">web.assets_frontend</field>
+    <field name="path">akt_website/static/src/js/site.js</field>
+    <field name="sequence">23</field>
+  </record>
+  <record id="asset_js_enhancements_js" model="ir.asset">
+    <field name="name">AKT js/enhancements.js</field>
+    <field name="bundle">web.assets_frontend</field>
+    <field name="path">akt_website/static/src/js/enhancements.js</field>
+    <field name="sequence">24</field>
+  </record>
+  <record id="asset_js_partners_js" model="ir.asset">
+    <field name="name">AKT js/partners.js</field>
+    <field name="bundle">web.assets_frontend</field>
+    <field name="path">akt_website/static/src/js/partners.js</field>
+    <field name="sequence">25</field>
+  </record>
+  <record id="asset_js_akt_faq_filter_js" model="ir.asset">
+    <field name="name">AKT js/akt_faq_filter.js</field>
+    <field name="bundle">web.assets_frontend</field>
+    <field name="path">akt_website/static/src/js/akt_faq_filter.js</field>
+    <field name="sequence">26</field>
+  </record>
+</odoo>

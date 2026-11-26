@@ -1,0 +1,19 @@
+/* What the Odoo build adds to the site: the result of a form post. */
+.akt-form-result {
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: grid;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+.akt-form-result strong { font-weight: 700; }
+.akt-form-ok {
+  background: #eef7f0;
+  border: 1px solid #b7dcc2;
+  color: #1d5b32;
+}
+.akt-form-error {
+  background: #fdf0ef;
+  border: 1px solid #efc2bd;
+  color: #7d2a22;
+}
