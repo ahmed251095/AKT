@@ -5,6 +5,7 @@ the module can be regenerated when the preview site changes rather than being
 patched by hand.
 """
 import html
+import json
 import os
 import re
 
@@ -99,13 +100,30 @@ def _page_assets(pattern, lang):
     return [common.URL_MAP.get(u, u) for u in best]
 
 
+PRINTS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                     'fingerprints.json')))
+
+
+def stamped(rel):
+    """A module static URL carrying the hash of its own bytes.
+
+    The stylesheets are linked from the page, not bundled, so nothing else
+    tells a browser that one of them changed.
+    """
+    return '/akt_website/static/src/%s?v=%s' % (rel, PRINTS[rel])
+
+
 def css_files(lang):
     # akt_odoo.css is the Odoo build's own, and goes last so it wins.
-    return _page_assets(_CSS_RE, lang) + ['/akt_website/static/src/css/akt_odoo.css']
+    return _page_assets(_CSS_RE, lang) + [stamped('css/akt_odoo.css')]
 
 
 def js_files(lang='en'):
-    return _page_assets(_JS_RE, lang) + ['/akt_website/static/src/js/akt_faq_filter.js']
+    # The scripts go into Odoo's frontend bundle, whose own URL already
+    # changes with its contents - and an ir.asset path cannot carry a query
+    # string anyway, so the stamp comes back off here.
+    files = _page_assets(_JS_RE, lang) + ['/akt_website/static/src/js/akt_faq_filter.js']
+    return [f.partition('?')[0] for f in files]
 
 
 def assets_xml():
@@ -264,7 +282,7 @@ def layout_children(lang):
 %(css)s
       <meta name="theme-color" content="#0a1d37"/>
       <link rel="preload" as="image" fetchpriority="high"
-            href="/akt_website/static/src/img/hero-poster.webp"/>
+            href="%(poster)s"/>
       <t t-if="akt_ld_json">
         <script type="application/ld+json" t-out="akt_ld_json"/>
       </t>
@@ -272,6 +290,7 @@ def layout_children(lang):
   </template>
 ''' % {'header': header, 'footer': footer, 'float': flt,
        'skip': skip, 'back': back,
+       'poster': stamped('img/hero-poster.webp'),
        'css': _css_block()}
 
 

@@ -8,10 +8,19 @@ the URL in the markup. The source tree is no good either: the theme files
 are assembled by collectstatic and do not sit under static/ before that.
 Asking the site for the URL in the page settles both.
 
-Django stamps a content hash into every static filename. Odoo does its own
-cache-busting, so the hash is dropped here and the map from old URL to new
-is written out for the page rewriter.
+Django stamps a content hash into every static filename. That hash is
+dropped here - the files keep plain names inside the module - and comes
+back as a ?v= stamp on the URL, computed from the bytes actually written.
+Without it a browser keeps serving the copy it already has: these files are
+linked from the page rather than bundled, so Odoo's own cache-busting never
+reaches them, and a corrected stylesheet would not arrive until someone
+thought to hard-refresh.
+
+The map from old URL to new, stamp included, is written out for the page
+rewriter; the bare hashes go to fingerprints.json for the two files the
+Odoo build adds itself.
 """
+import hashlib
 import json
 import os
 import re
@@ -57,12 +66,21 @@ def fetch(url):
         return r.read()
 
 
+PRINTS = {}
+
+
 def save(rel, data):
     path = os.path.join(STATIC, rel)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, 'wb') as fh:
         fh.write(data)
+    PRINTS[rel.replace(os.sep, '/')] = hashlib.sha1(data).hexdigest()[:12]
     return path
+
+
+def stamped(rel):
+    rel = rel.replace(os.sep, '/')
+    return '/akt_website/static/src/%s?v=%s' % (rel, PRINTS[rel])
 
 
 def referenced():
@@ -170,7 +188,6 @@ def main():
             print('   MISSING %s (%s)' % (url, exc))
             continue
         rel = target(url)
-        url_map[url] = '/akt_website/static/src/' + rel.replace(os.sep, '/')
 
         if url.endswith('.css'):
             text = data.decode('utf-8')
@@ -187,6 +204,7 @@ def main():
             data = CSS_URL.sub(one, text).encode('utf-8')
 
         save(rel, data)
+        url_map[url] = stamped(rel)
 
     # The uploaded media the site serves from /assets/<uuid>/ with no
     # extension. They are WebP; the uuid is kept as the filename so the
@@ -199,13 +217,15 @@ def main():
             print('   MISSING %s (%s)' % (url, exc))
             continue
         save('img/assets/%s.webp' % uuid, data)
-        url_map[url] = '/akt_website/static/src/img/assets/%s.webp' % uuid
+        url_map[url] = stamped('img/assets/%s.webp' % uuid)
 
     save('css/akt_odoo.css', AKT_CSS.encode('utf-8'))
     save('js/akt_faq_filter.js', AKT_JS.encode('utf-8'))
 
     with open(os.path.join(HERE, 'url_map.json'), 'w') as fh:
         json.dump(url_map, fh, indent=1, sort_keys=True)
+    with open(os.path.join(HERE, 'fingerprints.json'), 'w') as fh:
+        json.dump(PRINTS, fh, indent=1, sort_keys=True)
     print('fetched %d static files and %d media files'
           % (len(seen), len(asset_urls)))
 

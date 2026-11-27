@@ -23,7 +23,7 @@ source tree.
 
 Then, in order:
 
-    python3 build_static.py    # fetch the static files, de-hashed, + url map
+    python3 build_static.py    # fetch the static files; url map + fingerprints
     python3 build_module.py    # manifest, assets, menus, layout, pages
     python3 build_terms.py     # i18n/ar_terms.json  (needs odoo importable)
     python3 build_po.py        # i18n/ar.po
@@ -32,6 +32,12 @@ Then, in order:
 with an interpreter that can import Odoo:
 
     PYTHONPATH=/path/to/odoo-source /path/to/venv/bin/python build_terms.py
+
+The stylesheets are linked from the page rather than bundled, so nothing
+else would tell a browser one of them changed. `build_static.py` writes the
+sha1 of each file's bytes to `fingerprints.json`, and every URL it hands
+out carries it as `?v=`. Run `build_static.py` before `build_module.py` or
+the links will carry last run's stamps.
 
 Everything under `akt_website/` except what you add by hand is overwritten,
 so put hand-written code in `controllers/`, `models/`, `hooks.py` and
