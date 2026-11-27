@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!--
+    Runs on install and on every upgrade. A post_init_hook only runs on
+    install, so a database that already had the module never picked up the
+    Arabic wording of a page that changed - which is how "Start a project"
+    stayed in English in the live site's header while reading correctly on
+    a fresh database. Loaded last, after the views this reaches into.
+  -->
+  <function model="akt.website.setup" name="apply"/>
+</odoo>

@@ -19,6 +19,7 @@ the quotation, contact, appointment and supplier forms open CRM leads.
         'views/layout.xml',
         'views/pages.xml',
         'views/form_messages.xml',
+        'data/sync.xml',
     ],
     'post_init_hook': 'post_init',
     'installable': True,
