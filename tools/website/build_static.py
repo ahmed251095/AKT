@@ -1,28 +1,39 @@
-"""Copy the mirrored static files into the module and record the URL map.
+"""Fetch the site's static files into the module and record the URL map.
 
-Django stamps a content hash into every static filename; Odoo does its own
-cache-busting on the asset bundles, so the hash is dropped here and the map
-from old URL to new one is written out for the page rewriter to use.
+The files are pulled from the running site by the exact URLs the pages ask
+for, rather than copied out of the mirror or the source tree. The mirror is
+no good for this: wget renames anything the server labels oddly, and it
+saved hero-poster.webp as hero-poster.webp.html, which then never matched
+the URL in the markup. The source tree is no good either: the theme files
+are assembled by collectstatic and do not sit under static/ before that.
+Asking the site for the URL in the page settles both.
+
+Django stamps a content hash into every static filename. Odoo does its own
+cache-busting, so the hash is dropped here and the map from old URL to new
+is written out for the page rewriter.
 """
 import json
 import os
 import re
-import shutil
+import urllib.request
 
-MIRROR = '/home/ahmed-salah/Desktop/cluade/akt_site_mirror'
+HERE = os.path.dirname(os.path.abspath(__file__))
+MIRROR = os.environ.get('AKT_MIRROR',
+                        '/home/ahmed-salah/Desktop/cluade/akt_site_mirror2')
+BASE = os.environ.get('AKT_BASE', 'https://aktgroup.pythonanywhere.com')
 MOD = '/home/ahmed-salah/Desktop/cluade/AKT/akt_website'
 STATIC = os.path.join(MOD, 'static/src')
 
-# mirror subdir -> module subdir
-TREE = {
-    'static/css': 'css',
-    'static/js': 'js',
-    'static/fonts': 'fonts',
-    'static/images': 'img',
-    'static/videos': 'video',
-    'static/vendor': 'vendor',
-}
+UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
+                    '(KHTML, like Gecko) Chrome/140.0 Safari/537.36'}
 
+# Where each kind of static file lands inside the module.
+TREE = {'css': 'css', 'js': 'js', 'fonts': 'fonts', 'images': 'img',
+        'videos': 'video', 'vendor': 'vendor', 'themes': 'themes'}
+
+STATIC_REF = re.compile(r'/static/[A-Za-z0-9_./-]+')
+ASSET_REF = re.compile(r'/assets/[0-9a-f-]{36}/')
+CSS_URL = re.compile(r'url\((["\']?)([^)"\']+)\1\)')
 HASH = re.compile(r'^(?P<stem>.+?)\.(?P<hash>[0-9a-f]{12})(?P<ext>\.[^.]+)$')
 
 
@@ -31,8 +42,45 @@ def dehash(name):
     return m.group('stem') + m.group('ext') if m else name
 
 
-# Two files belong to the Odoo build rather than to the mirrored site, and
-# are written here so that wiping static/ and regenerating cannot lose them.
+def target(url):
+    """Module-relative path for a /static/... URL."""
+    rest = url[len('/static/'):]
+    head, _, tail = rest.rpartition('/')
+    top, _, sub = head.partition('/')
+    sub = os.path.join(TREE.get(top, top), sub) if top in TREE else head
+    return os.path.join(sub, dehash(tail))
+
+
+def fetch(url):
+    req = urllib.request.Request(BASE + url, headers=UA)
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.read()
+
+
+def save(rel, data):
+    path = os.path.join(STATIC, rel)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'wb') as fh:
+        fh.write(data)
+    return path
+
+
+def referenced():
+    """Every /static/ and /assets/ URL the mirrored pages ask for."""
+    static, assets = set(), set()
+    for lang in ('ar', 'en'):
+        root = os.path.join(MIRROR, lang)
+        for dirpath, _dirs, files in os.walk(root):
+            if 'index.html' not in files:
+                continue
+            text = open(os.path.join(dirpath, 'index.html'), encoding='utf-8').read()
+            static.update(STATIC_REF.findall(text))
+            assets.update(ASSET_REF.findall(text))
+    return sorted(static), sorted(assets)
+
+
+# Two files belong to the Odoo build rather than to the site, and are
+# written here so that wiping static/ and regenerating cannot lose them.
 AKT_CSS = """/* What the Odoo build adds to the site: the result of a form post. */
 .akt-form-result {
   border-radius: 10px;
@@ -90,75 +138,64 @@ AKT_JS = """/* The FAQ list is one page of static entries, so its search box fil
 """
 
 
-def write_own():
-    for rel, text in (('css/akt_odoo.css', AKT_CSS), ('js/akt_faq_filter.js', AKT_JS)):
-        path = os.path.join(STATIC, rel)
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, 'w', encoding='utf-8') as fh:
-            fh.write(text)
-        print('   wrote', rel)
-
-
 def main():
     url_map = {}
-    for src_rel, dst_rel in TREE.items():
-        src = os.path.join(MIRROR, src_rel)
-        for root, _dirs, files in os.walk(src):
-            for f in files:
-                sub = os.path.relpath(os.path.join(root, f), src)
-                out_sub = os.path.join(os.path.dirname(sub), dehash(f))
-                dst = os.path.join(STATIC, dst_rel, out_sub)
-                os.makedirs(os.path.dirname(dst), exist_ok=True)
-                shutil.copy2(os.path.join(root, f), dst)
-                url_map['/%s/%s' % (src_rel, sub.replace(os.sep, '/'))] = \
-                    '/akt_website/static/src/%s/%s' % (dst_rel, out_sub.replace(os.sep, '/'))
+    static_urls, asset_urls = referenced()
 
-    # The uploaded media the Django app served from /assets/<uuid>/ with no
-    # extension. They are all WebP; the uuid is kept as the filename so the
-    # mapping stays obvious if anybody compares the two sites.
-    adir = os.path.join(STATIC, 'img/assets')
-    os.makedirs(adir, exist_ok=True)
-    for uuid in sorted(os.listdir(os.path.join(MIRROR, 'assets'))):
-        src = os.path.join(MIRROR, 'assets', uuid, 'index.html')
-        if not os.path.isfile(src):
+    # A stylesheet names fonts and sprites of its own, by a path relative to
+    # itself. Those are fetched too, and the reference is rewritten to the
+    # absolute module path - Odoo serves the sheet from somewhere else.
+    queue = list(static_urls)
+    seen = set()
+    while queue:
+        url = queue.pop(0)
+        if url in seen:
             continue
-        shutil.copy2(src, os.path.join(adir, uuid + '.webp'))
-        url_map['/assets/%s/' % uuid] = \
-            '/akt_website/static/src/img/assets/%s.webp' % uuid
+        seen.add(url)
+        try:
+            data = fetch(url)
+        except Exception as exc:                        # noqa: BLE001
+            print('   MISSING %s (%s)' % (url, exc))
+            continue
+        rel = target(url)
+        url_map[url] = '/akt_website/static/src/' + rel.replace(os.sep, '/')
 
-    # The stylesheets point at the fonts and the Leaflet sprites by their
-    # hashed names and by a path relative to the stylesheet. Odoo serves the
-    # bundle from somewhere else entirely, so both are rewritten to the
-    # absolute module path.
-    rel = re.compile(r'url\((["\']?)((?:\.\./)?)([A-Za-z0-9_./-]+\.(?:ttf|woff2?|png|jpg|svg|gif))\1\)')
+        if url.endswith('.css'):
+            text = data.decode('utf-8')
 
-    def fix(css_path, base):
-        text = open(css_path, encoding='utf-8').read()
+            def one(m, base=os.path.dirname(url)):
+                quote, ref = m.group(1), m.group(2)
+                if ref.startswith(('data:', 'http', '/', '#')):
+                    return m.group(0)
+                child = os.path.normpath(os.path.join(base, ref))
+                if child not in seen:
+                    queue.append(child)
+                return 'url(%s/akt_website/static/src/%s%s)' % (
+                    quote, target(child).replace(os.sep, '/'), quote)
+            data = CSS_URL.sub(one, text).encode('utf-8')
 
-        def one(m):
-            quote, updir, ref = m.group(1), m.group(2), m.group(3)
-            head, _, tail = ref.rpartition('/')
-            target = os.path.normpath(os.path.join(base, updir, head, dehash(tail)))
-            return 'url(%s/akt_website/static/src/%s%s)' % (
-                quote, os.path.relpath(target, STATIC).replace(os.sep, '/'), quote)
-        out = rel.sub(one, text)
-        if out != text:
-            open(css_path, 'w', encoding='utf-8').write(out)
-            print('   rewrote url() in', os.path.relpath(css_path, STATIC))
+        save(rel, data)
 
-    for sub in ('css', 'vendor', 'vendor/leaflet'):
-        d = os.path.join(STATIC, sub)
-        for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
-            if f.endswith('.css'):
-                fix(os.path.join(d, f), os.path.join(STATIC, sub))
+    # The uploaded media the site serves from /assets/<uuid>/ with no
+    # extension. They are WebP; the uuid is kept as the filename so the
+    # mapping stays obvious if anybody compares the two sites.
+    for url in asset_urls:
+        uuid = url.strip('/').split('/')[-1]
+        try:
+            data = fetch(url)
+        except Exception as exc:                        # noqa: BLE001
+            print('   MISSING %s (%s)' % (url, exc))
+            continue
+        save('img/assets/%s.webp' % uuid, data)
+        url_map[url] = '/akt_website/static/src/img/assets/%s.webp' % uuid
 
-    write_own()
+    save('css/akt_odoo.css', AKT_CSS.encode('utf-8'))
+    save('js/akt_faq_filter.js', AKT_JS.encode('utf-8'))
 
-    with open(os.path.join(os.path.dirname(__file__), 'url_map.json'), 'w') as fh:
+    with open(os.path.join(HERE, 'url_map.json'), 'w') as fh:
         json.dump(url_map, fh, indent=1, sort_keys=True)
-    print('copied %d static files' % len(url_map))
-    for k, v in sorted(url_map.items())[:6]:
-        print('  ', k, '->', v)
+    print('fetched %d static files and %d media files'
+          % (len(seen), len(asset_urls)))
 
 
 if __name__ == '__main__':

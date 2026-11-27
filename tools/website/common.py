@@ -6,7 +6,8 @@ import re
 import htmlslice
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-MIRROR = '/home/ahmed-salah/Desktop/cluade/akt_site_mirror'
+MIRROR = os.environ.get('AKT_MIRROR',
+                        '/home/ahmed-salah/Desktop/cluade/akt_site_mirror2')
 MOD = '/home/ahmed-salah/Desktop/cluade/AKT/akt_website'
 
 URL_MAP = json.load(open(os.path.join(HERE, 'url_map.json')))

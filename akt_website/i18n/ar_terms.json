@@ -3,10 +3,9 @@
   "arch_db": {
    "<span aria-hidden=\"true\">←</span>": "<span aria-hidden=\"true\">→</span>",
    "<span aria-hidden=\"true\">→</span>": "<span aria-hidden=\"true\">←</span>",
-   "<span class=\"image-label\">Illustrative image</span>": "<span class=\"image-label\">صورة توضيحية</span>",
-   "<span class=\"muted small\">Illustrative images, not company projects</span>": "<span class=\"muted small\">صور توضيحية، وليست من مشروعات الشركة</span>",
-   "<span class=\"text-link\">Explore service ↗</span>": "<span class=\"text-link\">اكتشف الخدمة ↗</span>",
-   "<span>AKT GROUP</span><span>ENGINEERING · CONSTRUCTION · DEVELOPMENT</span>": "<span>AKT GROUP</span><span>هندسة · تنفيذ · تطوير</span>",
+   "<span class=\"eyebrow\">AKT GROUP</span>": "<span class=\"eyebrow\">أكت جروب</span>",
+   "<span class=\"eyebrow\">TECHNICAL OFFICE</span>": "<span class=\"eyebrow\">المكتب الفني</span>",
+   "<span class=\"gold-text\">AKT Group</span><br/>Built on trust. Delivered with care.": "<span class=\"gold-text\">AKT Group</span><br/>نبني بثقة، ونسلّم بإتقان",
    "<span>SAMPLE LOGO <bdi>01</bdi></span>": "<span>شعار تجريبي <bdi>01</bdi></span>",
    "<span>SAMPLE LOGO <bdi>02</bdi></span>": "<span>شعار تجريبي <bdi>02</bdi></span>",
    "<span>SAMPLE LOGO <bdi>03</bdi></span>": "<span>شعار تجريبي <bdi>03</bdi></span>",
@@ -17,22 +16,15 @@
    "<span>SAMPLE LOGO <bdi>08</bdi></span>": "<span>شعار تجريبي <bdi>08</bdi></span>",
    "A focus on safety needs and organised execution stages.": "الاهتمام بمتطلبات السلامة وتنظيم مراحل التنفيذ.",
    "A site visit or engineering call": "معاينة أو مكالمة هندسية",
-   "AKT GROUP": "أكت جروب",
    "AKT Group For General Contracting and Development is based on Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt. Its activities include general contracting, construction, real estate development and engineering projects.": "شركة أكت جروب للمقاولات العامة والتطوير العقاري، مقرها محافظة البحيرة، مدينة دمنهور، شارع عبد السلام الشاذلي. تعمل الشركة في المقاولات العامة والإنشاءات والتطوير العقاري والمشروعات الهندسية.",
    "AKT Group projects": "مشروعات أكت جروب",
-   "ARCHITECTURAL PERSPECTIVES": "مشاهد معمارية",
-   "About the company ↗": "تعرّف على الشركة ↗",
+   "About the company": "تعرّف على الشركة",
    "Administrative": "الإداري",
    "Administrative buildings and projects.": "المشروعات والمباني الإدارية.",
    "Administrative projects": "المشروعات الإدارية",
-   "All services ↗": "كل الخدمات ↗",
-   "Architecture in detail": "الهندسة في التفاصيل",
+   "All services": "كل الخدمات",
    "Ask about our track record ↗": "اسأل عن سابقة الأعمال ↗",
    "Attention to detail, work reviews and technical follow-up.": "الاهتمام بالتفاصيل ومراجعة الأعمال والمتابعة الفنية.",
-   "BOQ, shop drawings and technical coordination that support execution decisions.": "حساب كميات ورسومات تنفيذية وتنسيق فني يدعم قرارات التنفيذ.",
-   "Browse projects ↗": "عرض المشروعات ↗",
-   "Built on trust. Delivered with care.": "نبني بثقة، ونسلّم بإتقان",
-   "By phone on 01200006655 or WhatsApp on the same number, by email at elfakharany@akt-group.com, through the contact form, or by requesting a visit or call from the site.": "هاتفياً على 01200006655 أو واتساب على نفس الرقم، أو بالبريد elfakharany@akt-group.com، أو عبر نموذج التواصل، ويمكنك أيضاً طلب معاينة أو مكالمة من الموقع.",
    "CONNECTIONS WE VALUE": "علاقات نعتز بها",
    "Client and partner logos": "شعارات العملاء والشركاء",
    "Connecting design, execution needs and discipline coordination.": "ربط التصميم ومتطلبات التنفيذ وتنسيق التخصصات.",
@@ -41,101 +33,74 @@
    "Construction execution and coordination to the agreed project scope.": "تنفيذ وتنسيق الأعمال الإنشائية وفق نطاق المشروع ومتطلباته.",
    "Construction services for residential buildings and developments.": "الأعمال الإنشائية للمشروعات والمباني السكنية.",
    "Construction works for industrial facilities and buildings.": "تنفيذ الأعمال الإنشائية للمنشآت والمباني الصناعية.",
-   "Contact AKT Group ↗": "تواصل مع أكت جروب ↗",
+   "Contact AKT Group": "تواصل مع أكت جروب",
    "Contracting and construction work for government projects.": "أعمال المقاولات والإنشاءات للمشروعات الحكومية.",
    "Coordinating architectural, structural and electromechanical works before and during execution.": "تنسيق الأعمال المعمارية والإنشائية والكهروميكانيكية قبل وأثناء التنفيذ.",
-   "DIRECT ACCESS": "وصول مباشر",
    "Design preview only: sample marks, not real clients or partners. Replace with approved logos.": "معاينة تصميم فقط: شعارات تجريبية، وليست أسماء عملاء أو شركاء حقيقيين. تُستبدل بالشعارات المعتمدة.",
-   "Different sectors. One engineering focus.": "تخصصات متعددة، رؤية هندسية واحدة",
    "Discipline coordination": "التنسيق بين التخصصات",
-   "Does the company execute government projects?": "هل تنفذ الشركة مشروعات حكومية؟",
-   "Does the company offer technical-office services?": "هل تقدم الشركة خدمات المكتب الفني؟",
    "Engineering &amp; technical office": "الخدمات الهندسية والمكتب الفني",
    "Engineering and construction work for administrative buildings.": "تنفيذ الأعمال الهندسية والإنشائية للمباني الإدارية.",
    "Engineering consultancy": "الاستشارات الهندسية",
    "Engineering planning": "التخطيط الهندسي",
-   "Engineering services": "خدمات هندسية متكاملة",
-   "Explore our projects<span aria-hidden=\"true\">↗</span>": "اكتشف مشروعاتنا<span aria-hidden=\"true\">↗</span>",
-   "Explore the contracting and execution scope at AKT Group.": "تعرف على نطاق أعمال التنفيذ والمقاولات لدى أكت جروب.",
-   "Frequently asked questions": "الأسئلة الشائعة",
+   "Explore our projects": "اكتشف مشروعاتنا",
    "From engineering intent to built reality.": "من الفكرة الهندسية إلى واقع يُبنى.",
    "General contracting": "المقاولات العامة",
-   "General contracting &amp; project execution": "المقاولات العامة وتنفيذ المشروعات",
-   "General contracting, construction and real estate development, industrial, residential, administrative and government projects, plus engineering consultancy and technical-office services.": "المقاولات العامة، الإنشاءات والتطوير العقاري، المشروعات الصناعية والسكنية والإدارية والحكومية، إضافة إلى الاستشارات الهندسية وخدمات المكتب الفني.",
    "General contracting, real estate development and engineering projects.": "المقاولات العامة والتطوير العقاري والمشروعات الهندسية.",
    "Genuine reviews from clients and organizations the company has worked with appear here once management approves them, with no sample cards or placeholder names.": "تُعرض هنا تقييمات حقيقية من عملاء وجهات عملت معها الشركة فور اعتمادها من الإدارة، بلا نماذج تجريبية أو أسماء افتراضية.",
    "Government": "الحكومي",
    "Government buildings and projects.": "المشروعات والمنشآت الحكومية.",
    "Government projects": "المشروعات الحكومية",
-   "How can I contact the company?": "كيف يمكن التواصل مع الشركة؟",
-   "How can I request a quotation?": "كيف يمكن طلب عرض سعر؟",
-   "How can suppliers and subcontractors register?": "كيف يمكن تسجيل الموردين ومقاولي الباطن؟",
-   "Illustrative architectural footage, not AKT Group projects.": "لقطات معمارية توضيحية، وليست من مشروعات أكت جروب.",
-   "Illustrative architectural scene": "مشهد معماري توضيحي",
    "Illustrative architecture, not an AKT project": "صورة معمارية توضيحية، وليست من مشروعات الشركة",
    "Illustrative engineering stock, not AKT staff or projects": "صورة هندسية توضيحية، وليست من موظفي أو مشروعات الشركة",
-   "Illustrative modern residential architecture": "صورة معمارية توضيحية لمبنى سكني حديث",
    "Industrial": "صناعي",
    "Industrial buildings and facilities.": "المشروعات والمنشآت الصناعية.",
    "Industrial projects": "المشروعات الصناعية",
    "Integrated technical support, from quantity takeoff to shop drawings and payment certificates.": "دعم فني متكامل من حصر الكميات إلى الرسومات التنفيذية والمستخلصات.",
    "NEXT STEPS": "الخطوة التالية",
    "Next": "التالي",
-   "Next image": "الصورة التالية",
    "Next logos": "الشعارات التالية",
-   "OUR APPROACH": "منهج العمل",
-   "OUR SECTORS": "قطاعاتنا",
-   "OUR WORK": "أعمالنا",
    "Our clients and partners": "عملاؤنا وشركاؤنا",
-   "Our work covers general contracting, real estate development, residential, administrative and government projects, alongside technical-office and engineering consultancy services.": "نعمل في المقاولات العامة والتطوير العقاري والمشروعات السكنية والإدارية والحكومية، إلى جانب خدمات المكتب الفني والاستشارات الهندسية.",
-   "Pause slides": "إيقاف الصور",
+   "Our sectors": "قطاعات العمل",
+   "Our services": "خدماتنا",
    "Planning execution stages and tracking schedules and handover.": "تخطيط مراحل التنفيذ ومتابعة الجداول الزمنية والتسليم.",
    "Planning your next project?": "لديك مشروع جديد؟",
    "Play motion": "تشغيل الحركة",
-   "Play video": "تشغيل الفيديو",
    "Portfolio in preparation": "سابقة الأعمال قيد الإعداد",
    "Previous": "السابق",
-   "Previous image": "الصورة السابقة",
    "Previous logos": "الشعارات السابقة",
    "Project management": "إدارة المشروعات",
+   "Quality &amp; safety": "جودة وسلامة",
    "Quality and commitment": "الجودة والالتزام",
    "Quantity takeoffs, payment certificates, shop drawings and design reviews.": "حصر الكميات والمستخلصات والرسومات التنفيذية ومراجعة المخططات.",
    "Quantity takeoffs, payment certificates, shop drawings, bills of quantities, design reviews and technical coordination.": "حصر الكميات، المستخلصات، الرسومات التنفيذية، جداول الكميات، مراجعة المخططات والتنسيق الفني.",
    "REVIEWS WE VALUE": "آراء نعتز بها",
    "Ready for approved client reviews": "قسم جاهز لتقييمات العملاء المعتمدة",
    "Register your details ↗": "تسجيل البيانات ↗",
-   "Request a quotation": "طلب عرض سعر",
+   "Request a quotation": "اطلب عرض سعر",
    "Residential": "السكني",
    "Residential projects": "المشروعات السكنية",
    "Residential projects and real estate development.": "المشروعات السكنية والتطوير العقاري.",
    "Review of technical requirements and project engineering needs.": "مراجعة المتطلبات الفنية ومناقشة احتياجات المشروع الهندسية.",
-   "START A CONVERSATION": "ابدأ حديثاً هندسياً",
    "Safety and execution": "السلامة والتنفيذ",
+   "Sector: Administrative": "قطاع الإداري",
+   "Sector: Government": "قطاع الحكومي",
+   "Sector: Industrial": "قطاع صناعي",
+   "Sector: Residential": "قطاع السكني",
+   "Sectors": "القطاعات",
    "Send a request ↗": "إرسال طلب ↗",
    "Send the project type, required service and a brief description, and the team will contact you.": "أرسل نوع المشروع والخدمة المطلوبة ووصفاً مختصراً، وسيتواصل معك الفريق.",
    "Start a working conversation": "لنناقش فرصة العمل معاً",
-   "Start here": "ابدأ من هنا",
    "Suggest a time and share your needs. The time is not confirmed until the team contacts you.": "اقترح وقتاً مناسباً واشرح احتياجك. لا يتأكد الموعد إلا بالتواصل مع الفريق.",
    "Suppliers &amp; subcontractors": "الموردون ومقاولو الباطن",
-   "TECHNICAL OFFICE": "المكتب الفني",
-   "Talk to us": "تواصل معنا",
-   "Technical services that support execution decisions.": "خدمات فنية تدعم قرارات التنفيذ.",
+   "Technical office": "مكتب فني",
    "Technical-office services": "خدمات المكتب الفني",
-   "Technical-office services ↗": "خدمات المكتب الفني ↗",
-   "Tell us your specialty and work areas for review.": "عرّفنا بتخصصك ومناطق عملك للتعارف والمراجعة.",
    "Tell us your specialty and work areas. Registration is for review, not partner approval.": "عرّفنا بتخصصك ومناطق عملك. التسجيل للتعارف والمراجعة، وليس اعتماداً للشراكة.",
-   "The company offers its services to the government-projects sector, among the sectors listed on the site's Sectors page.": "تقدم الشركة خدماتها لقطاع المشروعات الحكومية ضمن القطاعات الموضحة في صفحة القطاعات بالموقع.",
    "The details shape the result.": "التفاصيل الدقيقة تصنع الفارق.",
-   "Through the site's Supplier &amp; subcontractor registration page; the company team reviews each application.": "عبر صفحة «تسجيل الموردين ومقاولي الباطن» في الموقع، وسيراجع فريق الشركة الطلب.",
-   "Through the site's quotation form: enter your details, project type and description, and the company team will contact you.": "من خلال نموذج «اطلب عرض سعر» في الموقع: سجّل بياناتك ونوع المشروع ووصفه، وسيتواصل معك فريق الشركة.",
-   "WHAT WE DO": "مجالات العمل",
    "We verify the details and photography of every project before publishing. Only approved projects appear here, with no stock imagery or undocumented work.": "نعتمد بيانات كل مشروع وصوره قبل نشرها. تُعرض هنا المشروعات المعتمدة فقط، بلا صور بديلة أو أعمال غير موثقة.",
-   "What services does AKT Group provide?": "ما الخدمات التي تقدمها AKT Group؟",
    "What they said about AKT": "ماذا قالوا عن أكت",
-   "Why AKT Group": "لماذا أكت جروب",
+   "What we do": "مجالات العمل",
    "Why AKT Group?": "لماذا أكت جروب؟",
-   "Yes. The technical office covers quantity surveying and BOQ schedules, progress-payment certificates, shop drawings, drawing review, cross-discipline coordination, and technical follow-up including specifications review and technical documentation and reports.": "نعم، يشمل المكتب الفني إعداد وحصر الكميات وجداول الكميات BOQ، إعداد المستخلصات، الرسومات التنفيذية Shop Drawings، مراجعة المخططات، التنسيق بين التخصصات، ومتابعة الأعمال الفنية ومراجعة المواصفات وإدارة الوثائق والتقارير الفنية.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "AKT Group | المقاولات والتطوير العقاري"
@@ -168,7 +133,7 @@
    "Instagram — Not added yet": "Instagram — لم تُضف بعد",
    "LinkedIn — Not added yet": "LinkedIn — لم تُضف بعد",
    "Main navigation": "القائمة الرئيسية",
-   "Menu<span>☰</span>": "القائمة<span>☰</span>",
+   "Menu<span aria-hidden=\"true\">☰</span>": "القائمة<span aria-hidden=\"true\">☰</span>",
    "Official account links are activated from the admin panel once approved.": "روابط الحسابات الرسمية تُفعّل من لوحة الإدارة فور اعتمادها.",
    "Portfolio": "سابقة الأعمال",
    "Privacy policy": "سياسة الخصوصية",
@@ -179,6 +144,7 @@
    "Residential projects": "المشروعات السكنية",
    "Services &amp; sectors": "الخدمات والقطاعات",
    "Skip to content": "انتقل للمحتوى",
+   "Start a project": "ابدأ مشروعك",
    "Supplier &amp; subcontractor registration": "تسجيل الموردين ومقاولي الباطن",
    "Technical office": "المكتب الفني",
    "Terms of use": "الشروط والأحكام",
@@ -210,7 +176,7 @@
    "Request type <span aria-hidden=\"true\">*</span>": "نوع الطلب <span aria-hidden=\"true\">*</span>",
    "Submit request ↗": "حفظ وإرسال الطلب ↗",
    "Suggest a preferred time. Confirmation requires contact from the team.": "اختر وقتاً مفضلاً، وسيتطلب تأكيده تواصلاً من الفريق.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "طلب معاينة أو مكالمة | المقاولات والتطوير العقاري"
@@ -221,7 +187,7 @@
    "Careers": "فرص العمل",
    "No current vacancies": "لا توجد وظائف متاحة حاليًا",
    "Only genuine content approved by company management is shown.": "تظهر المواد الفعلية التي اعتمدتها إدارة الشركة فقط.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "فرص العمل | المقاولات والتطوير العقاري"
@@ -246,109 +212,30 @@
    "Tax card": "البطاقة الضريبية",
    "The premium download button for the official company profile appears here. Download activates once the approved version is uploaded from the admin panel.": "زر التحميل الفاخر للملف التعريفي الرسمي يظهر هنا. يُفعَّل التحميل فور اعتماد النسخة الرسمية ورفعها من لوحة الإدارة.",
    "This section shows only the official documents company management approves for publishing, with preview or download according to publishing permissions, and without sensitive document numbers. The cards below show the document types this section supports - they are not issued certificates or accreditations.": "يعرض هذا القسم المستندات الرسمية التي توافق إدارة الشركة على نشرها فقط، مع إمكانية المعاينة أو التحميل حسب صلاحيات النشر، ودون عرض أرقام مستندات حساسة. البطاقات التالية توضح أنواع المستندات التي يدعمها القسم — ليست شهادات أو اعتمادات صادرة.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الشهادات والاعتمادات | المقاولات والتطوير العقاري"
  },
  "akt_website.page_company_faq": {
   "arch_db": {
-   "<select class=\"form-select\" id=\"feature-category\" name=\"category\"><option value=\"\">All categories</option><option value=\"general\">General questions</option></select>": "<select class=\"form-select\" id=\"feature-category\" name=\"category\"><option value=\"\">كل التصنيفات</option><option value=\"general\">أسئلة عامة</option></select>",
-   "By phone on 01200006655 or WhatsApp on the same number, by email at elfakharany@akt-group.com, through the contact form, or by requesting a visit or call from the site.": "هاتفياً على 01200006655 أو واتساب على نفس الرقم، أو بالبريد elfakharany@akt-group.com، أو عبر نموذج التواصل، ويمكنك أيضاً طلب معاينة أو مكالمة من الموقع.",
-   "Category": "التصنيف",
+   "Approved content appears here": "المحتوى المعتمد يظهر هنا",
    "Clear search": "مسح البحث",
-   "Does the company execute government projects?": "هل تنفذ الشركة مشروعات حكومية؟",
-   "Does the company offer technical-office services?": "هل تقدم الشركة خدمات المكتب الفني؟",
    "Frequently asked questions": "الأسئلة الشائعة",
-   "General contracting, construction and real estate development, industrial, residential, administrative and government projects, plus engineering consultancy and technical-office services.": "المقاولات العامة، الإنشاءات والتطوير العقاري، المشروعات الصناعية والسكنية والإدارية والحكومية، إضافة إلى الاستشارات الهندسية وخدمات المكتب الفني.",
-   "How can I contact the company?": "كيف يمكن التواصل مع الشركة؟",
-   "How can I request a quotation?": "كيف يمكن طلب عرض سعر؟",
-   "How can suppliers and subcontractors register?": "كيف يمكن تسجيل الموردين ومقاولي الباطن؟",
-   "Question link": "رابط السؤال",
+   "No matching published items. We do not present placeholder data or images as company activity.": "لا توجد نتائج منشورة مطابقة. لا نعرض بيانات أو صوراً افتراضية على أنها تخص الشركة.",
    "Search": "بحث",
    "Search questions": "ابحث في الأسئلة",
-   "The company offers its services to the government-projects sector, among the sectors listed on the site's Sectors page.": "تقدم الشركة خدماتها لقطاع المشروعات الحكومية ضمن القطاعات الموضحة في صفحة القطاعات بالموقع.",
-   "Through the site's Supplier &amp; subcontractor registration page; the company team reviews each application.": "عبر صفحة «تسجيل الموردين ومقاولي الباطن» في الموقع، وسيراجع فريق الشركة الطلب.",
-   "Through the site's quotation form: enter your details, project type and description, and the company team will contact you.": "من خلال نموذج «اطلب عرض سعر» في الموقع: سجّل بياناتك ونوع المشروع ووصفه، وسيتواصل معك فريق الشركة.",
-   "What services does AKT Group provide?": "ما الخدمات التي تقدمها AKT Group؟",
-   "Yes. The technical office covers quantity surveying and BOQ schedules, progress-payment certificates, shop drawings, drawing review, cross-discipline coordination, and technical follow-up including specifications review and technical documentation and reports.": "نعم، يشمل المكتب الفني إعداد وحصر الكميات وجداول الكميات BOQ، إعداد المستخلصات، الرسومات التنفيذية Shop Drawings، مراجعة المخططات، التنسيق بين التخصصات، ومتابعة الأعمال الفنية ومراجعة المواصفات وإدارة الوثائق والتقارير الفنية.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الأسئلة الشائعة | المقاولات والتطوير العقاري"
- },
- "akt_website.page_company_faq_faq_1": {
-  "arch_db": {
-   "All entries ↗": "كل العناصر ↗",
-   "General contracting, construction and real estate development, industrial, residential, administrative and government projects, plus engineering consultancy and technical-office services.": "المقاولات العامة، الإنشاءات والتطوير العقاري، المشروعات الصناعية والسكنية والإدارية والحكومية، إضافة إلى الاستشارات الهندسية وخدمات المكتب الفني.",
-   "Share": "مشاركة",
-   "What services does AKT Group provide?": "ما الخدمات التي تقدمها AKT Group؟",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
-  },
-  "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
-  "website_meta_title": "ما الخدمات التي تقدمها AKT Group؟ | المقاولات والتطوير العقاري"
- },
- "akt_website.page_company_faq_faq_2": {
-  "arch_db": {
-   "All entries ↗": "كل العناصر ↗",
-   "Does the company execute government projects?": "هل تنفذ الشركة مشروعات حكومية؟",
-   "Share": "مشاركة",
-   "The company offers its services to the government-projects sector, among the sectors listed on the site's Sectors page.": "تقدم الشركة خدماتها لقطاع المشروعات الحكومية ضمن القطاعات الموضحة في صفحة القطاعات بالموقع.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
-  },
-  "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
-  "website_meta_title": "هل تنفذ الشركة مشروعات حكومية؟ | المقاولات والتطوير العقاري"
- },
- "akt_website.page_company_faq_faq_3": {
-  "arch_db": {
-   "All entries ↗": "كل العناصر ↗",
-   "How can I request a quotation?": "كيف يمكن طلب عرض سعر؟",
-   "Share": "مشاركة",
-   "Through the site's quotation form: enter your details, project type and description, and the company team will contact you.": "من خلال نموذج «اطلب عرض سعر» في الموقع: سجّل بياناتك ونوع المشروع ووصفه، وسيتواصل معك فريق الشركة.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
-  },
-  "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
-  "website_meta_title": "كيف يمكن طلب عرض سعر؟ | المقاولات والتطوير العقاري"
- },
- "akt_website.page_company_faq_faq_4": {
-  "arch_db": {
-   "All entries ↗": "كل العناصر ↗",
-   "Does the company offer technical-office services?": "هل تقدم الشركة خدمات المكتب الفني؟",
-   "Share": "مشاركة",
-   "Yes. The technical office covers quantity surveying and BOQ schedules, progress-payment certificates, shop drawings, drawing review, cross-discipline coordination, and technical follow-up including specifications review and technical documentation and reports.": "نعم، يشمل المكتب الفني إعداد وحصر الكميات وجداول الكميات BOQ، إعداد المستخلصات، الرسومات التنفيذية Shop Drawings، مراجعة المخططات، التنسيق بين التخصصات، ومتابعة الأعمال الفنية ومراجعة المواصفات وإدارة الوثائق والتقارير الفنية.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
-  },
-  "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
-  "website_meta_title": "هل تقدم الشركة خدمات المكتب الفني؟ | المقاولات والتطوير العقاري"
- },
- "akt_website.page_company_faq_faq_5": {
-  "arch_db": {
-   "All entries ↗": "كل العناصر ↗",
-   "How can suppliers and subcontractors register?": "كيف يمكن تسجيل الموردين ومقاولي الباطن؟",
-   "Share": "مشاركة",
-   "Through the site's Supplier &amp; subcontractor registration page; the company team reviews each application.": "عبر صفحة «تسجيل الموردين ومقاولي الباطن» في الموقع، وسيراجع فريق الشركة الطلب.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
-  },
-  "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
-  "website_meta_title": "كيف يمكن تسجيل الموردين ومقاولي الباطن؟ | المقاولات والتطوير العقاري"
- },
- "akt_website.page_company_faq_faq_6": {
-  "arch_db": {
-   "All entries ↗": "كل العناصر ↗",
-   "By phone on 01200006655 or WhatsApp on the same number, by email at elfakharany@akt-group.com, through the contact form, or by requesting a visit or call from the site.": "هاتفياً على 01200006655 أو واتساب على نفس الرقم، أو بالبريد elfakharany@akt-group.com، أو عبر نموذج التواصل، ويمكنك أيضاً طلب معاينة أو مكالمة من الموقع.",
-   "How can I contact the company?": "كيف يمكن التواصل مع الشركة؟",
-   "Share": "مشاركة",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
-  },
-  "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
-  "website_meta_title": "كيف يمكن التواصل مع الشركة؟ | المقاولات والتطوير العقاري"
  },
  "akt_website.page_company_news": {
   "arch_db": {
    "For general and press enquiries ↗": "للاستفسارات العامة والصحفية ↗",
    "News and events": "الأخبار والفعاليات",
    "There is no published news at the moment": "لا توجد أخبار منشورة حاليًا",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الأخبار والفعاليات | المقاولات والتطوير العقاري"
@@ -375,7 +262,7 @@
    "Our clients and partners": "عملاؤنا وشركاؤنا",
    "Play motion": "تشغيل الحركة",
    "Previous logos": "الشعارات السابقة",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "العملاء والشركاء | المقاولات والتطوير العقاري"
@@ -385,7 +272,7 @@
    "Approved content appears here": "المحتوى المعتمد يظهر هنا",
    "No matching published items. We do not present placeholder data or images as company activity.": "لا توجد نتائج منشورة مطابقة. لا نعرض بيانات أو صوراً افتراضية على أنها تخص الشركة.",
    "Sustainability and community": "الاستدامة والمجتمع",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الاستدامة والمجتمع | المقاولات والتطوير العقاري"
@@ -395,7 +282,7 @@
    "Approved content appears here": "المحتوى المعتمد يظهر هنا",
    "No matching published items. We do not present placeholder data or images as company activity.": "لا توجد نتائج منشورة مطابقة. لا نعرض بيانات أو صوراً افتراضية على أنها تخص الشركة.",
    "Team and leadership": "الفريق والقيادات",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الفريق والقيادات | المقاولات والتطوير العقاري"
@@ -407,7 +294,7 @@
    "No matching published items. We do not present placeholder data or images as company activity.": "لا توجد نتائج منشورة مطابقة. لا نعرض بيانات أو صوراً افتراضية على أنها تخص الشركة.",
    "Register as a supplier or subcontractor ↗": "سجّل كمورد أو مقاول باطن ↗",
    "Tenders and cooperation": "المناقصات والتعاون",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "المناقصات والتعاون | المقاولات والتطوير العقاري"
@@ -417,7 +304,7 @@
    "Approved content appears here": "المحتوى المعتمد يظهر هنا",
    "No matching published items. We do not present placeholder data or images as company activity.": "لا توجد نتائج منشورة مطابقة. لا نعرض بيانات أو صوراً افتراضية على أنها تخص الشركة.",
    "What they said about AKT": "ماذا قالوا عن أكت",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "ماذا قالوا عن أكت | المقاولات والتطوير العقاري"
@@ -445,7 +332,7 @@
    "Tell us what your project needs and submit an enquiry to the company.": "أخبرنا عن متطلباتك، وسجل طلبك لدى فريق الشركة.",
    "Your enquiry is saved in the company system. This form does not automatically send an email.": "يُحفظ الطلب في نظام الشركة. لا يُرسل بريد تلقائي من هذا النموذج.",
    "Your request <span aria-hidden=\"true\">*</span>": "تفاصيل الطلب <span aria-hidden=\"true\">*</span>",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "تواصل معنا | المقاولات والتطوير العقاري"
@@ -457,7 +344,7 @@
    "Contact us": "تواصل معنا",
    "Illustrative architecture, not an AKT project": "صورة معمارية توضيحية، وليست من مشروعات الشركة",
    "Illustrative image": "صورة توضيحية",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "من نحن | المقاولات والتطوير العقاري"
@@ -488,7 +375,7 @@
    "Submit enquiry ↗": "إرسال الطلب ↗",
    "Your enquiry is saved in the company system. This form does not automatically send an email.": "يُحفظ الطلب في نظام الشركة. لا يُرسل بريد تلقائي من هذا النموذج.",
    "Your request <span aria-hidden=\"true\">*</span>": "تفاصيل الطلب <span aria-hidden=\"true\">*</span>",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الاستشارات الهندسية | المقاولات والتطوير العقاري"
@@ -519,7 +406,7 @@
    "Technical-office enquiry": "طلب للمكتب الفني",
    "Your enquiry is saved in the company system. This form does not automatically send an email.": "يُحفظ الطلب في نظام الشركة. لا يُرسل بريد تلقائي من هذا النموذج.",
    "Your request <span aria-hidden=\"true\">*</span>": "تفاصيل الطلب <span aria-hidden=\"true\">*</span>",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "المكتب الفني | المقاولات والتطوير العقاري"
@@ -549,7 +436,7 @@
    "Trade, materials or services <span aria-hidden=\"true\">*</span>": "التخصص أو المواد والخدمات <span aria-hidden=\"true\">*</span>",
    "Work areas <span aria-hidden=\"true\">*</span>": "مناطق العمل <span aria-hidden=\"true\">*</span>",
    "Your specialty and work areas": "تخصصك ومناطق عملك",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "تسجيل الموردين ومقاولي الباطن | المقاولات والتطوير العقاري"
@@ -570,7 +457,7 @@
    "Our portfolio": "سابقة الأعمال",
    "Project name appears here": "اسم المشروع يظهر هنا",
    "The cards below sample how approved projects will be presented: they are not executed projects or company work photos. They are replaced automatically once approved projects are published from the admin panel.": "البطاقات التالية نموذج لطريقة عرض المشروعات بعد اعتماد بياناتها: ليست مشروعات منفذة ولا صوراً من أعمال الشركة. تُستبدل تلقائياً بالمشروعات المعتمدة فور نشرها من لوحة الإدارة.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "سابقة الأعمال | المقاولات والتطوير العقاري"
@@ -601,7 +488,7 @@
    "We use the data to respond to your enquiry, review your quotation or visit request, evaluate supplier and subcontractor registrations, and review job applications and CVs. We do not use your data for any other purpose without notifying you.": "نستخدم البيانات للرد على استفسارك، ومراجعة طلب عرض السعر أو المعاينة، وتقييم طلبات التسجيل كمورد أو مقاول باطن، ومراجعة طلبات التوظيف والسير الذاتية. لا نستخدم بياناتك لأي غرض آخر دون إخطارك.",
    "You can ask to view, correct or delete your data by contacting us through the contact details shown on the website.": "يمكنك طلب الاطلاع على بياناتك أو تصحيحها أو حذفها بالتواصل معنا عبر بيانات الاتصال الموضحة في الموقع.",
    "Your rights": "حقوقك",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "كيف يجمع موقع أكت جروب البيانات المرسلة عبر نماذجه ويستخدمها ويحميها.",
   "website_meta_title": "سياسة الخصوصية | المقاولات والتطوير العقاري"
@@ -634,7 +521,7 @@
    "Search": "بحث",
    "The cards below sample how approved projects will be presented: they are not executed projects or company work photos. They are replaced automatically once approved projects are published from the admin panel.": "البطاقات التالية نموذج لطريقة عرض المشروعات بعد اعتماد بياناتها: ليست مشروعات منفذة ولا صوراً من أعمال الشركة. تُستبدل تلقائياً بالمشروعات المعتمدة فور نشرها من لوحة الإدارة.",
    "We verify the details and photography of every project before publishing. Only approved projects appear here, with no stock imagery or undocumented work.": "نعتمد بيانات كل مشروع وصوره قبل نشرها. تُعرض هنا المشروعات المعتمدة فقط، بلا صور بديلة أو أعمال غير موثقة.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "المشروعات | المقاولات والتطوير العقاري"
@@ -691,7 +578,7 @@
    "Submitting does not generate an automatic price or commit you to a contract or payment. Do not include payment details or confidential documents.": "إرسال النموذج لا ينتج سعراً تلقائياً ولا يلزمك بتعاقد أو دفع. لا ترفق بيانات مالية أو مستندات سرية في الوصف.",
    "The company team reviews the information.": "مراجعة المعلومات بواسطة فريق الشركة.",
    "Your project brief": "تفاصيل الطلب",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "طلب عرض سعر | المقاولات والتطوير العقاري"
@@ -710,7 +597,7 @@
    "Our sectors": "قطاعات العمل",
    "Residential": "السكني",
    "Residential projects and real estate development.": "المشروعات السكنية والتطوير العقاري.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "القطاعات | المقاولات والتطوير العقاري"
@@ -724,7 +611,7 @@
    "Illustrative architectural image": "صورة معمارية توضيحية",
    "Illustrative architecture, not an AKT project": "صورة معمارية توضيحية، وليست من مشروعات الشركة",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الإداري | المقاولات والتطوير العقاري"
@@ -738,7 +625,7 @@
    "Illustrative architectural image": "صورة معمارية توضيحية",
    "Illustrative engineering stock, not AKT staff or projects": "صورة هندسية توضيحية، وليست من موظفي أو مشروعات الشركة",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الحكومي | المقاولات والتطوير العقاري"
@@ -752,7 +639,7 @@
    "Industrial": "صناعي",
    "Industrial buildings and facilities.": "المشروعات والمنشآت الصناعية.",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "صناعي | المقاولات والتطوير العقاري"
@@ -766,7 +653,7 @@
    "Residential": "السكني",
    "Residential projects and real estate development.": "المشروعات السكنية والتطوير العقاري.",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "السكني | المقاولات والتطوير العقاري"
@@ -793,7 +680,7 @@
    "Residential projects": "المشروعات السكنية",
    "Review of technical requirements and project engineering needs.": "مراجعة المتطلبات الفنية ومناقشة احتياجات المشروع الهندسية.",
    "Technical-office services": "خدمات المكتب الفني",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الخدمات | المقاولات والتطوير العقاري"
@@ -808,7 +695,7 @@
    "Illustrative architecture, not an AKT project": "صورة معمارية توضيحية، وليست من مشروعات الشركة",
    "Request a quotation for this service ↗": "اطلب عرض سعر لهذه الخدمة ↗",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "المشروعات الإدارية | المقاولات والتطوير العقاري"
@@ -823,7 +710,7 @@
    "Illustrative engineering stock, not AKT staff or projects": "صورة هندسية توضيحية، وليست من موظفي أو مشروعات الشركة",
    "Request a quotation for this service ↗": "اطلب عرض سعر لهذه الخدمة ↗",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الإنشاءات والتطوير العقاري | المقاولات والتطوير العقاري"
@@ -838,7 +725,7 @@
    "Request a quotation for this service ↗": "اطلب عرض سعر لهذه الخدمة ↗",
    "Review of technical requirements and project engineering needs.": "مراجعة المتطلبات الفنية ومناقشة احتياجات المشروع الهندسية.",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "الاستشارات الهندسية | المقاولات والتطوير العقاري"
@@ -853,7 +740,7 @@
    "Illustrative engineering stock, not AKT staff or projects": "صورة هندسية توضيحية، وليست من موظفي أو مشروعات الشركة",
    "Request a quotation for this service ↗": "اطلب عرض سعر لهذه الخدمة ↗",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "المقاولات العامة | المقاولات والتطوير العقاري"
@@ -868,7 +755,7 @@
    "Illustrative engineering stock, not AKT staff or projects": "صورة هندسية توضيحية، وليست من موظفي أو مشروعات الشركة",
    "Request a quotation for this service ↗": "اطلب عرض سعر لهذه الخدمة ↗",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "المشروعات الحكومية | المقاولات والتطوير العقاري"
@@ -883,7 +770,7 @@
    "Industrial projects": "المشروعات الصناعية",
    "Request a quotation for this service ↗": "اطلب عرض سعر لهذه الخدمة ↗",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "المشروعات الصناعية | المقاولات والتطوير العقاري"
@@ -898,7 +785,7 @@
    "Request a quotation for this service ↗": "اطلب عرض سعر لهذه الخدمة ↗",
    "Residential projects": "المشروعات السكنية",
    "Send an enquiry": "اطلب التواصل",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "المشروعات السكنية | المقاولات والتطوير العقاري"
@@ -913,7 +800,7 @@
    "Request a quotation for this service ↗": "اطلب عرض سعر لهذه الخدمة ↗",
    "Send an enquiry": "اطلب التواصل",
    "Technical-office services": "خدمات المكتب الفني",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "خدمات المكتب الفني | المقاولات والتطوير العقاري"
@@ -938,7 +825,7 @@
    "Updates to these terms": "تحديث هذه الشروط",
    "We may update this page when needed. Last updated: November 2026.": "قد نحدّث هذه الصفحة عند الحاجة. آخر تحديث: نوفمبر 2026.",
    "We work to keep content accurate and up to date, and data may change without prior notice. Illustrative architectural images used on the website do not represent company projects.": "نسعى لدقة المحتوى وتحديثه، وقد تتغير البيانات دون إشعار مسبق. الصور المعمارية التوضيحية المستخدمة في الموقع لا تمثل مشروعات الشركة.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "شروط استخدام موقع أكت جروب ونماذجه.",
   "website_meta_title": "الشروط والأحكام | المقاولات والتطوير العقاري"
@@ -948,7 +835,7 @@
    "Only genuine content approved by company management is shown.": "تظهر المواد الفعلية التي اعتمدتها إدارة الشركة فقط.",
    "Project updates": "مستجدات المشروعات",
    "There are no approved project updates at present.": "لا توجد مستجدات معتمدة للنشر حالياً.",
-   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://akt-preview-production.up.railway.app\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
+   "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"AKT Group For General Contracting and Development\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt\"}}": "{\"@context\": \"https://schema.org\", \"@type\": [\"Organization\", \"LocalBusiness\"], \"name\": \"شركة أكت جروب للمقاولات العامة والتطوير العقاري\", \"url\": \"https://aktgroup.pythonanywhere.com\", \"telephone\": \"01200006655\", \"email\": \"elfakharany@akt-group.com\", \"address\": {\"@type\": \"PostalAddress\", \"streetAddress\": \"محافظة البحيرة - مدينة دمنهور - شارع عبد السلام الشاذلي - مصر\"}}"
   },
   "website_meta_description": "أكت جروب للمقاولات العامة والتطوير العقاري والمشروعات الهندسية. دمنهور، البحيرة، مصر.",
   "website_meta_title": "مستجدات المشروعات | المقاولات والتطوير العقاري"

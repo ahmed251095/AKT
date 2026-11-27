@@ -77,25 +77,48 @@ from .hooks import post_init
 # Mirroring turned direction:ltr into direction:rtl and put the hero caption
 # back to front. rtlcss can be told to skip a block, but Odoo strips CSS
 # comments before handing the bundle over, so the instruction never arrives.
-CSS = ['vendor/bootstrap.rtl.min.css', 'vendor/swiper-bundle.min.css',
-       'vendor/leaflet/leaflet.css', 'css/site.css',
-       'css/enhancements.css', 'css/partners.css', 'css/akt_odoo.css']
+#
+# Both lists are read off the mirrored pages rather than written out here,
+# so that a change of theme - the look is a theme laid over the base sheets -
+# is picked up by re-running the generator instead of being missed.
+_CSS_RE = re.compile(r'<link rel="stylesheet" href="([^"]+)"')
+_JS_RE = re.compile(r'<script src="([^"]+)"')
 
-JS = ['vendor/gsap.min.js', 'vendor/swiper-bundle.min.js',
-      'vendor/leaflet/leaflet.js', 'js/site.js', 'js/enhancements.js',
-      'js/partners.js', 'js/akt_faq_filter.js']
+
+def _page_assets(pattern, lang):
+    """The longest asset list any page of a language carries, in its order.
+
+    Most pages share one list; the three with a map add Leaflet part-way
+    through it. Taking the longest keeps both the extra file and its place.
+    """
+    best = ()
+    for _url, path in common.pages(lang):
+        found = tuple(pattern.findall(open(path, encoding='utf-8').read()))
+        if len(found) > len(best):
+            best = found
+    return [common.URL_MAP.get(u, u) for u in best]
+
+
+def css_files(lang):
+    # akt_odoo.css is the Odoo build's own, and goes last so it wins.
+    return _page_assets(_CSS_RE, lang) + ['/akt_website/static/src/css/akt_odoo.css']
+
+
+def js_files(lang='en'):
+    return _page_assets(_JS_RE, lang) + ['/akt_website/static/src/js/akt_faq_filter.js']
 
 
 def assets_xml():
     rows = []
-    for i, f in enumerate(JS):
+    for i, f in enumerate(js_files()):
         rows.append('''\
   <record id="asset_%(key)s" model="ir.asset">
     <field name="name">AKT %(f)s</field>
     <field name="bundle">web.assets_frontend</field>
-    <field name="path">akt_website/static/src/%(f)s</field>
+    <field name="path">%(f)s</field>
     <field name="sequence">%(seq)d</field>
-  </record>''' % {'key': re.sub(r'\W', '_', f), 'f': f, 'seq': 20 + i})
+  </record>''' % {'key': re.sub(r'\W', '_', f.rsplit('/src/', 1)[-1]),
+                  'f': f.lstrip('/'), 'seq': 20 + i})
     note = '''\
   <!--
     The site's scripts, at the end of Odoo's frontend bundle and in the order
@@ -249,9 +272,25 @@ def layout_children(lang):
   </template>
 ''' % {'header': header, 'footer': footer, 'float': flt,
        'skip': skip, 'back': back,
-       'css': '\n'.join(
-           '      <link rel="stylesheet" href="/akt_website/static/src/%s"/>' % f
-           for f in CSS)}
+       'css': _css_block()}
+
+
+def _css_block():
+    """The stylesheet links, which are not the same in both languages.
+
+    The Arabic pages load the RTL build of bootstrap and the English pages
+    the ordinary one, so the two lists are emitted whole behind a test on
+    the language's direction rather than diffed into a single list.
+    """
+    def links(lang, indent):
+        return '\n'.join('%s<link rel="stylesheet" href="%s"/>' % (indent, f)
+                         for f in css_files(lang))
+    return (
+        '      <t t-set="akt_rtl" t-value="request.env[\'res.lang\']'
+        '._get_data(code=lang).direction == \'rtl\'"/>\n'
+        '      <t t-if="akt_rtl">\n%s\n      </t>\n'
+        '      <t t-else="">\n%s\n      </t>'
+        % (links('ar', ' ' * 8), links('en', ' ' * 8)))
 
 
 def layout_xml():

@@ -4,20 +4,26 @@ The module is generated from a local mirror of the site it reproduces, so
 that a change there can be carried over by re-running these scripts rather
 than by hand-editing eighty-four pages.
 
-Take the mirror first (wget stops at the site's `nofollow` robots tag unless
-told otherwise):
+Take the mirror of the rendered pages first (wget stops at the site's
+`nofollow` robots tag unless told otherwise):
 
     wget -e robots=off --mirror --page-requisites --adjust-extension \
          --no-host-directories --reject-regex '/management/' \
-         --domains akt-preview-production.up.railway.app \
-         https://akt-preview-production.up.railway.app/ar/ \
-         https://akt-preview-production.up.railway.app/en/
+         --domains aktgroup.pythonanywhere.com \
+         https://aktgroup.pythonanywhere.com/ar/ \
+         https://aktgroup.pythonanywhere.com/en/
 
-`MIRROR` at the top of `common.py` and `build_static.py` points at it.
+Set `AKT_MIRROR` to where it landed and `AKT_BASE` to the site it came from;
+both default to the pythonanywhere build. Only the HTML is read from the
+mirror. The static files are fetched from the site by the URLs the pages
+ask for, because wget renames whatever the server labels oddly - it saved
+`hero-poster.webp` as `hero-poster.webp.html` - and because the theme files
+are assembled by collectstatic and do not exist under `static/` in the
+source tree.
 
 Then, in order:
 
-    python3 build_static.py    # static files, de-hashed, plus the url map
+    python3 build_static.py    # fetch the static files, de-hashed, + url map
     python3 build_module.py    # manifest, assets, menus, layout, pages
     python3 build_terms.py     # i18n/ar_terms.json  (needs odoo importable)
     python3 build_po.py        # i18n/ar.po
@@ -39,6 +45,6 @@ With the module installed on a local database serving on port 8169:
     python3 test_forms.py      # the four forms, and three rejections
     python3 test_upload.py     # a form post carrying attachments
 
-`compare_both.py` should report 42 identical English pages and 41 Arabic.
+`compare_both.py` should report 36 identical English pages and 35 Arabic.
 The one that differs is `/company/credentials`; see the note in
 `build_terms.py` about a term that needs two translations in one view.
