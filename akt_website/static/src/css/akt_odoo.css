@@ -1,4 +1,16 @@
-/* What the Odoo build adds to the site: the result of a form post. */
+/* What the Odoo build adds to the site. */
+
+/* Odoo styles its own page header as `header#top { z-index: 1030 }`. The
+   site's hero is also a <header id="top"> - that id is the anchor the
+   back-to-top button points at - so Odoo's rule lifts the hero above the
+   site header, and the "More about AKT" panel opens behind the hero image
+   instead of over it. The hero needs no stacking order of its own: it
+   isolates itself, so its own ::after overlay still sits where it should. */
+main header#top {
+  z-index: auto;
+}
+
+/* The result of a form post. */
 .akt-form-result {
   border-radius: 10px;
   padding: 14px 16px;
