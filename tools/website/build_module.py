@@ -233,14 +233,25 @@ def layout_children(lang):
 
     # One link to the other language, labelled with its own code, the way the
     # preview site does it. url_localized keeps the visitor on the same page.
+    # The switch posts the visitor through Odoo's own language route.
+    #
+    # A plain link cannot do it. Odoo strips the prefix of the default
+    # language from every href it renders, so a link to /ar/services comes
+    # out as /services - and arriving there with a frontend_lang cookie that
+    # still says English sends the visitor straight back to /en/services.
+    # Switching to Arabic appeared to do nothing at all.
+    #
+    # /website/lang/<url_code>?r=<path> sets the cookie and then redirects,
+    # and is declared multilang=False so Odoo leaves the href alone. The
+    # js_change_lang class is deliberately absent: its handler wraps an
+    # href in this very route, and would wrap this one a second time.
     qweb_lang = '''<t t-set="akt_switch_labels" t-value="{'ar': 'عربي', 'en': 'EN'}"/>
       <t t-foreach="frontend_languages.values()" t-as="akt_lg">
         <t t-if="akt_lg.code != lang">
-          <t t-set="akt_path" t-value="main_object.url if main_object and 'url' in main_object._fields and main_object.url != '/' else ''"/>
-          <a class="language-switch js_change_lang"
+          <t t-set="akt_path" t-value="main_object.url if main_object and 'url' in main_object._fields and main_object.url else '/'"/>
+          <a class="language-switch"
              t-att-lang="akt_lg.url_code"
-             t-att-data-url_code="akt_lg.url_code"
-             t-attf-href="/#{akt_lg.url_code}#{akt_path}"
+             t-attf-href="/website/lang/#{akt_lg.url_code}?r=#{akt_path}"
              t-out="akt_switch_labels.get(akt_lg.url_code, akt_lg.url_code.upper())"/>
         </t>
       </t>'''

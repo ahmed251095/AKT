@@ -21,11 +21,10 @@
       </nav><t t-set="akt_switch_labels" t-value="{'ar': 'عربي', 'en': 'EN'}"/>
       <t t-foreach="frontend_languages.values()" t-as="akt_lg">
         <t t-if="akt_lg.code != lang">
-          <t t-set="akt_path" t-value="main_object.url if main_object and 'url' in main_object._fields and main_object.url != '/' else ''"/>
-          <a class="language-switch js_change_lang"
+          <t t-set="akt_path" t-value="main_object.url if main_object and 'url' in main_object._fields and main_object.url else '/'"/>
+          <a class="language-switch"
              t-att-lang="akt_lg.url_code"
-             t-att-data-url_code="akt_lg.url_code"
-             t-attf-href="/#{akt_lg.url_code}#{akt_path}"
+             t-attf-href="/website/lang/#{akt_lg.url_code}?r=#{akt_path}"
              t-out="akt_switch_labels.get(akt_lg.url_code, akt_lg.url_code.upper())"/>
         </t>
       </t><a class="akt-btn header-cta" href="/quotation">Start a project</a></div></header></xpath>
