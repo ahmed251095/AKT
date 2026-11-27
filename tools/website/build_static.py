@@ -101,6 +101,21 @@ def referenced():
 # written here so that wiping static/ and regenerating cannot lose them.
 AKT_CSS = """/* What the Odoo build adds to the site. */
 
+/* Take the writing direction from the attribute Odoo puts on <html>.
+   Odoo's frontend stylesheet is mirrored for a right-to-left language by
+   rtlcss, a node tool it shells out to; when that tool is not installed
+   Odoo logs a warning and stores the stylesheet unmirrored anyway, under
+   the .rtl name. The sheet then sets `body { direction: ltr }` on an
+   Arabic page, and the whole site lays itself out left-to-right with the
+   logo on the wrong side - while <html dir="rtl"> says otherwise.
+
+   The site brings its own right-to-left bootstrap and writes its own rules
+   with logical properties, so it does not need Odoo's mirroring; it only
+   needs the direction not to be taken away from it. Installing rtlcss on
+   the server is still worth doing, for Odoo's own screens. */
+html[dir="rtl"] body { direction: rtl; }
+html[dir="ltr"] body { direction: ltr; }
+
 /* Odoo styles its own page header as `header#top { z-index: 1030 }`. The
    site's hero is also a <header id="top"> - that id is the anchor the
    back-to-top button points at - so Odoo's rule lifts the hero above the

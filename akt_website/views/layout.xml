@@ -52,7 +52,7 @@
         <link rel="stylesheet" href="/akt_website/static/src/themes/shared/dark.css?v=3aae62b58f0b"/>
         <link rel="stylesheet" href="/akt_website/static/src/themes/goldglow/theme.css?v=c21be2cbe4dc"/>
         <link rel="stylesheet" href="/akt_website/static/src/vendor/leaflet/leaflet.css?v=86db716e0ae2"/>
-        <link rel="stylesheet" href="/akt_website/static/src/css/akt_odoo.css?v=757e5bcf50b0"/>
+        <link rel="stylesheet" href="/akt_website/static/src/css/akt_odoo.css?v=35f956bc17a3"/>
       </t>
       <t t-else="">
         <link rel="stylesheet" href="/akt_website/static/src/vendor/bootstrap.min.css?v=47bdf7fee9f3"/>
@@ -63,7 +63,7 @@
         <link rel="stylesheet" href="/akt_website/static/src/themes/shared/dark.css?v=3aae62b58f0b"/>
         <link rel="stylesheet" href="/akt_website/static/src/themes/goldglow/theme.css?v=c21be2cbe4dc"/>
         <link rel="stylesheet" href="/akt_website/static/src/vendor/leaflet/leaflet.css?v=86db716e0ae2"/>
-        <link rel="stylesheet" href="/akt_website/static/src/css/akt_odoo.css?v=757e5bcf50b0"/>
+        <link rel="stylesheet" href="/akt_website/static/src/css/akt_odoo.css?v=35f956bc17a3"/>
       </t>
       <meta name="theme-color" content="#0a1d37"/>
       <link rel="preload" as="image" fetchpriority="high"
