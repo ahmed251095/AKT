@@ -15,6 +15,24 @@
 html[dir="rtl"] body { direction: rtl; }
 html[dir="ltr"] body { direction: ltr; }
 
+/* Drop the clearfix Odoo still puts on .container.
+
+   Odoo's stylesheet carries the old Bootstrap clearfix:
+   `.container::before, .container::after { content: ""; display: table }`.
+   Harmless where a container holds floats - but this site puts `container`
+   on elements that are CSS grids and flex rows, and a pseudo-element of a
+   grid or flex container is an item in it. Two empty boxes then take the
+   first and last cells: on the About page the image was pushed into the
+   second column and the text onto a row of its own, which read as half the
+   page having gone blank. The header and the footer are built the same way,
+   on every page.
+
+   Scoped to #wrapwrap so Odoo's own screens keep their clearfix. */
+#wrapwrap .container::before,
+#wrapwrap .container::after {
+  content: none;
+}
+
 /* Odoo styles its own page header as `header#top { z-index: 1030 }`. The
    site's hero is also a <header id="top"> - that id is the anchor the
    back-to-top button points at - so Odoo's rule lifts the hero above the
