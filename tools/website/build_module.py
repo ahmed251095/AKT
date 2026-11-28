@@ -255,6 +255,15 @@ def layout_children(lang):
              t-attf-href="/website/lang/#{akt_lg.url_code}?r=#{akt_path}"
              t-out="akt_switch_labels.get(akt_lg.url_code, akt_lg.url_code.upper())"/>
         </t>
+      </t>
+      <!-- The way in to Odoo. A visitor is offered the login page; someone
+           already signed in gets their own name, linking to the backend,
+           rather than an invitation to log in again. -->
+      <t t-if="request.env.user._is_public()">
+        <a class="akt-login" href="/web/login">Log in</a>
+      </t>
+      <t t-else="">
+        <a class="akt-login" href="/odoo" t-out="request.env.user.name"/>
       </t>'''
 
     header = hdr.replace(nav, qweb_nav).replace(lang_a, qweb_lang)

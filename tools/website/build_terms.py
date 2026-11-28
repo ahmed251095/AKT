@@ -46,6 +46,13 @@ def terms(children):
     return found
 
 
+# Wording the Odoo build adds, which has no counterpart on the site being
+# copied and so cannot be paired out of the two mirrors.
+EXTRA = {
+    'akt_website.layout': {'Log in': 'تسجيل الدخول'},
+}
+
+
 def main():
     table = {}
     problems = []
@@ -86,6 +93,9 @@ def main():
             value = html.unescape(ar_head[field]).strip()
             if value and value != html.unescape(en_head[field]).strip():
                 table.setdefault(key, {})[name] = value
+
+    for key, terms_ in EXTRA.items():
+        table.setdefault(key, {}).setdefault('arch_db', {}).update(terms_)
 
     path = os.path.join(common.MOD, 'i18n/ar_terms.json')
     os.makedirs(os.path.dirname(path), exist_ok=True)

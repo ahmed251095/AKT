@@ -27,6 +27,15 @@
              t-attf-href="/website/lang/#{akt_lg.url_code}?r=#{akt_path}"
              t-out="akt_switch_labels.get(akt_lg.url_code, akt_lg.url_code.upper())"/>
         </t>
+      </t>
+      <!-- The way in to Odoo. A visitor is offered the login page; someone
+           already signed in gets their own name, linking to the backend,
+           rather than an invitation to log in again. -->
+      <t t-if="request.env.user._is_public()">
+        <a class="akt-login" href="/web/login">Log in</a>
+      </t>
+      <t t-else="">
+        <a class="akt-login" href="/odoo" t-out="request.env.user.name"/>
       </t><a class="akt-btn header-cta" href="/quotation">Start a project</a></div></header></xpath>
 
     <xpath expr="//footer" position="replace"><footer class="site-footer" id="bottom" data-name="Footer"><div class="container footer-grid"><div><a class="brand" href="/">AKT <b>GROUP</b></a><p>AKT Group For General Contracting and Development</p><p class="muted">General contracting, real estate development and engineering projects.</p></div><div><h2>Explore</h2><a href="/appointments">Request a visit or call</a><a href="/partners/register">Supplier &amp; subcontractor registration</a><a href="/careers">Careers</a><a href="/updates">Project updates</a><a href="/quotation">Request a quotation</a><span class="footer-pending" aria-disabled="true">Company profile (PDF) — not added yet</span><a href="/portfolio">Portfolio</a><a href="/pages/consultancy">Engineering consultancy</a><a href="/pages/technical-office">Technical office</a><a href="/contact">Get in touch</a></div><div><h2>Services &amp; sectors</h2><a href="/services/general-contracting">General contracting</a><a href="/services/construction-development">Construction &amp; real estate development</a><a href="/services/industrial-projects">Industrial projects</a><a href="/services/residential-projects">Residential projects</a><a href="/services/administrative-projects">Administrative projects</a><a href="/sectors/industrial">Industrial</a><a href="/sectors/residential">Residential</a><a href="/sectors/administrative">Administrative</a><a href="/sectors/government">Government</a></div><div><h2>Contact</h2><a href="tel:+201200006655"><bdi>01200006655</bdi></a><a href="mailto:elfakharany@akt-group.com"><bdi>elfakharany@akt-group.com</bdi></a><p>Abdel Salam El Shazly Street, Damanhour, Beheira, Egypt</p></div><div><h2>Follow us</h2><div class="social-links"><span class="social-item is-disabled" aria-disabled="true" title="Facebook — Not added yet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><em class="social-tag">Not added</em></span><span class="social-item is-disabled" aria-disabled="true" title="LinkedIn — Not added yet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><em class="social-tag">Not added</em></span><span class="social-item is-disabled" aria-disabled="true" title="Instagram — Not added yet"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><em class="social-tag">Not added</em></span><span class="social-item is-disabled" aria-disabled="true" title="YouTube — Not added yet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg><em class="social-tag">Not added</em></span></div><p class="muted small">Official account links are activated from the admin panel once approved.</p></div></div><div class="container footer-bottom"><span>© AKT Group</span><span class="footer-legal"><a href="/privacy">Privacy policy</a><a href="/terms">Terms of use</a></span><span>Illustrative architecture is not presented as AKT project photography.</span></div></footer></xpath>
@@ -52,7 +61,7 @@
         <link rel="stylesheet" href="/akt_website/static/src/themes/shared/dark.css?v=3aae62b58f0b"/>
         <link rel="stylesheet" href="/akt_website/static/src/themes/goldglow/theme.css?v=c21be2cbe4dc"/>
         <link rel="stylesheet" href="/akt_website/static/src/vendor/leaflet/leaflet.css?v=86db716e0ae2"/>
-        <link rel="stylesheet" href="/akt_website/static/src/css/akt_odoo.css?v=d2ae8965f19a"/>
+        <link rel="stylesheet" href="/akt_website/static/src/css/akt_odoo.css?v=bb6c6538ba56"/>
       </t>
       <t t-else="">
         <link rel="stylesheet" href="/akt_website/static/src/vendor/bootstrap.min.css?v=47bdf7fee9f3"/>
@@ -63,7 +72,7 @@
         <link rel="stylesheet" href="/akt_website/static/src/themes/shared/dark.css?v=3aae62b58f0b"/>
         <link rel="stylesheet" href="/akt_website/static/src/themes/goldglow/theme.css?v=c21be2cbe4dc"/>
         <link rel="stylesheet" href="/akt_website/static/src/vendor/leaflet/leaflet.css?v=86db716e0ae2"/>
-        <link rel="stylesheet" href="/akt_website/static/src/css/akt_odoo.css?v=d2ae8965f19a"/>
+        <link rel="stylesheet" href="/akt_website/static/src/css/akt_odoo.css?v=bb6c6538ba56"/>
       </t>
       <meta name="theme-color" content="#0a1d37"/>
       <link rel="preload" as="image" fetchpriority="high"

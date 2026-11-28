@@ -17,6 +17,10 @@ def text(frag):
     s = BeautifulSoup(str(frag), 'html.parser')
     for t in s(['script', 'style']):
         t.decompose()
+    # The link into Odoo is the one thing the Odoo build adds to the header
+    # that the site being copied has no counterpart for.
+    for t in s.select('.akt-login'):
+        t.decompose()
     return re.sub(r'\s+', ' ', s.get_text(' ')).strip()
 
 

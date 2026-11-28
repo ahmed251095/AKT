@@ -144,6 +144,27 @@ main header#top {
   z-index: auto;
 }
 
+/* The way in to Odoo, in the header beside the language switch. It is
+   deliberately quiet - plain text at the weight of a nav link - so it does
+   not compete with the gold call to action next to it. */
+.akt-login {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: .85;
+}
+.akt-login:hover {
+  opacity: 1;
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* The result of a form post. */
 .akt-form-result {
   border-radius: 10px;
